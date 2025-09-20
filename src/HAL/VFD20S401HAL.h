@@ -33,7 +33,8 @@ public:
     bool setCursorBlinkRate(uint8_t rate_ms) override;
     
     // Enhanced positioning methods for 4x20 display
-    bool writeAt(uint8_t row, uint8_t column, char c) override;
+    bool writeCharAt(uint8_t row, uint8_t column, char c) override;
+    bool writeAt(uint8_t row, uint8_t column, const char* text) override;
     bool moveTo(uint8_t row, uint8_t column) override;
     
     // Cursor movement convenience methods (wrapper around writeChar)
@@ -64,6 +65,14 @@ public:
     
     // Enhanced scrolling with direction enum and non-blocking operation
     bool vScrollText(const char* text, uint8_t startRow, ScrollDirection direction) override;
+    
+    // Star Wars style opening crawl - centered text scrolling from bottom to top
+    bool starWarsScroll(const char* text, uint8_t startRow);
+    
+    // Helper methods for text processing
+    uint8_t countLines(const char* text);
+    void centerTextLine(const char* line, char* output, uint8_t maxLen);
+    bool formatStarWarsText(const char* input, char* output, size_t outputSize);
 
     // Flash text
     bool flashText(const char* str, uint8_t row, uint8_t col,

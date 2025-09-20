@@ -42,7 +42,8 @@ public:
     bool carriageReturn() { return _hal->carriageReturn(); }
     
     // Enhanced positioning methods for 4x20 display
-    bool writeAt(uint8_t row, uint8_t column, char c) { return _hal->writeAt(row, column, c); }
+    bool writeCharAt(uint8_t row, uint8_t column, char c) { return _hal->writeCharAt(row, column, c); }
+    bool writeAt(uint8_t row, uint8_t column, const char* text) { return _hal->writeAt(row, column, text); }
     bool moveTo(uint8_t row, uint8_t column) { return _hal->moveTo(row, column); }
     
     // Character set selection
@@ -51,6 +52,11 @@ public:
     // Enhanced scrolling with direction enum
     bool vScrollText(const char* text, uint8_t startRow, ScrollDirection direction) { 
         return _hal->vScrollText(text, startRow, direction); 
+    }
+    
+    // Star Wars style opening crawl - centered text scrolling from bottom to top
+    bool starWarsScroll(const char* text, uint8_t startRow) {
+        return _hal->starWarsScroll(text, startRow);
     }
     
     bool sendEscapeSequence(const uint8_t* data) { return _hal->sendEscapeSequence(data); }

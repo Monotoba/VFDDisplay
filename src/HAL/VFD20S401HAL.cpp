@@ -226,7 +226,7 @@ bool VFD20S401HAL::changeCharSet(uint8_t setId) {
 }
 
 // Enhanced positioning methods for 4x20 display
-bool VFD20S401HAL::writeAt(uint8_t row, uint8_t column, char c) {
+bool VFD20S401HAL::writeCharAt(uint8_t row, uint8_t column, char c) {
     // Write character at specific position using DDRAM addressing
     // For 4x20 display: positions are 0-19 for columns, 0-3 for rows
     
@@ -267,6 +267,23 @@ bool VFD20S401HAL::moveTo(uint8_t row, uint8_t column) {
     // Set DDRAM address (moves cursor)
     uint8_t addrCmd = 0x80 | ddramAddr; // Set DDRAM address command
     return _transport->write(&addrCmd, 1);
+}
+
+bool VFD20S401HAL::writeAt(uint8_t row, uint8_t column, const char* text) {
+    // Write text at specific position using DDRAM addressing
+    // For 4x20 display: positions are 0-19 for columns, 0-3 for rows
+    
+    if (!text || row >= 4 || column >= 20) return false; // Validate parameters
+    
+    size_t textLen = strlen(text);
+    if (textLen == 0) return true; // Empty text is valid
+    
+    // Write each character at the appropriate position
+    for (size_t i = 0; i < textLen && (column + i) < 20; i++) {
+        if (!writeCharAt(row, column + i, text[i])) return false;
+    }
+    
+    return true;
 }
 
 // --- Scrolling ---
@@ -405,6 +422,137 @@ bool VFD20S401HAL::sendEscSequence(const uint8_t* data, size_t len) {
     // send the data bytes
     if (!_transport->write(data, len)) return false;
 
+    return true;
+}
+
+// Star Wars style opening crawl - centered text scrolling from bottom to top
+bool VFD20S401HAL::starWarsScroll(const char* text, uint8_t startRow) {
+    if (!text || !_capabilities) return false;
+    
+    // Get display dimensions from capabilities
+    uint8_t textRows = _capabilities->getTextRows();
+    
+    // Validate parameters
+    if (startRow >= textRows) return false;
+    
+    // Use the existing vScrollText infrastructure but with centered formatting
+    // The key difference is that we'll center each line before storing it
+    
+    // First, we need to format the text with centered lines
+    char centeredText[256];
+    if (!formatStarWarsText(text, centeredText, sizeof(centeredText))) {
+        return false;
+    }
+    
+    // Now use vScrollText with the formatted (centered) text
+    // Use SCROLL_UP to create the bottom-to-top scrolling effect
+    return vScrollText(centeredText, startRow, SCROLL_UP);
+}
+
+// Helper method to count lines in text
+uint8_t VFD20S401HAL::countLines(const char* text) {
+    if (!text) return 0;
+    
+    uint8_t count = 1; // Start with 1 (at least one line)
+    for (size_t i = 0; text[i] != '\0'; i++) {
+        if (text[i] == '\n') count++;
+    }
+    return count;
+}
+
+// Helper method to center a single line of text
+void VFD20S401HAL::centerTextLine(const char* line, char* output, uint8_t maxLen) {
+    if (!line || !output || maxLen == 0) return;
+    
+    uint8_t lineLen = strlen(line);
+    if (lineLen >= maxLen) {
+        // Line too long, just copy what fits
+        memcpy(output, line, maxLen - 1);
+        output[maxLen - 1] = '\0';
+        return;
+    }
+    
+    uint8_t textColumns = _capabilities->getTextColumns();
+    if (lineLen >= textColumns) {
+        // Line longer than display width, just copy
+        strcpy(output, line);
+        return;
+    }
+    
+    // Calculate padding for centering
+    uint8_t totalPadding = textColumns - lineLen;
+    uint8_t leftPadding = totalPadding / 2;
+    uint8_t rightPadding = totalPadding - leftPadding;
+    
+    // Build centered line
+    uint8_t pos = 0;
+    
+    // Left padding (spaces)
+    for (uint8_t i = 0; i < leftPadding && pos < maxLen - 1; i++) {
+        output[pos++] = ' ';
+    }
+    
+    // Original text
+    for (uint8_t i = 0; i < lineLen && pos < maxLen - 1; i++) {
+        output[pos++] = line[i];
+    }
+    
+    // Right padding (spaces)
+    for (uint8_t i = 0; i < rightPadding && pos < maxLen - 1; i++) {
+        output[pos++] = ' ';
+    }
+    
+    output[pos] = '\0';
+}
+
+// Helper method to format text for Star Wars scroll (center each line)
+bool VFD20S401HAL::formatStarWarsText(const char* input, char* output, size_t outputSize) {
+    if (!input || !output || outputSize == 0) return false;
+    
+    output[0] = '\0'; // Start with empty string
+    size_t outputPos = 0;
+    
+    const char* lineStart = input;
+    const char* lineEnd = input;
+    
+    while (*lineStart != '\0' && outputPos < outputSize - 1) {
+        // Find end of current line
+        lineEnd = lineStart;
+        while (*lineEnd != '\0' && *lineEnd != '\n') {
+            lineEnd++;
+        }
+        
+        // Extract this line
+        uint8_t lineLen = lineEnd - lineStart;
+        char line[64]; // Max line length
+        if (lineLen >= sizeof(line)) lineLen = sizeof(line) - 1;
+        memcpy(line, lineStart, lineLen);
+        line[lineLen] = '\0';
+        
+        // Center this line
+        char centeredLine[64];
+        centerTextLine(line, centeredLine, sizeof(centeredLine));
+        
+        // Add to output with newline if not first line
+        if (outputPos > 0) {
+            if (outputPos < outputSize - 1) {
+                output[outputPos++] = '\n';
+            }
+        }
+        
+        // Add centered line
+        size_t centeredLen = strlen(centeredLine);
+        if (outputPos + centeredLen < outputSize - 1) {
+            strcpy(output + outputPos, centeredLine);
+            outputPos += centeredLen;
+        }
+        
+        // Move to next line
+        if (*lineEnd == '\n') lineEnd++;
+        lineStart = lineEnd;
+    }
+    
+    output[outputPos] = '\0';
     return true;
 }
 

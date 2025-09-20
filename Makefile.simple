@@ -1,0 +1,135 @@
+# Simple Makefile for VFD Display Examples
+# Direct build targets for each example
+
+# Configuration
+MCU = atmega2560
+F_CPU = 16000000L
+CC = avr-gcc
+CXX = avr-g++
+OBJCOPY = avr-objcopy
+SIZE = avr-size
+
+# Directories
+BUILD_DIR = build
+SRC_DIR = src
+EXAMPLES_DIR = examples
+
+# Compiler flags
+CFLAGS = -mmcu=$(MCU) -DF_CPU=$(F_CPU) -Os -w -std=gnu++11
+INCLUDES = -I$(SRC_DIR) -I$(SRC_DIR)/HAL -I$(SRC_DIR)/Transports -I$(SRC_DIR)/Capabilities -I$(SRC_DIR)/Logger
+
+# Library source files
+LIB_SOURCES = $(SRC_DIR)/HAL/VFD20S401HAL.cpp \
+              $(SRC_DIR)/Transports/SerialTransport.cpp \
+              $(SRC_DIR)/Capabilities/DisplayCapabilities.cpp \
+              $(SRC_DIR)/Capabilities/CapabilitiesRegistry.cpp \
+              $(SRC_DIR)/HAL/IVFDHAL.cpp \
+              $(SRC_DIR)/Transports/ITransport.cpp \
+              $(SRC_DIR)/Capabilities/IDisplayCapabilities.cpp \
+              $(SRC_DIR)/VFDDisplay.cpp
+
+# Build targets
+.PHONY: all clean help test
+
+# Default target
+all: help
+
+# Show help
+help:
+	@echo "VFD Display Examples - Simple Makefile"
+	@echo "======================================"
+	@echo ""
+	@echo "Available targets:"
+	@echo "  make help          - Show this help"
+	@echo "  make basic         - Build BasicTest example"
+	@echo "  make mode          - Build ModeSpecificTest example"
+	@echo "  make simple        - Build SimpleVFDTest example"
+	@echo "  make minimal       - Build MinimalVFDDemo example"
+	@echo "  make all-examples  - Build all examples"
+	@echo "  make clean         - Clean build files"
+	@echo "  make test          - Test build system"
+	@echo ""
+
+# Individual example targets
+basic:
+	@echo "=== Building BasicTest ==="
+	@mkdir -p $(BUILD_DIR)/BasicTest
+	$(CXX) $(CFLAGS) $(INCLUDES) -c $(EXAMPLES_DIR)/BasicTest/main.cpp -o $(BUILD_DIR)/BasicTest/main.o
+	$(CXX) $(CFLAGS) $(INCLUDES) -c $(LIB_SOURCES) -o $(BUILD_DIR)/lib.o
+	$(CXX) -mmcu=$(MCU) $(BUILD_DIR)/BasicTest/main.o $(BUILD_DIR)/lib.o -o $(BUILD_DIR)/BasicTest/BasicTest.elf
+	$(OBJCOPY) -O ihex $(BUILD_DIR)/BasicTest/BasicTest.elf $(BUILD_DIR)/BasicTest/BasicTest.hex
+	$(SIZE) $(BUILD_DIR)/BasicTest/BasicTest.elf
+	@echo "BasicTest build complete: $(BUILD_DIR)/BasicTest/BasicTest.hex"
+
+mode:
+	@echo "=== Building ModeSpecificTest ==="
+	@mkdir -p $(BUILD_DIR)/ModeSpecificTest
+	$(CXX) $(CFLAGS) $(INCLUDES) -c $(EXAMPLES_DIR)/ModeSpecificTest/main.cpp -o $(BUILD_DIR)/ModeSpecificTest/main.o
+	$(CXX) $(CFLAGS) $(INCLUDES) -c $(LIB_SOURCES) -o $(BUILD_DIR)/lib.o
+	$(CXX) -mmcu=$(MCU) $(BUILD_DIR)/ModeSpecificTest/main.o $(BUILD_DIR)/lib.o -o $(BUILD_DIR)/ModeSpecificTest/ModeSpecificTest.elf
+	$(OBJCOPY) -O ihex $(BUILD_DIR)/ModeSpecificTest/ModeSpecificTest.elf $(BUILD_DIR)/ModeSpecificTest/ModeSpecificTest.hex
+	$(SIZE) $(BUILD_DIR)/ModeSpecificTest/ModeSpecificTest.elf
+	@echo "ModeSpecificTest build complete: $(BUILD_DIR)/ModeSpecificTest/ModeSpecificTest.hex"
+
+simple:
+	@echo "=== Building SimpleVFDTest ==="
+	@mkdir -p $(BUILD_DIR)/SimpleVFDTest
+	$(CXX) $(CFLAGS) $(INCLUDES) -c $(EXAMPLES_DIR)/SimpleVFDTest/main.cpp -o $(BUILD_DIR)/SimpleVFDTest/main.o
+	$(CXX) $(CFLAGS) $(INCLUDES) -c $(LIB_SOURCES) -o $(BUILD_DIR)/lib.o
+	$(CXX) -mmcu=$(MCU) $(BUILD_DIR)/SimpleVFDTest/main.o $(BUILD_DIR)/lib.o -o $(BUILD_DIR)/SimpleVFDTest/SimpleVFDTest.elf
+	$(OBJCOPY) -O ihex $(BUILD_DIR)/SimpleVFDTest/SimpleVFDTest.elf $(BUILD_DIR)/SimpleVFDTest/SimpleVFDTest.hex
+	$(SIZE) $(BUILD_DIR)/SimpleVFDTest/SimpleVFDTest.elf
+	@echo "SimpleVFDTest build complete: $(BUILD_DIR)/SimpleVFDTest/SimpleVFDTest.hex"
+
+minimal:
+	@echo "=== Building MinimalVFDDemo ==="
+	@mkdir -p $(BUILD_DIR)/MinimalVFDDemo
+	$(CXX) $(CFLAGS) $(INCLUDES) -c $(EXAMPLES_DIR)/MinimalVFDDemo/main.cpp -o $(BUILD_DIR)/MinimalVFDDemo/main.o
+	$(CXX) $(CFLAGS) $(INCLUDES) -c $(LIB_SOURCES) -o $(BUILD_DIR)/lib.o
+	$(CXX) -mmcu=$(MCU) $(BUILD_DIR)/MinimalVFDDemo/main.o $(BUILD_DIR)/lib.o -o $(BUILD_DIR)/MinimalVFDDemo/MinimalVFDDemo.elf
+	$(OBJCOPY) -O ihex $(BUILD_DIR)/MinimalVFDDemo/MinimalVFDDemo.elf $(BUILD_DIR)/MinimalVFDDemo/MinimalVFDDemo.hex
+	$(SIZE) $(BUILD_DIR)/MinimalVFDDemo/MinimalVFDDemo.elf
+	@echo "MinimalVFDDemo build complete: $(BUILD_DIR)/MinimalVFDDemo/MinimalVFDDemo.hex"
+
+# Build all examples
+all-examples: basic mode simple minimal
+	@echo "All examples built successfully!"
+
+# Clean build files
+clean:
+	@echo "Cleaning build files..."
+	rm -rf $(BUILD_DIR)
+	@echo "Clean complete!"
+
+# Test build system
+test: basic
+	@echo "Build system test successful!"
+
+# Info about examples
+info:
+	@echo "Available examples:"
+	@ls $(EXAMPLES_DIR)/
+	@echo ""
+	@echo "Build directory: $(BUILD_DIR)"
+
+# Help for specific examples
+help-examples:
+	@echo "Example descriptions:"
+	@echo ""
+	@echo "BasicTest:"
+	@echo "  - Tests VFDDisplay library functionality"
+	@echo "  - Demonstrates writeAt(), centerText(), cursor positioning"
+	@echo "  - Shows proper library usage patterns"
+	@echo ""
+	@echo "ModeSpecificTest:"
+	@echo "  - Tests all display modes (0x11-0x17)"
+	@echo "  - Comprehensive feature testing for each mode"
+	@echo "  - Includes Star Wars scrolling effect"
+	@echo ""
+	@echo "SimpleVFDTest:"
+	@echo "  - Simple direct serial commands"
+	@echo "  - Good for basic hardware verification"
+	@echo ""
+	@echo "MinimalVFDDemo:"
+	@echo "  - Minimal code example"
+	@echo "  - Shows essential VFD operations"

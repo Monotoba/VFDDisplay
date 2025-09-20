@@ -38,7 +38,8 @@ virtual bool setCursorPos(uint8_t row, uint8_t col) = 0;
 virtual bool setCursorBlinkRate(uint8_t rate_ms) = 0;
 
 // Enhanced positioning methods for 4x20 display
-virtual bool writeAt(uint8_t row, uint8_t column, char c) = 0;
+virtual bool writeCharAt(uint8_t row, uint8_t column, char c) = 0;
+virtual bool writeAt(uint8_t row, uint8_t column, const char* text) = 0;
 virtual bool moveTo(uint8_t row, uint8_t column) = 0;
 
 // Cursor movement convenience methods (wrapper around writeChar)
@@ -73,6 +74,9 @@ virtual bool vScroll(const char* str, int dir) = 0;
 
 // Enhanced scrolling with direction enum and non-blocking operation
 virtual bool vScrollText(const char* text, uint8_t startRow, ScrollDirection direction) = 0;
+
+// Star Wars style opening crawl - centered text scrolling from bottom to top
+virtual bool starWarsScroll(const char* text, uint8_t startRow) = 0;
 
 
 // Flash text
