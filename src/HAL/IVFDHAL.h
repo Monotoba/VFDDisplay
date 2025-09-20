@@ -40,6 +40,8 @@ virtual bool centerText(const char* str, uint8_t row) = 0;
 virtual bool setBrightness(uint8_t lumens) = 0;
 virtual bool saveCustomChar(uint8_t index, const uint8_t* pattern) = 0;
 virtual bool setDisplayMode(uint8_t mode) = 0;
+virtual bool setDimming(uint8_t level) = 0;
+virtual bool cursorBlinkSpeed(uint8_t rate) = 0;
 
 // Escape sequence support - send ESC (0x1B) followed by up to 8 data bytes
 // Data bytes are sent until a zero (0x00) is encountered or 8 bytes are sent

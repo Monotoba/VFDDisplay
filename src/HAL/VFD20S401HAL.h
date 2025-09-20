@@ -41,6 +41,8 @@ public:
     bool setBrightness(uint8_t lumens) override;
     bool saveCustomChar(uint8_t index, const uint8_t* pattern) override;
     bool setDisplayMode(uint8_t mode) override;
+    bool setDimming(uint8_t level) override;
+    bool cursorBlinkSpeed(uint8_t rate) override;
     
     // Escape sequence support
     bool sendEscapeSequence(const uint8_t* data) override;

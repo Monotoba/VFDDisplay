@@ -82,24 +82,24 @@ void loop() {
     // Demonstrate display features
     static int loopCount = 0;
     
-    if (loopCount % 4 == 0) {
+    if (loopCount % 5 == 0) {
         // Centered text demo
         vfd->clear();
         vfd->centerText("Centered Text", 0);
         vfd->centerText("Row 1", 1);
-    } else if (loopCount % 4 == 1) {
+    } else if (loopCount % 5 == 1) {
         // Regular text demo
         vfd->clear();
         vfd->cursorHome();
         vfd->write("Regular Text");
         vfd->setCursorPos(1, 0);
         vfd->write("Also Row 1");
-    } else if (loopCount % 4 == 2) {
+    } else if (loopCount % 5 == 2) {
         // Display mode demo - cycle through modes 0x11-0x17
         vfd->clear();
         vfd->cursorHome();
         
-        uint8_t mode = 0x11 + (loopCount / 4) % 7; // Cycle through modes 0x11-0x17
+        uint8_t mode = 0x11 + (loopCount / 5) % 7; // Cycle through modes 0x11-0x17
         if (vfd->setDisplayMode(mode)) {
             vfd->write("Mode Set!");
             vfd->setCursorPos(1, 0);
@@ -111,6 +111,26 @@ void loop() {
             }
         } else {
             vfd->write("Mode Failed");
+        }
+    } else if (loopCount % 5 == 3) {
+        // Cursor blink speed demo - requires appropriate display mode
+        vfd->clear();
+        vfd->cursorHome();
+        
+        // Set display mode that supports cursor blink (if needed)
+        // Some displays require specific modes for cursor functionality
+        vfd->setDisplayMode(0x11); // Normal mode with cursor support
+        
+        uint8_t blinkRate = (loopCount / 5) % 4; // Cycle through 4 different blink rates
+        if (vfd->cursorBlinkSpeed(blinkRate)) {
+            vfd->write("Blink Set!");
+            vfd->setCursorPos(1, 0);
+            vfd->write("Rate: ");
+            vfd->writeChar('0' + blinkRate);
+            // Show cursor position to make blink visible
+            vfd->setCursorPos(1, 19); // End of row to show cursor
+        } else {
+            vfd->write("Blink Fail");
         }
     } else {
         // Escape sequence demo

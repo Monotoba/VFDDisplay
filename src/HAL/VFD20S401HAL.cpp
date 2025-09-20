@@ -159,6 +159,21 @@ bool VFD20S401HAL::setDisplayMode(uint8_t mode) {
     return sendEscapeSequence(escData);
 }
 
+bool VFD20S401HAL::setDimming(uint8_t level) {
+    // Send escape sequence for dimming: ESC (0x1B) followed by 0x4C and level
+    // Based on VFD20S401 datasheet - ESC + 0x4C for dimming control
+    uint8_t dimmingData[] = {0x4C, level, 0x00}; // 0x4C is the dimming command
+    return sendEscapeSequence(dimmingData);
+}
+
+bool VFD20S401HAL::cursorBlinkSpeed(uint8_t rate) {
+    // Send escape sequence for cursor blink speed: ESC (0x1B) followed by blink command and rate
+    // Based on VFD20S401 datasheet - using ESC + cursor control command
+    // Rate parameter controls blink speed (0 = no blink, 1-255 = blink rates)
+    uint8_t blinkData[] = {0x42, rate, 0x00}; // 0x42 is cursor blink control command
+    return sendEscapeSequence(blinkData);
+}
+
 // --- Scrolling ---
 bool VFD20S401HAL::hScroll(const char* str, int dir, uint8_t row) {
     // TODO: implement horizontal scroll
