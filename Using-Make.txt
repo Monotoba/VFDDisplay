@@ -1,0 +1,15 @@
+# Job 1: Sketch + library, debug
+make sketch-debug
+
+# Job 2: Sketch + library, release
+make sketch-release
+
+# Job 3: Library only, debug
+make lib-debug
+
+# Job 4: Library only, release
+make lib-release
+
+# Upload release build
+make upload
+

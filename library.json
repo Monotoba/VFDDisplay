@@ -1,0 +1,14 @@
+{
+  "name": "VFDDisplay",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Randall Morgan",
+      "url": "https://github.com/monotoba/VFDDisplay"
+    }
+  ],
+  "license": "MIT",
+  "frameworks": ["arduino"],
+  "platforms": ["atmelavr"]
+}
+
