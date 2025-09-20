@@ -31,6 +31,7 @@ public:
     bool centerText(const char* str, uint8_t row) { return _hal->centerText(str, row); }
     bool setBrightness(uint8_t lumens) { return _hal->setBrightness(lumens); }
     bool saveCustomChar(uint8_t index, const uint8_t* pattern) { return _hal->saveCustomChar(index, pattern); }
+    bool setDisplayMode(uint8_t mode) { return _hal->setDisplayMode(mode); }
     bool sendEscapeSequence(const uint8_t* data) { return _hal->sendEscapeSequence(data); }
     bool hScroll(const char* str, int dir, uint8_t row) { return _hal->hScroll(str, dir, row); }
     bool vScroll(const char* str, int dir) { return _hal->vScroll(str, dir); }

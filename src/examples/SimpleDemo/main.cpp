@@ -79,21 +79,39 @@ void setup() {
 }
 
 void loop() {
-    // Demonstrate centerText functionality
+    // Demonstrate display features
     static int loopCount = 0;
     
-    if (loopCount % 3 == 0) {
+    if (loopCount % 4 == 0) {
         // Centered text demo
         vfd->clear();
         vfd->centerText("Centered Text", 0);
         vfd->centerText("Row 1", 1);
-    } else if (loopCount % 3 == 1) {
+    } else if (loopCount % 4 == 1) {
         // Regular text demo
         vfd->clear();
         vfd->cursorHome();
         vfd->write("Regular Text");
         vfd->setCursorPos(1, 0);
         vfd->write("Also Row 1");
+    } else if (loopCount % 4 == 2) {
+        // Display mode demo - cycle through modes 0x11-0x17
+        vfd->clear();
+        vfd->cursorHome();
+        
+        uint8_t mode = 0x11 + (loopCount / 4) % 7; // Cycle through modes 0x11-0x17
+        if (vfd->setDisplayMode(mode)) {
+            vfd->write("Mode Set!");
+            vfd->setCursorPos(1, 0);
+            vfd->write("Mode: 0x");
+            // Simple hex display (would need proper hex conversion in real code)
+            if (mode <= 0x15) {
+                vfd->write("1");
+                vfd->writeChar('0' + (mode & 0x0F));
+            }
+        } else {
+            vfd->write("Mode Failed");
+        }
     } else {
         // Escape sequence demo
         vfd->clear();

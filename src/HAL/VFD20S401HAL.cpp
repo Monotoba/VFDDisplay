@@ -31,8 +31,9 @@ bool VFD20S401HAL::init() {
 }
 
 bool VFD20S401HAL::reset() {
-    //init();
-    return false;
+    // Send escape sequence for reset: ESC (0x1B) followed by 0x49
+    uint8_t resetData[] = {0x49, 0x00}; // 0x49 is the reset command
+    return sendEscapeSequence(resetData);
 }
 
 // --- Screen control ---
@@ -146,6 +147,16 @@ bool VFD20S401HAL::sendEscapeSequence(const uint8_t* data) {
     }
     
     return true;
+}
+
+bool VFD20S401HAL::setDisplayMode(uint8_t mode) {
+    // Validate mode range (0x11-0x17)
+    if (mode < 0x11 || mode > 0x17) return false;
+    
+    // Create escape sequence: ESC followed by mode byte and terminator
+    uint8_t escData[] = {mode, 0x00};
+    
+    return sendEscapeSequence(escData);
 }
 
 // --- Scrolling ---
