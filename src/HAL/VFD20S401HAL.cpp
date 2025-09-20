@@ -54,15 +54,49 @@ bool VFD20S401HAL::cursorHome() {
 }
 
 bool VFD20S401HAL::setCursorPos(uint8_t row, uint8_t col) {
-    // TODO: set DDRAM address based on row/col
-    (void)row; (void)col;
-    return false;
+    // Set cursor position using DDRAM addressing for 4x20 display
+    if (row >= 4 || col >= 20) return false; // Validate 4x20 bounds
+    
+    // Calculate DDRAM address for 4x20 display
+    uint8_t ddramAddr;
+    switch (row) {
+        case 0: ddramAddr = 0x00 + col; break;  // Row 0: 0x00-0x13
+        case 1: ddramAddr = 0x20 + col; break;  // Row 1: 0x20-0x33
+        case 2: ddramAddr = 0x40 + col; break;  // Row 2: 0x40-0x53
+        case 3: ddramAddr = 0x60 + col; break;  // Row 3: 0x60-0x73
+        default: return false;
+    }
+    
+    // Set DDRAM address (moves cursor)
+    uint8_t addrCmd = 0x80 | ddramAddr; // Set DDRAM address command
+    return _transport->write(&addrCmd, 1);
 }
 
 bool VFD20S401HAL::setCursorBlinkRate(uint8_t rate_ms) {
     // TODO: implement blink-rate command
     (void)rate_ms;
     return false;
+}
+
+// Cursor movement convenience methods (wrapper around writeChar)
+bool VFD20S401HAL::backSpace() {
+    // Backspace: move cursor one position left (ASCII 0x08)
+    return writeChar(0x08);
+}
+
+bool VFD20S401HAL::hTab() {
+    // Horizontal tab: move cursor to next tab stop (ASCII 0x09)
+    return writeChar(0x09);
+}
+
+bool VFD20S401HAL::lineFeed() {
+    // Line feed: move cursor to next line (ASCII 0x0A)
+    return writeChar(0x0A);
+}
+
+bool VFD20S401HAL::carriageReturn() {
+    // Carriage return: move cursor to beginning of current line (ASCII 0x0D)
+    return writeChar(0x0D);
 }
 
 // --- Writing ---
@@ -174,6 +208,67 @@ bool VFD20S401HAL::cursorBlinkSpeed(uint8_t rate) {
     return sendEscapeSequence(blinkData);
 }
 
+bool VFD20S401HAL::changeCharSet(uint8_t setId) {
+    // VFD20S401 character set selection using single byte commands
+    // 0x18 = CT0 (Character Table 0) - Standard ASCII
+    // 0x19 = CT1 (Character Table 1) - Extended/Custom characters
+    
+    if (setId == 0) {
+        // Select CT0 - Standard character set
+        return writeChar(0x18);
+    } else if (setId == 1) {
+        // Select CT1 - Extended character set
+        return writeChar(0x19);
+    } else {
+        // Invalid character set ID
+        return false;
+    }
+}
+
+// Enhanced positioning methods for 4x20 display
+bool VFD20S401HAL::writeAt(uint8_t row, uint8_t column, char c) {
+    // Write character at specific position using DDRAM addressing
+    // For 4x20 display: positions are 0-19 for columns, 0-3 for rows
+    
+    if (row >= 4 || column >= 20) return false; // Validate 4x20 bounds
+    
+    // Calculate DDRAM address for 4x20 display
+    uint8_t ddramAddr;
+    switch (row) {
+        case 0: ddramAddr = 0x00 + column; break;  // Row 0: 0x00-0x13
+        case 1: ddramAddr = 0x20 + column; break;  // Row 1: 0x20-0x33  
+        case 2: ddramAddr = 0x40 + column; break;  // Row 2: 0x40-0x53
+        case 3: ddramAddr = 0x60 + column; break;  // Row 3: 0x60-0x73
+        default: return false;
+    }
+    
+    // Set DDRAM address and write character
+    uint8_t addrCmd = 0x80 | ddramAddr; // Set DDRAM address command
+    if (!_transport->write(&addrCmd, 1)) return false;
+    return writeChar(c);
+}
+
+bool VFD20S401HAL::moveTo(uint8_t row, uint8_t column) {
+    // Move cursor to specific position using DDRAM addressing
+    // For 4x20 display: positions are 0-19 for columns, 0-3 for rows
+    
+    if (row >= 4 || column >= 20) return false; // Validate 4x20 bounds
+    
+    // Calculate DDRAM address for 4x20 display
+    uint8_t ddramAddr;
+    switch (row) {
+        case 0: ddramAddr = 0x00 + column; break;  // Row 0: 0x00-0x13
+        case 1: ddramAddr = 0x20 + column; break;  // Row 1: 0x20-0x33
+        case 2: ddramAddr = 0x40 + column; break;  // Row 2: 0x40-0x53
+        case 3: ddramAddr = 0x60 + column; break;  // Row 3: 0x60-0x73
+        default: return false;
+    }
+    
+    // Set DDRAM address (moves cursor)
+    uint8_t addrCmd = 0x80 | ddramAddr; // Set DDRAM address command
+    return _transport->write(&addrCmd, 1);
+}
+
 // --- Scrolling ---
 bool VFD20S401HAL::hScroll(const char* str, int dir, uint8_t row) {
     // TODO: implement horizontal scroll
@@ -185,6 +280,84 @@ bool VFD20S401HAL::vScroll(const char* str, int dir) {
     // TODO: implement vertical scroll
     (void)str; (void)dir;
     return false;
+}
+
+bool VFD20S401HAL::vScrollText(const char* text, uint8_t startRow, ScrollDirection direction) {
+    if (!_transport || !text || !_capabilities) return false;
+    
+    // Get display dimensions from capabilities
+    uint8_t textRows = _capabilities->getTextRows();
+    uint8_t textColumns = _capabilities->getTextColumns();
+    
+    // Validate parameters
+    if (startRow >= textRows) return false;
+    
+    // Store the new text if it differs from current scroll text
+    if (strcmp(text, _vScrollText) != 0) {
+        // Copy new text to internal buffer (truncate if necessary)
+        size_t textLen = strlen(text);
+        if (textLen >= sizeof(_vScrollText) - 1) textLen = sizeof(_vScrollText) - 1;
+        memcpy(_vScrollText, text, textLen);
+        _vScrollText[textLen] = '\0';
+        _vScrollOffset = 0; // Reset scroll position for new text
+        _vScrollStartRow = startRow;
+        
+        // Count total lines in the text
+        _vScrollTotalLines = 1; // Start with 1 (at least one line)
+        for (size_t i = 0; i < textLen; i++) {
+            if (_vScrollText[i] == '\n') _vScrollTotalLines++;
+        }
+    }
+    
+    // Update scroll offset based on direction
+    if (direction == SCROLL_DOWN) {
+        _vScrollOffset++;
+        if (_vScrollOffset >= _vScrollTotalLines) _vScrollOffset = 0; // Wrap around
+    } else if (direction == SCROLL_UP) {
+        _vScrollOffset--;
+        if (_vScrollOffset < 0) _vScrollOffset = _vScrollTotalLines - 1; // Wrap around
+    } else {
+        return false; // Invalid direction
+    }
+    
+    // Calculate visible window
+    uint8_t visibleRows = textRows - startRow; // Number of rows available for scrolling
+    if (visibleRows == 0) return false;
+    
+    // Parse text into lines and display visible portion
+    for (uint8_t row = 0; row < visibleRows; row++) {
+        // Calculate which line to display (with wrapping)
+        uint8_t displayLine = (_vScrollOffset + row) % _vScrollTotalLines;
+        
+        // Find the start of the display line
+        const char* displayLineStart = _vScrollText;
+        uint8_t lineCount = 0;
+        
+        while (lineCount < displayLine && *displayLineStart) {
+            if (*displayLineStart == '\n') lineCount++;
+            displayLineStart++;
+        }
+        
+        // Find the end of this line or max column width
+        const char* lineEnd = displayLineStart;
+        uint8_t col = 0;
+        while (*lineEnd && *lineEnd != '\n' && col < textColumns) {
+            lineEnd++;
+            col++;
+        }
+        
+        // Write this line to the display using writeAt()
+        uint8_t writeRow = startRow + row;
+        for (uint8_t col = 0; col < textColumns; col++) {
+            char c = ' '; // Default to space
+            if (col < (lineEnd - displayLineStart)) {
+                c = displayLineStart[col];
+            }
+            if (!writeAt(writeRow, col, c)) return false;
+        }
+    }
+    
+    return true;
 }
 
 // --- Flash text ---

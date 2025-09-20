@@ -34,6 +34,25 @@ public:
     bool setDisplayMode(uint8_t mode) { return _hal->setDisplayMode(mode); }
     bool setDimming(uint8_t level) { return _hal->setDimming(level); }
     bool cursorBlinkSpeed(uint8_t rate) { return _hal->cursorBlinkSpeed(rate); }
+    
+    // Cursor movement convenience methods (wrapper around writeChar)
+    bool backSpace() { return _hal->backSpace(); }
+    bool hTab() { return _hal->hTab(); }
+    bool lineFeed() { return _hal->lineFeed(); }
+    bool carriageReturn() { return _hal->carriageReturn(); }
+    
+    // Enhanced positioning methods for 4x20 display
+    bool writeAt(uint8_t row, uint8_t column, char c) { return _hal->writeAt(row, column, c); }
+    bool moveTo(uint8_t row, uint8_t column) { return _hal->moveTo(row, column); }
+    
+    // Character set selection
+    bool changeCharSet(uint8_t setId) { return _hal->changeCharSet(setId); }
+    
+    // Enhanced scrolling with direction enum
+    bool vScrollText(const char* text, uint8_t startRow, ScrollDirection direction) { 
+        return _hal->vScrollText(text, startRow, direction); 
+    }
+    
     bool sendEscapeSequence(const uint8_t* data) { return _hal->sendEscapeSequence(data); }
     bool hScroll(const char* str, int dir, uint8_t row) { return _hal->hScroll(str, dir, row); }
     bool vScroll(const char* str, int dir) { return _hal->vScroll(str, dir); }

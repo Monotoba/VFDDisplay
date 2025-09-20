@@ -179,15 +179,15 @@ void CapabilitiesRegistry::insertEntry(const CapabilityRegistryEntry& entry, uin
 DisplayCapabilities* CapabilitiesRegistry::createVFD20S401Capabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "VFD20S401",
-        "20x2 Vacuum Fluorescent Display with 5x8 dot matrix characters",
+        "20x4 Vacuum Fluorescent Display with 5x8 dot matrix characters",
         "Futaba",
         "VFD20S401DA1",
-        2,  // 2 rows
+        4,  // 4 rows (corrected from 2 to 4)
         20, // 20 columns
         5,  // 5 pixels wide per character
         8,  // 8 pixels high per character
         116, // 116mm width
-        16,  // 16mm height
+        32,  // 32mm height (corrected for 4-row display)
         CAP_CURSOR | CAP_CURSOR_BLINK | CAP_DIMMING | CAP_USER_DEFINED_CHARS | CAP_HORIZONTAL_SCROLL | CAP_VERTICAL_SCROLL | CAP_BRIGHTNESS_CONTROL | CAP_SERIAL_INTERFACE,
         4,   // 4 cursor blink speeds
         8,   // 8 user-defined characters
@@ -196,8 +196,8 @@ DisplayCapabilities* CapabilitiesRegistry::createVFD20S401Capabilities() {
         10,  // 10us min command delay
         100, // 100us max command delay
         100, // 100ms reset delay
-        500, // 500mW typical power
-        1000, // 1000mW max power
+        800, // 800mW typical power (corrected for 4-row display)
+        1500, // 1500mW max power (corrected for 4-row display)
         1    // capability version 1
     );
     

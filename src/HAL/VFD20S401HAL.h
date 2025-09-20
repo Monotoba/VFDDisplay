@@ -31,6 +31,16 @@ public:
     bool cursorHome() override;
     bool setCursorPos(uint8_t row, uint8_t col) override;
     bool setCursorBlinkRate(uint8_t rate_ms) override;
+    
+    // Enhanced positioning methods for 4x20 display
+    bool writeAt(uint8_t row, uint8_t column, char c) override;
+    bool moveTo(uint8_t row, uint8_t column) override;
+    
+    // Cursor movement convenience methods (wrapper around writeChar)
+    bool backSpace() override;
+    bool hTab() override;
+    bool lineFeed() override;
+    bool carriageReturn() override;
 
     // Writing
     bool writeChar(char c) override;
@@ -43,6 +53,7 @@ public:
     bool setDisplayMode(uint8_t mode) override;
     bool setDimming(uint8_t level) override;
     bool cursorBlinkSpeed(uint8_t rate) override;
+    bool changeCharSet(uint8_t setId) override;
     
     // Escape sequence support
     bool sendEscapeSequence(const uint8_t* data) override;
@@ -50,6 +61,9 @@ public:
     // Scrolling
     bool hScroll(const char* str, int dir, uint8_t row) override;
     bool vScroll(const char* str, int dir) override;
+    
+    // Enhanced scrolling with direction enum and non-blocking operation
+    bool vScrollText(const char* text, uint8_t startRow, ScrollDirection direction) override;
 
     // Flash text
     bool flashText(const char* str, uint8_t row, uint8_t col,
@@ -74,4 +88,10 @@ public:
 private:
     ITransport* _transport;
     DisplayCapabilities* _capabilities;
+    
+    // Scrolling state tracking
+    int16_t _vScrollOffset;              // Current vertical scroll offset
+    char _vScrollText[256];              // Buffer for scroll text (max 256 chars)
+    uint8_t _vScrollTotalLines;          // Total lines in scroll text
+    uint8_t _vScrollStartRow;            // Starting row for scrolling
 };
