@@ -49,6 +49,9 @@ EXAMPLES := $(notdir $(wildcard examples/*))
 PORT ?=
 BAUD ?= 57600
 
+# Bootloader protocol for upload (old Mega2560 uses stk500v1 @ 57600)
+PIO_UPLOAD_PROTOCOL ?= stk500
+
 # Build output root
 BUILD_ROOT := .build
 
@@ -66,7 +69,7 @@ _pio_build:
 	$(eval WORK_PIO_DIR := $(BUILD_ROOT)/pio/$(NAME))
 	@mkdir -p $(WORK_PIO_DIR)
 	@echo "[PIO] Preparing ephemeral project at $(WORK_PIO_DIR)"
-	@printf "[platformio]\nsrc_dir = $(abspath $(SRC_PATH))\n\n[env:$(PIO_ENV)]\nplatform = atmelavr\nboard = $(PIO_BOARD)\nframework = arduino\nlib_ldf_mode = deep+\nbuild_type = $(PIO_BUILD_TYPE)\nbuild_flags = $(PIO_BUILD_FLAGS)\nmonitor_speed = $(BAUD)\n" > $(WORK_PIO_DIR)/platformio.ini
+	@printf "[platformio]\nsrc_dir = $(abspath $(SRC_PATH))\n\n[env:$(PIO_ENV)]\nplatform = atmelavr\nboard = $(PIO_BOARD)\nframework = arduino\nlib_ldf_mode = deep+\nbuild_type = $(PIO_BUILD_TYPE)\nbuild_flags = $(PIO_BUILD_FLAGS)\nmonitor_speed = $(BAUD)\nupload_protocol = $(PIO_UPLOAD_PROTOCOL)\n" > $(WORK_PIO_DIR)/platformio.ini
 	@mkdir -p $(WORK_PIO_DIR)/lib/VFDDisplay
 	@cp -r src/* $(WORK_PIO_DIR)/lib/VFDDisplay/
 	@echo "[PIO] Building $(BUILD_TYPE) target $(NAME) in env $(PIO_ENV)"
@@ -79,7 +82,7 @@ _pio_upload:
 	@if [ ! -d "$(SRC_PATH)" ]; then echo "[PIO] Source path not found: $(SRC_PATH)"; exit 1; fi
 	$(eval WORK_PIO_DIR := $(BUILD_ROOT)/pio/$(NAME))
 	@mkdir -p $(WORK_PIO_DIR)
-	@printf "[platformio]\nsrc_dir = $(abspath $(SRC_PATH))\n\n[env:$(PIO_ENV)]\nplatform = atmelavr\nboard = $(PIO_BOARD)\nframework = arduino\nlib_ldf_mode = deep+\nbuild_type = $(PIO_BUILD_TYPE)\nbuild_flags = $(PIO_BUILD_FLAGS)\nmonitor_speed = $(BAUD)\nupload_speed = $(BAUD)\n" > $(WORK_PIO_DIR)/platformio.ini
+	@printf "[platformio]\nsrc_dir = $(abspath $(SRC_PATH))\n\n[env:$(PIO_ENV)]\nplatform = atmelavr\nboard = $(PIO_BOARD)\nframework = arduino\nlib_ldf_mode = deep+\nbuild_type = $(PIO_BUILD_TYPE)\nbuild_flags = $(PIO_BUILD_FLAGS)\nmonitor_speed = $(BAUD)\nupload_protocol = $(PIO_UPLOAD_PROTOCOL)\nupload_speed = $(BAUD)\n" > $(WORK_PIO_DIR)/platformio.ini
 	@mkdir -p $(WORK_PIO_DIR)/lib/VFDDisplay
 	@cp -r src/* $(WORK_PIO_DIR)/lib/VFDDisplay/
 	@echo "[PIO] Uploading $(BUILD_TYPE) target $(NAME) to $(PORT)"
@@ -103,7 +106,7 @@ _arduino_build:
 	@if [ -z "$(SKETCH)" ]; then echo "[Arduino-CLI] No .ino or main.cpp in examples/$(NAME)"; exit 1; fi
 	@echo "[Arduino-CLI] Building $(BUILD_TYPE) $(SKETCH) (FQBN=$(FQBN))"
 	@mkdir -p $(BUILD_ROOT)/arduino/$(NAME)
-	$(eval ARD_FLAGS := $(if $(filter $(BUILD_TYPE),debug),--build-property compiler.cpp.extra_flags="-Og -g -D VFD_BUILD_DEBUG" --build-property compiler.c.extra_flags="-Og -g -D VFD_BUILD_DEBUG",--build-property compiler.cpp.extra_flags="-Os -DNDEBUG -D VFD_BUILD_RELEASE" --build-property compiler.c.extra_flags="-Os -DNDEBUG -D VFD_BUILD_RELEASE"))
+	$(eval ARD_FLAGS := $(if $(filter $(BUILD_TYPE),debug),--build-property compiler.cpp.extra_flags=\"-Og -g -D VFD_BUILD_DEBUG\" --build-property compiler.c.extra_flags=\"-Og -g -D VFD_BUILD_DEBUG\",--build-property compiler.cpp.extra_flags=\"-Os -DNDEBUG -D VFD_BUILD_RELEASE\" --build-property compiler.c.extra_flags=\"-Os -DNDEBUG -D VFD_BUILD_RELEASE\"))
 	arduino-cli compile --fqbn $(FQBN) --build-path $(BUILD_ROOT)/arduino/$(NAME) --libraries . $(ARD_FLAGS) $(SKETCH)
 
 _arduino_upload:
@@ -140,6 +143,9 @@ else
   AVR_CXXFLAGS += -Os -DNDEBUG -D VFD_BUILD_RELEASE
 endif
 
+# Programmer is configurable; default wiring (stk500v2). Override for old bootloaders: AVR_PROGRAMMER=stk500
+AVR_PROGRAMMER ?= wiring
+
 _avr_build:
 	@if [ -z "$(NAME)" ]; then echo "Set NAME=<name> or call via: make <example>"; exit 1; fi
 	$(eval AVR_BUILD := $(BUILD_ROOT)/avr/$(NAME))
@@ -167,8 +173,8 @@ _avr_upload:
 	@if [ -z "$(PORT)" ]; then echo "Set PORT=/dev/ttyACM0 (or your port)"; exit 1; fi
 	$(eval AVR_BUILD := $(BUILD_ROOT)/avr/$(NAME))
 	@if [ ! -f "$(AVR_BUILD)/$(NAME).hex" ]; then echo "Build first: make $(NAME) BACKEND=avr"; exit 1; fi
-	@echo "[avr-gcc] Uploading to $(PORT) at $(BAUD)"
-	$(AVRDUDE) -v -p $(MCU) -c wiring -P $(PORT) -b $(BAUD) -D -U flash:w:$(AVR_BUILD)/$(NAME).hex:i
+	@echo "[avr-gcc] Uploading to $(PORT) at $(BAUD) (programmer=$(AVR_PROGRAMMER))"
+	$(AVRDUDE) -v -p $(MCU) -c $(AVR_PROGRAMMER) -P $(PORT) -b $(BAUD) -D -U flash:w:$(AVR_BUILD)/$(NAME).hex:i
 
 _avr_clean:
 	@echo "[avr-gcc] Cleaning avr build artifacts"
@@ -194,9 +200,8 @@ help:
 	@echo "  make -- --arduino <example>  (force Arduino CLI)"
 	@echo "  make -- --avr <example>  (force avr-gcc)"
 	@echo "  make <example>.upload PORT=/dev/ttyACM0 [BAUD=$(BAUD)]"
-	@echo "  make clean | deepclean"
 	@echo ""
-	@echo "Defaults: BACKEND=pio, PIO_ENV=megaatmega2560, FQBN=arduino:avr:mega, MCU=atmega2560"
+	@echo "Defaults: BACKEND=pio, PIO_ENV=megaatmega2560, FQBN=arduino:avr:mega, MCU=atmega2560, PIO_UPLOAD_PROTOCOL=$(PIO_UPLOAD_PROTOCOL)"
 
 list:
 	@echo "Discovered examples:"; \
@@ -235,3 +240,4 @@ deepclean: clean
 
 debug release:
 	@true
+
