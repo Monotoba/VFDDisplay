@@ -1,0 +1,24 @@
+# Agent Directives for VFDDisplay
+
+Scope: This file applies to the entire VFDDisplay repository (this folder and all subfolders).
+
+Non‑Negotiable Safety Rules
+- NEVER delete, rename, or remove the `.git/` directory.
+- NEVER delete, rename, or remove the top‑level `src/` directory.
+- NEVER delete, rename, or remove the top‑level `examples/` directory.
+- Do not perform destructive operations (e.g., `rm -rf`, `git reset --hard`) without explicit maintainer approval.
+
+Commit Policy
+- Commit all changes you make as small, focused commits with clear messages.
+- Keep the `CHANGELOG.md` up to date in the same commit(s) describing what changed and why.
+- Prefer surgical edits over sweeping refactors; preserve existing structure and docs.
+
+Build & Project Conventions
+- The library must compile under PlatformIO and Arduino CLI.
+- Include `.ino` wrappers in each example folder so Arduino IDE can build, and keep per‑example PlatformIO configs where helpful.
+- Exclude non‑C++ utilities from C++ builds (e.g., `utility/` Python) via PlatformIO `srcFilter`. Do NOT move or delete those folders without explicit approval.
+
+Collaboration Etiquette
+- Before making changes, run `git status` to understand the working tree state.
+- When in doubt, ask for confirmation instead of guessing; prefer minimal, reversible changes.
+
