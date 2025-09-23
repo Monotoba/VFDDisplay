@@ -12,7 +12,8 @@ All notable changes to this project will be documented in this file.
 - Build system: replace Makefile with unified multi‑backend (PIO / Arduino‑CLI / avr‑gcc) and add backend flags (`--pio`, `--arduino`, `--avr`).
 - Library config: update `library.json` with `build.srcFilter` to exclude non‑C++ folders from PIO builds (`utility/`, `docs/`, tests, `.pio/`, `.build/`).
 - Docs: update `build_cmd.txt` to a concise build command cheat sheet including backend flags.
- - Arduino IDE: add `library.properties` so the library and examples appear in the IDE again.
+- Arduino IDE: add `library.properties` so the library and examples appear in the IDE again.
+ - Cleanup: remove `src/examples` from the library tree to prevent duplicate `setup()`/`loop()` conflicts; all examples live under top-level `examples/`.
 
 ## 2025-09-22
 - Initial make/PIO integration work on examples and build scripts.
