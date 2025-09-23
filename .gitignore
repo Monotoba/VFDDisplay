@@ -5,15 +5,13 @@
 # ======================
 # PlatformIO
 # ======================
-.pio/                    # Build output (all environments)
-.piolibdeps/              # Legacy library dependencies
-.pioenvs/                 # Legacy environments
-.pio/libdeps/             # Newer dependency folder
-.pio/build/               # Compiled objects
-.build/                   # Local build output (Makefile/others)
-**/.pio/                  # Any nested PlatformIO state (examples/*/.pio)
-**/.pioenvs/
-**/.piolibdeps/
+.pio/
+.piolibdeps/
+.pioenvs/
+.pio/libdeps/
+.pio/build/
+.build/
+examples/*/.pio/
 
 # PlatformIO Python artifacts
 .sconsign.dblite
