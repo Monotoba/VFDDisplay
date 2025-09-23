@@ -14,7 +14,8 @@ All notable changes to this project will be documented in this file.
 - Docs: update `build_cmd.txt` to a concise build command cheat sheet including backend flags.
 - Arduino IDE: add `library.properties` so the library and examples appear in the IDE again.
 - Cleanup: remove `src/examples` from the library tree to prevent duplicate `setup()`/`loop()` conflicts; all examples live under top-level `examples/`.
- - Git ignore: add `*.ino.cpp` to avoid committing Arduino preprocessed sketch artifacts.
+- Git ignore: add `*.ino.cpp` to avoid committing Arduino preprocessed sketch artifacts.
+ - PlatformIO (megaatmega2560): set `upload_protocol = wiring` and default `upload_port = /dev/ttyACM0` in all example `platformio.ini` files to match working Arduino IDE 1.8.x settings.
 
 ## 2025-09-22
 - Initial make/PIO integration work on examples and build scripts.
