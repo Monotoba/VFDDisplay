@@ -10,6 +10,10 @@
 .pioenvs/                 # Legacy environments
 .pio/libdeps/             # Newer dependency folder
 .pio/build/               # Compiled objects
+.build/                   # Local build output (Makefile/others)
+**/.pio/                  # Any nested PlatformIO state (examples/*/.pio)
+**/.pioenvs/
+**/.piolibdeps/
 
 # PlatformIO Python artifacts
 .sconsign.dblite
@@ -121,4 +125,3 @@ Thumbs.db
 # Project specific
 # Ignore zip archives if you create them during tests
 *.zip
-
