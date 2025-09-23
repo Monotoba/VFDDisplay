@@ -32,6 +32,7 @@ venv/
 *.d                       # Dependency files
 *.o                       # Object files
 *.a                       # Static libraries
+*.ino.cpp                 # Arduino preprocessed sketch output
 
 # Arduino sketchbook extras (optional)
 # build/                  # Uncomment if your Arduino IDE creates this
