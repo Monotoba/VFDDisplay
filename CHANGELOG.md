@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 - Cleanup: remove `src/examples` from the library tree to prevent duplicate `setup()`/`loop()` conflicts; all examples live under top-level `examples/`.
 - Git ignore: add `*.ino.cpp` to avoid committing Arduino preprocessed sketch artifacts.
 - PlatformIO (megaatmega2560): set `upload_protocol = wiring` and default `upload_port = /dev/ttyACM0` in all example `platformio.ini` files to match working Arduino IDE 1.8.x settings.
- - PlatformIO (megaatmega2560): also set `upload_speed = 115200` in examples and mirror wiring/port/speed in top-level `platformio.ini` for consistency.
+ - PlatformIO (megaatmega2560): set `upload_speed = 57600` (hardware-fixed) in examples and mirror wiring/port/speed in top-level `platformio.ini` for consistency.
 
 ## 2025-09-22
 - Initial make/PIO integration work on examples and build scripts.
