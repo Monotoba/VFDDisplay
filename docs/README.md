@@ -75,6 +75,16 @@ Notes:
 - After `clear`, call `cursorHome` before writing to ensure column 0.
 - Library API uses 0-based row/column.
 
+## Gotchas (VFD20S401)
+
+Practical tips and pitfalls we encountered while validating against real hardware:
+
+- Clear does not home: `clear (0x09)` does not move the cursor. Call `cursorHome (0x0C)` before writing headings to avoid a leading space.
+- Positioning is linear, not row/col pair: The controller expects `ESC 'H'` followed by a single 0x00–0x4F linear address (computed as `row*20 + col`). Sending separate row/col bytes (or `0x80|addr` directly) can print stray glyphs and misplace text.
+- ESC sequences are fixed-length: Do not rely on 0-termination when sending ESC sequences. Always send the exact number of bytes; parameters can legitimately be `0x00` (e.g., dimming level).
+- Avoid raw DDRAM command bytes: Writing high-bit command bytes (like `0x80|addr`) into the data stream shows as visible characters on some units (e.g., `0xCB` rendered as `Ë`). Use the documented ESC methods instead.
+- Rows/columns are 0-based in API: The library uses 0-based indexing; internally it converts to the controller’s linear address.
+
 ## Quick Start
 
 ### Basic Usage
