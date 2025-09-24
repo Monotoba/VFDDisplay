@@ -17,7 +17,7 @@ VFDDisplay* vfd = nullptr;
 
 // Test timing constants
 const unsigned long MODE_TEST_PAUSE_MS = 3000;  // 3 seconds between mode tests
-const unsigned long FEATURE_TEST_PAUSE_MS = 1500; // 1.5 seconds between features
+const unsigned long FEATURE_TEST_PAUSE_MS = 2500; // 2.5 seconds between features
 const unsigned long SCROLL_UPDATE_MS = 400;      // 400ms for scroll updates
 
 // Function prototypes
@@ -58,7 +58,7 @@ void setup() {
     Serial1.write(0x0C); // Home
     delay(100);
     Serial1.write("HELLO");
-    delay(1000);
+    delay(2500);
     Serial.println("Basic serial test complete - check VFD for 'HELLO'");
     
     // Allocate objects
@@ -369,7 +369,7 @@ void testCursorFeaturesInMode(uint8_t mode) {
         
         if (vfd->cursorBlinkSpeed(rate)) {
             vfd->setCursorPos(1, 19); // Position cursor
-            delay(1000); // Let user see the blink
+            delay(2500); // Let user see the blink
         }
     }
     

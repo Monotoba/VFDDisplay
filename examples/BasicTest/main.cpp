@@ -16,7 +16,7 @@ uint8_t displayMode = 0;
 void setup() {
     // Initialize debug serial
     Serial.begin(57600);
-    delay(1000);
+    delay(2500);
     Serial.println("=== VFD Display Library Test ===");
     Serial.println("Testing VFDDisplay library with writeAt() method");
     
@@ -46,7 +46,7 @@ void setup() {
     }
     
     Serial.println("VFD initialized successfully!");
-    delay(1000);
+    delay(2500);
     vfd->reset();
     vfd->clear();
 }
@@ -75,7 +75,7 @@ void loop() {
     vfd->writeAt(2, 0, "Row 2: MIDDLE");     // Row 2, Column 0
     vfd->writeAt(3, 0, "Row 3: BOTTOM");     // Row 3, Column 0
     
-    delay(2000);
+    delay(3000);
     
     // Test 3: Demonstrate library features
     Serial.println("Test 3: Demonstrating library features...");
@@ -85,7 +85,7 @@ void loop() {
     vfd->centerText("Centered Text", 0);
     vfd->centerText("Using Library", 1);
     
-    delay(1000);
+    delay(2500);
     vfd->reset();
     vfd->clear();
     
@@ -93,7 +93,7 @@ void loop() {
     vfd->setCursorPos(2, 5);
     vfd->write("Cursor at (2,5)");
     
-    delay(1000);
+    delay(2500);
     
     Serial.println("Library test complete!");
     Serial.println("The VFD should show text positioned using the VFDDisplay library.");

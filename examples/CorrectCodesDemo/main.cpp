@@ -45,14 +45,14 @@ void setup() {
   vfd->clear();
   vfd->cursorHome();
   vfd->write("Init via ESC 'I'");
-  wait_ms(800);
+  wait_ms(2500);
 
   // Demonstrate reset
   Serial.println("Sending reset (ESC 'I')...");
   vfd->reset();
   vfd->clear();
   vfd->write("Reset OK");
-  wait_ms(800);
+  wait_ms(2500);
 
   // Demonstrate cursor positioning via ESC 'H'
   Serial.println("Positioning demo via ESC 'H':");
@@ -61,7 +61,7 @@ void setup() {
   vfd->writeAt(1, 0, "Row1 Col0");
   vfd->writeAt(2, 19 - 7, "Row2 End"); // keep within 20 cols
   vfd->writeAt(3, 10, "Row3 Col10");
-  wait_ms(1500);
+  wait_ms(2500);
 
   // Display mode demo (control codes 0x11–0x17)
   Serial.println("Cycling display modes 0x11–0x17...");
@@ -73,8 +73,10 @@ void setup() {
     char buf[20];
     snprintf(buf, sizeof(buf), "0x%02X", mode);
     vfd->centerText(buf, 1);
-    wait_ms(1000);
+    wait_ms(2500);
   }
+  // Extra pause between test groups
+  wait_ms(2500);
 
   // Dimming demo (ESC 'L' bands)
   Serial.println("Dimming demo via ESC 'L' (00/40/80/C0)...");
@@ -87,8 +89,10 @@ void setup() {
     snprintf(buf, sizeof(buf), "0x%02X", dims[i]);
     vfd->centerText(buf, 1);
     vfd->setDimming(dims[i]);
-    wait_ms(1000);
+    wait_ms(2500);
   }
+  // Extra pause between test groups
+  wait_ms(2500);
 
   // Cursor blink speed demo (ESC 'T' + rate; ~30ms * value)
   Serial.println("Cursor blink speed demo via ESC 'T'...");
@@ -106,7 +110,7 @@ void setup() {
   for (uint8_t i = 0; i < 3; ++i) {
     vfd->setCursorPos(1 + i, 19); // right edge
     vfd->cursorBlinkSpeed(rates[i]);
-    wait_ms(1200);
+    wait_ms(2500);
   }
 
   // Character set toggle (0x18 / 0x19)
@@ -115,12 +119,12 @@ void setup() {
   vfd->clear();
   vfd->centerText("CT0 (Standard)", 0);
   vfd->changeCharSet(0);
-  wait_ms(800);
+  wait_ms(2500);
   vfd->reset();
   vfd->clear();
   vfd->centerText("CT1 (Extended)", 0);
   vfd->changeCharSet(1);
-  wait_ms(800);
+  wait_ms(2500);
 
   Serial.println("CorrectCodesDemo complete. Loop will show a status heartbeat.");
 }
@@ -132,4 +136,3 @@ void loop() {
     last = millis();
   }
 }
-
