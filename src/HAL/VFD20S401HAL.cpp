@@ -57,11 +57,11 @@ bool VFD20S401HAL::cursorHome() {
 }
 
 bool VFD20S401HAL::setCursorPos(uint8_t row, uint8_t col) {
-    // Try US (0x1F) based positioning used by many VFD modules: 0x1F 0x24 ROW COL
-    // Rows/cols are 1-based in this protocol.
+    // Datasheet: ESC 'H' followed by linear address 0x00..0x4F (row-major for 4x20)
     if (!_transport || row >= 4 || col >= 20) return false;
-    const uint8_t seq[] = { 0x1F, 0x24, (uint8_t)(row + 1), (uint8_t)(col + 1) };
-    return _transport->write(seq, sizeof(seq));
+    const uint8_t addr = (uint8_t)(row * 20 + col); // 0..79 (0x00..0x4F)
+    const uint8_t escData[] = { 0x48 /* 'H' */, addr };
+    return sendEscSequence(escData, sizeof(escData));
 }
 
 bool VFD20S401HAL::setCursorBlinkRate(uint8_t rate_ms) {
