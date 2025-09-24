@@ -71,7 +71,7 @@ BUILD_ROOT := .build
 
 ########## PlatformIO backend ##########
 
-PIO_ENV ?= mega2560_oldbootloader
+PIO_ENV ?= megaatmega2560
 PIO_BOARD ?= megaatmega2560
 PIO_BUILD_TYPE := $(if $(filter $(BUILD_TYPE),debug),debug,release)
 PIO_BUILD_FLAGS := -std=gnu++11 $(if $(filter $(BUILD_TYPE),debug),-D VFD_BUILD_DEBUG,-D VFD_BUILD_RELEASE)
@@ -219,7 +219,7 @@ help:
 	@echo "  make -- --avr <example>  (force avr-gcc)"
 	@echo "  make <example>.upload PORT=/dev/ttyACM0 [BAUD=$(BAUD)]"
 	@echo ""
-	@echo "Defaults: BACKEND=pio, PIO_ENV=mega2560_oldbootloader, FQBN=arduino:avr:mega, MCU=atmega2560, PIO_UPLOAD_PROTOCOL=$(PIO_UPLOAD_PROTOCOL)"
+	@echo "Defaults: BACKEND=pio, PIO_ENV=megaatmega2560, FQBN=arduino:avr:mega, MCU=atmega2560, PIO_UPLOAD_PROTOCOL=$(PIO_UPLOAD_PROTOCOL)"
 	@echo "Protocol override: pass PROTOCOL=stk500 or add --protocol=stk500 (or wiring)"
 
 list:
