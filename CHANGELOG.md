@@ -22,7 +22,8 @@ All notable changes to this project will be documented in this file.
 - Makefile: add `--protocol=<wiring|stk500>` (or `PROTOCOL=...`) to override upload protocol for PIO/AVR backends; default remains `stk500` @ 57600.
  - HAL: cursor positioning now uses ESC 'H' + linear address (0x00..0x4F). Address is computed row*20+col for 4x20.
 - HAL: fix escape-sequence sender to avoid zero-terminated truncation by switching all callers to the length-aware `sendEscSequence(data,len)` (row/col/levels can be 0x00).
- - Examples: increase inter-test delays to ~2.5s for better visual inspection (BasicTest, CorrectCodesDemo, ModeSpecificTest).
+- Examples: increase inter-test delays to ~2.5s for better visual inspection (BasicTest, CorrectCodesDemo, ModeSpecificTest).
+ - CorrectCodesDemo: call cursorHome() after clear() before headings ("Reset OK", "Blink rates:") to eliminate leading space and ensure column 0 start.
 
 ## 2025-09-22
 - Initial make/PIO integration work on examples and build scripts.

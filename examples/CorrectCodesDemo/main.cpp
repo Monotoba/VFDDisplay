@@ -51,6 +51,7 @@ void setup() {
   Serial.println("Sending reset (ESC 'I')...");
   vfd->reset();
   vfd->clear();
+  vfd->cursorHome();
   vfd->write("Reset OK");
   wait_ms(2500);
 
@@ -98,6 +99,7 @@ void setup() {
   Serial.println("Cursor blink speed demo via ESC 'T'...");
   vfd->reset();
   vfd->clear();
+  vfd->cursorHome();
   vfd->write("Blink rates:");
   const uint8_t rates[] = {0x0A, 0x14, 0x28}; // ~300ms, 600ms, 1200ms
   for (uint8_t i = 0; i < 3; ++i) {
