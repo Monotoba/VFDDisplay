@@ -33,9 +33,9 @@ bool VFD20S401HAL::init() {
 }
 
 bool VFD20S401HAL::reset() {
-    // Send escape sequence for reset: ESC (0x1B) followed by 0x49
-    uint8_t resetData[] = {0x49, 0x00}; // 0x49 is the reset command
-    return sendEscapeSequence(resetData);
+    // Send escape sequence for reset: ESC (0x1B) followed by 'I' (0x49)
+    const uint8_t resetData[] = {0x49};
+    return sendEscSequence(resetData, sizeof(resetData));
 }
 
 // --- Screen control ---
@@ -56,22 +56,14 @@ bool VFD20S401HAL::cursorHome() {
 }
 
 bool VFD20S401HAL::setCursorPos(uint8_t row, uint8_t col) {
-    // Set cursor position using DDRAM addressing for 4x20 display
-    if (row >= 4 || col >= 20) return false; // Validate 4x20 bounds
-    
-    // Calculate DDRAM address for 4x20 display
-    uint8_t ddramAddr;
-    switch (row) {
-        case 0: ddramAddr = 0x00 + col; break;  // Row 0: 0x00-0x13
-        case 1: ddramAddr = 0x20 + col; break;  // Row 1: 0x20-0x33
-        case 2: ddramAddr = 0x40 + col; break;  // Row 2: 0x40-0x53
-        case 3: ddramAddr = 0x60 + col; break;  // Row 3: 0x60-0x73
-        default: return false;
-    }
-    
-    // Set DDRAM address (moves cursor)
-    uint8_t addrCmd = 0x80 | ddramAddr; // Set DDRAM address command
-    return _transport->write(&addrCmd, 1);
+    // Use ESC-based positioning to avoid printing high-bit characters on VFDs
+    // Validate 4x20 bounds
+    if (row >= 4 || col >= 20) return false;
+
+    // Many serial VFD modules accept ESC 'H' followed by row and column bytes.
+    // We send zero-based row/col (0..3, 0..19). Adjust here if your module expects 1-based.
+    const uint8_t escData[] = { 0x48 /* 'H' */, row, col };
+    return sendEscSequence(escData, sizeof(escData));
 }
 
 bool VFD20S401HAL::setCursorBlinkRate(uint8_t rate_ms) {
@@ -191,24 +183,23 @@ bool VFD20S401HAL::setDisplayMode(uint8_t mode) {
     if (mode < 0x11 || mode > 0x17) return false;
     
     // Create escape sequence: ESC followed by mode byte and terminator
-    uint8_t escData[] = {mode, 0x00};
-    
-    return sendEscapeSequence(escData);
+    const uint8_t escData[] = { mode };
+    return sendEscSequence(escData, sizeof(escData));
 }
 
 bool VFD20S401HAL::setDimming(uint8_t level) {
     // Send escape sequence for dimming: ESC (0x1B) followed by 0x4C and level
     // Based on VFD20S401 datasheet - ESC + 0x4C for dimming control
-    uint8_t dimmingData[] = {0x4C, level, 0x00}; // 0x4C is the dimming command
-    return sendEscapeSequence(dimmingData);
+    const uint8_t dimmingData[] = { 0x4C, level }; // 0x4C is the dimming command
+    return sendEscSequence(dimmingData, sizeof(dimmingData));
 }
 
 bool VFD20S401HAL::cursorBlinkSpeed(uint8_t rate) {
     // Send escape sequence for cursor blink speed: ESC (0x1B) followed by blink command and rate
     // Based on VFD20S401 datasheet - using ESC + cursor control command
     // Rate parameter controls blink speed (0 = no blink, 1-255 = blink rates)
-    uint8_t blinkData[] = {0x42, rate, 0x00}; // 0x42 is cursor blink control command
-    return sendEscapeSequence(blinkData);
+    const uint8_t blinkData[] = { 0x42, rate }; // 0x42 is cursor blink control command
+    return sendEscSequence(blinkData, sizeof(blinkData));
 }
 
 bool VFD20S401HAL::changeCharSet(uint8_t setId) {
@@ -230,66 +221,18 @@ bool VFD20S401HAL::changeCharSet(uint8_t setId) {
 
 // Enhanced positioning methods for 4x20 display
 bool VFD20S401HAL::writeCharAt(uint8_t row, uint8_t column, char c) {
-    // Write character at specific position using DDRAM addressing
-    // For 4x20 display: positions are 0-19 for columns, 0-3 for rows
-    
-  /*  if (row >= 4 || column >= 20) return false; // Validate 4x20 bounds
-    
-    // Calculate DDRAM address for 4x20 display
-    uint8_t ddramAddr;
-    switch (row) {
-        case 0: ddramAddr = 0x00 + column; break;  // Row 0: 0x00-0x13
-        case 1: ddramAddr = 0x20 + column; break;  // Row 1: 0x20-0x33  
-        case 2: ddramAddr = 0x40 + column; break;  // Row 2: 0x40-0x53
-        case 3: ddramAddr = 0x60 + column; break;  // Row 3: 0x60-0x73
-        default: return false;
-    }
-    
-    // Set DDRAM address and write character
-    uint8_t addrCmd = 0x80 | ddramAddr; // Set DDRAM address command
-    if (!_transport->write(&addrCmd, 1)) return false;
+    if (!moveTo(row, column)) return false;
     return writeChar(c);
-    */
-
-    return false;
 }
 
 bool VFD20S401HAL::moveTo(uint8_t row, uint8_t column) {
-    // Move cursor to specific position using DDRAM addressing
-    // For 4x20 display: positions are 0-19 for columns, 0-3 for rows
-    
-    if (row >= 4 || column >= 20) return false; // Validate 4x20 bounds
-    
-    // Calculate DDRAM address for 4x20 display
-    uint8_t ddramAddr;
-    switch (row) {
-        case 0: ddramAddr = 0x00 + column; break;  // Row 0: 0x00-0x13
-        case 1: ddramAddr = 0x20 + column; break;  // Row 1: 0x20-0x33
-        case 2: ddramAddr = 0x40 + column; break;  // Row 2: 0x40-0x53
-        case 3: ddramAddr = 0x60 + column; break;  // Row 3: 0x60-0x73
-        default: return false;
-    }
-    
-    // Set DDRAM address (moves cursor)
-    uint8_t addrCmd = 0x80 | ddramAddr; // Set DDRAM address command
-    return _transport->write(&addrCmd, 1);
+    return setCursorPos(row, column);
 }
 
 bool VFD20S401HAL::writeAt(uint8_t row, uint8_t column, const char* text) {
-    // Write text at specific position using DDRAM addressing
-    // For 4x20 display: positions are 0-19 for columns, 0-3 for rows
-    
-    if (!text || row >= 4 || column >= 20) return false; // Validate parameters
-    
-    size_t textLen = strlen(text);
-    if (textLen == 0) return true; // Empty text is valid
-    
-    // Write each character at the appropriate position
-    for (size_t i = 0; i < textLen && (column + i) < 20; i++) {
-        if (!writeCharAt(row, column + i, text[i])) return false;
-    }
-    
-    return true;
+    if (!text) return false;
+    if (!moveTo(row, column)) return false;
+    return write(text);
 }
 
 // --- Scrolling ---
@@ -562,5 +505,3 @@ bool VFD20S401HAL::formatStarWarsText(const char* input, char* output, size_t ou
     output[outputPos] = '\0';
     return true;
 }
-
-
