@@ -49,15 +49,29 @@ EXAMPLES := $(notdir $(wildcard examples/*))
 PORT ?=
 BAUD ?= 57600
 
-# Bootloader protocol for upload (old Mega2560 uses stk500v1 @ 57600)
+# Bootloader protocol for upload; override via PROTOCOL=stk500 or CLI flag `--protocol=stk500|wiring`
 PIO_UPLOAD_PROTOCOL ?= stk500
+
+# Parse `--protocol=...` or `-protocol=...` flags from MAKECMDGOALS
+PROTO_FLAG := $(filter --protocol=%,$(MAKECMDGOALS))
+ifeq ($(strip $(PROTO_FLAG)),)
+  PROTO_FLAG := $(filter -protocol=%,$(MAKECMDGOALS))
+endif
+ifneq ($(strip $(PROTO_FLAG)),)
+  PIO_UPLOAD_PROTOCOL := $(patsubst --protocol=%,%,$(patsubst -protocol=%,%,$(PROTO_FLAG)))
+endif
+
+# Also accept PROTOCOL=... env/var to override
+ifdef PROTOCOL
+  PIO_UPLOAD_PROTOCOL := $(PROTOCOL)
+endif
 
 # Build output root
 BUILD_ROOT := .build
 
 ########## PlatformIO backend ##########
 
-PIO_ENV ?= megaatmega2560
+PIO_ENV ?= mega2560_oldbootloader
 PIO_BOARD ?= megaatmega2560
 PIO_BUILD_TYPE := $(if $(filter $(BUILD_TYPE),debug),debug,release)
 PIO_BUILD_FLAGS := -std=gnu++11 $(if $(filter $(BUILD_TYPE),debug),-D VFD_BUILD_DEBUG,-D VFD_BUILD_RELEASE)
@@ -145,6 +159,10 @@ endif
 
 # Programmer is configurable; default wiring (stk500v2). Override for old bootloaders: AVR_PROGRAMMER=stk500
 AVR_PROGRAMMER ?= wiring
+# Sync AVR programmer to chosen protocol when provided via PROTOCOL/--protocol
+ifneq ($(strip $(PROTO_FLAG)$(PROTOCOL)),)
+  AVR_PROGRAMMER := $(PIO_UPLOAD_PROTOCOL)
+endif
 
 _avr_build:
 	@if [ -z "$(NAME)" ]; then echo "Set NAME=<name> or call via: make <example>"; exit 1; fi
@@ -201,7 +219,8 @@ help:
 	@echo "  make -- --avr <example>  (force avr-gcc)"
 	@echo "  make <example>.upload PORT=/dev/ttyACM0 [BAUD=$(BAUD)]"
 	@echo ""
-	@echo "Defaults: BACKEND=pio, PIO_ENV=megaatmega2560, FQBN=arduino:avr:mega, MCU=atmega2560, PIO_UPLOAD_PROTOCOL=$(PIO_UPLOAD_PROTOCOL)"
+	@echo "Defaults: BACKEND=pio, PIO_ENV=mega2560_oldbootloader, FQBN=arduino:avr:mega, MCU=atmega2560, PIO_UPLOAD_PROTOCOL=$(PIO_UPLOAD_PROTOCOL)"
+	@echo "Protocol override: pass PROTOCOL=stk500 or add --protocol=stk500 (or wiring)"
 
 list:
 	@echo "Discovered examples:"; \
@@ -240,4 +259,3 @@ deepclean: clean
 
 debug release:
 	@true
-
