@@ -42,7 +42,8 @@ bool VFD20S401HAL::reset() {
 bool VFD20S401HAL::clear() {
     if (!_transport) return false;
     
-    uint8_t cmd = 0x0E;
+    // Futaba VFD20S401 clear command
+    uint8_t cmd = 0x09;
     _transport->write(&cmd, 1);
     return true;
 }
@@ -56,13 +57,21 @@ bool VFD20S401HAL::cursorHome() {
 }
 
 bool VFD20S401HAL::setCursorPos(uint8_t row, uint8_t col) {
-    // Use ESC-based positioning to avoid printing high-bit characters on VFDs
-    // Validate 4x20 bounds
+    // Set cursor using ESC + DDRAM address (row base + column)
+    // Row bases for 4x20: 0x00, 0x20, 0x40, 0x60
     if (row >= 4 || col >= 20) return false;
 
-    // Many serial VFD modules accept ESC 'H' followed by row and column bytes.
-    // We send zero-based row/col (0..3, 0..19). Adjust here if your module expects 1-based.
-    const uint8_t escData[] = { 0x48 /* 'H' */, row, col };
+    uint8_t base;
+    switch (row) {
+        case 0: base = 0x00; break;
+        case 1: base = 0x20; break;
+        case 2: base = 0x40; break;
+        case 3: base = 0x60; break;
+        default: return false;
+    }
+
+    const uint8_t addr = (uint8_t)(base + col);
+    const uint8_t escData[] = { addr };
     return sendEscSequence(escData, sizeof(escData));
 }
 

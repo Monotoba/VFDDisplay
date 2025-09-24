@@ -20,7 +20,7 @@ All notable changes to this project will be documented in this file.
  - PlatformIO examples: fix `lib_extra_dirs` to `../../..` so PIO resolves local `VFDDisplay` from `~/Arduino/libraries` instead of trying to install from registry.
  - PlatformIO: standardize env name to `[env:megaatmega2560]` and enforce `upload_protocol = stk500`, `upload_speed = 57600` across library root and all examples.
 - Makefile: add `--protocol=<wiring|stk500>` (or `PROTOCOL=...`) to override upload protocol for PIO/AVR backends; default remains `stk500` @ 57600.
-- HAL: fix cursor positioning for VFD20S401 by using ESC-based positioning (ESC 'H', row, col) instead of raw DDRAM `0x80|addr`. This prevents high-bit glyphs (e.g., 'Ë'/0xCB) at start-of-line.
+ - HAL: cursor positioning now uses ESC + DDRAM address (row base + column), matching VFD20S401 behavior observed in MinimalVFDDemo; avoids stray glyphs and places text correctly.
 - HAL: fix escape-sequence sender to avoid zero-terminated truncation by switching all callers to the length-aware `sendEscSequence(data,len)` (row/col/levels can be 0x00).
  - Examples: increase inter-test delays to ~2.5s for better visual inspection (BasicTest, CorrectCodesDemo, ModeSpecificTest).
 
