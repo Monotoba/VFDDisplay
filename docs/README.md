@@ -57,6 +57,24 @@ The library is built on a clean, layered architecture:
 - **Comprehensive Examples**: Various usage patterns and demonstrations
 - **Extensive Documentation**: Detailed API reference and guides
 
+## Command Reference (VFD20S401)
+
+Quick reference for the bytes used by the VFD20S401 HAL. Values are hexadecimal. ESC sequences are prefixed with `0x1B` and followed by a fixed number of data bytes (no 0-termination).
+
+- Initialize: `0x49`
+- Reset: `ESC 0x49`
+- Clear Display: `0x09`
+- Cursor Home: `0x0C`
+- Set Cursor Position: `ESC 'H' <addr>` where `<addr> = row*20 + col` (0-based, 0x00–0x4F)
+- Display Mode: `ESC 0x11` .. `ESC 0x17`
+- Dimming: `ESC 0x4C <level>` (e.g., 0x00, 0x40, 0x80, 0xC0)
+- Cursor Blink Speed: `ESC 0x42 <rate>`
+- Character Set: `0x18` (CT0 Standard), `0x19` (CT1 Extended)
+
+Notes:
+- After `clear`, call `cursorHome` before writing to ensure column 0.
+- Library API uses 0-based row/column.
+
 ## Quick Start
 
 ### Basic Usage
