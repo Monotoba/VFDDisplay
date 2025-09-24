@@ -68,20 +68,19 @@ private:
 ## VFD20S401 Controller Commands
 
 ### Basic Commands
-- **Clear Display**: `0x0E`
+- **Clear Display**: `0x09`
 - **Cursor Home**: `0x0C`
 - **Initialize**: `0x49`
 - **Reset**: ESC + `0x49`
 
-### Cursor Positioning (DDRAM Addressing)
-The VFD20S401 uses specific DDRAM addresses for the 4x20 display:
-- **Row 0**: `0x00` to `0x13` (columns 0-19)
-- **Row 1**: `0x20` to `0x33` (columns 0-19)
-- **Row 2**: `0x40` to `0x53` (columns 0-19)
-- **Row 3**: `0x60` to `0x73` (columns 0-19)
+### Cursor Positioning (ESC 'H' + Linear Address)
+The VFD20S401 uses an ESC-based positioning command:
+
+- Send `ESC` (0x1B), `'H'` (0x48) and then a single linear address byte 0x00–0x4F
+- For a 4x20 layout, compute address as `row * 20 + col` (0-based row/col)
 
 ### Escape Sequences
-Escape sequences start with `0x1B` (ESC) followed by up to 8 data bytes:
+Escape sequences start with `0x1B` (ESC) followed by a fixed number of data bytes (no terminator):
 - **Display Mode**: ESC + mode byte (0x11-0x17)
 - **Dimming Control**: ESC + `0x4C` + level
 - **Cursor Blink**: ESC + `0x42` + rate
@@ -135,8 +134,8 @@ bool VFD20S401HAL::init() {
 
 ```cpp
 bool VFD20S401HAL::reset() {
-    uint8_t resetData[] = {0x49, 0x00}; // Reset command
-    return sendEscapeSequence(resetData);
+    const uint8_t resetData[] = { 0x49 };
+    return sendEscSequence(resetData, sizeof(resetData));
 }
 ```
 
@@ -149,8 +148,7 @@ bool VFD20S401HAL::reset() {
 ```cpp
 bool VFD20S401HAL::clear() {
     if (!_transport) return false;
-    
-    uint8_t cmd = 0x0E; // Clear display command
+    uint8_t cmd = 0x09; // Clear display command
     _transport->write(&cmd, 1);
     return true;
 }
@@ -177,18 +175,9 @@ bool VFD20S401HAL::cursorHome() {
 ```cpp
 bool VFD20S401HAL::setCursorPos(uint8_t row, uint8_t col) {
     if (row >= 4 || col >= 20) return false; // Validate 4x20 bounds
-    
-    uint8_t ddramAddr;
-    switch (row) {
-        case 0: ddramAddr = 0x00 + col; break;
-        case 1: ddramAddr = 0x20 + col; break;
-        case 2: ddramAddr = 0x40 + col; break;
-        case 3: ddramAddr = 0x60 + col; break;
-        default: return false;
-    }
-    
-    uint8_t addrCmd = 0x80 | ddramAddr; // Set DDRAM address command
-    return _transport->write(&addrCmd, 1);
+    const uint8_t addr = (uint8_t)(row * 20 + col); // 0x00..0x4F
+    const uint8_t escData[] = { 0x48 /* 'H' */, addr };
+    return sendEscSequence(escData, sizeof(escData));
 }
 ```
 
@@ -312,8 +301,8 @@ bool VFD20S401HAL::setDisplayMode(uint8_t mode) {
 
 ```cpp
 bool VFD20S401HAL::setDimming(uint8_t level) {
-    uint8_t dimmingData[] = {0x4C, level, 0x00}; // ESC + 0x4C for dimming
-    return sendEscapeSequence(dimmingData);
+    const uint8_t dimmingData[] = { 0x4C, level }; // ESC + 0x4C for dimming
+    return sendEscSequence(dimmingData, sizeof(dimmingData));
 }
 ```
 
@@ -323,8 +312,8 @@ bool VFD20S401HAL::setDimming(uint8_t level) {
 
 ```cpp
 bool VFD20S401HAL::cursorBlinkSpeed(uint8_t rate) {
-    uint8_t blinkData[] = {0x42, rate, 0x00}; // ESC + cursor control
-    return sendEscapeSequence(blinkData);
+    const uint8_t blinkData[] = { 0x42, rate }; // ESC + cursor control
+    return sendEscSequence(blinkData, sizeof(blinkData));
 }
 ```
 
@@ -366,28 +355,28 @@ bool VFD20S401HAL::sendEscapeSequence(const uint8_t* data) {
 }
 ```
 
-**Description:** Sends escape sequences with ESC (0x1B) prefix followed by up to 8 data bytes.
+**Description:** Sends escape sequences with ESC (0x1B) prefix followed by data bytes. For sequences that may contain 0x00 in parameters, prefer the length-aware `sendEscSequence(data, len)`.
 
 ### Enhanced Positioning
 
 #### bool writeCharAt(uint8_t row, uint8_t column, char c)
 
-**Note:** Currently returns `false` (not implemented) in the source code.
+```cpp
+bool VFD20S401HAL::writeCharAt(uint8_t row, uint8_t column, char c) {
+    if (!moveTo(row, column)) return false;
+    return writeChar(c);
+}
+```
+
+**Description:** Moves to the specified position and writes a single character.
 
 #### bool writeAt(uint8_t row, uint8_t column, const char* text)
 
 ```cpp
 bool VFD20S401HAL::writeAt(uint8_t row, uint8_t column, const char* text) {
-    if (!text || row >= 4 || column >= 20) return false;
-    
-    size_t textLen = strlen(text);
-    if (textLen == 0) return true;
-    
-    for (size_t i = 0; i < textLen && (column + i) < 20; i++) {
-        if (!writeCharAt(row, column + i, text[i])) return false;
-    }
-    
-    return true;
+    if (!text) return false;
+    if (!moveTo(row, column)) return false;
+    return write(text);
 }
 ```
 
@@ -397,19 +386,7 @@ bool VFD20S401HAL::writeAt(uint8_t row, uint8_t column, const char* text) {
 
 ```cpp
 bool VFD20S401HAL::moveTo(uint8_t row, uint8_t column) {
-    if (row >= 4 || column >= 20) return false;
-    
-    uint8_t ddramAddr;
-    switch (row) {
-        case 0: ddramAddr = 0x00 + column; break;
-        case 1: ddramAddr = 0x20 + column; break;
-        case 2: ddramAddr = 0x40 + column; break;
-        case 3: ddramAddr = 0x60 + column; break;
-        default: return false;
-    }
-    
-    uint8_t addrCmd = 0x80 | ddramAddr;
-    return _transport->write(&addrCmd, 1);
+    return setCursorPos(row, column);
 }
 ```
 

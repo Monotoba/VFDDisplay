@@ -118,7 +118,7 @@ Initializes the VFD controller hardware.
 - Verify communication with the display
 - Return false if transport is not available
 
-**Example Implementation:**
+**Example Implementation (VFD20S401):**
 ```cpp
 bool VFD20S401HAL::init() {
     if (!_transport) return false;
@@ -140,11 +140,11 @@ Resets the VFD controller to its default state.
 - Clear display and return cursor to home position
 - Reset all display parameters to defaults
 
-**Example Implementation:**
+**Example Implementation (VFD20S401):**
 ```cpp
 bool VFD20S401HAL::reset() {
-    uint8_t resetData[] = {0x49, 0x00}; // Reset command
-    return sendEscapeSequence(resetData);
+    const uint8_t resetData[] = { 0x49 }; // ESC 'I'
+    return sendEscSequence(resetData, sizeof(resetData));
 }
 ```
 
@@ -161,12 +161,12 @@ Clears the display screen.
 - May need to wait for command completion
 - Update internal state if tracking cursor position
 
-**Example Implementation:**
+**Example Implementation (VFD20S401):**
 ```cpp
 bool VFD20S401HAL::clear() {
     if (!_transport) return false;
     
-    uint8_t cmd = 0x0E; // Clear command
+    uint8_t cmd = 0x09; // Clear command
     return _transport->write(&cmd, 1);
 }
 ```
@@ -181,7 +181,7 @@ Moves cursor to the home position (typically top-left).
 - Send cursor home command
 - Update internal cursor position tracking
 
-**Example Implementation:**
+**Example Implementation (VFD20S401):**
 ```cpp
 bool VFD20S401HAL::cursorHome() {
     if (!_transport) return false;
@@ -203,27 +203,17 @@ Sets cursor to specific row and column position.
 
 **Implementation Notes:**
 - Validate row/column bounds for the specific display
-- Calculate memory address for the position
-- Send position command to controller
-- Update internal cursor tracking
+- Compute linear address for 4x20 as `row*20 + col` (0..79)
+- Send ESC 'H' followed by the linear address byte
+- Update internal cursor tracking (if tracked)
 
-**Example Implementation:**
+**Example Implementation (VFD20S401):**
 ```cpp
 bool VFD20S401HAL::setCursorPos(uint8_t row, uint8_t col) {
     if (row >= 4 || col >= 20) return false; // 4x20 display
-    
-    // Calculate DDRAM address for 4x20 display
-    uint8_t ddramAddr;
-    switch (row) {
-        case 0: ddramAddr = 0x00 + col; break;
-        case 1: ddramAddr = 0x20 + col; break;
-        case 2: ddramAddr = 0x40 + col; break;
-        case 3: ddramAddr = 0x60 + col; break;
-        default: return false;
-    }
-    
-    uint8_t addrCmd = 0x80 | ddramAddr;
-    return _transport->write(&addrCmd, 1);
+    const uint8_t addr = (uint8_t)(row * 20 + col); // 0x00..0x4F
+    const uint8_t escData[] = { 0x48, addr };
+    return sendEscSequence(escData, sizeof(escData));
 }
 ```
 
