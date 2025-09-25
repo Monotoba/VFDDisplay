@@ -35,7 +35,8 @@ All notable changes to this project will be documented in this file.
 - Example: add `examples/FlappyBirdDemo` (no input) using BufferedVFD and CT1; bird auto-navigates obstacles.
 - Example: add `examples/BargraphDemo` (no input) using BufferedVFD; rows labeled CH1–CH4 with simulated bar levels.
 - Example: add `examples/MatrixRainDemo` (no input) using BufferedVFD and CT1 to simulate digital rain.
- - Example: add `examples/ClockDemo` (no input) buffered HH:MM:SS clock with blinking colon.
+- Example: add `examples/ClockDemo` (no input) buffered HH:MM:SS clock with blinking colon.
+ - Tooling: add `run_all_demos.sh` to build/upload each example sequentially with a per-demo wait period.
 
 ## 2025-09-22
 - Initial make/PIO integration work on examples and build scripts.
