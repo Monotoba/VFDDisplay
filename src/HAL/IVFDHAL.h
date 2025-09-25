@@ -63,11 +63,19 @@ virtual bool carriageReturn() = 0;
 virtual bool writeChar(char c) = 0;
 virtual bool write(const char* msg) = 0;
 virtual bool centerText(const char* str, uint8_t row) = 0;
+// High-level: write previously-defined custom char by index (capability-aware mapping)
+virtual bool writeCustomChar(uint8_t index) = 0;
 
 
 // Features
 virtual bool setBrightness(uint8_t lumens) = 0;
+// Save a custom character in a device-specific slot/code.
+// Pattern is 8 rows of 5-bit values (bits 0..4 used per row). Row 7 is ignored on 5x7 devices.
 virtual bool saveCustomChar(uint8_t index, const uint8_t* pattern) = 0;
+
+// New: Set a custom character (alias for saveCustomChar) with capability-aware validation.
+// Implementations should validate CAP_USER_DEFINED_CHARS and index range via getDisplayCapabilities().
+virtual bool setCustomChar(uint8_t index, const uint8_t* pattern) = 0;
 virtual bool setDisplayMode(uint8_t mode) = 0;
 virtual bool setDimming(uint8_t level) = 0;
 virtual bool cursorBlinkSpeed(uint8_t rate) = 0;

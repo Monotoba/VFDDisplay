@@ -29,8 +29,10 @@ public:
     bool writeChar(char c) { return _hal->writeChar(c); }
     bool write(const char* msg) { return _hal->write(msg); }
     bool centerText(const char* str, uint8_t row) { return _hal->centerText(str, row); }
+    bool writeCustomChar(uint8_t index) { return _hal->writeCustomChar(index); }
     bool setBrightness(uint8_t lumens) { return _hal->setBrightness(lumens); }
     bool saveCustomChar(uint8_t index, const uint8_t* pattern) { return _hal->saveCustomChar(index, pattern); }
+    bool setCustomChar(uint8_t index, const uint8_t* pattern) { return _hal->setCustomChar(index, pattern); }
     bool setDisplayMode(uint8_t mode) { return _hal->setDisplayMode(mode); }
     bool setDimming(uint8_t level) { return _hal->setDimming(level); }
     bool cursorBlinkSpeed(uint8_t rate) { return _hal->cursorBlinkSpeed(rate); }
@@ -113,4 +115,3 @@ private:
 };
 
 #endif // VFD_DISPLAY_H
-

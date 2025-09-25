@@ -39,6 +39,7 @@ public:
     virtual bool writeChar(char c) = 0;
     virtual bool write(const char* msg) = 0;
     virtual bool centerText(const char* str, uint8_t row) = 0;
+    virtual bool writeCustomChar(uint8_t index) = 0; // write mapped UDF code for index
     
     // Features
     virtual bool setBrightness(uint8_t lumens) = 0;
@@ -47,6 +48,7 @@ public:
     virtual bool setDimming(uint8_t level) = 0;
     virtual bool cursorBlinkSpeed(uint8_t rate) = 0;
     virtual bool changeCharSet(uint8_t setId) = 0;
+    virtual bool setCustomChar(uint8_t index, const uint8_t* pattern) = 0; // alias; capability-aware
     
     // Escape sequence support
     virtual bool sendEscapeSequence(const uint8_t* data) = 0;
@@ -393,6 +395,20 @@ Saves a custom character pattern.
 - Send character generation command sequence
 - Pattern format depends on controller (typically 5x8 or 5x10)
 
+#### bool setCustomChar(uint8_t index, const uint8_t* pattern)
+
+Alias for saveCustomChar with capability-aware validation and documentation.
+
+Parameters:
+- `index` - Custom character slot index (0..N-1 from capabilities)
+- `pattern` - 8-byte array; bits 0..4 used per row; row 7 ignored on 5x7 devices
+
+Returns: `true` on success, `false` otherwise
+
+Implementation Notes:
+- Implementations should verify `CAP_USER_DEFINED_CHARS` and use `getMaxUserDefinedCharacters()` from `getDisplayCapabilities()`.
+- Controllers with 5x7 dot cells must pack 35 bits into device format before sending.
+
 #### bool setDisplayMode(uint8_t mode)
 
 Sets the display mode.
@@ -637,3 +653,15 @@ private:
 - [VFD20S401HAL Implementation](VFD20S401HAL.md)
 - [ITransport Interface](ITransport.md)
 - [IDisplayCapabilities Interface](IDisplayCapabilities.md)
+#### bool writeCustomChar(uint8_t index)
+
+Writes a previously-defined custom character by logical index. Implementations map the index to the correct device-specific code and write it using `writeChar()`.
+
+Parameters:
+- `index` - Logical custom character index (0..N-1 from capabilities)
+
+Returns: `true` if operation successful, `false` otherwise
+
+Implementation Notes:
+- Validate CAP_USER_DEFINED_CHARS and index bounds.
+- Map index→code for the controller (for VFD20S401 this is the identity mapping, with unsafe codes filtered).

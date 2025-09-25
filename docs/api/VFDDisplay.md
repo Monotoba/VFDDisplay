@@ -410,15 +410,17 @@ vfd->starWarsScroll(opening, 0);
 
 ### bool saveCustomChar(uint8_t index, const uint8_t* pattern)
 
-Saves a custom character pattern to the specified index.
+Saves a custom character pattern to the specified index. Alias of `setCustomChar()`.
+
+Pattern format (row-major): pass one byte per row; bits 0..(W-1) encode columns left→right. The number of rows is defined by the device’s character height capability (e.g., 7 for 5x7, 8 for 5x8). Extra rows (if provided) are ignored by device HALs that don’t use them.
 
 **Parameters:**
-- `index` - Character index (0-7 for VFD20S401)
-- `pattern` - 8-byte array representing the 5x8 character pattern
+- `index` - Custom character index (0..N-1 where `N = getMaxUserDefinedCharacters()`).
+- `pattern` - Pointer to `H` row bytes; `H = getCharacterPixelHeight()`.
 
 **Returns:** `true` if operation successful, `false` otherwise
 
-**Example:**
+**Example (5x7/5x8):**
 ```cpp
 uint8_t customPattern[8] = {
     0b00000, // Row 0
@@ -428,11 +430,19 @@ uint8_t customPattern[8] = {
     0b01010, // Row 4
     0b11111, // Row 5
     0b01010, // Row 6
-    0b00000  // Row 7
+    0b00000  // Row 7 (ignored on 5x7 devices)
 };
-vfd->saveCustomChar(0, customPattern);
-vfd->writeChar(0); // Display custom character
+vfd->setCustomChar(0, customPattern);
+vfd->writeCustomChar(0); // Display custom character (mapping handled by HAL)
 ```
+
+### bool setCustomChar(uint8_t index, const uint8_t* pattern)
+
+Capability-aware method to define a custom character; validates support and index bounds using the display capabilities. See `saveCustomChar()` for usage and pattern format.
+
+### bool writeCustomChar(uint8_t index)
+
+Writes a previously-defined custom character by logical index. This abstracts any device-specific mapping between the logical index and the actual character code to output.
 
 ## Special Effects
 
