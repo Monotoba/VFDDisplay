@@ -82,8 +82,12 @@ FAILED_LIST=()
 
 upload_with_pio() {
   local dir="$1"
-  echo "[PIO] Building + uploading: $dir (port=$PORT)" >&2
-  pio run -d "$dir" -e megaatmega2560 -t upload --upload-port "$PORT"
+  echo "[PIO] Building + uploading: $dir (port=$PORT proto=$PROTOCOL baud=$BAUD)" >&2
+  # Override protocol/speed from CLI/env to avoid relying on per-example INIs
+  pio run -d "$dir" -e megaatmega2560 -t upload \
+    --upload-port "$PORT" \
+    -O upload_protocol="$PROTOCOL" \
+    -O upload_speed="$BAUD"
 }
 
 upload_with_make() {
