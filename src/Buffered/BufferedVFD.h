@@ -1,5 +1,6 @@
 #pragma once
 #include <Arduino.h>
+#include <string.h>
 #include "HAL/IVFDHAL.h"
 
 // BufferedVFD: device-agnostic buffered renderer + simple animations.
@@ -48,8 +49,13 @@ public:
     if (!_hal) return false;
     bool ok=true;
     for (uint8_t r=0; r<_rows; ++r) {
-      ok &= _hal->writeAt(r, 0, rowPtr(_front, r));
+      char tmp[MAX_COLS+1];
+      for (uint8_t c=0; c<_cols; ++c) tmp[c] = _front[r][c];
+      tmp[_cols] = '\0';
+      ok &= _hal->writeAt(r, 0, tmp);
     }
+    // sync back buffer
+    memcpy(_back, _front, sizeof(_front));
     return ok;
   }
 
@@ -156,7 +162,18 @@ private:
 
   static const char* nthLine(const char* s, uint8_t n){
     if (!s) return nullptr; uint8_t cur=0; const char* p=s; if (n==0) return s; while (*p){ if (*p=='\n'){ cur++; if (cur==n) return p+1; } p++; } return nullptr; }
-  static char* rowPtr(char buf[][MAX_COLS], uint8_t r){ buf[r][MAX_COLS-0] = '\0'; return buf[r]; }
-  void drawFlash(bool on){ if (on) writeAt(_f.row,_f.col,_f.text); else { char tmp[40]; uint8_t n=min<uint8_t>(strlen(_f.text), _cols - _f.col); for(uint8_t i=0;i<n;++i) tmp[i]=' '; tmp[n]='\0'; writeAt(_f.row,_f.col,tmp);} }
+  void drawFlash(bool on){
+    if (on) {
+      writeAt(_f.row, _f.col, _f.text);
+    } else {
+      char tmp[40];
+      size_t tlen = strlen(_f.text);
+      uint8_t remaining = (_cols > _f.col) ? (uint8_t)(_cols - _f.col) : 0;
+      uint8_t n = (tlen < remaining) ? (uint8_t)tlen : remaining;
+      if (n > sizeof(tmp)-1) n = sizeof(tmp)-1;
+      for (uint8_t i=0; i<n; ++i) tmp[i] = ' ';
+      tmp[n] = '\0';
+      writeAt(_f.row, _f.col, tmp);
+    }
+  }
 };
-
