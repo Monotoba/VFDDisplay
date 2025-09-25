@@ -237,14 +237,6 @@ bool VFD20S401HAL::sendEscapeSequence(const uint8_t* data) {
     return true;
 }
 
-// Length-aware ESC sender (allows 0x00 bytes in payload)
-bool VFD20S401HAL::sendEscSequence(const uint8_t* data, size_t len) {
-    if (!_transport || !data || len == 0) return false;
-    const uint8_t esc = ESC_CHAR;
-    if (!_transport->write(&esc, 1)) return false;
-    return _transport->write(data, len);
-}
-
 
 bool VFD20S401HAL::setDisplayMode(uint8_t mode) {
     // Validate mode range (0x11-0x17)
