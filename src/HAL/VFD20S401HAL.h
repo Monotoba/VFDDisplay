@@ -106,6 +106,10 @@ public:
     // Validate CHR code safety for this controller (avoid single-byte commands & ESC)
     static bool _isUnsafeCHR(uint8_t chr);
 
+    // Map logical custom index (0..15) to a safe device CHR code.
+    // For VFD20S401: 0..7 -> 0x00..0x07; 8..15 -> 0x80..0x87
+    static bool _mapIndexToCHR(uint8_t index, uint8_t& chrOut);
+
 
 private:
     // ===== NO_TOUCH: Device-specific primitives (single-responsibility helpers) =====

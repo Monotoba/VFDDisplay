@@ -170,8 +170,8 @@ bool VFD20S401HAL::writeCustomChar(uint8_t index) {
     if (!_transport || !_capabilities) { _lastError = VFDError::InvalidArgs; return false; }
     uint8_t maxUdf = _capabilities->getMaxUserDefinedCharacters();
     if (maxUdf == 0 || index >= maxUdf) { _lastError = VFDError::InvalidArgs; return false; }
-    const uint8_t chrCode = index; // direct mapping on this device
-    if (_isUnsafeCHR(chrCode)) { _lastError = VFDError::InvalidArgs; return false; }
+    uint8_t chrCode = 0;
+    if (!_mapIndexToCHR(index, chrCode)) { _lastError = VFDError::InvalidArgs; return false; }
     bool ok = writeChar((char)chrCode);
     _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
     return ok;
@@ -197,9 +197,9 @@ bool VFD20S401HAL::setCustomChar(uint8_t index, const uint8_t* pattern) {
     uint8_t maxUdf = _capabilities->getMaxUserDefinedCharacters();
     if (maxUdf == 0 || index >= maxUdf) { _lastError = VFDError::InvalidArgs; return false; }
 
-    // Map library index to CHR code. Examples assume 0..(maxUdf-1).
-    const uint8_t chrCode = index; // direct mapping keeps public API predictable for this device
-    if (_isUnsafeCHR(chrCode)) { _lastError = VFDError::InvalidArgs; return false; }
+    // Map logical index to CHR code that is safe to use for this controller
+    uint8_t chrCode = 0;
+    if (!_mapIndexToCHR(index, chrCode)) { _lastError = VFDError::InvalidArgs; return false; }
 
     // Pack 8x5 row pattern (rows 0..6 used) into 5 bytes per Table 12.1
     uint8_t packed[5] = {0,0,0,0,0};
@@ -692,4 +692,17 @@ bool VFD20S401HAL::_isUnsafeCHR(uint8_t chr) {
         return true;
     if (chr >= 0x11 && chr <= 0x19) return true;
     return false;
+}
+
+bool VFD20S401HAL::_mapIndexToCHR(uint8_t index, uint8_t& chrOut) {
+    // Support up to 16 logical indices (0..15).
+    if (index < 8) {
+        chrOut = index; // preserve legacy mapping for first 8
+    } else if (index < 16) {
+        chrOut = (uint8_t)(0x80 + (index - 8));
+    } else {
+        return false;
+    }
+    if (_isUnsafeCHR(chrOut)) return false;
+    return true;
 }

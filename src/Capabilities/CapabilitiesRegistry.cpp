@@ -190,7 +190,7 @@ DisplayCapabilities* CapabilitiesRegistry::createVFD20S401Capabilities() {
         32,  // 32mm height (corrected for 4-row display)
         CAP_CURSOR | CAP_CURSOR_BLINK | CAP_DIMMING | CAP_USER_DEFINED_CHARS | CAP_HORIZONTAL_SCROLL | CAP_VERTICAL_SCROLL | CAP_BRIGHTNESS_CONTROL | CAP_SERIAL_INTERFACE,
         4,   // 4 cursor blink speeds
-        8,   // 8 user-defined characters
+        16,  // 16 user-defined characters (datasheet allows up to 16 UDFs)
         8,   // 8 dimming levels
         16,  // 16 brightness levels
         10,  // 10us min command delay

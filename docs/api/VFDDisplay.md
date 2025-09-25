@@ -434,6 +434,9 @@ uint8_t customPattern[8] = {
 };
 vfd->setCustomChar(0, customPattern);
 vfd->writeCustomChar(0); // Display custom character (mapping handled by HAL)
+
+// For indices 8..15 on devices that support 16 UDFs,
+// use writeCustomChar(index) instead of writeChar(index) to avoid device-specific code mappings.
 ```
 
 ### bool setCustomChar(uint8_t index, const uint8_t* pattern)

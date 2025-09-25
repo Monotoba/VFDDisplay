@@ -357,6 +357,11 @@ bool VFD20S401HAL::setCustomChar(uint8_t index, const uint8_t* pattern) {
 
 Pattern format expected by the API is 8 rows with 5 bits per row (bits 0..4, LSB=leftmost). Only the top 7 rows are used by the device (5x7 characters).
 
+Index-to-code mapping (16 UDFs):
+- Indices 0–7 map to codes 0x00–0x07 (legacy-compatible).
+- Indices 8–15 map to codes 0x80–0x87 to avoid collisions with control codes.
+Use `writeCustomChar(index)` to display a custom character by its logical index; on this device, indices 0–7 can also be shown by `writeChar(index)`.
+
 ### Escape Sequence Handling
 
 #### bool sendEscapeSequence(const uint8_t* data)
