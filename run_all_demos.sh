@@ -81,13 +81,30 @@ declare -i fail_count=0
 FAILED_LIST=()
 
 upload_with_pio() {
-  local dir="$1"
-  echo "[PIO] Building + uploading: $dir (port=$PORT proto=$PROTOCOL baud=$BAUD)" >&2
-  # Override protocol/speed from CLI/env to avoid relying on per-example INIs
-  pio run -d "$dir" -e megaatmega2560 -t upload \
-    --upload-port "$PORT" \
-    --project-option upload_protocol="$PROTOCOL" \
-    --project-option upload_speed="$BAUD"
+  local dir="$1" name work
+  name="$(basename "$dir")"
+  work="$ROOT_DIR/.build/pio-run/$name"
+  mkdir -p "$work"
+  # Create ephemeral project that points src_dir at the example and overrides upload settings
+  cat > "$work/platformio.ini" <<EOF
+[platformio]
+src_dir = $(cd "$dir" && pwd)
+
+[env:megaatmega2560]
+platform = atmelavr
+board = megaatmega2560
+framework = arduino
+lib_ldf_mode = deep+
+build_type = release
+build_flags = -std=gnu++11
+monitor_speed = $BAUD
+upload_protocol = $PROTOCOL
+upload_speed = $BAUD
+lib_extra_dirs = $ROOT_DIR
+lib_deps = VFDDisplay
+EOF
+  echo "[PIO] Building + uploading: $name (port=$PORT proto=$PROTOCOL baud=$BAUD)" >&2
+  pio run -d "$work" -e megaatmega2560 -t upload --upload-port "$PORT"
 }
 
 upload_with_make() {
