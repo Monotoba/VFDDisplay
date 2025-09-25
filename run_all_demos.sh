@@ -86,8 +86,8 @@ upload_with_pio() {
   # Override protocol/speed from CLI/env to avoid relying on per-example INIs
   pio run -d "$dir" -e megaatmega2560 -t upload \
     --upload-port "$PORT" \
-    -O upload_protocol="$PROTOCOL" \
-    -O upload_speed="$BAUD"
+    --project-option upload_protocol="$PROTOCOL" \
+    --project-option upload_speed="$BAUD"
 }
 
 upload_with_make() {
