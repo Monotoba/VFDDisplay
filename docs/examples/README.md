@@ -195,7 +195,7 @@ void demonstrateCharacterSets() {
 
 ## Custom Character Examples
 
-### Example 9: Custom Characters
+### Example 9: Custom Characters (row-major pattern)
 ```cpp
 void demonstrateCustomCharacters() {
     // Define custom characters (5x8 pixel patterns)
@@ -232,28 +232,33 @@ void demonstrateCustomCharacters() {
         0b00100
     };
     
-    // Save custom characters
-    vfd->saveCustomChar(0, heart);
-    vfd->saveCustomChar(1, arrow);
-    vfd->saveCustomChar(2, bell);
+    // Define custom characters (capability-aware)
+    vfd->setCustomChar(0, heart);
+    vfd->setCustomChar(1, arrow);
+    vfd->setCustomChar(2, bell);
     
     // Display custom characters
     vfd->clear();
     vfd->write("Custom chars: ");
-    vfd->writeChar(0); // Heart
-    vfd->writeChar(1); // Arrow
-    vfd->writeChar(2); // Bell
+    vfd->writeCustomChar(0); // Heart
+    vfd->writeCustomChar(1); // Arrow
+    vfd->writeCustomChar(2); // Bell
     
     delay(3000);
     
     // Use in text
     vfd->setCursorPos(1, 0);
     vfd->write("I ");
-    vfd->writeChar(0); // Heart
+    vfd->writeCustomChar(0); // Heart
     vfd->write(" VFDs ");
-    vfd->writeChar(2); // Bell
+    vfd->writeCustomChar(2); // Bell
 }
 ```
+
+Notes
+- Pattern format is row-major: one byte per row; bits 0..(W-1) represent columns left→right. Provide `H` rows, where `H = caps->getCharacterPixelHeight()` (e.g., 7 for 5x7, 8 for 5x8). Extra rows are ignored by devices that do not use them.
+- Use `writeCustomChar(index)` to render a logical custom index; this stays correct if the device maps indices to a safe code page internally (on VFD20S401: 0..7→0x00..0x07, 8..15→0x80..0x87).
+- If you need the raw device byte to embed into a buffer, call `getCustomCharCode(index, codeOut)`.
 
 ## Scrolling Examples
 

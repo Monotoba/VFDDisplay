@@ -194,7 +194,7 @@ Use the root-level helper script to compile and upload all examples sequentially
 - Typical usage (Make): `./run_all_demos.sh --backend make --port /dev/ttyACM0 --wait 30 --protocol wiring --baud 115200`
 
 Notes
-- Curated order: SimpleDemo → AdDemo → ClockDemo → BargraphDemo → AnimationsDemo → MatrixRainDemo → FlappyBirdDemo → MinimalVFDDemo → SimpleVFDTest → BasicTest → CorrectCodesDemo → ModeSpecificTest, then any remaining.
+- Curated order: SimpleDemo → CustomCharsSimple → CustomCharsAdvanced → CustomCharsAnimation → CustomCharsTetris → AdDemo → ClockDemo → BargraphDemo → AnimationsDemo → MatrixRainDemo → FlappyBirdDemo → MinimalVFDDemo → SimpleVFDTest → BasicTest → CorrectCodesDemo → ModeSpecificTest, then any remaining.
 - PlatformIO backend uses a temporary per‑demo project to honor upload protocol/baud.
 - The script continues on errors and prints a visible countdown.
 
@@ -210,7 +210,14 @@ Notes
 ### Advanced Examples
 - **FlappyBird**: Complete game implementation
 - **StarWarsScroll**: Movie-style text effects
-- **CustomCharacters**: User-defined character patterns
+- **CustomCharsSimple / CustomCharsAdvanced**: User-defined character patterns (row‑major) including up to 16 glyphs
+- **CustomCharsAnimation**: Sprite animation using dynamic setCustomChar()
+- **CustomCharsTetris**: Mini auto-drop Tetris using a custom block glyph
+
+### Custom Characters API Quick Guide
+- Define: `vfd->setCustomChar(index, patternRows);` where `patternRows` is an array of row bytes (bits 0..W-1 used; height from capabilities).
+- Display: `vfd->writeCustomChar(index);` (device-agnostic mapping) or retrieve raw code with `vfd->getCustomCharCode(index, codeOut);`.
+- VFD20S401 mapping: indices 0–7 map to 0x00–0x07; indices 8–15 map to 0x80–0x87 to avoid control code collisions.
 
 ## Development
 
