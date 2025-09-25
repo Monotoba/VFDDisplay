@@ -65,6 +65,9 @@ void setup() {
 
   vfd->centerText("Custom Char Animation", 0);
   vfd->centerText("Runner sprite ->", 1);
+  // Show title briefly, then clear before animation starts so later frames don't overwrite it
+  delay(750);
+  vfd->clear();
 }
 
 void loop() {
@@ -90,4 +93,3 @@ void loop() {
   // Small pacing delay for visible animation
   delay(120);
 }
-
