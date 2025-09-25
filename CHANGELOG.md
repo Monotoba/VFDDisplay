@@ -29,8 +29,10 @@ All notable changes to this project will be documented in this file.
 - HAL: implement higher-level helpers: hScroll (stateful left/right scroll on a row), vScroll (wrapper for vScrollText), fix vScrollText to render full-width lines, and add blocking flashText().
 - HAL: implement custom characters for VFD20S401 – add setCustomChar() (capability-aware) and wire saveCustomChar() to it; pack 5x7 patterns and send ESC 'C' + CHR + PT1..PT5 per datasheet.
 - HAL: add length-aware sendEscSequence(data,len) used by NO_TOUCH primitives and UDF sender.
- - API: add writeCustomChar(index) and getCustomCharCode(index,&code) to abstract device code mapping.
- - VFD20S401: support 16 UDFs; indices 0..7 -> 0x00..0x07, 8..15 -> 0x80..0x87 to avoid control code collisions.
+- API: add writeCustomChar(index) and getCustomCharCode(index,&code) to abstract device code mapping.
+- VFD20S401: support 16 UDFs; indices 0..7 -> 0x00..0x07, 8..15 -> 0x80..0x87 to avoid control code collisions.
+- Examples: add CustomCharsSimple and CustomCharsAdvanced; showcase setCustomChar(), writeCustomChar(), and getCustomCharCode().
+- Tooling: run_all_demos.sh includes the new custom-char examples in the curated order.
 - Docs: update VFD20S401HAL reference to document hScroll/vScroll/flashText semantics and corrected positioning.
  - Directives: add NO_TOUCH markers policy to AGENTS.md; methods marked NO_TOUCH in VFD20S401HAL are hardware primitives and must not be edited.
  - HAL: add VFDError enum and lastError()/clearError(); set errors across public methods without modifying NO_TOUCH primitives.
