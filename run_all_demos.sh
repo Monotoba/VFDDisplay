@@ -119,11 +119,13 @@ for demo in "${DEMOS[@]}"; do
   echo "=================================================="
   echo "== Demo: $demo"
   echo "=================================================="
+  # Be resilient inside the loop even with set -e
+  set +e
   if [[ "$BACKEND" == "pio" ]]; then
     if upload_with_pio "$demo"; then
       ((ok_count++))
     else
-      echo "[ERROR] Upload failed for $demo" >&2
+      echo "[ERROR] Upload failed for $demo"
       FAILED_LIST+=("$demo")
       ((fail_count++))
     fi
@@ -131,22 +133,23 @@ for demo in "${DEMOS[@]}"; do
     if upload_with_make "$demo"; then
       ((ok_count++))
     else
-      echo "[ERROR] Upload failed for $demo" >&2
+      echo "[ERROR] Upload failed for $demo"
       FAILED_LIST+=("$demo")
       ((fail_count++))
     fi
   fi
+  set -e
 
   # Countdown to next demo unless this is the last
   if [[ "$demo" != "$LAST_DEMO" ]]; then
     if [[ "$WAIT_SECS" =~ ^[0-9]+$ ]] && (( WAIT_SECS > 0 )); then
       for ((sec=WAIT_SECS; sec>0; sec--)); do
-        printf "\r[WAIT] Next in %02ds..." "$sec" >&2
+        printf "\r[WAIT] Next in %02ds..." "$sec"
         sleep 1
       done
-      printf "\r[WAIT] Next in 00s...\n" >&2
+      printf "\r[WAIT] Next in 00s...\n"
     else
-      echo "[WAIT] Sleeping ${WAIT_SECS}s before next demo..." >&2
+      echo "[WAIT] Sleeping ${WAIT_SECS}s before next demo..."
       sleep "$WAIT_SECS"
     fi
   fi
