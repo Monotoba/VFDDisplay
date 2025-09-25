@@ -31,21 +31,44 @@ struct Cell { int8_t x, y; };
 struct PieceRot { Cell c[4]; };
 struct Piece { uint8_t rots; PieceRot r[4]; };
 
+static const Cell Z4 = {0,0}; // zero cell helper for padding
+
 static const Piece PIECES[] = {
   // I
-  {2, { {{0,1},{1,1},{2,1},{3,1}}, {{2,0},{2,1},{2,2},{2,3}} }},
+  { 2, { PieceRot{ {{0,1},{1,1},{2,1},{3,1}} },
+          PieceRot{ {{2,0},{2,1},{2,2},{2,3}} },
+          PieceRot{ {Z4,Z4,Z4,Z4} },
+          PieceRot{ {Z4,Z4,Z4,Z4} } } },
   // O
-  {1, { {{1,0},{2,0},{1,1},{2,1}} }},
+  { 1, { PieceRot{ {{1,0},{2,0},{1,1},{2,1}} },
+          PieceRot{ {Z4,Z4,Z4,Z4} },
+          PieceRot{ {Z4,Z4,Z4,Z4} },
+          PieceRot{ {Z4,Z4,Z4,Z4} } } },
   // T
-  {4, { {{1,0},{0,1},{1,1},{2,1}}, {{1,0},{1,1},{2,1},{1,2}}, {{0,1},{1,1},{2,1},{1,2}}, {{1,0},{0,1},{1,1},{1,2}} }},
+  { 4, { PieceRot{ {{1,0},{0,1},{1,1},{2,1}} },
+          PieceRot{ {{1,0},{1,1},{2,1},{1,2}} },
+          PieceRot{ {{0,1},{1,1},{2,1},{1,2}} },
+          PieceRot{ {{1,0},{0,1},{1,1},{1,2}} } } },
   // S
-  {2, { {{1,0},{2,0},{0,1},{1,1}}, {{1,0},{1,1},{2,1},{2,2}} }},
+  { 2, { PieceRot{ {{1,0},{2,0},{0,1},{1,1}} },
+          PieceRot{ {{1,0},{1,1},{2,1},{2,2}} },
+          PieceRot{ {Z4,Z4,Z4,Z4} },
+          PieceRot{ {Z4,Z4,Z4,Z4} } } },
   // Z
-  {2, { {{0,0},{1,0},{1,1},{2,1}}, {{2,0},{1,1},{2,1},{1,2}} }},
+  { 2, { PieceRot{ {{0,0},{1,0},{1,1},{2,1}} },
+          PieceRot{ {{2,0},{1,1},{2,1},{1,2}} },
+          PieceRot{ {Z4,Z4,Z4,Z4} },
+          PieceRot{ {Z4,Z4,Z4,Z4} } } },
   // J
-  {4, { {{0,0},{0,1},{1,1},{2,1}}, {{1,0},{2,0},{1,1},{1,2}}, {{0,1},{1,1},{2,1},{2,2}}, {{1,0},{1,1},{0,2},{1,2}} }},
+  { 4, { PieceRot{ {{0,0},{0,1},{1,1},{2,1}} },
+          PieceRot{ {{1,0},{2,0},{1,1},{1,2}} },
+          PieceRot{ {{0,1},{1,1},{2,1},{2,2}} },
+          PieceRot{ {{1,0},{1,1},{0,2},{1,2}} } } },
   // L
-  {4, { {{2,0},{0,1},{1,1},{2,1}}, {{1,0},{1,1},{1,2},{2,2}}, {{0,1},{1,1},{2,1},{0,2}}, {{0,0},{1,0},{1,1},{1,2}} }}
+  { 4, { PieceRot{ {{2,0},{0,1},{1,1},{2,1}} },
+          PieceRot{ {{1,0},{1,1},{1,2},{2,2}} },
+          PieceRot{ {{0,1},{1,1},{2,1},{0,2}} },
+          PieceRot{ {{0,0},{1,0},{1,1},{1,2}} } } }
 };
 
 struct Active { uint8_t id; uint8_t rot; int8_t x; int8_t y; };
@@ -54,7 +77,8 @@ static Active current;
 static void defineGlyphs() {
   // Full 5x7 block
   uint8_t block[8];
-  for (uint8_t r = 0; r < 7; ++r) block[r] = 0b11111; block[7] = 0;
+  for (uint8_t r = 0; r < 7; ++r) { block[r] = 0b11111; }
+  block[7] = 0;
   vfd->setCustomChar(GLYPH_BLOCK, block);
 }
 
@@ -127,18 +151,13 @@ static void tick() {
 }
 
 static void render() {
-  // Draw border top/bottom labels
+  // Draw title
   vfd->centerText("Mini Tetris (auto)", 0);
-  // Render field rows 0..3 below label? Here we draw field directly 4 rows.
+  // Render field rows 0..3
   for (uint8_t r = 0; r < FIELD_H; ++r) {
-    // Build row string of width FIELD_W plus 2 borders, padded to 20
-    char line[21];
-    for (uint8_t i = 0; i < 20; ++i) line[i] = ' ';
-    line[20] = '\0';
-    uint8_t col = FIELD_LEFT;
-    line[col-1] = '|';
+    // Draw left border
+    vfd->writeCharAt(FIELD_TOP + r, FIELD_LEFT - 1, '|');
     for (uint8_t c = 0; c < FIELD_W; ++c) {
-      // Check active piece occupancy at (c,r)
       bool on = field[r][c];
       if (!on) {
         const Piece& p = PIECES[current.id];
@@ -149,10 +168,11 @@ static void render() {
           if (px == (int)c && py == (int)r) { on = true; break; }
         }
       }
-      line[col + c] = on ? (char)GLYPH_BLOCK : ' ';
+      if (on) vfd->writeCharAt(FIELD_TOP + r, FIELD_LEFT + c, (char)GLYPH_BLOCK);
+      else vfd->writeCharAt(FIELD_TOP + r, FIELD_LEFT + c, ' ');
     }
-    line[col + FIELD_W] = '|';
-    vfd->writeAt(FIELD_TOP + r, 0, line);
+    // Draw right border
+    vfd->writeCharAt(FIELD_TOP + r, FIELD_LEFT + FIELD_W, '|');
   }
 }
 
@@ -187,4 +207,3 @@ void loop() {
     render();
   }
 }
-
