@@ -331,8 +331,8 @@ void testAdvancedFeaturesInMode(uint8_t mode) {
     vfd->centerText(hexStr2, 1);
     
     // Test positioning methods
-    vfd->writeAt(2, 5, 'A');
-    vfd->writeAt(2, 14, 'B');
+    vfd->writeCharAt(2, 5, 'A');
+    vfd->writeCharAt(2, 14, 'B');
     vfd->moveTo(3, 8);
     vfd->write("MoveTo test");
     

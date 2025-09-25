@@ -48,23 +48,26 @@ void setup() {
     Serial1.write("Row 0 Test");
     delay(200);
     
-    // Send text to row 1
-    Serial1.write(0x1B); // ESC for cursor positioning
-    Serial1.write(0x20); // Row 1 address (0x20)
+    // Send text to row 1 (ESC 'H' + 0x14)
+    Serial1.write(0x1B); // ESC
+    Serial1.write(0x48); // 'H' position command
+    Serial1.write(0x14); // Row 1, col 0
     delay(100);
     Serial1.write("Row 1 Test");
     delay(200);
     
-    // Send text to row 2
-    Serial1.write(0x1B); // ESC for cursor positioning
-    Serial1.write(0x40); // Row 2 address (0x40)
+    // Send text to row 2 (ESC 'H' + 0x28)
+    Serial1.write(0x1B); // ESC
+    Serial1.write(0x48); // 'H' position command
+    Serial1.write(0x28); // Row 2, col 0
     delay(100);
     Serial1.write("Row 2 Test");
     delay(200);
     
-    // Send text to row 3
-    Serial1.write(0x1B); // ESC for cursor positioning
-    Serial1.write(0x60); // Row 3 address (0x60)
+    // Send text to row 3 (ESC 'H' + 0x3C)
+    Serial1.write(0x1B); // ESC
+    Serial1.write(0x48); // 'H' position command
+    Serial1.write(0x3C); // Row 3, col 0
     delay(100);
     Serial1.write("Row 3 Test");
     

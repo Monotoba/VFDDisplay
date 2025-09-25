@@ -33,10 +33,11 @@ void setup() {
     }
     delay(1000);
     
-    // Test cursor positioning
-    // Move to row 1, column 0
+    // Test cursor positioning (ESC 'H' + linear address)
+    // Move to row 1, column 0: address 0x14 for 20x4
     Serial1.write(0x1B); // ESC
-    Serial1.write(0x20); // Row 1 address
+    Serial1.write(0x48); // 'H' = position command
+    Serial1.write(0x14); // Row 1, Col 0
     delay(100);
     
     const char* text2 = "Row 1 Test";
