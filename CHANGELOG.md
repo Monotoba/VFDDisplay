@@ -27,6 +27,8 @@ All notable changes to this project will be documented in this file.
 - Docs: add a concise "Command Reference (VFD20S401)" section to docs/README.md reflecting HAL commands (init, reset, clear, home, positioning, mode, dimming, blink, charset).
  - Docs: add "Gotchas (VFD20S401)" section summarizing practical tips (clear doesn’t home; ESC 'H'+linear address; fixed-length ESC; avoid raw DDRAM bytes; 0-based API).
 - HAL: implement higher-level helpers: hScroll (stateful left/right scroll on a row), vScroll (wrapper for vScrollText), fix vScrollText to render full-width lines, and add blocking flashText().
+- HAL: implement custom characters for VFD20S401 – add setCustomChar() (capability-aware) and wire saveCustomChar() to it; pack 5x7 patterns and send ESC 'C' + CHR + PT1..PT5 per datasheet.
+- HAL: add length-aware sendEscSequence(data,len) used by NO_TOUCH primitives and UDF sender.
 - Docs: update VFD20S401HAL reference to document hScroll/vScroll/flashText semantics and corrected positioning.
  - Directives: add NO_TOUCH markers policy to AGENTS.md; methods marked NO_TOUCH in VFD20S401HAL are hardware primitives and must not be edited.
  - HAL: add VFDError enum and lastError()/clearError(); set errors across public methods without modifying NO_TOUCH primitives.

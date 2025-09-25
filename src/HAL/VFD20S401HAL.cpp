@@ -166,6 +166,17 @@ bool VFD20S401HAL::centerText(const char* str, uint8_t row) {
     return true;
 }
 
+bool VFD20S401HAL::writeCustomChar(uint8_t index) {
+    if (!_transport || !_capabilities) { _lastError = VFDError::InvalidArgs; return false; }
+    uint8_t maxUdf = _capabilities->getMaxUserDefinedCharacters();
+    if (maxUdf == 0 || index >= maxUdf) { _lastError = VFDError::InvalidArgs; return false; }
+    const uint8_t chrCode = index; // direct mapping on this device
+    if (_isUnsafeCHR(chrCode)) { _lastError = VFDError::InvalidArgs; return false; }
+    bool ok = writeChar((char)chrCode);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
+}
+
 // --- Features ---
 bool VFD20S401HAL::setBrightness(uint8_t lumens) {
     // TODO: map lumens -> brightness command
@@ -175,10 +186,29 @@ bool VFD20S401HAL::setBrightness(uint8_t lumens) {
 }
 
 bool VFD20S401HAL::saveCustomChar(uint8_t index, const uint8_t* pattern) {
-    // TODO: implement custom char save
-    (void)index; (void)pattern;
-    _lastError = VFDError::NotSupported;
-    return false;
+    // Backward-compatible alias for setCustomChar
+    return setCustomChar(index, pattern);
+}
+
+bool VFD20S401HAL::setCustomChar(uint8_t index, const uint8_t* pattern) {
+    // Datasheet 20S401DA1 5.2.16 [1] UDF: ESC 'C' + CHR + PT1..PT5 (5 bytes bit-packed)
+    if (!_transport || !_capabilities || !pattern) { _lastError = VFDError::InvalidArgs; return false; }
+    if (!_capabilities->hasCapability(CAP_USER_DEFINED_CHARS)) { _lastError = VFDError::NotSupported; return false; }
+    uint8_t maxUdf = _capabilities->getMaxUserDefinedCharacters();
+    if (maxUdf == 0 || index >= maxUdf) { _lastError = VFDError::InvalidArgs; return false; }
+
+    // Map library index to CHR code. Examples assume 0..(maxUdf-1).
+    const uint8_t chrCode = index; // direct mapping keeps public API predictable for this device
+    if (_isUnsafeCHR(chrCode)) { _lastError = VFDError::InvalidArgs; return false; }
+
+    // Pack 8x5 row pattern (rows 0..6 used) into 5 bytes per Table 12.1
+    uint8_t packed[5] = {0,0,0,0,0};
+    _pack5x7ToBytes(pattern, packed);
+
+    const uint8_t data[] = { 0x43, chrCode, packed[0], packed[1], packed[2], packed[3], packed[4] };
+    bool ok = sendEscSequence(data, sizeof(data));
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 // ===== NO_TOUCH: Low-level ESC sender (null-terminated variant) =====
@@ -197,6 +227,14 @@ bool VFD20S401HAL::sendEscapeSequence(const uint8_t* data) {
     }
     
     return true;
+}
+
+// Length-aware ESC sender (allows 0x00 bytes in payload)
+bool VFD20S401HAL::sendEscSequence(const uint8_t* data, size_t len) {
+    if (!_transport || !data || len == 0) return false;
+    const uint8_t esc = ESC_CHAR;
+    if (!_transport->write(&esc, 1)) return false;
+    return _transport->write(data, len);
 }
 
 
@@ -623,4 +661,35 @@ bool VFD20S401HAL::formatStarWarsText(const char* input, char* output, size_t ou
     
     output[outputPos] = '\0';
     return true;
+}
+
+// Pack 7x5 matrix from 8 rows x 5 bits (LSB=leftmost) into 5 bytes per datasheet Table 12.1
+void VFD20S401HAL::_pack5x7ToBytes(const uint8_t* rowPattern8x5, uint8_t out5[5]) {
+    if (!out5) return;
+    out5[0] = out5[1] = out5[2] = out5[3] = out5[4] = 0;
+    if (!rowPattern8x5) return;
+    // Only top 7 rows used on 5x7; bits 0..4 per row left->right
+    for (uint8_t r = 0; r < 7; ++r) {
+        uint8_t row = rowPattern8x5[r] & 0x1F; // 5 columns
+        for (uint8_t c = 0; c < 5; ++c) {
+            if ((row >> c) & 0x01) {
+                uint8_t p = (uint8_t)(r * 5 + c); // 0..34
+                uint8_t b = (uint8_t)(p / 8);     // 0..4 selects PT1..PT5
+                uint8_t bit = (uint8_t)(p % 8);   // bit within byte
+                out5[b] |= (uint8_t)(1u << bit);
+            }
+        }
+    }
+}
+
+bool VFD20S401HAL::_isUnsafeCHR(uint8_t chr) {
+    // Avoid known single-byte commands and ESC for this controller.
+    // Known commands used in this HAL/datasheet: 0x09 (Clear), 0x0C (Home),
+    // 0x08 (BS), 0x09 (HT/Clear), 0x0A (LF), 0x0D (CR),
+    // 0x11..0x17 (DC1..DC7 display/cursor modes), 0x18..0x19 (CT0/CT1),
+    // 0x1B (ESC), 0x49 ('I' Initialize as single-byte for this module).
+    if (chr == 0x08 || chr == 0x09 || chr == 0x0A || chr == 0x0C || chr == 0x0D || chr == 0x1B || chr == 0x49)
+        return true;
+    if (chr >= 0x11 && chr <= 0x19) return true;
+    return false;
 }

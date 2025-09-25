@@ -47,10 +47,12 @@ public:
     bool writeChar(char c) override;
     bool write(const char* msg) override;
     bool centerText(const char* str, uint8_t row) override;
+    bool writeCustomChar(uint8_t index) override;
 
     // Features
     bool setBrightness(uint8_t lumens) override;
     bool saveCustomChar(uint8_t index, const uint8_t* pattern) override;
+    bool setCustomChar(uint8_t index, const uint8_t* pattern) override;
     bool setDisplayMode(uint8_t mode) override;
     bool setDimming(uint8_t level) override;
     bool cursorBlinkSpeed(uint8_t rate) override;
@@ -97,6 +99,12 @@ public:
     
     // Custom command: send ESC (0x1B) followed by up to 8 bytes
     bool sendEscSequence(const uint8_t* data, size_t len);
+
+    // Pack 5x7 from 8x5 row pattern (bits 0..4 per row) into 5 bytes per datasheet Table 12.1
+    static void _pack5x7ToBytes(const uint8_t* rowPattern8x5, uint8_t out5[5]);
+
+    // Validate CHR code safety for this controller (avoid single-byte commands & ESC)
+    static bool _isUnsafeCHR(uint8_t chr);
 
 
 private:

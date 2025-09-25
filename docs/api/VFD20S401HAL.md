@@ -334,6 +334,29 @@ bool VFD20S401HAL::changeCharSet(uint8_t setId) {
 
 **Description:** Switches between character sets (0 = CT0 standard, 1 = CT1 extended).
 
+#### bool saveCustomChar(uint8_t index, const uint8_t* pattern)
+
+Implements User Definable Font (UDF) per datasheet section 5.2.16 [1]. Packs a 5x7 pattern from an 8x5 row format into 5 bytes and sends ESC 'C' + CHR + PT1..PT5.
+
+```cpp
+bool VFD20S401HAL::saveCustomChar(uint8_t index, const uint8_t* pattern) {
+    return setCustomChar(index, pattern);
+}
+
+bool VFD20S401HAL::setCustomChar(uint8_t index, const uint8_t* pattern) {
+    if (!_capabilities || !_transport || !pattern) return false;
+    if (!_capabilities->hasCapability(CAP_USER_DEFINED_CHARS)) return false;
+    if (index >= _capabilities->getMaxUserDefinedCharacters()) return false;
+
+    uint8_t bytes[5];
+    _pack5x7ToBytes(pattern, bytes);
+    const uint8_t data[] = { 0x43, index, bytes[0], bytes[1], bytes[2], bytes[3], bytes[4] };
+    return sendEscSequence(data, sizeof(data));
+}
+```
+
+Pattern format expected by the API is 8 rows with 5 bits per row (bits 0..4, LSB=leftmost). Only the top 7 rows are used by the device (5x7 characters).
+
 ### Escape Sequence Handling
 
 #### bool sendEscapeSequence(const uint8_t* data)
@@ -679,12 +702,7 @@ The VFD20S401HAL implementation includes comprehensive error checking:
 
 ## Limitations
 
-- **writeCharAt()**: Currently not implemented (returns false)
-- **Custom Characters**: saveCustomChar() not implemented
 - **Brightness Control**: setBrightness() not implemented
-- **Flash Text**: flashText() not implemented
-- **Horizontal Scrolling**: hScroll() not implemented
-- **Vertical Scrolling**: vScroll() not implemented
 
 ## See Also
 
