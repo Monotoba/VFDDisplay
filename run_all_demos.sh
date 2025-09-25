@@ -114,6 +114,7 @@ upload_with_make() {
   make "$name".upload PORT="$PORT" PROTOCOL="$PROTOCOL" BAUD="$BAUD"
 }
 
+LAST_DEMO="${DEMOS[${#DEMOS[@]}-1]}"
 for demo in "${DEMOS[@]}"; do
   echo "=================================================="
   echo "== Demo: $demo"
@@ -136,8 +137,19 @@ for demo in "${DEMOS[@]}"; do
     fi
   fi
 
-  echo "[WAIT] Sleeping ${WAIT_SECS}s before next demo..." >&2
-  sleep "$WAIT_SECS"
+  # Countdown to next demo unless this is the last
+  if [[ "$demo" != "$LAST_DEMO" ]]; then
+    if [[ "$WAIT_SECS" =~ ^[0-9]+$ ]] && (( WAIT_SECS > 0 )); then
+      for ((sec=WAIT_SECS; sec>0; sec--)); do
+        printf "\r[WAIT] Next in %02ds..." "$sec" >&2
+        sleep 1
+      done
+      printf "\r[WAIT] Next in 00s...\n" >&2
+    else
+      echo "[WAIT] Sleeping ${WAIT_SECS}s before next demo..." >&2
+      sleep "$WAIT_SECS"
+    fi
+  fi
 done
 
 echo
