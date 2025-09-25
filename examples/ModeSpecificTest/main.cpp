@@ -88,6 +88,8 @@ void setup() {
     
     // Show initialization message on VFD
     Serial.println("Writing initialization message to VFD...");
+    // Standardized init: reset, clear, home
+    vfd->reset();
     vfd->clear();
     vfd->cursorHome();
     vfd->write("VFD Mode Test");

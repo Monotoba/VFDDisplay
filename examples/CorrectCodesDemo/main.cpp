@@ -42,6 +42,8 @@ void setup() {
     while (true) { wait_ms(1000); }
   }
 
+  // Standardized init: reset, clear, home
+  vfd->reset();
   vfd->clear();
   vfd->cursorHome();
   vfd->write("Init via ESC 'I'");

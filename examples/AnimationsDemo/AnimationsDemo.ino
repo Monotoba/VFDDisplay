@@ -25,6 +25,8 @@ void setup() {
     Serial.println("Init failed");
     while (1) delay(1000);
   }
+  // Standardized init: reset, clear, home
+  vfd->reset();
   vfd->clear();
   vfd->cursorHome();
 
@@ -52,4 +54,3 @@ void loop() {
   bf->flushDiff();
   delay(20);
 }
-

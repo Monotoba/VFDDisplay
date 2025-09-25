@@ -29,8 +29,9 @@ void setup() {
         return;
     }
 
-    //vfd->init();
-    //vfd->reset();
+    // Standardized init: reset, clear, home
+    vfd->reset();
+    vfd->clear();
     vfd->cursorHome();
     const char* str = "hello, VFD!";
     vfd->write(str);
@@ -42,4 +43,3 @@ void loop() {
     Serial1.print("Test message");
     delay(1000);
 }
-

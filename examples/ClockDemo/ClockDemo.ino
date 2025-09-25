@@ -72,6 +72,8 @@ void setup() {
     while (1) delay(1000);
   }
 
+  // Standardized init: reset, clear, home
+  vfd->reset();
   vfd->clear();
   vfd->cursorHome();
   vfd->changeCharSet(1); // CT1 (optional)
@@ -95,4 +97,3 @@ void loop() {
   drawClock();
   delay(30);
 }
-

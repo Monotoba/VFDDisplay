@@ -108,6 +108,8 @@ void setup() {
     while (1) delay(1000);
   }
 
+  // Standardized init: reset, clear, home
+  vfd->reset();
   vfd->clear();
   vfd->cursorHome();
   vfd->changeCharSet(1); // CT1 (Extended)
@@ -133,4 +135,3 @@ void loop() {
   drawFrame();
   delay(20);
 }
-

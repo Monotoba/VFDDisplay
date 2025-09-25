@@ -129,6 +129,8 @@ void setup() {
     while (true) delay(1000);
   }
 
+  // Standardized init: reset, clear, home
+  vfd->reset();
   vfd->clear();
   vfd->cursorHome();
   vfd->changeCharSet(1); // CT1 (Extended)
@@ -169,4 +171,3 @@ void loop() {
   // Small sleep to reduce busy loop
   delay(5);
 }
-

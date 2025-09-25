@@ -75,6 +75,8 @@ void setup() {
     Serial.println("Init failed");
     while (1) delay(1000);
   }
+  // Standardized init: reset, clear, home
+  vfd->reset();
   vfd->clear();
   vfd->cursorHome();
   vfd->changeCharSet(1); // CT1 (Extended), though we use ASCII here
@@ -104,4 +106,3 @@ void loop() {
   }
   delay(5);
 }
-
