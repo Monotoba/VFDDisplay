@@ -36,7 +36,8 @@ All notable changes to this project will be documented in this file.
 - Example: add `examples/BargraphDemo` (no input) using BufferedVFD; rows labeled CH1–CH4 with simulated bar levels.
 - Example: add `examples/MatrixRainDemo` (no input) using BufferedVFD and CT1 to simulate digital rain.
 - Example: add `examples/ClockDemo` (no input) buffered HH:MM:SS clock with blinking colon.
- - Tooling: add `run_all_demos.sh` to build/upload each example sequentially with a per-demo wait period.
+- Tooling: add `run_all_demos.sh` to build/upload each example sequentially with a per-demo wait period.
+ - Tooling: `run_all_demos.sh` now uses a curated demo order (SimpleDemo → Clock → Bargraph → Animations → MatrixRain → FlappyBird → MinimalVFDDemo → SimpleVFDTest → BasicTest → CorrectCodesDemo → ModeSpecificTest), then any remaining.
 
 ## 2025-09-22
 - Initial make/PIO integration work on examples and build scripts.

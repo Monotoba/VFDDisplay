@@ -37,15 +37,42 @@ ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT_DIR"
 
 # Discover examples that have a platformio.ini
-mapfile -t DEMOS < <(find examples -mindepth 1 -maxdepth 1 -type d \
+mapfile -t DISCOVERED < <(find examples -mindepth 1 -maxdepth 1 -type d \
   -exec test -f '{}/platformio.ini' \; -print | sort)
+
+# Curated execution order (only include if present)
+PREFERRED=(
+  "examples/SimpleDemo"
+  "examples/ClockDemo"
+  "examples/BargraphDemo"
+  "examples/AnimationsDemo"
+  "examples/MatrixRainDemo"
+  "examples/FlappyBirdDemo"
+  "examples/MinimalVFDDemo"
+  "examples/SimpleVFDTest"
+  "examples/BasicTest"
+  "examples/CorrectCodesDemo"
+  "examples/ModeSpecificTest"
+)
+
+# Build final ordered list: preferred (if discovered) + remaining discovered
+declare -A seen=()
+DEMOS=()
+for d in "${PREFERRED[@]}"; do
+  for x in "${DISCOVERED[@]}"; do
+    if [[ "$x" == "$d" ]]; then DEMOS+=("$x"); seen["$x"]=1; fi
+  done
+done
+for x in "${DISCOVERED[@]}"; do
+  if [[ -z "${seen[$x]:-}" ]]; then DEMOS+=("$x"); fi
+done
 
 if [[ ${#DEMOS[@]} -eq 0 ]]; then
   echo "No examples with platformio.ini found under examples/." >&2
   exit 1
 fi
 
-echo "Detected examples:" >&2
+echo "Execution order:" >&2
 for d in "${DEMOS[@]}"; do echo "  - $d" >&2; done
 echo >&2
 
@@ -99,4 +126,3 @@ if [[ ${#FAILED_LIST[@]} -gt 0 ]]; then
 fi
 
 exit 0
-
