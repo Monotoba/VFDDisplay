@@ -45,6 +45,7 @@ PREFERRED=(
   "examples/SimpleDemo"
   "examples/CustomCharsSimple"
   "examples/CustomCharsAdvanced"
+  "examples/CustomCharsAnimation"
   "examples/AdDemo"
   "examples/ClockDemo"
   "examples/BargraphDemo"
