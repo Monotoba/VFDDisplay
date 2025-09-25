@@ -447,6 +447,10 @@ Capability-aware method to define a custom character; validates support and inde
 
 Writes a previously-defined custom character by logical index. This abstracts any device-specific mapping between the logical index and the actual character code to output.
 
+### bool getCustomCharCode(uint8_t index, uint8_t& codeOut) const
+
+Returns the device-specific code corresponding to the logical custom character index. Useful if you need to embed the raw byte in a buffer or stream.
+
 ## Special Effects
 
 ### bool flashText(const char* str, uint8_t row, uint8_t col, uint8_t on_ms, uint8_t off_ms)

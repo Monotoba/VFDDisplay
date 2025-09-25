@@ -30,6 +30,7 @@ public:
     bool write(const char* msg) { return _hal->write(msg); }
     bool centerText(const char* str, uint8_t row) { return _hal->centerText(str, row); }
     bool writeCustomChar(uint8_t index) { return _hal->writeCustomChar(index); }
+    bool getCustomCharCode(uint8_t index, uint8_t& codeOut) const { return _hal->getCustomCharCode(index, codeOut); }
     bool setBrightness(uint8_t lumens) { return _hal->setBrightness(lumens); }
     bool saveCustomChar(uint8_t index, const uint8_t* pattern) { return _hal->saveCustomChar(index, pattern); }
     bool setCustomChar(uint8_t index, const uint8_t* pattern) { return _hal->setCustomChar(index, pattern); }

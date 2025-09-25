@@ -117,4 +117,8 @@ virtual const IDisplayCapabilities* getDisplayCapabilities() const = 0;
     // Error inspection (non-throwing): methods still return bool for compatibility.
     virtual VFDError lastError() const = 0;
     virtual void clearError() = 0;
+
+    // Query the device-specific code used to render a logical custom char index.
+    // Returns false if unsupported or index out of range.
+    virtual bool getCustomCharCode(uint8_t index, uint8_t& codeOut) const = 0;
 };

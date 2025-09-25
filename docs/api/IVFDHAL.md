@@ -40,6 +40,7 @@ public:
     virtual bool write(const char* msg) = 0;
     virtual bool centerText(const char* str, uint8_t row) = 0;
     virtual bool writeCustomChar(uint8_t index) = 0; // write mapped UDF code for index
+    virtual bool getCustomCharCode(uint8_t index, uint8_t& codeOut) const = 0; // query mapping
     
     // Features
     virtual bool setBrightness(uint8_t lumens) = 0;
@@ -665,3 +666,17 @@ Returns: `true` if operation successful, `false` otherwise
 Implementation Notes:
 - Validate CAP_USER_DEFINED_CHARS and index bounds.
 - Map index→code for the controller (for VFD20S401 this is the identity mapping, with unsafe codes filtered).
+
+#### bool getCustomCharCode(uint8_t index, uint8_t& codeOut) const
+
+Returns the device-specific code that will render the given logical custom character index.
+
+Parameters:
+- `index` - Logical custom index (0..N-1)
+- `codeOut` - Output parameter set to the device byte to write
+
+Returns: `true` if mapping available, `false` otherwise
+
+Implementation Notes:
+- Same validation as `writeCustomChar()`.
+- Should use the exact same mapping function as `setCustomChar()`/`writeCustomChar()` to guarantee consistency.

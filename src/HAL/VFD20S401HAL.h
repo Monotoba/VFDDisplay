@@ -48,6 +48,7 @@ public:
     bool write(const char* msg) override;
     bool centerText(const char* str, uint8_t row) override;
     bool writeCustomChar(uint8_t index) override;
+    bool getCustomCharCode(uint8_t index, uint8_t& codeOut) const override;
 
     // Features
     bool setBrightness(uint8_t lumens) override;

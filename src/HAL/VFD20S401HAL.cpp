@@ -177,6 +177,14 @@ bool VFD20S401HAL::writeCustomChar(uint8_t index) {
     return ok;
 }
 
+bool VFD20S401HAL::getCustomCharCode(uint8_t index, uint8_t& codeOut) const {
+    if (!_capabilities) return false;
+    uint8_t maxUdf = _capabilities->getMaxUserDefinedCharacters();
+    if (maxUdf == 0 || index >= maxUdf) return false;
+    // Use the same mapping used by set/write to ensure consistency
+    return _mapIndexToCHR(index, codeOut);
+}
+
 // --- Features ---
 bool VFD20S401HAL::setBrightness(uint8_t lumens) {
     // TODO: map lumens -> brightness command
