@@ -33,7 +33,8 @@ All notable changes to this project will be documented in this file.
  - Buffered top-layer: add `src/Buffered/BufferedVFD.h` with screen buffer, diff flush, and non-blocking hScroll/vScroll/flash scaffolding.
 - Example: add `examples/AnimationsDemo` demonstrating BufferedVFD animations.
 - Example: add `examples/FlappyBirdDemo` (no input) using BufferedVFD and CT1; bird auto-navigates obstacles.
- - Example: add `examples/BargraphDemo` (no input) using BufferedVFD; rows labeled CH1–CH4 with simulated bar levels.
+- Example: add `examples/BargraphDemo` (no input) using BufferedVFD; rows labeled CH1–CH4 with simulated bar levels.
+ - Example: add `examples/MatrixRainDemo` (no input) using BufferedVFD and CT1 to simulate digital rain.
 
 ## 2025-09-22
 - Initial make/PIO integration work on examples and build scripts.
