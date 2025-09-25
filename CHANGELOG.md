@@ -31,7 +31,8 @@ All notable changes to this project will be documented in this file.
  - Directives: add NO_TOUCH markers policy to AGENTS.md; methods marked NO_TOUCH in VFD20S401HAL are hardware primitives and must not be edited.
  - HAL: add VFDError enum and lastError()/clearError(); set errors across public methods without modifying NO_TOUCH primitives.
  - Buffered top-layer: add `src/Buffered/BufferedVFD.h` with screen buffer, diff flush, and non-blocking hScroll/vScroll/flash scaffolding.
- - Example: add `examples/AnimationsDemo` demonstrating BufferedVFD animations.
+- Example: add `examples/AnimationsDemo` demonstrating BufferedVFD animations.
+ - Example: add `examples/FlappyBirdDemo` (no input) using BufferedVFD and CT1; bird auto-navigates obstacles.
 
 ## 2025-09-22
 - Initial make/PIO integration work on examples and build scripts.
