@@ -86,6 +86,10 @@ public:
 
     // Timing utility
     void delayMicroseconds(unsigned int us) const override;
+
+    // Error reporting
+    VFDError lastError() const override { return _lastError; }
+    void clearError() override { _lastError = VFDError::Ok; }
     
     // =========================================================
     // ==================== Utility Methods ====================
@@ -96,12 +100,31 @@ public:
 
 
 private:
+    // ===== NO_TOUCH: Device-specific primitives (single-responsibility helpers) =====
+    // Do not edit/refactor methods declared below. These map directly to hardware bytes.
+    bool _cmdInit();                       // 0x49
+    bool _escReset();                      // ESC 'I'
+    bool _cmdClear();                      // 0x09
+    bool _cmdHome();                       // 0x0C
+    bool _posLinear(uint8_t addr);         // ESC 'H' + addr (0x00..0x4F)
+    bool _posRowCol(uint8_t row, uint8_t col); // computes linear and calls _posLinear
+    bool _escMode(uint8_t mode);           // ESC + mode (0x11..0x17)
+    bool _escDimming(uint8_t level);       // ESC 0x4C + level
+    bool _escCursorBlink(uint8_t rate);    // ESC 0x42 + rate
+    // ===== NO_TOUCH END =====
+
     ITransport* _transport;
     DisplayCapabilities* _capabilities;
+    VFDError _lastError = VFDError::Ok;
     
     // Scrolling state tracking
     int16_t _vScrollOffset;              // Current vertical scroll offset
     char _vScrollText[256];              // Buffer for scroll text (max 256 chars)
     uint8_t _vScrollTotalLines;          // Total lines in scroll text
     uint8_t _vScrollStartRow;            // Starting row for scrolling
+
+    // Horizontal scroll state
+    int16_t _hScrollOffset = 0;          // Current horizontal scroll offset
+    uint8_t _hScrollRow = 0;             // Target row for horizontal scroll
+    char _hScrollText[160] = {0};        // Buffer for horizontal text (wrapped display)
 };

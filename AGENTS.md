@@ -8,6 +8,11 @@ Non‑Negotiable Safety Rules
 - NEVER delete, rename, or remove the top‑level `examples/` directory.
 - Do not perform destructive operations (e.g., `rm -rf`, `git reset --hard`) without explicit maintainer approval.
 
+No‑Touch Code Markers
+- Methods and regions in the device HAL marked with a "NO_TOUCH" comment are considered hardware‑primitive implementations.
+- Do NOT edit, refactor, or remove code within methods or regions annotated with NO_TOUCH.
+- When extending functionality, build on higher‑level layers or add new methods; do not alter NO_TOUCH blocks.
+
 Commit Policy
 - Commit all changes you make as small, focused commits with clear messages.
 - Keep the `CHANGELOG.md` up to date in the same commit(s) describing what changed and why.
@@ -21,4 +26,3 @@ Build & Project Conventions
 Collaboration Etiquette
 - Before making changes, run `git status` to understand the working tree state.
 - When in doubt, ask for confirmation instead of guessing; prefer minimal, reversible changes.
-

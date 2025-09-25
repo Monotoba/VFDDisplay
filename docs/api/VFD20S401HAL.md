@@ -380,7 +380,7 @@ bool VFD20S401HAL::writeAt(uint8_t row, uint8_t column, const char* text) {
 }
 ```
 
-**Description:** Writes text at a specific position, character by character.
+**Description:** Writes text at a specific position by moving the cursor and sending the string.
 
 #### bool moveTo(uint8_t row, uint8_t column)
 
@@ -390,7 +390,7 @@ bool VFD20S401HAL::moveTo(uint8_t row, uint8_t column) {
 }
 ```
 
-**Description:** Moves cursor to specified position without writing.
+**Description:** Moves cursor to specified position without writing (uses ESC 'H' + linear address).
 
 ### Scrolling Implementation
 
@@ -461,7 +461,25 @@ bool VFD20S401HAL::vScrollText(const char* text, uint8_t startRow, ScrollDirecti
 }
 ```
 
-**Description:** Implements vertical text scrolling with state tracking and multi-line support.
+**Description:** Implements vertical text scrolling with state tracking and multi-line support. Call repeatedly with `SCROLL_UP`/`SCROLL_DOWN` to animate.
+
+#### bool vScroll(const char* str, int dir)
+
+Convenience wrapper that scrolls starting at row 0:
+
+```cpp
+// Scroll up one line
+vfd->vScroll("Line1\nLine2\nLine3", -1);
+```
+
+#### bool hScroll(const char* str, int dir, uint8_t row)
+
+Scrolls a single line of text horizontally across a row; maintains internal offset. Call repeatedly:
+
+```cpp
+// Scroll left on row 1
+vfd->hScroll("HELLO WORLD", +1, 1);
+```
 
 #### bool starWarsScroll(const char* text, uint8_t startRow)
 

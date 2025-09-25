@@ -13,6 +13,16 @@ enum ScrollDirection : uint8_t {
     SCROLL_RIGHT = 3
 };
 
+// Error codes for HAL operations
+enum class VFDError : uint8_t {
+    Ok = 0,
+    NotSupported = 1,
+    InvalidArgs = 2,
+    TransportFail = 3,
+    Timeout = 4,
+    Unknown = 255
+};
+
 
 // IVFDHAL: Interface for all device-specific VFD controller HALs.
 // Each controller chip implementation must implement this interface.
@@ -94,5 +104,9 @@ virtual const IDisplayCapabilities* getDisplayCapabilities() const = 0;
 
 
 // Timing utility
-virtual void delayMicroseconds(unsigned int us) const = 0;
+    virtual void delayMicroseconds(unsigned int us) const = 0;
+
+    // Error inspection (non-throwing): methods still return bool for compatibility.
+    virtual VFDError lastError() const = 0;
+    virtual void clearError() = 0;
 };

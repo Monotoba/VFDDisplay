@@ -11,6 +11,14 @@ VFD20S401HAL::VFD20S401HAL() : _transport(nullptr) {
     // Create and register capabilities
     _capabilities = CapabilitiesRegistry::createVFD20S401Capabilities();
     CapabilitiesRegistry::getInstance().registerCapabilities(_capabilities);
+    // Initialize scroll buffers
+    _vScrollOffset = 0;
+    _vScrollText[0] = '\0';
+    _vScrollTotalLines = 0;
+    _vScrollStartRow = 0;
+    _hScrollOffset = 0;
+    _hScrollRow = 0;
+    _hScrollText[0] = '\0';
 }
 
 
@@ -25,100 +33,112 @@ void VFD20S401HAL::setTransport(ITransport* transport) {
 
 // --- Lifecycle ---
 bool VFD20S401HAL::init() {
-    if (!_transport) return false;
-    
-    uint8_t cmd = 0x49;
-    _transport->write(&cmd, 1);
-    return true;
+    if (!_transport) { _lastError = VFDError::TransportFail; return false; }
+    bool ok = _cmdInit();
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::reset() {
-    // Send escape sequence for reset: ESC (0x1B) followed by 'I' (0x49)
-    const uint8_t resetData[] = {0x49};
-    return sendEscSequence(resetData, sizeof(resetData));
+    bool ok = _escReset();
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 // --- Screen control ---
 bool VFD20S401HAL::clear() {
-    if (!_transport) return false;
-    
-    // Futaba VFD20S401 clear command
-    uint8_t cmd = 0x09;
-    _transport->write(&cmd, 1);
-    return true;
+    if (!_transport) { _lastError = VFDError::TransportFail; return false; }
+    bool ok = _cmdClear();
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::cursorHome() {
-    if (!_transport) return false;
-    
-    uint8_t cmd = 0x0C;
-    _transport->write(&cmd, 1);
-    return true;
+    if (!_transport) { _lastError = VFDError::TransportFail; return false; }
+    bool ok = _cmdHome();
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::setCursorPos(uint8_t row, uint8_t col) {
     // Datasheet: ESC 'H' followed by linear address 0x00..0x4F (row-major for 4x20)
-    if (!_transport || row >= 4 || col >= 20) return false;
-    const uint8_t addr = (uint8_t)(row * 20 + col); // 0..79 (0x00..0x4F)
-    const uint8_t escData[] = { 0x48 /* 'H' */, addr };
-    return sendEscSequence(escData, sizeof(escData));
+    if (!_transport) { _lastError = VFDError::TransportFail; return false; }
+    if (row >= 4 || col >= 20) { _lastError = VFDError::InvalidArgs; return false; }
+    bool ok = _posRowCol(row, col);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::setCursorBlinkRate(uint8_t rate_ms) {
-    // TODO: implement blink-rate command
+    // TODO: implement blink-rate command (not supported in this HAL)
     (void)rate_ms;
+    _lastError = VFDError::NotSupported;
     return false;
 }
 
 // Cursor movement convenience methods (wrapper around writeChar)
 bool VFD20S401HAL::backSpace() {
     // Backspace: move cursor one position left (ASCII 0x08)
-    return writeChar(0x08);
+    bool ok = writeChar(0x08);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::hTab() {
     // Horizontal tab: move cursor to next tab stop (ASCII 0x09)
-    return writeChar(0x09);
+    bool ok = writeChar(0x09);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::lineFeed() {
     // Line feed: move cursor to next line (ASCII 0x0A)
-    return writeChar(0x0A);
+    bool ok = writeChar(0x0A);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::carriageReturn() {
     // Carriage return: move cursor to beginning of current line (ASCII 0x0D)
-    return writeChar(0x0D);
+    bool ok = writeChar(0x0D);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 // --- Writing ---
 bool VFD20S401HAL::writeChar(char c) {
     if (!_transport) return false;
-    return _transport->write(reinterpret_cast<const uint8_t*>(&c), 1);
+    bool ok = _transport->write(reinterpret_cast<const uint8_t*>(&c), 1);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::write(const char* msg) {
-    if (!_transport || !msg) return false;
+    if (!_transport || !msg) { _lastError = VFDError::InvalidArgs; return false; }
     size_t len = strlen(msg);
-    return _transport->write(reinterpret_cast<const uint8_t*>(msg), len);
+    bool ok = _transport->write(reinterpret_cast<const uint8_t*>(msg), len);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::centerText(const char* str, uint8_t row) {
-    if (!_transport || !str || !_capabilities) return false;
+    if (!_transport || !str || !_capabilities) { _lastError = VFDError::InvalidArgs; return false; }
     
     // Get display dimensions from capabilities
     uint8_t textColumns = _capabilities->getTextColumns();
     uint8_t textRows = _capabilities->getTextRows();
     
     // Validate row parameter
-    if (row >= textRows) return false;
+    if (row >= textRows) { _lastError = VFDError::InvalidArgs; return false; }
     
     // Calculate string length
     size_t strLen = strlen(str);
     
     // If string is longer than display width, just write it normally
     if (strLen >= textColumns) {
-        return setCursorPos(row, 0) && write(str);
+        bool ok = setCursorPos(row, 0) && write(str);
+        _lastError = ok ? VFDError::Ok : lastError();
+        return ok;
     }
     
     // Calculate padding for centering
@@ -127,21 +147,22 @@ bool VFD20S401HAL::centerText(const char* str, uint8_t row) {
     uint8_t rightPadding = totalPadding - leftPadding;
     
     // Set cursor to beginning of specified row
-    if (!setCursorPos(row, 0)) return false;
+    if (!setCursorPos(row, 0)) { return false; }
     
     // Write left padding (spaces)
     for (uint8_t i = 0; i < leftPadding; i++) {
-        if (!writeChar(' ')) return false;
+        if (!writeChar(' ')) { return false; }
     }
     
     // Write the centered text
-    if (!write(str)) return false;
+    if (!write(str)) { return false; }
     
     // Write right padding (spaces) - optional, for completeness
     for (uint8_t i = 0; i < rightPadding; i++) {
-        if (!writeChar(' ')) return false;
+        if (!writeChar(' ')) { return false; }
     }
     
+    _lastError = VFDError::Ok;
     return true;
 }
 
@@ -149,15 +170,18 @@ bool VFD20S401HAL::centerText(const char* str, uint8_t row) {
 bool VFD20S401HAL::setBrightness(uint8_t lumens) {
     // TODO: map lumens -> brightness command
     (void)lumens;
+    _lastError = VFDError::NotSupported;
     return false;
 }
 
 bool VFD20S401HAL::saveCustomChar(uint8_t index, const uint8_t* pattern) {
     // TODO: implement custom char save
     (void)index; (void)pattern;
+    _lastError = VFDError::NotSupported;
     return false;
 }
 
+// ===== NO_TOUCH: Low-level ESC sender (null-terminated variant) =====
 bool VFD20S401HAL::sendEscapeSequence(const uint8_t* data) {
     if (!_transport || !data) return false;
     
@@ -179,25 +203,26 @@ bool VFD20S401HAL::sendEscapeSequence(const uint8_t* data) {
 bool VFD20S401HAL::setDisplayMode(uint8_t mode) {
     // Validate mode range (0x11-0x17)
     if (mode < 0x11 || mode > 0x17) return false;
-    
-    // Create escape sequence: ESC followed by mode byte and terminator
-    const uint8_t escData[] = { mode };
-    return sendEscSequence(escData, sizeof(escData));
+    bool ok = _escMode(mode);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::setDimming(uint8_t level) {
     // Send escape sequence for dimming: ESC (0x1B) followed by 0x4C and level
     // Based on VFD20S401 datasheet - ESC + 0x4C for dimming control
-    const uint8_t dimmingData[] = { 0x4C, level }; // 0x4C is the dimming command
-    return sendEscSequence(dimmingData, sizeof(dimmingData));
+    bool ok = _escDimming(level);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::cursorBlinkSpeed(uint8_t rate) {
     // Send escape sequence for cursor blink speed: ESC (0x1B) followed by blink command and rate
     // Based on VFD20S401 datasheet - using ESC + cursor control command
     // Rate parameter controls blink speed (0 = no blink, 1-255 = blink rates)
-    const uint8_t blinkData[] = { 0x42, rate }; // 0x42 is cursor blink control command
-    return sendEscSequence(blinkData, sizeof(blinkData));
+    bool ok = _escCursorBlink(rate);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20S401HAL::changeCharSet(uint8_t setId) {
@@ -233,28 +258,116 @@ bool VFD20S401HAL::writeAt(uint8_t row, uint8_t column, const char* text) {
     return write(text);
 }
 
+// ===== Device-specific primitives =====
+bool VFD20S401HAL::_cmdInit() {
+    uint8_t cmd = 0x49;
+    return _transport->write(&cmd, 1);
+}
+
+bool VFD20S401HAL::_escReset() {
+    const uint8_t data[] = { 0x49 }; // 'I'
+    return sendEscSequence(data, sizeof(data));
+}
+
+bool VFD20S401HAL::_cmdClear() {
+    uint8_t cmd = 0x09;
+    return _transport->write(&cmd, 1);
+}
+
+bool VFD20S401HAL::_cmdHome() {
+    uint8_t cmd = 0x0C;
+    return _transport->write(&cmd, 1);
+}
+
+bool VFD20S401HAL::_posLinear(uint8_t addr) {
+    const uint8_t data[] = { 0x48, addr };
+    return sendEscSequence(data, sizeof(data));
+}
+
+bool VFD20S401HAL::_posRowCol(uint8_t row, uint8_t col) {
+    const uint8_t addr = (uint8_t)(row * 20 + col);
+    return _posLinear(addr);
+}
+
+bool VFD20S401HAL::_escMode(uint8_t mode) {
+    const uint8_t data[] = { mode };
+    return sendEscSequence(data, sizeof(data));
+}
+
+bool VFD20S401HAL::_escDimming(uint8_t level) {
+    const uint8_t data[] = { 0x4C, level };
+    return sendEscSequence(data, sizeof(data));
+}
+
+bool VFD20S401HAL::_escCursorBlink(uint8_t rate) {
+    const uint8_t data[] = { 0x42, rate };
+    return sendEscSequence(data, sizeof(data));
+}
+
 // --- Scrolling ---
 bool VFD20S401HAL::hScroll(const char* str, int dir, uint8_t row) {
-    // TODO: implement horizontal scroll
-    (void)str; (void)dir; (void)row;
-    return false;
+    if (!_transport || !_capabilities || !str) { _lastError = VFDError::InvalidArgs; return false; }
+    uint8_t cols = _capabilities->getTextColumns();
+    if (row >= _capabilities->getTextRows()) { _lastError = VFDError::InvalidArgs; return false; }
+
+    // If text changed or row changed, reset state
+    if (strncmp(str, _hScrollText, sizeof(_hScrollText)) != 0 || _hScrollRow != row) {
+        size_t len = strlen(str);
+        if (len >= sizeof(_hScrollText)) len = sizeof(_hScrollText) - 1;
+        memcpy(_hScrollText, str, len);
+        _hScrollText[len] = '\0';
+        _hScrollOffset = 0;
+        _hScrollRow = row;
+    }
+
+    // Advance offset based on direction
+    int textLen = (int)strlen(_hScrollText);
+    if (textLen == 0) { bool ok = setCursorPos(row, 0) && write(""); _lastError = ok ? VFDError::Ok : lastError(); return ok; }
+    if (dir > 0) {
+        _hScrollOffset = (_hScrollOffset + 1) % (textLen + cols);
+    } else if (dir < 0) {
+        _hScrollOffset = (_hScrollOffset - 1);
+        if (_hScrollOffset < 0) _hScrollOffset = textLen + cols - 1;
+    }
+
+    // Build visible window of width 'cols'
+    char window[40]; // 20 columns max supported by capabilities
+    if (cols > sizeof(window) - 1) cols = sizeof(window) - 1;
+    for (uint8_t i = 0; i < cols; ++i) {
+        int idx = _hScrollOffset + i;
+        char c = ' ';
+        if (idx < textLen) c = _hScrollText[idx];
+        else if (idx < textLen + cols) c = ' ';
+        else {
+            int wrap = idx - (textLen + cols);
+            if (wrap >= 0 && wrap < textLen) c = _hScrollText[wrap];
+        }
+        window[i] = c;
+    }
+    window[cols] = '\0';
+
+    bool ok = writeAt(row, 0, window);
+    _lastError = ok ? VFDError::Ok : lastError();
+    return ok;
 }
 
 bool VFD20S401HAL::vScroll(const char* str, int dir) {
-    // TODO: implement vertical scroll
-    (void)str; (void)dir;
-    return false;
+    // Convenience wrapper: scroll multi-line text starting at row 0
+    ScrollDirection d = (dir > 0) ? SCROLL_DOWN : SCROLL_UP;
+    bool ok = vScrollText(str, 0, d);
+    _lastError = ok ? VFDError::Ok : lastError();
+    return ok;
 }
 
 bool VFD20S401HAL::vScrollText(const char* text, uint8_t startRow, ScrollDirection direction) {
-    if (!_transport || !text || !_capabilities) return false;
+    if (!_transport || !text || !_capabilities) { _lastError = VFDError::InvalidArgs; return false; }
     
     // Get display dimensions from capabilities
     uint8_t textRows = _capabilities->getTextRows();
     uint8_t textColumns = _capabilities->getTextColumns();
     
     // Validate parameters
-    if (startRow >= textRows) return false;
+    if (startRow >= textRows) { _lastError = VFDError::InvalidArgs; return false; }
     
     // Store the new text if it differs from current scroll text
     if (strcmp(text, _vScrollText) != 0) {
@@ -289,48 +402,55 @@ bool VFD20S401HAL::vScrollText(const char* text, uint8_t startRow, ScrollDirecti
     if (visibleRows == 0) return false;
     
     // Parse text into lines and display visible portion
-    for (uint8_t row = 0; row < visibleRows; row++) {
+    for (uint8_t r = 0; r < visibleRows; r++) {
         // Calculate which line to display (with wrapping)
-        uint8_t displayLine = (_vScrollOffset + row) % _vScrollTotalLines;
-        
+        uint8_t displayLine = (_vScrollOffset + r) % _vScrollTotalLines;
+
         // Find the start of the display line
         const char* displayLineStart = _vScrollText;
         uint8_t lineCount = 0;
-        
         while (lineCount < displayLine && *displayLineStart) {
             if (*displayLineStart == '\n') lineCount++;
             displayLineStart++;
         }
-        
+
         // Find the end of this line or max column width
-        const char* lineEnd = displayLineStart;
-        uint8_t col = 0;
-        while (*lineEnd && *lineEnd != '\n' && col < textColumns) {
-            lineEnd++;
-            col++;
-        }
-        
-        // Write this line to the display using writeAt()
-        uint8_t writeRow = startRow + row;
-        for (uint8_t col = 0; col < textColumns; col++) {
-            char c = ' '; // Default to space
-            if (col < (lineEnd - displayLineStart)) {
-                c = displayLineStart[col];
-            }
-            char buf[2] = {' ', '\0'};
-            if (!writeAt(writeRow, col, buf)) return false;
-        }
+        const char* p = displayLineStart;
+        uint8_t count = 0;
+        while (*p && *p != '\n' && count < textColumns) { p++; count++; }
+
+        // Build a fixed-width line buffer
+        char lineBuf[40];
+        if (textColumns > sizeof(lineBuf) - 1) textColumns = sizeof(lineBuf) - 1;
+        uint8_t i = 0;
+        for (; i < count; ++i) lineBuf[i] = displayLineStart[i];
+        for (; i < textColumns; ++i) lineBuf[i] = ' ';
+        lineBuf[textColumns] = '\0';
+
+        // Write the line at the appropriate row
+        uint8_t writeRow = startRow + r;
+        if (!writeAt(writeRow, 0, lineBuf)) { return false; }
     }
-    
+    _lastError = VFDError::Ok;
     return true;
 }
 
 // --- Flash text ---
 bool VFD20S401HAL::flashText(const char* str, uint8_t row, uint8_t col,
                              uint8_t on_ms, uint8_t off_ms) {
-    // TODO: implement flash text
-    (void)str; (void)row; (void)col; (void)on_ms; (void)off_ms;
-    return false;
+    if (!_transport || !str) { _lastError = VFDError::InvalidArgs; return false; }
+    if (!writeAt(row, col, str)) return false;
+    delayMicroseconds((unsigned int)on_ms * 1000U);
+    // overwrite with spaces
+    uint8_t len = strlen(str);
+    if (len > 20) len = 20; // clamp to row width
+    char spaces[21];
+    for (uint8_t i = 0; i < len; ++i) spaces[i] = ' ';
+    spaces[len] = '\0';
+    if (!writeAt(row, col, spaces)) return false;
+    delayMicroseconds((unsigned int)off_ms * 1000U);
+    _lastError = VFDError::Ok;
+    return true;
 }
 
 // --- Capabilities and diagnostics ---
@@ -358,6 +478,7 @@ void VFD20S401HAL::delayMicroseconds(unsigned int us) const {
 // ==========================================================
 
 // Custom command: send ESC (0x1B) followed by up to 8 bytes
+// ===== NO_TOUCH: Low-level ESC sender (length-aware) =====
 bool VFD20S401HAL::sendEscSequence(const uint8_t* data, size_t len) {
     // check that the class transport is valid and input is sane
     if (!_transport || !data || len == 0 || len > 8) return false;
