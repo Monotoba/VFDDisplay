@@ -185,6 +185,19 @@ The library's layered design allows easy extension to:
 2. Configure Arduino paths in Makefile
 3. Use provided make targets
 
+## Running All Demos
+
+Use the root-level helper script to compile and upload all examples sequentially with a countdown between demos.
+
+- Script: `./run_all_demos.sh`
+- Typical usage (PlatformIO): `./run_all_demos.sh --backend pio --port /dev/ttyACM0 --wait 30 --protocol wiring --baud 115200`
+- Typical usage (Make): `./run_all_demos.sh --backend make --port /dev/ttyACM0 --wait 30 --protocol wiring --baud 115200`
+
+Notes
+- Curated order: SimpleDemo → AdDemo → ClockDemo → BargraphDemo → AnimationsDemo → MatrixRainDemo → FlappyBirdDemo → MinimalVFDDemo → SimpleVFDTest → BasicTest → CorrectCodesDemo → ModeSpecificTest, then any remaining.
+- PlatformIO backend uses a temporary per‑demo project to honor upload protocol/baud.
+- The script continues on errors and prints a visible countdown.
+
 ## Examples Included
 
 ### Basic Examples
@@ -203,11 +216,36 @@ The library's layered design allows easy extension to:
 
 ### Extending the Library
 
-#### Adding New Controllers
-1. Implement `IVFDHAL` interface
-2. Create controller-specific command sequences
-3. Register capabilities with `CapabilitiesRegistry`
-4. Test with provided examples
+#### Adding New Controllers (Device HALs)
+
+Implement a new device HAL (e.g., `MyDisplayHAL`) by following these steps:
+
+1. Create the HAL class
+   - Add `src/HAL/MyDisplayHAL.h/.cpp` implementing `IVFDHAL`.
+   - In the constructor, create and register the device capabilities using `CapabilitiesRegistry`.
+
+2. Implement low-level command primitives (NO_TOUCH)
+   - Map datasheet commands to bytes on the wire (init, reset, clear, home, positioning, mode, dimming, cursor blink, charset).
+   - Mark these primitive helpers with a `NO_TOUCH` comment (policy in `AGENTS.md`) to prevent refactors.
+
+3. Implement high-level `IVFDHAL` methods in terms of primitives
+   - `init, reset, clear, cursorHome, setCursorPos, write, writeAt, centerText, vScrollText, hScroll, flashText`, etc.
+   - Set `VFDError` via `lastError()` on failure (`NotSupported`, `InvalidArgs`, `TransportFail`, etc.).
+
+4. Positioning / escape sequences
+   - Choose a robust positioning method for the device (e.g., `ESC 'H' + linear address` for VFD20S401).
+   - Use the length‑aware escape sender for any sequences with `0x00` parameters.
+
+5. Capabilities and buffering
+   - Ensure capabilities report correct `rows` and `columns` so the buffered layer sizes its screen buffer properly.
+   - Optional: advertise capability flags for future accelerations (hardware scroll, etc.).
+
+6. Testing and examples
+   - Add a demo in `examples/<YourDemo>` with `platformio.ini` and a `.ino` sketch.
+   - Verify uploads with both Make and PlatformIO as needed.
+
+7. Documentation
+   - Add or update `docs/api/<YourHAL>.md` with command bytes and device caveats.
 
 #### Adding New Transports
 1. Implement `ITransport` interface
