@@ -46,6 +46,7 @@ PREFERRED=(
   "examples/CustomCharsSimple"
   "examples/CustomCharsAdvanced"
   "examples/CustomCharsAnimation"
+  "examples/CustomCharsTetris"
   "examples/AdDemo"
   "examples/ClockDemo"
   "examples/BargraphDemo"

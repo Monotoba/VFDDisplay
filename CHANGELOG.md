@@ -34,6 +34,7 @@ All notable changes to this project will be documented in this file.
 - Examples: add CustomCharsSimple and CustomCharsAdvanced; showcase setCustomChar(), writeCustomChar(), and getCustomCharCode().
 - Tooling: run_all_demos.sh includes the new custom-char examples in the curated order.
 - Examples: add CustomCharsAnimation (runner sprite) demonstrating dynamic reprogramming of a glyph index for animation.
+- Examples: add CustomCharsTetris – mini auto-drop Tetris using custom glyphs; spawns, drops, rotates, places, and clears lines on a 10x4 field.
 - Docs: update VFD20S401HAL reference to document hScroll/vScroll/flashText semantics and corrected positioning.
  - Directives: add NO_TOUCH markers policy to AGENTS.md; methods marked NO_TOUCH in VFD20S401HAL are hardware primitives and must not be edited.
  - HAL: add VFDError enum and lastError()/clearError(); set errors across public methods without modifying NO_TOUCH primitives.
