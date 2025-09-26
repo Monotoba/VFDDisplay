@@ -43,6 +43,7 @@ mapfile -t DISCOVERED < <(find examples -mindepth 1 -maxdepth 1 -type d \
 # Curated execution order (only include if present)
 PREFERRED=(
   "examples/SimpleDemo"
+  "examples/BlinkExplore"
   "examples/CustomCharsSimple"
   "examples/CustomCharsAdvanced"
   "examples/CustomCharsAnimation"
