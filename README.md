@@ -36,7 +36,41 @@ vfd->clear();
 vfd->cursorHome();
 ```
 
+## Custom Characters
+
+Define and render device‑agnostic custom glyphs using a simple, row‑major pattern format.
+
+- Define: `vfd->setCustomChar(index, patternRows);`
+  - `patternRows` is one byte per row; bits 0..(W-1) represent columns left→right.
+  - The number of rows to provide is the device character height (e.g., 7 for 5x7, 8 for 5x8). Extra rows are ignored by devices that don’t use them.
+- Display: `vfd->writeCustomChar(index);` (preferred) or query the raw device code via `vfd->getCustomCharCode(index, codeOut);` and then `vfd->writeChar(codeOut);`
+- VFD20S401 mapping: supports up to 16 user‑defined glyphs. Indices 0–7 map to 0x00–0x07; indices 8–15 map to 0x80–0x87 to avoid control code collisions. Using `writeCustomChar()` abstracts this mapping.
+
+Example (5x7/5x8 pattern):
+
+```cpp
+uint8_t heart[8] = {
+  0b00000,
+  0b01010,
+  0b11111,
+  0b11111,
+  0b01110,
+  0b00100,
+  0b00000,
+  0b00000 // ignored on 5x7 devices
+};
+vfd->setCustomChar(0, heart);
+vfd->writeCustomChar(0);
+```
+
+Animation tip: reprogram a logical index (e.g., 0) with a different frame each tick using `setCustomChar()` and write it at the new position with `writeCharAt()`.
+
+Related examples:
+- `examples/CustomCharsSimple` – basic definition and rendering
+- `examples/CustomCharsAdvanced` – up to 16 glyphs with mapping queries
+- `examples/CustomCharsAnimation` – sprite animation by redefining a glyph
+- `examples/CustomCharsTetris` – mini auto‑drop Tetris using a custom block glyph
+
 ## Documentation
 
 See `docs/README.md` for full library documentation, command reference, gotchas, and guidance for adding new device HALs.
-
