@@ -150,6 +150,8 @@ vfd->writeChar(0); // Display custom character
 - **[Makefiles](build/Makefiles.md)**: Comprehensive Makefile documentation
 - **[PlatformIO Configuration](build/PlatformIO.md)**: PlatformIO build system
 - **[Build Commands](build/build_cmd.txt)**: Quick reference build commands
+ - **[HAL Authoring Guide](../api/HAL_Authoring_Guide.md)**: Step-by-step guide to add a new device HAL
+ - **[HAL Doc Template](../api/HAL_Doc_Template.md)**: Copy to document a new device HAL
 
 ### Examples and Usage
 - **[Usage Examples](examples/README.md)**: Various usage patterns and examples

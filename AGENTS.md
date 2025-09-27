@@ -18,6 +18,15 @@ Locked Interfaces and Existing HALs
 - Existing device HALs (e.g., `VFD20S401HAL`) and `BufferedVFD` are LOCKED. Do not change their behavior or public APIs.
 - When adding a new device HAL, all changes must remain within the new HAL implementation (and its documentation/capabilities). Adjust NO_TOUCH primitives only within that new HAL as required by its datasheet.
 
+New HAL Authoring Checklist (TL;DR)
+- Add datasheet PDF to `docs/datasheets/`. If scanned, OCR it and keep the `.txt` sidecar.
+- Implement `src/HAL/<YourHAL>.h/.cpp` (full `IVFDHAL`), define NO_TOUCH primitives.
+- Register capabilities in `CapabilitiesRegistry`.
+- Add tests: reuse IVFDHAL contract tests + device-specific tests with `MockTransport`.
+- Update test runners to include your HAL.
+- Document using `docs/api/HAL_Doc_Template.md` (copy to `docs/api/<YourHAL>.md`).
+- Update `CHANGELOG.md`. Commit in small, focused commits.
+
 Commit Policy
 - Commit all changes you make as small, focused commits with clear messages.
 - Keep the `CHANGELOG.md` up to date in the same commit(s) describing what changed and why.

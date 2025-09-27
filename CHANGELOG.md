@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - HAL: add `VFD20T202HAL` (20x2) using HD44780-style instructions (Function Set 0x38, Display On 0x0C, Clear 0x01, Entry Mode 0x06, Set DDRAM 0x80|addr); exposes IVFDHAL surface without modifying locked interfaces.
 - Tests: add contract + device tests for `VFD20T202HAL` (init sequence, clear/home, DDRAM addressing). Runners updated.
 - Docs: expand `docs/api/VFD20S401HAL.md` and `docs/api/VFD20T202HAL.md` with IVFDHAL method references, unbuffered and buffered code examples, and device-specific notes.
+- Docs: add `docs/api/HAL_Authoring_Guide.md` and `docs/api/HAL_Doc_Template.md` for consistent HAL documentation and authoring.
 
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.
