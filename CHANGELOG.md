@@ -48,6 +48,12 @@ All notable changes to this project will be documented in this file.
   - Tests: device tests for init bytes, DCRAM header + chars on writeAt, and dimming codes; registered in both runners alongside contract tests.
   - Docs: `docs/api/VFDPT6302HAL.md` command summary; OCR + text sidecar added for `PT6302.PDF`.
 
+- HAL: PT6314 (VFDPT6314HAL)
+  - New HAL for PT6314 (HD44780-like) with 20x2 default geometry; init 0x38, 0x0C, 0x01, 0x06; DDRAM/CGRAM addressing and basic write helpers.
+  - Capabilities: 20x2, serial/parallel, 8 CGRAM chars; factory added.
+  - Tests: init sequence and DDRAM addressing; registered in Arduino and embedded runners.
+  - Docs: `docs/api/VFDPT6314HAL.md`. OCR + text sidecar added for `PT6314.PDF`.
+
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.
 - Add `AGENTS.md` directives to codify safety rules and commit policy.
