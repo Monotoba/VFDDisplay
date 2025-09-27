@@ -311,7 +311,6 @@ Implement a new device HAL (e.g., `MyDisplayHAL`) by following these steps:
 - [M202MD15AJ Datasheet](datasheets/M202MD15AJ.pdf)
 - [M202MD15FA Futaba Datasheet](datasheets/M202MD15FA-Futaba.pdf)
 - [M202SD01HA Datasheet](datasheets/M202SD01HA.pdf)
-- [HD44780 Controller Datasheet](datasheets/HD44780.pdf) — reference LCD controller command set often mirrored in VFD modules
 - [NA204SD01CC Module Datasheet](datasheets/NA204SD01CC_revC_12Mar2013.pdf) — 20x4 VFD module electrical and timing details
 
 ### External Resources
