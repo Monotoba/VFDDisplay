@@ -36,6 +36,12 @@ All notable changes to this project will be documented in this file.
   - Reorganize OCR outputs into `docs/datasheets/ocr/` and text sidecars into `docs/datasheets/text/`; stage removals of old top-level sidecar files.
   - Add/refresh OCR and `.txt` for CU40026, CU20025, HT16514, 20T202DA2JA, M202MD15AJ, and M202SD01HA; include VK202‑25 manual OCR and sidecar.
 
+- HAL: NA204SD01 (VFDNA204SD01HAL)
+  - New HAL for Noritake NA204SD01 (20x4) using SD01 command set (Reset 0x1F, Clear 0x0D, Home 0x0C, Pos 0x10+addr with 00/14/28/3C bases, Dimming 0x04 + 6 levels).
+  - Capabilities: 4x20, dimming, cursor/blink; added factory to CapabilitiesRegistry.
+  - Tests: device tests for reset, clear/home, 4th-row positioning, and dimming; registered in Arduino and embedded runners along with IVFDHAL contract tests.
+  - Docs: `docs/api/VFDNA204SD01HAL.md` short reference and link to datasheet. Added OCR+text sidecar for `NA204SD01CC_revC_12Mar2013.pdf`.
+
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.
 - Add `AGENTS.md` directives to codify safety rules and commit policy.
