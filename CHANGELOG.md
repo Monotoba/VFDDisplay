@@ -54,6 +54,12 @@ All notable changes to this project will be documented in this file.
   - Tests: init sequence and DDRAM addressing; registered in Arduino and embedded runners.
   - Docs: `docs/api/VFDPT6314HAL.md`. OCR + text sidecar added for `PT6314.PDF`.
 
+- HAL: uPD16314 (VFDUPD16314HAL)
+  - New HAL for NEC/Renesas uPD16314 (HD44780-like) with Function Set brightness control (BR1/BR0) and default 20x2 geometry.
+  - Capabilities: 20x2, serial/parallel, 8 CGRAM chars, 4 brightness levels; factory added.
+  - Tests: init sequence, clear/home/pos, and dimming via Function Set; added to both runners with contract tests.
+  - Docs: `docs/api/VFDUPD16314HAL.md`. OCR + text sidecar added for `UPD16314.PDF`.
+
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.
 - Add `AGENTS.md` directives to codify safety rules and commit policy.
