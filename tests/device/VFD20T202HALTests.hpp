@@ -37,4 +37,15 @@ inline void register_VFD20T202HAL_device_tests() {
   ET_ADD_TEST("VFD20T202.init_sequence", test_vfd20t202_init_sequence);
   ET_ADD_TEST("VFD20T202.clear_and_home", test_vfd20t202_clear_home_codes);
   ET_ADD_TEST("VFD20T202.setCursorPos_set_ddram", test_vfd20t202_setCursorPos_set_ddram);
+  ET_ADD_TEST("VFD20T202.dimming_maps_to_function_set", [](){
+    VFD20T202HAL hal; MockTransport mock; hal.setTransport(&mock); (void)hal.init();
+    struct { uint8_t level; uint8_t expected; } cases[] = {
+      {0, 0x38}, {1, 0x39}, {2, 0x3A}, {3, 0x3B}
+    };
+    for (auto &c : cases) {
+      mock.clear();
+      ET_ASSERT_TRUE(hal.setDimming(c.level));
+      ET_ASSERT_EQ((int)mock.at(0), (int)c.expected);
+    }
+  });
 }

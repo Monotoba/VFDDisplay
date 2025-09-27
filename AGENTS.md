@@ -36,3 +36,9 @@ Standard Procedure
 - After completing changes, ensure `CHANGELOG.md` is updated to describe what changed and why.
 - Commit changes as small, focused commits with clear messages, following the Commit Policy above.
 - When adding developer tooling or CI/test scaffolding, also add brief usage notes in `docs/`.
+
+OCR Tooling Availability
+- OCRmyPDF, Tesseract (terract), and pdf2image are available in the environment.
+- For scanned PDFs in `docs/datasheets/`, OCR them and retain the `.txt` sidecar for reference:
+  - `ocrmypdf --sidecar <file>.txt <file>.pdf <file>_ocr.pdf`
+- Prefer using the OCR’d text when extracting instruction sets and timing from image-only datasheets.
