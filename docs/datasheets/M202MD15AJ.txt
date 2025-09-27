@@ -1,0 +1,2171 @@
+Futaba.
+
+ 
+
+ 
+
+AN-E-2278A
+
+ 
+
+APPLICATION NOTE
+
+VACUUM FLUORESCENT DISPLAY MODULE
+
+ 
+
+ 
+
+CHARACTER DISPLAY MODULE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+M202MDI15AJ
+
+ 
+
+GENERAL DESCRIPTION
+
+Futaba Vacuum Fluorescent Display Module M202MDI5AJ, with
+Futaba VFD 202-MD-15GNK display, produces 20 digitsx2rows write
+5x8 dot matrix. Consisting of a VFD, one chip controller, DC-DC/AC
+converter, the module can be operated by a parallel interface or a
+synchronous serial interface, and only 5 voltage power source is
+required to operate the module.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Futaba Corporation
+ 
+
+JN Important Safety Notice
+
+Please read this note carefully before using the product.
+Warning
+The module should be disconnected from the power supply before handling.
+
+The power supply should be switched off before connecting or disconnecting the
+power or interface cables.
+
+The module contains electronic components that generate high voltages which may
+cause an electrical shock when touched.
+
+Do not touch the electronic components of the module with any metal objects.
+
+The VFD used on the module is made of glass and should be handled with care.
+When handling the VFD, it is recommended that cotton gloves be used.
+
+The module is equipped with a circuit protection fuse.
+
+Under no circumstances should the module be modified or repaired.
+Any unauthorized modifications or repairs will invalidate the product warranty.
+
+The module should be abolished as the factory waste.
+
+AN-E-2278A [Important Safety Notice]
+CONTENTS PAGE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1. FEATURES, visssessssssescecsescessessssscesssesscseseesesssssssssesessssesesessssesssssssssesesessssesesessesieas 1
+2. SPECIFICATIONS
+9-1. GENERAL SPECIFICATIONS. vv-ssssessssssescesseessescsessessesssssseseesssessssesseeseesieas 1
+2-2, ENVIRONMENTAL SPECIFICATIONS -vsssessesssessescesssesseseesssessssessseeseesnens 1
+2-3. ABSOLUTE MAXIMUM VOLTAGES -vvscsssessesssestestesssesteseesssessssesseeseesnens 2
+2-4. DC ELECTRICAL SPECIFICATIONS -iss:ssssessesssessessesssssseseesssessssesssseseesnens 2
+2-5. AC ELECTRICAL SPECIFICATIONS vrss:ssssessesssessessesssssseseesssessssessseeseesnees 2
+2-5-1. MOTOROLA M68-TYPE PARALLEL INTERFACE TIMING ...-----. 2,3
+2-5-2. INTEL I80-TYPE PARALLEL INTERFACE TIMING ..--- eee 4.5
+2-5-3. SYNCHRONOUS SERIAL INTERFACE TIMING .«.-::::-eeeeeeeeeee eee eees 5,6
+2-5-4. RESET TIMING crvessvsssessescesseessescesssesscsesessesessssseesseessssesssessessssesesseness 7
+3. MODE OF OPERATION
+3-1. PARALLEL INTERFACE MODES -rvvsssessessesstesteeesescestessssscesssessesesseeseesaens 7
+3-1-1. MOTOROLA M68-TYPE MODE civesvsssessessestestesstssteseesssessssesssseseesiens 7
+3-1-2. INTEL I80-TYPE MODE -esssessesssessesseessesecsesescessesssssseseesssessssesssseseesaens 8
+3-2. SYNCHRONOUS SERIAL INTERFACE MODE -esestsssesteseestesteseestsseseeeeees 8
+3-3. RESET MODES, -esssssssessssscesseessesececsescessssssescessseseseessssesessssseesssessssesneeeseesies 9
+4. FUNCTIONAL DESCRIPTION
+4-1. ADDRESS COUNTER(AC) -stsstsststestettstestesieieeeeeiesiesnesneseseaieensseseeeeeeess 10
+4-2. DISPLAY DATA RAM(DDRAM) orssssseteisteetesieetestestesneseeesieenssnseaieeeeess 10
+4-3. CHARACTER GENERATOR RAM(CGRAM) oesssssssessesissieseseeesseeeeenten 1]
+A-A. INSTRUCTIONS cessssssssssessessscsccsesescesecssssscesssesscsesessessssssssseseesssessssessseeseesaeas 11
+4-4-1. CLEAR DISPLAY -esvssssssessesssestecesssesecsesessesssssssseesssssesesssessesssssseateness 12
+4-4-2. CURSOR HOME. pivesvssssssescesseestescecssesscsssssessssssseesssssssesassessesssssseseeness 12
+4-4-3. ENTRY MODE SET vesssssossesseestescesssesecsesssesssssssseesssessssesssseesesssssseaeeness 12
+4-4-4. DISPLAY ON/OFF CONTROL -vvsssessesstestessesstesteseessssesestessesssssseseeness 13
+4-4-5. CURSOR/DISPLAY SHIP vsss:sssvessessesssescessesssssecsssesscsesessessesssssseseeness 13
+4-4-6. FUNCTION SET -evessvssssssescessesetesccssesscsesssessssusssseassessssesessessessssssesseness 14
+4-4-7. CGRAM ADDRESS SET -vvssssssessvssteseeeetesteseessssseesseessssesssessesssssseseeness 14
+4-4-8 DDRAM ADDRESS SET cevsstssessesstessesesesteseesssssecseessssesssessesssseseaseness 14
+4-4-9. ADDRESS COUNTER READ -vrvsstessesttestestessteseesseessssesestessesssssseseenass 14
+4-4-10. DDRAM OR CGRAM WRITE -rssressvsstesteseesstesteaeeestesesssessessssssesseness 15
+4-4-11. DDRAM OR CGRAM READ. borrsstvssesstesteseesssestesseessceesassessessssteneeness 15
+A-5. RESET CONDITIONS -ovssssssssessesstestessessssscessecsscsessesessessssssessessessssessseeseesnses 15
+5. CONNECTOR INTERFACE. -evtessssstessesssessesesesceseessssscessecssssessssssessssusessesssesseseenes 16
+6. JUMPER SETTING -esvessssssestesstesceeesssesecsesessesssssssseesssessssessssessssssessesssessssessessseesesns 16
+7. CIRCUIT BLOCK DIAGRAM -rvvevessessesssessesseesseseesssesecsesssessssssssesssesssseseeessesins 16
+FIGURE-1 MECHANICAL DRAWING. -ess:csessesstesteseessesscescesssseesssseseesssnssesseness 17
+FIGURE-2. DISPLAY CHARACTER CODE -ives:tsssesseseesstescesseessssesestsssessssseseeaees 18
+RB WARRANTY 0 veresseossvsstesteseesscseceesescessssusssessssscsessssessssssssssssssssessssessssestesssaseaseness 19
+9 OPERATING RECOMMENDATIONS -vsssssssssssestessteseesesestessessseseesesessesesseeseesiens 19
+
+ 
+
+AN-E-2278A [CONTENTS]
+1. FEATURES
+This vacuum fluorescent display (VFD) module consists of a 20 character by 2 line 5x8 dot
+matrix display, DC-DC/AC converter, and controller/driver circuitry.
+The module can be configured for a Motorola M68-type parallel interface, an Intel 180-type
+parallel interface, or a synchronous serial interface.
+A character generator ROM with 240 5x8 characters is provided along with RAM for the user
+to program an additional 8 characters. The luminance level of the VFD can be varied by
+setting two bits in the function set instruction.
+Two hundred and forty character fonts consisting of a alphabets, numerals and other symbols
+can be displayed.
+This module has a dual-port RAM that allows data and instructions to be the module
+continuously. Thus, the busy flag is always 0 and the host never has to read the busy flag bit to
+determine if the module is busy.
+Due to this feature, the execution times for each instruction are not specified.
+
+2. SPECIFICATIONS
+2-1. GENERAL SPECIFICATIONS
+Table-1
+
+ 
+
+Item Value
+
+ 
+
+Number of characters
+
+20 characters x 2 lines
+
+ 
+
+Character configuration
+
+5x8 dot matrix
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Character Height 8.86 mm
+Character Width 3.9 mm
+Character Pitch 5.15 mm
+Line Pitch 9.64 mm
+Dot Size (WxH) 0.7 x 1.02 mm
+Dot Pitch (WxH) 0.8 x 1.12 mm
+Peak Wavelength of Illumination Green (Ap=505nm) x=0.235, y=0.405
+Luminance Minimum Typical ;
+350 cd/m 500 cd/m
+2-2. ENVIRONMENTAL SPECIFICATIONS
+Table-2
+Item Symbol | Min. | Max. | Unit Comment
+Operating Temperature | Topr -40 +85 °C
+Storage Temperature Tstg -40 +85 °C
+Operating Humidity Hopr 20 85 %RH_ |Without condensation
+Storage Humidity stg 20 90 %RH_ |Without condensation
+Total amplitude: 1.5mm
+Vibration _ _ 4 G Freq: 10-55 Hz sine wave
+Sweep time: | min./cycle
+Duration: 2hrs./axis (X, Y,Z)
+Duration: 11ms
+Shock — — 40 G _ |Wave form: half sine wave
+3 times/axis (X, Y,Z,-X,-Y,-Z)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+AN-E-2278A[1/19]
+
+ 
+2-3. ABSOLUTE MAXIMUM VOLTAGES
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Table-3
+Item Symbol Min. Max. Unit
+Supply Voltage Voc -0.3 6.5 V
+Input signal Voltage Vin -0.3 Vec+0.3 Vv
+2-4. DC ELECTRICAL SPECIFICATIONS
+Table-4
+Item Symbol Min. Typ. Max. Unit
+Supply Voltage Voc 45 5.0 5.5 V
+Supply Current
+(Vee=5.0V. All On) fee " 340 490 mA
+Power Consumption
+(Vec=5.0V, All On) ; ; LT 2.25 W
+(sce Note) Input Voltage Vins 0.7* Vee _ Voc V
+Low - Level Input Voltage Vy 0 — 0.2* Voc V
+High - Level Output Voltage
+(log = O1mA) P S Vou | Vec-0.5 - - V
+Low - Level Output Voltage
+(Io, = 0.1mA) P - Vou — — 0.5 Vv
+Input Current (see Note) q -500 — 1.0 WA
+Note: A 10K ohm pull-up resistor is provide on each input line.
+2-5. AC ELECTRICAL SPECIFICATIONS
+2-5-1. MOTOROLA M68-TYPE PARALLEL INTERFACE TIMING
+(See Figures | and 2)
+Table-5
+Item Symbol Min. Max. Unit
+
+RS, R/W Setup Time tas 20 _ ns
+
+RS, R/W Hold Time tan 10 — ns
+
+Input Signal rise Time t; — 15 ns
+
+Input Signal Fall Time te — 15 ns
+
+Enable Pulse Width High PWey 230 — ns
+
+Enable Pulse Width Low PWeL 230 — ns
+
+Write Data Setup Time tos 80 — ns
+
+Write Data Hold Time toy 10 — ns
+
+Enable Cycle Time TecycLe 500 — ns
+
+Read Data Delay Time top — 160 ns
+
+Read Data Hold Time tour 5 — ns
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note:
+
+AN-E-2278A[2/19]
+
+All timing is specified using 20% and 80% of Vcc as the reference points.
+
+ 
+ 
+
+X
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS
+tas f= > tax
+we j
+a <= t,
+—  ___ PWex =
+DS —
+> > toy <
+DBO-DB7 \ y
+tcyYCLE
+Figure 1. _Motorola M68-Type Parallel Interface Write Cycle Timing
+x \
+
+ 
+
+X
+:
+
+w ke
+
+ 
+
+ 
+
+tas = >
+wd ,
+
+t t
+
+i= Ss PWay SI iS Mf
+
+ 
+
+ 
+
+ 
+
+\
+
+—
+
+ 
+
+ 
+
+ 
+
+E
+<——_—— PWeL —S
+top => _—itpur <
+DBO0-DB7 Y y
+
+ 
+
+tcYCLE
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 2. Motorola M68-Type Parallel Interface Read Cycle Timing
+
+ 
+
+AN-E-2278A[3/19]
+2-5-2. INTEL I80-TYPE PARALLEL INTERFACE TIMING
+(See Figures 3 and 4)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Table-6
+Item Symbol Min. Max. Unit
+RS Setup Time trss 10 — ns
+RS Hold Time trsH 10 — ns
+Input Signal Fall Time te — 15 ns
+Input Signal Rise Time t; — 15 ns
+WR/ Pulse Width Low twee 30 — ns
+WR’ Pulse Width High twru 100 — ns
+Write Data Setup Time tpsi 30 — ns
+Write Data Hold Time toni 10 — ns
+WR/ Cycle Time tcycwr 166 — ns
+RD/ Cycle Time teycrpD 166 — ns
+RD/ Pulse Width Low trp. 70 — ns
+RD/ Pulse Width High trpH 70 — ns
+Read Data Delay Time top; — 70 ns
+Read Data Hold Time touri 5 50 ns
+
+ 
+
+ 
+
+Note: All timing is specified using 20%and 80%of Vcc as the reference points.
+
+ 
+
+RS
+
+-——C_ Fs
+
+<— — twri ton:
+> tosi a
+DBO0-DB7 Y y
+
+tcycwR
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 3. Intel 180-Typte Parallel Interface Write Cycle Timing
+
+AN-E-2278A[4/19]
+ 
+
+RS
+
+,
+
+ 
+
+t,
+
+X
+
+je 'RSH l<
+
+—<——._ troy
+
+ 
+
+ 
+
+IK
+
+>
+
+DBO-DB7
+
+L
+
+ 
+
+ 
+
+topi >
+
+ 
+
+\
+
+ 
+
+ 
+
+Figure 4.
+
+=
+
+ 
+
+f
+
+ 
+
+teycrD
+
+ 
+
+Intel 180-Typte Parallel Interface Read Cycle Timing
+
+ 
+
+2-5-3. SYMCHRONOUS SERIAL INTERFACE TIMING
+
+(See Figures 5, 6, 10, and 11)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Table-7
+Item Symbol Min. Max. Unit
+STB Setup Time tstTBs 100 — ns
+STB Hold Time tsTBH 500 — ns
+Input Signal Fall Time te — 15 ns
+Input Signal Rise Time t; — 15 ns
+STB Pulse Width High twstB 500 — ns
+SCK Pulse Width High tscKH 200 — ns
+SCK Pulse Width Low tscKL 200 — ns
+SI Data Setup Time toss 100 _ ns
+SI Data Hold Time tous 100 — ns
+SCK Cycle Time teyescK 500 — ns
+SCK Wait Time Between Bytes twair ] — us
+SO Data Delay Time tops — 150 ns
+SO Data Hold Time tours 5 — ns
+
+ 
+
+Note: All timing is specified using 20% and 80% of Vcc as the reference points.
+
+AN-E-2278A[5/19]
+
+ 
+>| toon
+
+= mt
+
+teycscK le
+tsTBs tsTBH
+— pe tsckH
+
+" _4stet ol.
+
+toss
+
+ 
+
+ 
+
+ 
+
+SI
+
+ 
+
+Figure 5. Synchronous Serial Interface Write Cycle Timing
+
+ 
+
+>| toon
+
+STB \ / \
+> tsTBs Sg tsTBH lc
+Of N
+
+SCK j .
+hd
+ak tous = t. >
+
+tops
+
+SI/SO ( y
+
+Figure 6. Synchronous Serial Interface Read Cycle Timing
+
+ 
+
+ 
+
+ 
+
+ 
+
+AN-E-2278A[6/19]
+2-5-4. RESET TIMING
+
+ 
+
+ 
+
+ 
+
+(See Figures 7)
+Table-8
+Item Symbol | Min. Max. Unit
+Delay Time for internal reset at power-up | trstp 100 — ms
+Vcc Off Time toFF ] — ms
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Vec 4.5V
+0.2V
+
+—_ torr | trstp ol
+STB y
+
+Figure 7. _Power-Up Internal Reset Timing
+
+ 
+
+ 
+
+ 
+
+3. MODE OF OPERATION
+The following modes of operation are selectable via jumpers (see section 6. JUMPER SETTINGS).
+
+3-1. PARALLEL INTERFACE MODES
+In the parallel interface mode, 8-bit instructions and data are sent between the host and the
+module using either 4-bit nibbles or 8-bit bytes. Nibbles are transmitted high nibble first on
+DB4-DB7 (DBO-DB3 are ignored) whereas bytes are transmitted on DBO-DB7.
+The Register Select (RS) control signal is used to identify DBO-DB7 as an instruction (low)
+or data (high).
+
+3-1-1. MOTOROLA M68-TYPE MODE
+This mode uses the Read/Write (R/W) and Enable (E) control signals to transfer
+information.
+Instructions/data are written to the module on the falling edge of E when R/W is low
+and are read from the module after the rising edge of E when R/W is high.
+
+ 
+
+RS
+
+ 
+
+ 
+
+ 
+
+R/W
+
+nn a ee
+
+DB7
+
+ove 7] m= (m2 ne om
+Leite insoucion| — fewsite instructions} Read instructions] Wite Data
+
+Figure 8. Typical 4-Bit Interface Sequence Using M68-Type Mode
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+AN-E-2278A[7/19]
+3-1-2. INTEL I[80-TYPE MODE
+This mode uses the Read (RD/) and Write (WR/) control signals to transfer information.
+Instructions/data are written to the module on the rising edge of WR/ and are read from
+the module after the falling edge of RD/.
+
+ 
+
+RS
+
+we | of LF re
+RD/ y |
+
+pp7 ///X —_1B7 IB7 BF="0” DB7
+
+pao ///K__1Be__i/fh__tB6__//h_186_ W//K__bp6__H/L
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ppo = ///X _1B0 IBO IBO DBO
+
+ke Write Instruction > lec Write Instruction > ke Read Instruction > ke Write Data >
+
+Figure 9. Typical 8-Bit Parallel Interface Sequence Using I80-Type Mode
+
+ 
+
+ 
+
+3-2. SYNCHRONOUS SERIAL INTERFACE MODE
+In the synchronous serial interface mode, instructions and data are sent between the host
+and the module using 8-bit bytes. Two bytes are required per read/write cycle and are
+transmitted MSB first. The start byte contains 5 high bits, the Read/Write (R/W) control bit,
+the Register Select (RS) control bit, and a low bit. The following byte contains the
+instruction/data bits. The R/W bit determines whether the cycle is a read (high) or a write
+(low) cycle. The RS bit is used to identify the second byte as an instruction (low) or data
+
+(high).
+
+This mode uses the Strobe (STB) control signal , Serial Clock (SCK) input, and Serial I/O
+(SI/SO) line to transfer information. In a write cycle, bits are clocked into the module on
+the rising edge of SCK. In a read cycle, bits in the start byte are clocked into the module on
+the rising edge of SCK. After the minimum wait time, each bit in the instruction/data byte
+can be read from the module after each falling edge of SCK. Each read/write cycle begins
+on the falling edge of STB and ends on the rising edge. To be a valid read/write cycle, the
+STB must go high at the end of the cycle.
+
+AN-E-2278A[8/19]
+STB |
+
+1 2 3 4 5 6 7 8 9 10 I 12 #13 «+14 ~=«15— «16
+
+so ELLE
+
+° Rw RS } “0” B7 } B6 j BS j\ B4 A B3 jf B2 AJ BI A BO
+ee Start Byte K< Instruction / Data as
+
+Figure 10. Typical Synchronous Serial Interface Write Cycle
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+   
+
+2° R/W
+
+of elena
+
+Start Byte Instruction / Data
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11. Typical Synchronous Serial Interface Read Cycle
+
+ 
+
+3-3. RESET MODES
+The module is reset automatically at power-up by internal R-C circuit. However, an
+external reset mode can also be selected when using one of the parallel interface modes
+(this option is not available when using the synchronous serial interface mode) which
+allows the module to be reset by setting the Reset (RST/) input low.
+
+AN-E-2278A[9/19]
+4. FUNCTIONAL DESCRIPTION
+4-1. ADDRESS COUNTER (AC)
+The AC stores the address of the data being written to and from DDRAM or CGRAM. The
+AC increments by 1 (overflows from 27H to 40H and from 67H to 00H) or decrements by
+1 (underflows from 40H to 27H and from 00H to 67H) after each DDRAM access. The AC
+increments by | (overflows from 3FH to 00H) or decrements by | (underflows from 00H to
+3FH) after each CGRAM access. When addressing DDRAM, the value in the AC also
+represents the cursor position.
+
+4-2. DISPLAY DATA RAM (DDRAM)
+The DDRAM stores the character code of each character being displayed on the VFD.
+Valid DDRAM addresses are 00H to 27H and 40H to 67H. DDRAM not being used for
+display characters can be used as general purpose RAM. The tables below show the
+relationship between the DDRAM address and the character position on the VFD before
+and after a display shift (with the number of display lines set to 2).
+
+Relationship before a display shift (non-shifted):
+
+12 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+1 | 00] O1 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 |OA| OB} OC | OD] OE} OF | 10] 11 | 12] 13
+2 | 40] 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48 | 49 |4A| 4B] 4C | 4D] 4E] 4F | 50] 51 | 52 | 53
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Relationship after a display shift to the left:
+
+12 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+1 | 01 | 02 | 03 | 04} 05 | 06 | 07 | 08 | 09 |OA|OB|0C |OD| OE] OF} 10] 11] 12} 13] 14
+2 | 41 | 42 | 43 | 44 | 45 | 46} 47 | 48 | 49 |4A | 4B] 4C| 4D] 4E | 4F | 50] 51 | 52 | 53 | 54
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Relationship after a display shift to the right:
+
+12 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+1 | 27] 00} 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 |OA}OB|OC|OD] OE] OF} 10 | 11 | 12
+2 | 67| 40] 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48 | 49 |4A| 4B /4C | 4D] 4E] 4F | 50] 51 | 52
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+AN-E-2278A[ 10/19]
+4-3, CHARACTER GENERATOR RAM (CGRAM)
+The CGRAM stores the pixel information (1 = pixel on, 0 = pixel off) for the eight
+user-definable 5x8 characters. Valid CGRAM addresses are 00H to 3FH. CGRAM not
+being used to define characters can be used as general purpose RAM. Character codes 00H
+to 07H (or 08H to OFH) are assigned to the user-definable characters (see section 5.0
+Character Font Tables). The table below shows the relationship between the character
+codes, CGRAM addresses, and CGRAM data for each user-definable character.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Character Code CGRAM Address CGRAM Data
+D7 D6 D5 D4 D3 D2 D1 DOJAS A4 A3 A2 Al AO|D7 Dé DS D4 D3 D2 D1 DO
+000 0x 0 0 0/0 00 00 0}x x x}/l tt titi
+0 0 1 1 00 0 0
+0 1 0 1 00 0 0
+0 1 1 100 0 0} CGRAM
+10 0 1 TW o (1)
+1 01 1 00 0 0
+/ 1 1 0 1 00 0 0
+1 11 100 0 0
+000 0x 0 0 14/0 01 00 0}x x x O|L TT O
+0 0 1 1 0 0 Off
+0 1 0 1 00 0 0
+0 1 1 100 0 0} CGRAM
+10 0 100 00 (2)
+1 01 1 00 0 0
+/ 1 1 0 1 0 0 Off
+1 11 O;l 1 1 0
+000 0x 11 1f1 1:41:00 0)}x x x 0 O}1T,0 0
+0 0 1 O'|1,0'1 0
+0 1 0 1 0 0 Off
+0 1 1 1,0 0 0{1} CGRAM
+10 0 10004 (8)
+1 01 1 114d1éidi1
+1 1 0 1 0 0 Off
+1 11 1 0 0 Of}
+4-4. INSTRUCTIONS
+Table-9
+Instruction RS_ | R/W | DB7 | DB6 | DBS | DB4 | DB3 | DB2 | DB1 | DBO
+Clear Display 0 0 0 0 0 0 0 0 0 1
+Cursor Home 0 0 0 0 0 0 0 0 ] x
+Entry Mode Set 0 0 0 0 0 0 0 I I/D S
+Display On/Off control 0 0 0 0 0 0 Il D C B
+Cursor/Display Shift 0 0 0 0 0 ] S/C | R/L | x x
+Function Set 0 0 0 0 ] DL | N x | BRI | BRO
+CGRAM Address Set 0 0 0 1 CGRAM Address
+DDRAM Address Set 0 0 1 DDRAM Address
+Address Counter Read 0 1 |BF=0 AC Contents
+DDRAM or CGRAM Write} 1 0 Write Data
+DDRAM or CGRAM Read |__ 1 1 Read Data
+x=don’t care
+
+AN-E-2278A[ 11/19]
+4-4-1]. CLEAR DISPLAY
+RS R/W DB7 DB6 DBS DB4 DB3 DB2 DB1 DBO
+Lo}/o};o;o;o];lo{o|fo]|o]{i|
+
+ 
+
+ 
+
+This instruction clears the display (without affecting the contents of CGRAM) by
+performing the following.
+
+1) Fills all DDRAM locations with character code 20H (character code for a space).
+2) Sets the AC to DDRAM address 00H (.e. sets cursor position to OOH).
+
+3) Returns the display to the non-shifted position.
+
+4) Sets the I/D bit to 1.
+
+4-4-2. CURSOR HOME
+RS R/W DB7 DB6 DBS DB4 DB3 DB2 DBI DBO
+fotofofofo}o}ofo {tif x]
+x=don’t care
+
+ 
+
+ 
+
+This instruction returns the cursor to the home position (without affecting the contents
+of DDRAM or CGRAM) by performing the following.
+
+1) Sets the AC to DDRAM address 00H (ec. sets cursor position to 00H).
+2) Returns the display to the non-shifted position.
+
+4-4-3, ENTRY MODE SET
+RS R/W DB7 DB6 DBS DB4 DB3 DB2 DB1 DBO
+Lo};,o;o;o;o]o]o|{i1 {ms |
+
+ 
+
+ 
+
+This instruction selects whether the AC (cursor position) increments or decrements after
+each DDRAM or CGRAM access and determines the direction the information on the
+display shifts after each DDRAM write. The instruction also enables or disables display
+shifts after each DDRAM write (information on the display does not shift after a
+DDRAM read or CGRAM access). DDRAM, CGRAM, and AC contents are not
+affected by this instruction.
+
+I/D=0:The AC decrements after each DDRAM or CGRAM access. If S=1, the
+information on the display shifts to the right by one character position after
+each DDRAM write.
+
+I/D=1:The AC increments after each DDRAM or CGRAM access. If S=1, the
+information on the display shifts to the left by one character position after each
+DDRAM write.
+
+The display shift function is disabled.
+The display shift function is enabled.
+
+|
+ne)
+
+AN-E-2278A[ 12/19]
+4-4-4. DISPLAY ON/OFF CONTROL
+
+RS R/W DB7 DB6 DBS DB4 DB3 DB2 DB1 DBO
+Lo};o};o;o;o];o{i]{D|c]|{B
+
+ 
+
+ 
+
+This instruction selects whether the display and cursor are on or off and selects whether
+or not the character at the current cursor position blinks. DDRAM, CGRAM, and AC
+contents are not affected by this instruction.
+
+D=0: The display is off (display blank).
+
+D=1: The display is on (contents of DDRAM displayed).
+
+C=0: The cursor is off.
+
+C=1: The cursor is on (8" row of pixels).
+
+B=0: The blinking character function is disabled.
+
+B=1: The blinking character function is enabled (a character with all pixels on will
+
+alternate with the character displayed at the current cursor position at about a
+1Hz rate with a 50% duty cycle).
+
+4-4-5. CURSOR/DISPLAY SHIFT
+RS R/W DB7 DB6 DB5 DB4 DB3 DB2 DBI DBO
+
+1o}]of]ofof]ofds ifsecfR{ x | x |
+x=don’t care
+
+ 
+
+ 
+
+This instruction increments or decrements the AC (cursor position) and shifts the
+information on the display one character position to the left or right without accessing
+DDRAM or CGRAM.
+
+DDRAM and CGRAM contents are not affected by this instruction. If the AC was
+addressing CGRAM prior to this instruction, the AC will be addressing DDRAM after
+this instruction.
+
+However, if the AC was addressing DDRAM prior this instruction, the AC will still be
+addressing DDRAM after this instruction.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Table-10
+S/C | R/L | AC Contents (cursor position) Information on the display
+0 Q |Decrements by one No change
+0 1 |Increments by one No change
+Il Q |Decrements by one Shifts on character position to the left
+1 1 |Increments by one Shifts on character position to the right
+
+ 
+
+ 
+
+AN-E-2278A[ 13/19]
+4-4-6. FUNCTION SET
+
+RS R/W DB7 DB6é DBS DB4 DB3 DB2 DBI DBO
+1 o|o]o]o {1 ]DL]N | x |BRI]BRO|
+x=don’t care
+
+ 
+
+ 
+
+This instruction sets the width of the data bus for the parallel interface modes, the
+number of display lines, and the luminance level (brightness) of the VFD. DDRAM,
+CGRAM, and AC contents are not affected by this instruction.
+
+DL = 0 : Sets the data bus width for the parallel interface modes to 4-bit (DB7-DB4).
+DL = 1 : Sets the data bus width for the parallel interface modes to 8-bit (DB7-DB0).
+
+N=0: Sets the number of display lines to 1 (this setting is not recommended).
+N=1: Sets the number of display lines to 2
+
+BR1, BRO= 0,0: Sets the luminance level to 100%.
+0,1: Sets the luminance level to 75%.
+1,0: Sets the luminance level to 50%.
+1,1: Sets the luminance level to 25%.
+
+4-4-7, CGRAM ADDRESS SET
+
+RS_R/W DB7 DB6 DBS DB4 DB3 DB2 DBI DBO
+| o}| 0] 0 4] 1 | CG RAM Address |
+
+ 
+
+ 
+
+This instruction places the 6-bit CGRAM address specified by DB5-DBO into the AC
+(cursor position). Subsequent data writes (reads) will be to (from) CGRAM. DDRAM
+and CGRAM contents are not affected by this instruction.
+
+4-4-8. DDRAM ADDRESS SET
+
+RS R/W DB7 DB6é DBS DB4 DB3 DB2 DBI DBO
+| o | 0] 1 | DD RAM Address |
+
+ 
+
+ 
+
+This instruction places the 7-bit DDRAM address specified by DB6-DBO into the AC
+(cursor position). Subsequent data write (reads) will be to (from) DDRAM. DDRAM
+and CGRAM contents are not affected by this instruction.
+
+4-4-9, ADDRESS COUNTER READ
+
+RS  R/W_ DB7 DB6é DB5 DB4 DB3 DB2 DBI DBO
+| 0 | 1 |BF=0| AC Contents |
+
+ 
+
+ 
+
+This instruction reads the current 7-bit address from the AC on DB6-DB0 and the busy
+flag (BF) bit (always 0) on DB7. DDRAM, CGRAM, and AC contents are not affected
+by this instruction. Because the BF is always 0, the host never has to read the BF bit to
+determine if the module is busy before sending data or instructions. Therefore, data and
+instructions can be sent to the module continuously according to the E, WR/, and SCK
+cycle times specified in section 2.5 AC Timing Specifications. Due to this feature, the
+execution times for each instruction are not specified.
+
+AN-E-2278A[ 14/19]
+4-4-10. DDRAM OR CGRAM WRITE
+
+RS R/W DB7 DB6é DBS DB4 DB3 DB2 DBI DBO
+1} 1 | 0 | Write data |
+
+ 
+
+ 
+
+This instruction writes the 8-bit data byte on DB7-DBO into the DDRAM or CGRAM
+location address by the AC. The most recent DDRAM or CGRAM Address Set
+instruction determines whether the write is to DDRAM or CGRAM. This instruction
+also increments or decrements the AC and shifts the display according to the I/D and S
+bits set by the Entry Mode Set instruction.
+
+4-4-1]. DDRAM OR CGRAM READ
+
+RS R/W DB7 DB6é DBS DB4 DB3 DB2 DBI DBO
+} 1 | 1 | Read data |
+
+ 
+
+ 
+
+This instruction reads the 8-bit data byte from the DDRAM or CGRAM location
+addressed by the AC on DB7-DBO. The most recent DDRAM or CGRAM Address Set
+instruction determines whether the read is from DDRAM or CGRAM. This instruction
+also increments or decrements the AC and shifts the display according to the I/D and S
+bits set by the Entry Mode Set instruction. Before sending this instruction, a DDRAM or
+CGRAM Address Set instruction should be executed to set the AC to the desired
+DDRAM or CGRAM address to be read.
+
+4-5. RESET CONDITIONS
+After a power-up reset, the module initializes to the following conditions:
+
+1) All DDRAM locations are set to 20H (character code for a space).
+
+2) The AC 1s set to DDRAM address 00H (ie. sets cursor position to OOH).
+
+3) The relationship between DDRAM addresses and character positions on the VFD is set
+to the non-shifted position.
+
+4) Entry Mode Set instruction bits:
+
+I/D = 1: The AC increments after each DDRAM or CGRAM access. If S=1, the
+information on the display shifts to the left by one character position after
+each DDRAM write.
+
+S=0: The display shift function is disabled.
+
+5) Display On/Off Control instruction bits:
+
+D=0: The display is off (display blank).
+
+C=0: The cursor is off.
+
+B=0: The blinking character function is disable.
+
+6) Function Set instruction bits:
+
+DL = 1: Sets the data bus width for the parallel interface modes to 8-bit (DB7-DB0).
+
+N=1: Number of display lines set to 2.
+
+BR1,BRO0=0,0: Sets the luminance level to 100%.
+
+AN-E-2278A[ 15/19]
+5. CONNECTOR INTERFACE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Table-11
+Pin Serial Parallel Parallel | Pin Serial Parallel Parallel
+No. (Intel) (Motorola) | No. (Intel) (Motorola)
+] GND GND GND 2 Vee Vee Vee
+3 SI/SO NC NC 4 STB RS RS
+5 NC WR/ R/W 6 SCK RD/ E
+7 NC DBO DBO 8 NC DBI DBI
+9 NC DB2 DB2 10 NC DB3 DB3
+1] NC DB4 DB4 12 NC DB5 DB5
+13 NC DB6 DB6 14 NC DB7 DB7
+15* NC NC NC 16* NC NC NC
+NC = No Connection
+* These pins are applied when | row connector is used.
+6. JUMPER SETTING
+Table-12
+Mode J3 J4 J5 J6 J7
+Parallel (Motorola) | open | shorted | open | shorted | open
+Parallel (Intel) open | shorted | open open | shorted
+Serial shorted | open | shorted | shorted | open
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note : JP3-JP7 must be set as shown above for either one of the parallel modes or for the serial mode.
+When the module is shipped , the parallel (Motorola) mode is set.
+
+7. CIRCUIT BLOCK DIAGRAM
+
+E_RD/_SCK ———>
+
+DBO-DB7 <—_»
+
+NC_SI/SO <——>
+RS_ STB -————>
+R/W_WR/ >
+
+Vcc —————
+GND ————
+
+ 
+
+ 
+
+DOT MATRIX
+
+VFD
+
+CONTROLLER
+
+AND DRIVER
+
+ 
+
+ 
+
+‘
+
+ 
+
+ 
+
+DC-DC/AC
+
+CONVERTER
+
+—>
+
+ 
+
+ 
+
+VACUUM
+
+FLUORESCENT
+
+DISPLAY
+
+202-MD-15GNK
+
+ 
+
+ 
+
+ 
+
+ 
+
+AN-E-2278A[ 16/19]
+
+ 
+FIGURE-1
+
+MECHANICAL DRAWING
+
+ 
+
+M202MDIS5AJ
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+AN-E-2278A[17/19]
+
+Koy
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Co
+Un
+=<
+5 VadvVv LNANOdWOJ
+\ OO 7 OO
+WU | INP) f f
+y !O
+~ 2 OFL (3)
+iS yu
+aaa
+ys Ole (SC) op | w! ©
+Th @ ee OY
+| | eed 4 ee t |
+eo
+| a 66 a toa |
+: : : 99 5 lole
+: LBP
+| a8 ee vaey Ayes gef—i
+| r EL v7
+_V .
+| LD 91, 9000000000000009— &- :
+(7S Zd-SLIO LP -9L 7 7 (QL) N
+sor Ep -4 _ (SZLOL) j|ieerzz '=
+Gor BE] SOFGE
+
+ 
+
+ 
+
+ 
+
+I O7/
+
+ 
+M202MDI5AJ._—_ DISPLAY CHARACTER CODE (English/European Font)
+FIGURE-2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+D7; O 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
+D6; 0 0 0 0 1 1 1 1 0 0 0 0 1 1 1 1
+D5| O 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1
+D4; O 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+psp2D1iD9 | O12 lu 8l 4A 8LhUmKULlLULTLTlc BLU GW A BY} CO, DEF
+. 28 2 nnn . anna noo " "1 25 " 8
+-: . .| . . . / on ue | og / = 8 .
+000 0 0 2. SP a. 8 on | ooo " at ee aon | on oe — . o | ono a
+- i ni welRRE ELE OU Bei CR nb och
+. . . 25 8 . . . .” a ." are
+0001 1 a. ' "" 2 ". ' 7 ann an 8 8 :. nan: Par 7 2 ann o 28
+Ff Beeed | BE | need | Soete | owed | Ff og] UE fae] if) ag | ie oe
+_ [ [ o| os o8 . s/o =| 98 . [ s | #8 ' .
+/ . a8 / / 8 558 | . | 28 . -aomn | 8 s/o / mune | oo .
+" " ann agEnae ana a ag 8 8 | Bee a = . . "
+oo 1o|2 eo
+anemn ——. : =: . : : : : : hs = : a = —
+"an a] annn0 2 25 ann8 CT "a a - ar "
+0011 3 " none ” 7 "loa a8 28 = | om 7 = 25 8 on8 28
+cnn" "./ 4 aia "so: 7 a a = fenue | ol ' | /
+. ne ee |e | | | 7 mee | "eee =
+ah ooo: - a tale : : : ei . aa ". " 7" ar
+0100/4) °° | m8 6: of : : : Te eee _ . ann : . 2 .
+4 _ comme | 7 7 8 7 _ n .” ao: some | comme | oo 7 ae
+acne / i: 7 "aon wae” | 5 =| ooo |” "|" Ge | a | ee mene | mem
+8 . | .
+mueee | 98 eeeee | oooee | oc . . . 1. . a | . 4 |
+25 Te | [ [ . . . a] 1 . . . : 8
+0101 5 . . oo.8 [ [ . a8 1. o/s [ ene | omens | 8 . Try] 25 ann
+annnn Pa Hie 7 | oon | a anne conn | comme | oo : ne
+altel . = —— Pee a "oo: | hs : — : : : = * ao: BEEe ——
+rT TT SnnnE oo . 205 : a. . onan on8 “ 8
+0110/6 ae ee : Cr :a : a : | a ed —_
+oem ee | 7 |. 1 1 os as soon) oe oom | 7 oom .
+= sae ee | ome 7 _ 7 a a | oe . |= oo. oe |e 28
+ee ee} | at ole oo | ome |e
+0111 7 a5 . | ome | oe wd | a fo. an -" 7 . ." / = | ooom8
+i PORRP ERP CIRM P PCR in Certs pt"
+. . 28 . s/o | . . 1. . TT] ""
+1000 8 an ” 7 7 "s oo / / 7 7 aa. ” 8 annnn 17 ann 7
+7 7 ae ”  & . ." ene ee | ee | a5 nnn a:
+1 . . oi| ao | . 8 1. . 48 _n8 1
+. . 28 / s/o | a | | . 8 nnn TT] on8
+. . 28 22 . . . . . 25 meen | oom Pa "1 ” ".
+. . . . . . . . oi|o s/8 . . . .
+1001/9 7 "ao.8 7 "ao | oe toon | om) eee | oo ee cd 7
+a . . . : muen | 8 a| s/n 88 onan . = | soon | od .
+a5 . . 1 1 . . | somo | o |) . . / : o.5
+. . TT a... . a8 28 / 25 annnn nnn 25 on8 68
+one | suum . . . on8 28 - a a ar Pa
+1010 A . 18 / ' . - amen | 0 a muon | 8 = | omeme oo ' on8 .
+oe -" 7 . " "| 0 7 moon | mem ooo: . s | omen | oo .
+. / Tr . 8 . _ 8 . [ a] [ / 2
+_ annn8 TT Tri] | omoge | eee | cee | 25 on8 |
+1011 B ” : i: a = : . : on — 4 8 wenen . - os . ‘.
+o_o oo an : a : = | . os io: : a noone : :
+" " ” = om ao: 8 "s cones | oo " " momen | mon on8 o-
+a ” 7 . "" 7 on a " . . " ."
+1100 C " - : " : : pe | ee | ee | 7a eo | oe : ot
+. " " : " : : ium aoe | oo : ' og 7 om
+annn8 . anna8 a8 / / | / 25 25 on0 |
+. we a. .: -_: LLL! : _ Pa ” ” -
+1101 D - eon (eee ' a ne ". in. HoH eeee | one a re a" ' /
+. CT | . . | . . os | 9008 8 . . 1 1 on55
+BEEEe : : ae | a : a i a : — ae : ah —
+. "aE | ets rE ee fe fie | ot | oe
+1110/E ats sites met, | ee fee cfm [ee] ee foe | ae] ge a,
+_: . -= © . a | ane = oo. 5 . TT] 1 7
+ouemn | on ” = & = & ce | eee” | oe moe | oe ath “as
+28 2 . 2 25 . 8 Ty | 8
+1111 F 1 - i|a ' oan 8 ania ' 1 . a8 8 . ' .
+a ” ” 7 7 : ' ' "| 8 7 .” 7 8 "1 "aa.8
+" . "ee | omeme oa |e tT | 1 28 a. on” aa: 28
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+AN-E-2278A[18/19]
+8. WARRANTY
+This display module is guaranteed for 1 year after the shipment from FUTABA.
+
+9. OPERATING RECOMMENDATIONS
+
+9-1.
+
+9-2.
+
+9-6.
+
+9-7.
+
+9-7.
+
+Since VFDs made of glass material.
+Avoid applying excessive shock or vibration beyond the specification for the module.
+Careful handling is essential.
+
+Applying lower voltage than the specified may cause non activation for selected pixels.
+Conversely, higher voltage may cause may non-selected pixel to be activated.
+If such a phenomenon is observed, check the voltage level of the power supply.
+
+. Avoid plugging or unplugging the interface connection with the power on.
+
+. If the start up time of the supply voltage is slow, the controller may not be reset.
+
+The supply voltage must be risen to the specified voltage level within 30msec.
+
+. Avoid using the module where excessive noise interference is expected. Noise affects the
+
+interface signal and causes improper operation.
+Keep the length of the interface cable less than 50cm (When the longer cable is required,
+please contact FUTABA engineering.).
+
+When power supply is turned off, the capacitor does not discharge immediately.
+
+The high voltage applied to the VFD must not contact the controller IC.
+
+(The shorting of the mounted components within 30 seconds after power off may cause
+damage.)
+
+The fuse is mounted on the module as circuit protection.
+If the fuse blown, the problem shall be solved first and change the fuse.
+
+When fixed pattern is displayed for a long time, you may see uneven luminance.
+It is recommended to change the display patterns sometimes in order to keep best display
+
+quality.
+
+REMARKS:
+
+This specification is subject to change without prior notice.
+Your consultation with our engineer is recommended for the use of this module.
+
+AN-E-2278A[19/19]

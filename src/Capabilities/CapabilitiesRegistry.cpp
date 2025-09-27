@@ -311,6 +311,30 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDHT16514Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDM202MD15Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "M202MD15",
+        "Futaba M202MD15 20x2 VFD module",
+        "Futaba",
+        "M202MD15AJ",
+        2, 20,
+        5, 8,
+        116, 16,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS | CAP_DIMMING,
+        1,   // blink on/off
+        8,   // user-defined chars
+        4,   // brightness via Function Set
+        0,
+        10, 100, 100,
+        500, 800,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedInterface("Parallel");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createGeneric20x2Capabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "Generic 20x2 VFD",
