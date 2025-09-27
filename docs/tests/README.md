@@ -47,6 +47,8 @@ Use the new test targets without changing your existing example flow:
 - List tests: `make tests`
 - Build a specific test: `make tests/embedded_runner/main.cpp`
 - Build a specific Arduino test: `make tests/arduino/IVFDHAL_And_Device_Tests/IVFDHAL_And_Device_Tests.ino BACKEND=arduino`
+  - If Arduino CLI doesn’t resolve the library when building from the repo, point to your sketchbook libraries path:
+    - `make tests/arduino/IVFDHAL_And_Device_Tests/IVFDHAL_And_Device_Tests.ino BACKEND=arduino ARDUINO_LIB_DIRS="~/Arduino/libraries"`
 - Build all tests: `make tests/all`
 - Upload after build: append `UPLOAD=1 PORT=/dev/ttyACM0` to the commands above.
 

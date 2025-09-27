@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - PlatformIO: add `[env:megaatmega2560-tests]` that builds and runs the embedded test runner at `tests/embedded_runner/main.cpp`; links this repo as a library using `library.json`.
 - Docs: add `docs/tests/README.md` describing the test framework, how to run in Arduino IDE and PlatformIO, and how to add tests for new HALs.
 - Makefile: add `tests/%` pattern targets and `tests/all` to build (and optionally upload) tests via PlatformIO, Arduino CLI, or avr-gcc without altering existing example flow.
+- Makefile: add optional `ARDUINO_LIB_DIRS` variable to pass one or more `--libraries` paths to Arduino CLI, keeping PlatformIO flow unchanged.
 
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.

@@ -308,7 +308,11 @@ _arduino_test_build:
 	@mkdir -p $(BUILD_ROOT)/arduino_tests/$(TNAME)
 	@echo "[Arduino-CLI][test] Building $(TFILE) (FQBN=$(FQBN))"
 		$(eval ARD_FLAGS := $(if $(filter $(BUILD_TYPE),debug),--build-property "build.extra_flags=-Og -g -DVFD_BUILD_DEBUG -I $(abspath .) -I $(abspath .)/src",--build-property "build.extra_flags=-Os -DNDEBUG -DVFD_BUILD_RELEASE -I $(abspath .) -I $(abspath .)/src"))
-		arduino-cli compile --fqbn $(FQBN) --build-path $(BUILD_ROOT)/arduino_tests/$(TNAME) --library . $(ARD_FLAGS) $(TFILE)
+		# Optional user-specified Arduino libraries directory (one or more paths)
+		# Usage: make tests/<ino> BACKEND=arduino ARDUINO_LIB_DIRS="~/Arduino/libraries /path/to/more"
+		$(eval ARD_LIB_ARGS := $(if $(strip $(ARDUINO_LIB_DIRS)),$(foreach d,$(ARDUINO_LIB_DIRS),--libraries $(d)),))
+		$(eval ARD_SELF_LIB := $(if $(strip $(ARDUINO_LIB_DIRS)),,--library .))
+		arduino-cli compile --fqbn $(FQBN) --build-path $(BUILD_ROOT)/arduino_tests/$(TNAME) $(ARD_SELF_LIB) $(ARD_LIB_ARGS) $(ARD_FLAGS) $(TFILE)
 
 _arduino_test_upload:
 	@if [ -z "$(PORT)" ]; then echo "Set PORT=/dev/ttyACM0 (or your port)"; exit 1; fi
