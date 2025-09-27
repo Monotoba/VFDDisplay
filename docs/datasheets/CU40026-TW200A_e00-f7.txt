@@ -1,0 +1,1656 @@
+Neritabe tron
+
+VACUUM FLUORESCENT DISPLAY
+MODULE
+
+SPECIFICATION
+
+MODEL - CU40026-TW200A
+
+ 
+
+SPECIFICATION NO. - DS-1028-0000-00
+DATE OF ISSUE : June 23 , 2003(00)
+REVISION
+
+Published by
+
+NORITAKE ITRON Corp. / Japan
+http://www. noritake-itron.jp/
+
+This specification is subject to change without prior notice.
+CU40026-TW200A
+
+Index
+1. General DESCIIPTION 00.0... cece cece cece ee eeeeeeee eee eee eee e ee eeeeeeeeeeeseaaeeeeeeeeeeeeaaaeeseeeeeeeesaaeaeeseeeeeeeeeseaaaaeeeeeeeees 3
+4 Bn ©) ©) | (r= 10) 0 ee 3
+sos O70) a) 0 (011 (0) 9 3
+Ces DB) o- 0  ee 3
+2. Absolute Maximum RattingS ...........0...... cc ecc ccc cceee cece cence eee e ee eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeeeeeeeeaeeeeeeeeas 3
+3. Electrical Ratings 2.0... cece cee cece een ee eee eee ee eee teen ee eee eee a ee eee eee aeeeeeeeeaaeeeeeesaaeeeeeeeaeeeeeeeeeeneseeeeeeneeeeeeeas 3
+4. Electrical Characteristics 2.0.0.0... ccccee ccc ccc cece ee eeeeeeeeeee eee eaaeeeeeeeeeeeeasaaeeeeeeeeeeeessaeeeeeeeeeeeeeeseeaaaeeeeeeeees 3
+oa ©) 6) ([er= | ts) 6) -16)] (6-110) 0 ce 4
+6. Environmental Specifications 2.0.0.0... cece ccc ccc cece cease eeeeeeeeeeee seen ee eeeeeeeeeseeaseeeeeeeeeeeeeaaaeeeeeeeeeeeeasaneee ees 4
+7. Functional DESCrIPtiONS ........... 2 ccc cece ce eeee cece ee eee eee ee eee eeeeeeeeeeeeeeeeeeeeeeeeaeeeeeeeeeeeeeeeseeeeeeeeseeeeeeeeeas 4
+7.1 Character data Write... ccc cece cece cette nnn eee cece eee e edad nee ee eeeeeA saad Aa See eeeeetGes aaa eeeeeeeeeeeeeesaaanea ees 4
+1a Oe) a 1K0) Re l= 10-5 ce 4
+7.2.1 BS : Back Space (08 HX)... eee cece eee teeeeeeeeeeeeee see eeeeeeeeeeeeseeseeeeeeeeeeeseeaaaeeeseeeeeeeeaaaeeeee ees 4
+7.2.2 HT : Horizontal Tab (09 HX)... cece cece eee cece eee e eee eee saeeeeeeeaaeeeseeeeeeeeseeeeaeneeseeeeeeeeeeeas 5
+7.2.3 LF : Line Feed (OA HeX) .... 0c cece ee ee cee cee eee eeeeeeneeeeeeeeaeeeeeeeeeeeeeeeeeaeeeeeeeeaeeeeseeeneeeeeeeas 5
+7.2.4 FF : Form Feed (OC HeX) 00.0... ccc ccccccce cece neeeeeeeeeeeee see eeeeeeeeeeeeseeeeeeeeeeeeeeeeeaaaeeeeeseeeeeegaaeeen sees 5
+7.2.5 CR : Carriage Return (OD HeX) ......... ccc cccceeeeeeee eee eeeeeeeeeeeeseeeaeeeeeeeeeeseeaaaeeeeeeeeeeegaeeneneees 5
+7.2.6 CLR: Clear (OE HOX) ....... cece cccceceee eee eee eeeeeeeeeeee seas eeeeeeeeeseeeeaeeeeeeeeeeeeaaaeeseeeeeeeeaaaaaeen ees 5
+7.2.7 CAN: Cancel (OF H@X).......... cece cccccc cece seen eeeeeeeeeeee see eeeeeeeeeeeeseeeeeeeeeeeeeeeaeaaaeeeeeeeeeeeeasaeaeen ees 5
+7.2.8 DC1: Device Control 1 (11 Hex) ... Character over write MOde€........... cece ecceecceeeee a eee eens 5
+DC2 : Device Control 2 (12 Hex) ... Scroll UP MOdE........ cece ccc ceeeeeeee eae eeeeeeeeeeeeaeanees 5
+DC3 : Device Control 3 (13 Hex) ... Horizontal Scroll MOde@............ eee cece eeteteeeeeeeeeeeeeaes 5
+7.2.9 DC4 : Device Control 4 (14 Hex) ... Cursor is displayed on underline. (Default)................... 6
+DC5 : Device Control 5 (15 Hex) ... Cursor is displayed as a blinking all dot character............ 6
+DC6 : Device Control 6 (16 Hex) ... Cursor is turned to invisible...............0.. cc ceeeeeeeee aes 6
+DC7 : Device Control 7 (17 Hex) ... Cursor is displayed as a blinking Underline. ................. 6
+7.2.10 CTO : Character Table 0 (18 Hex) ... International character font ............. ccc eccccccce cee eeeeeeees 6
+CT1 : Character Table 1 (19 Hex) ... KATAKANA character font..............ccccccceccceceeeeeeeee ees 6
+EUR: Euro Currency mark (1AH) ... Euro Currency mark ..............c cece ccecceeee eee e ee eeeeeeeeeeeeeaas 6
+7.2.11 ESC: Escape (1B HOX) ...... ccc cc cece cee nnneeeeeeeeeeeee see eeeeeeeeeeeseseaeeeeeeeeeeeeeaaaeeeeseeeeeesaaeaneeees 6
+7 aCe 3-1 0 | [0\0 eee 9
+7.4 Character and control Code table ............ 0c ccc ccc cee cece ee eeeeeeeeeeeeseeeeeeeeeeeeeeeeeaaaeeeeeeeeeeeesaaeeneees 10
+7.4.1 Inter national Character fOnt ........... 0.0 e cece cece cette eee tesa deen eee sea eeeeee saa eeeeeesaaeeeeeeeeaeenees 10
+7.4.2 KATAKANA Character font........ 0.0. c cece eee eee eee c ee eeeeeeseaeeeeeeeeeeeeeeeseaeeeeeeeeaeeseeeeeaeneeees 11
+S00): 12
+8.1 Parallel interface Timing ........... ccc cece cece eee cece ee eee eee e eee eeeeeeeeeeeeeeeaeeeeeeeeeeeeeeeeeeeeeeeeseaaeees 12
+8.2 Serial InterfaACE TIMING ........... cece ccc cce cece cece eee eeeeeeeeeeesneeeeeeeeeeeeeesaeeeeeeeeeeeeasaeeeeeseeeeeeaeaaaanees 12
+CRN = 1 OLS) Gl 0 = 13
+OPIN 6 100) 01-01] | ere 14
+11. Connector Pin ASSIGNMENT .......... cece cece cece eee eeeeeeeeeeeeeeceeeaeeeeeeeeeeeeeaaa see eeeeeeeeeessaeeeeeeeeeteesseaaaaeeeeeees 15
+sis as It Xo) ©) | x0) 0] 0 [-\0) (0) 15
+sis AG) 6) 0 O10) 0] 0-10) (0) er 15
+12. OUTING GIMENSION 00.0... ccc cece cece ee eeeee eee eeeeee seen ee eeeeeeeeeeeesaaeeeeeeeeeeeeaaaeeeeseeeeeessaeaeeeeeeeeeeeesseanaaeeeeess 16
+Notice for the Cautious Handling VFD Modules .................cccccccceecccccccee see eeeeeeeeeeeeeeeaaaeeeseeeeeeeeasenaaeseeeeees 17
+ 
+
+CU40026-TW200A
+1. General Description
+
+1.1 Application
+Readout of computer, micro-computer, communication terminal and automatic instruments.
+
+1.2 Construction
+Single board display module consists of 80 character (2 x 40) VFD, refresh memory,
+character generator, control circuit, DC/DC converter and all necessary control logics.
+
+Interface level is TTL compatible and the module can be connected to the CPU bus of host
+directly.
+
+1.3 Drawing
+See attached drawings.
+
+2. Absolute Maximum Ratings
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol} Min. Typ. Max. Unit Condition
+Logic Input Voltage Vi 0 - Vect+0.3} VDC Vi<Vect0.2
+Power Supply Voltage Vcc 0 6.5 VDC -
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3. Electrical Ratings
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol} Min. Typ. Max. Unit Condition
+"H" VIH 2.0 - VCC Vec=5.0V
+Logic Input Voltage |, | 5 ; 08 VDC | ta=25degrees
+Power Supply Voltage Vcc 4.75 5.0 5.25 VDC -
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+4. Electrical Characteristics
+Measuring Conditions : TA (Ambient temperature)=25degrees, Vcc=5.0V
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol | Min. Typ. Max. Unit Condition
+
+"H" | VOH 44 - - VDC IOH=-2mA
+
+Logic Output Voltage [os | Voy . . 05 | voc | 1OL=2ma
+Power Supply Current Icc - 500 650 |mADC -
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note :Icc shows the current at all dots in the screen are lighted.
+
+Slow start power supply may cause erroneous operation. The rise time of Vcc should
+not exceed 100 ms.
+
+Icc might be anticipated twice as usual at power on rush.
+CU40026-TW200A
+
+5. Optical Specifications
+
+Number of characters : 80(2 lines x 40 chars)
+
+Matrix format : 5x7 dot + Underline
+
+Display area : 188.55 x 16.0mm (X x Y)
+
+Character size : 3.3x 6.05 mm (X x Y, Including UL)
+(3.3 x5.05 mm for 5x7dot)
+
+Character pitch > 4.75 x 9.95 mm (X x Y)
+
+Dot size : 0.5x0.55 mm (Xx Y)
+
+Dot pitch : 0.7x0.75 mm (X x Y)
+
+Luminance : 350 cd/m2 (102fL) Min.
+
+Color of illumination : Green(Blue-green)
+
+6. Environmental Specifications
+
+Operating temperature : -40 to +85 degrees
+
+Storage temperature : -40 to +85 degrees
+
+Operating humidity : 20to 80% RH(No Condensation )
+
+Vibration(No operating) : 10 to 55 Hz, all amplitude 1mm, X,Y,Z 3direction
+30 minutes
+
+Shock(No operating) : 100G, 9ms, X Y Z 3direction
+
+7. Functional Descriptions
+This module provides the functions of 8 bit parallel and serial data write.
+Each control data and character fonts are shown in Character Table 0 and Character Table 1.
+All data write should be done during BUSY line is low.
+
+ 
+
+ 
+
+ 
+
+CS. WR Function Bus direction
+1 X No operation Module X_ Host
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rising edge of pulse X: Do not care
+
+7.1 Character data write
+Character font is displayed on the screen, and HT is executed. (see para. 7.2.2 HT)
+
+7.2 Control data write
+
+Detail of control data are shown in this clause. The term "Cursor" is the same meaning of "
+Writing Position”.
+
+7.2.1 BS : Back Space (08 Hex)
+The cursor moves one character to the left.
+At the top left end, the cursor doesn't move.
+At the left end on the other line, the cursor motion depends upon DC1, DC2 and
+DC3 mode.
+DC1: The cursor moves to the right end of one upper line.
+DC2 : The cursor moves to the right end of one upper line.
+DC3 : The cursor doesn't move.
+CU40026-TW200A
+
+7.2.2 HT : Horizontal Tab (09 Hex)
+
+The cursor moves one character to the right.
+
+At the right end, the cursor motion depends upon DC1, DC2 and DC3 mode.
+DC1: The cursor moves to the lower left end.
+DC2 : The cursor moves to the lower left end.
+DC3 : The cursor overflow. Furthermore, if HT is inputted continuously, all displayed
+characters on the cursor line are scrolled to the left one character, and the blank is
+appeared at the right end of cursor line.
+The other displayed characters on the other line are not changed.
+
+At the bottom right end, the cursor motion depends upon DC 1, DC2 and DC3 mode.
+DC1: The cursor moves to the top left end.
+DC2 : All displayed characters are scrolled up one line.
+The cursor moves to the bottom left end and all written characters in the top line is
+disappeared. The bottom line is cleared.
+DC3 : The cursor overflow. Furthermore, if HT is inputted continuously, all displayed
+characters on the cursor line are scrolled to the left one character, and the blank is
+appeared at the right end of cursor line.
+The other displayed characters on the other line are not changed.
+
+7.2.3 LF : Line Feed (OA Hex)
+The cursor moves to the same column on the lower line except DC3 mode.
+At the DC3 mode, All displayed characters and cursor position are not changed in any line.
+At the bottom line, it is depends upon DC1 or DC2 mode.
+
+DC1: The cursor moves to the same column on the top line.
+
+DC2 : All displayed characters are scrolled up one line.
+The cursor keeps the same column on the bottom line , and the bottom
+line is cleared.
+
+7.2.4 FF : Form Feed (0C Hex)
+The cursor moves to the top left end.
+
+7.2.5 CR : Carriage Return (OD Hex)
+The cursor moves to the left end on the same line.
+
+7.2.6 CLR: Clear (OE Hex)
+All displayed characters are cleared. The cursor doesn't move.
+
+7.2.7 CAN: Cancel (OF Hex)
+All displayed characters on the cursor line are cleared. The other displayed characters on the
+other line are not changed. The cursor doesn't move.
+
+7.2.8 DC1: Device Control 1 (11 Hex) :** Character over write mode
+DC2 : Device Control 2 (12 Hex) «** Scroll up mode
+DC3 : Device Control 3 (13 Hex) «** Horizontal Scroll mode
+
+Alternative LINE ENDING MODE is specified by DC1, DC2 and DC3 when character data or
+BS or HT or LF is written. Just after power on or initialize, DC1 is selected (Default Mode).
+CU40026-TW200A
+
+7.2.9 DC4 : Device Control 4 (14 Hex) -*- Cursor is displayed on underline.(Default)
+DC5 : Device Control 5 (15 Hex) -:- Cursor is displayed as a blinking all dot character.
+DC6 : Device Control 6 (16 Hex) --- Cursor is turned to invisible.
+
+DC7 : Device Control 7 (17 Hex) --- Cursor is displayed as a blinking Underline.
+Above four codes control the cursor rendition. DC4 is default mode. The mode is maintained
+until other mode is selected. The blinking speed can be varied by ESC sequence. (see para.
+7.2.10 ESC)
+
+7.2.10 CTO : Character Table 0 (18 Hex) -:- International character font
+CT1 : Character Table 1 (19 Hex) --- KATAKANA character font
+
+Above two codes select Character Table. Just after power on, CTO is selected(Default Mode ).
+Any characters from those 2 tables can be displayed on the screen by the bank selection.
+
+EUR: Euro Currency mark (1AH) :** Euro Currency mark
+Euro Currency mark is stored instead of Blank in character code location AD Hex of CTO.
+This is replaced to Blank if CTO is selected again, and it affect displayed character of AD Hex.
+
+7.2.11 ESC : Escape (1B Hex)
+The character or data strings succeeding of ESC code control the various functions such as
+user definable font, cursor addressing, screen luminance control, selection of data writing
+mode, blink speed control and initialize.
+
+(1) User Definable Font (UDF)
+
+Users desired fonts can be defined by software. The fonts will be memorized in RAM of the
+CPU.
+
+Syntax : ESC (1B Hex) + "C" (43 Hex) + CHR + PT1 + PT2+PT3+PT4+PT5
+
+Any 5x7 dot patterns consisted of data from PT1 thru PT5 can be stored in character code
+location specified by CHR.
+
+Maximum number of UDF are 16 characters at once. Storing more than 16 will kill the oldest
+font. However, within the 16 character codes where already defined by UDF, the over-write-
+latest font replaces the former font.
+
+1st byte : ESC(1B Hex)
+2nd byte :"C"(43 Hex)
+3rd byte ‘ CHR(00 Hex to FF Hex)
+
+Specify the character code location from 00 Hex to FF Hex by CHR.
+If CHR overlaps the control codes such as BS, HT, etc. , the control function will
+be lost. And therefore, the overlap to the ESC code may not avail further UDF.
+
+Ath to 8th byte : PT 1 through PT5
+Specify ON or OFF of 36 dot position (5x7 dot + Underline).
+Following table shows the relation of dot position and the data formation ("1" = dot
+turn on, "0" = dot turn off)
+CU40026-TW200A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+7(MSB) 6 5 4 3 2 1 O(LSB)
+Ath byte P8 P7 P6 P5 P4 P3 P2 P1
+5th byte P16 P15 P14 P13 P12 P11 P10 P9
+6th byte P24 P23 P22 P21 P20 P19 P18 P17
+7th byte P32 P31 P30 P29 P28 P27 P26 P25
+8th byte * * * * UL P35 P34 P33
+*: don't care UL: Under line
+Following is the dot assignment.
+
+P1 P2 P3 | P4 | Pd
+
+P6 | P7 | P8& | PY | P10
+
+P11 | P12 | P13 | P14 | P15
+
+P16 | P17 | P18 | P19 | P20
+
+P21 | P22 | P23 | P24 | P25
+
+P26 | P27 | P28 | P29 | P30
+
+P31 | P32 | P33 | P34 | P35
+
+UL
+
+ 
+
+ 
+
+ 
+
+After execution of above sequence, a defined font will be stored in the character code location
+"CHR" (Hex)
+
+Following is an example of UDF sequence.
+Example : "!" dot pattern should be stored in character code location AO Hex.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+P3
+P8
+P13
+P18
+
+P33
+CU40026-TW200A
+
+Assign turn on dot number to the bit table as follows.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+b7 | b6 | bd | b4 | b3 | b2 | b1 | bO Data (Hex)
+Ath byte 1 0 0 0 0 1 0 0 84
+Sth byte 0 0 0 1 0 0 0 0 10
+6th byte 0 0 0 0 0 0 1 0 02
+7th byte 0 0 0 0 0 0 0 0 00
+8th byte 0 0 0 0 0 0 0 1 01
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Then Syntax should be written : 1B + 43 + AO + 84 + 10 + 02 + 00 + 01 (Hex)
+
+(2) Cursor Moving
+The cursor can be moved to any position of the screen by following ESC sequence.
+
+Syntax : ESC (1B Hex) + "H" (48 Hex) + 1 Byte data
+
+Column | Left end 2nd C) (0 nn Right end
+Line
+
+Top 00 01 i 27
+
+ 
+
+ 
+
+ 
+
+Bottom 28 29 ee AF
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Data = 50 Hex to FF Hex : The cursor doesn't move.
+
+(3) Luminance Control
+The screen luminance can be varied by following ESC sequence.
+Just after power on, the screen luminance is set to 100%.
+
+Syntax : ESC (1B Hex) +" L" (4C Hex) + 1 Byte data
+
+Data= 00 Hexto3F Hex: approx. 25%
+40 Hexto7F Hex: approx. 50%
+80 HextoBF Hex: approx. 75%
+CO HextoFF Hex: 100%
+CU40026-TW200A
+
+(4) Selection of Writing Mode
+Flicker less Mode can be selected by following ESC sequence.
+
+Syntax : ESC (1B Hex) + "S" (53 Hex) «= Flicker less Mode
+
+Within Flicker less Mode, although BUSY might become longer, flicker less-high speed-
+continuous-data write can be achieved since refreshing of the screen has priority over the
+data acceptance.
+
+Quick data write with minimum BUSY time will be given by Quick Write Mode since the
+data acceptance has the priority over the refreshing of the screen.
+Within this mode, continuous high speed data write may cause flicker display.
+
+Note :
+
+When serial data write with high speed baud rate at Flickerless Mode, it may have the
+read error of the data. Busy check within Flickerless Mode or setting to the Quick Write
+Mode is recommended for serial data write.
+
+Just after power on or initialize, Quick Write Mode is selected until other mode is set. After
+selected Flickerless Mode, Quick Write Mode can't be selected unless otherwise initialize.
+
+(5) Blink Speed Control
+Blinking speed of cursor can be varied by following ESC sequence.
+
+Syntax : ESC (1B Hex) + "T" (54 Hex) + 1 Byte Data
+
+Data =00 Hex «=: 256
+FF Hex ==" 255
+FE Hex === 254
+01 Hex ==: 1
+
+Period of Blinking = Data Value x Approx.30 mS
+At power on default, 20 (14 Hex) is set to data.
+
+(6) Initialize
+All displayed characters and all setting factors are cleared by following ESC sequence.
+
+Syntax : ESC (1B Hex) + "I" (49 Hex)
+Execution of above sequence, module is reset as just after power on.
+
+7.3 Test Mode
+Test Mode is set by keeping SIN (TO) is low for more than 100mS at power on or initialize.
+During Test Mode, all character fonts are displayed automatically, and no any data are
+acceptable.
+CU40026-TW200A
+
+7.4 Character and control code table
+Following 2 character tables can be selected. ( see para. 7.2.9 )
+
+7.4.1. Inter national character font
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+D7}0;0;/0;/0;/0)/0/0;/0;} 1) 1/1} 1/)1} 1) 1) 1
+D6}O;0;0;0);1}1)/111)0)/0)/0;0;}1} 1) 1) 1
+Dd}0;0}1)/1)/0)/0}1;)1)/0)/0)/1})1}0;0; 1) 1
+D4;0};1/0)/1)/0}/1])/0}1/0)1)/0}1}0}1)/0) 1
+DDDD
+2910 0O}1);2/3)4)5)/6|)7/8/9/A|B|C|DIE/F
+0000 0 ed [ted | fee] Jae fice Pf BE] ok,
+SP | Seee” | Sede" | 8 : a
+0001 1 Seles e| tts | tt oe) gli late ea] ele
+DCL] «© | ale [Ef] teeta | teeet | oF] Pah De] OS | cee
+0010 2 matpeP | is les).
+DC2| —s | akewe | Zeee” |e | eee” | EP et OL tte
+0011 8 sfofe | | E  [ Bese, | geome | aseer | = | “sec” | afee” | cob | grere | greg | cece
+DC3 | ff | *ece™ | ewe” | wee” | “ewww | weee” |" |" * | akewe
+0100 4 Vahl d's] 2 | seed | ee |g [ace lee] fatal
+Dc4 eecee
+0101 5 Besse |Home TE El acetele glared | EB lca | Lb] atte | acy | Set | come,
+DC5|* f5 | eee” | Seeee
+O110 6] | fe fie fie pi Ep dt }s spe papt) § PEP LERS | es} ees
+DC6
+O11%i1 $7 wi lEar |i t se fH [rete | ee [Ef Tee [a | cee
+DCT]  —_ | Maw | Matt | ewe | Mate” | Meee” | Shawn
+L000 BF) a cjool , fese| bd] o| bre] ec ]-ae fs ao [Bee | Facet | eset | ES
+1001 9 p [feed] 2 [Pe] or [tet ETE [nd] UR fie |e oe) ths 2
+HT CTl °* ee” ose : : .” *s | eevee "eee seoee | “ooo” | “cece eee
+POL OAT fom |] [aE feet [EE |S Se] [Ee]
+1011 Bl [fede [Eo]: pke|é [Up | pes es fee}: phen]:
+ESC] * | ot Jd "el See | Stef Mee Pat Me] TE fet] et | Sewee
+1100 CI} |} fu fe fe ptf Efe fee tee fo
+FF} | o® |e | Sane
+1101 =D coves | t2ree | §
+CR
+1110 E Hts
+CLR] |e Jf Je Ff Fe Ff | tet | tt | Meee | Sees
+11141 é+F CAN fe] Set [gy | SE
+CFX101
+
+Character Table 0
+
+Note: When EUR(1AH) is selected, Euro Currency mark is stored instead of Blank in
+character code location AD Hex of CTO. This is replaced to Blank if CTO is selected again,
+and it affect displayed character of AD Hex.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+10
+CU40026-TW200A
+
+7.4.2; KATAKANA character font
+
+D7
+Do
+Do
+D4
+
+ 
+
+Coo Cc oO
+re OC eO
+ot ke)
+me re§ OO
+CoOOr @®
+re Or ©
+ll ee)
+rl eel oe ae)
+ocor
+Re OCF
+oOrOr
+OOF Fr
+Re Ore
+DORR eH
+rr RE
+
+©
+_
+KO
+wo
+wo
+on
+oO
+~
+CO
+©
+=
+to
+2)
+o
+es
+yy
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+spl iifsiiyi™ | [PLE y RA) [op we] at] BEE
+
+DCL] . | ode | BE] Ftet| otk] “eed Bf 8] ses | | LE] Saeed
+
+DC2] —s | aZaae
+
+3C3 -“ ° : : eoce eoce ese ss 3°°*s | eecee es
+
+bea wf ete] a eosee |: ¢ t |B [PEPE
+
+pes leas) ci] Et] £8] fe] £3] BEBE = | ef] SP) CEU RS
+
+poof ee] Exe] Ft | EA] PEELE] Reg] REY ee Pa | egy
+
+ver) fo | ate] Bed] SS] ied] 2G] ERE) US] ce] | US] ne) Bp
+ps loro] &. [ace P"Efe ef P fee |E aL | of | Ae | By] Be
+
+ 
+
+HT |CT1]
+
+ 
+
+be puR| 2] fed | stp ed | ane] ee Ec] seed] EE] Ee] ST
+
+ 
+
+ 
+
+ 
+
+wweeel] we owl ow] lw] meeee
+eeeee
+
+FF : “ee dee
+
+ 
+
+ 
+
+CR 3 8] ocd | 858) ost | Sedes| 888 cccde| 0° “o
+
+ 
+
+eeeee | eeeee] #  ®
+
+eeeee
+seer
+
+ 
+
+PP rR PrP ee sR | Om Od Os ems lem GO eLlOdlwhl et
+a SO SO SD an en nO Sn GU NN we)
+RP Pr OTOP RFR FT OT OFT Re RE TE OY Oy Re ye RE OY OlrREL hm
+OS
+
+Mims Ul nas Wy] S&S} oT arn my oye] wl wpntftrR|] &
+
+CAN LT LAE eeaee ae f UR] Eafe] tle
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+CFX102
+
+Character Table 1
+
+11
+CU40026-TW200A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+8. Timing
+8.1 Parallel interface Timing
+
+cs”
+
+Min OnS | Min 160nS o) ig___»| Min Ons
+
+WR |
+Min Toons | | Min 10ns
+DO~D/
+Min 2us
+
+BUSY
+
+ 
+
+ 
+
+ 
+
+ 
+
+TW* : see para 9. BUSY TIME
+
+8.2 Serial Interface Timing
+Serial data write, asynchronous-8bit TTL level is also acceptable.
+Following baud rates can be selected by combination of the Jumper wires.
+( see para. 10. Jumper wires )
+600, 1200, 2400, 4800, 9600, 19200 BPS
+
+Besides, parity bit-even, odd and non parity can be selected by 2 jumper wires.
+( see para 10. Jumper wires )
+
+SN party STRI(DO Xo1 \p2\ 3 \p4 \ ps5 \ be \ D7 \eTOPY
+SW arty STRI{D0 Kd1 Xd2 Kos \ v4 Xs \ ve \ 07 Jpriy}sto Py
+
+ 
+
+ 
+
+ 
+
+Td TW x
+BUSY
+STRT : Start Bit PRTY : Parity Bit
+DO - LSB STOP: Stop Bit
+D7 - MSB
+
+Td: 10uS ( Typ. ) at Quick Write Mode
+OuS (Min. ) ~ 800uS ( Max. ) at Flicker less Mode
+
+TW* : see para. 9. BUSY Time
+
+12
+CU40026-TW200A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+9. BUSY Time
+Input data execution time ( TVW* ) at Quick Write Mode are shown as follows.
+Data Excution time (TW) Data Writing
+DC1 Mode | DC2 Mode DC3 Mode Mode
+200 uS 1000 uS 300 uS
+Character Data, HT, LF (MAX.) (MAX.)
+(MAX.) , ;
+at scrolling at scrolling
+BS,FF,CR,CT0O,CT1,EUR
+DC1,DC2,DC3,DC4,DC5,DC6,DC7 200 uS (MAX.)
+CLR 900 uS (MAX.) Quick Write
+CAN 300 uS (MAX.) Mode
+1st byte 200 uS (MAX.)
+ond “C” 200 uS (MAX.)
+ESC byte “P 1400 uS (MAX.)
+Expect’C”,”I” 200 uS (MAX.)
+3rd byte ~ 200 uS (MAX.)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Above execution time are only talking about Quick Write Mode as mentioned.
+Within Flicker less Mode , Approximately 2 to 15 times of above table should be considered .
+Operating with Flicker less Mode, therefore, always watching of BUSY line is recommended.
+
+13
+CU40026-TW200A
+
+10. Jumper wires
+Position of jumper wire
+
+ 
+
+O JAJOJ3 J2 J1J4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PCB Parts Side
+Jumper Function Table
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+JA | J4 | J3 | J2 | J1 | JO Function
+
+X | X | X 1 1 1 19200 BPS
+X | X | X 1 1 0 9600 BPS
+X | X | X 1 0 1 4800 BPS
+X | X | X 1 0 0 2400 BPS
+x{xixfolt|4 Baud rate 1200 BPS
+X | X | X 0 1 0 600 BPS
+X | X | X 0 0 1 600BPS
+X | X | X 0 0 0 600BPS
+X 1 1 X X X Even Parity
+X 1 0 X | X | XK Parity selection Odd Parity
+X 0 X X X X Non Parity
+: . . . . . Character fonts selection eS Font)
+0 1 1 1 1 1 Setting at Factory
+
+ 
+
+O:short 1:open X: Don't care
+
+14
+11. Connector Pin assignment
+11.1 16pin Connector
+
+15 Vv!
+
+ 
+
+ 
+
+OooOoOooaoqgaqadaga dan
+
+OooOoOooaoqgaqadaga dan
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+CU40026-TW200A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+16 2
+. Connection . Connection
+No. Terminal Parallel | Serial No. Terminal Parallel | Serial
+1 D7 O NC 2 D6 O NC
+3 D5 © NC 4 D4 O NC
+5 D3 O NC 6 D2 O NC
+7 D1 O NC 8 DO O NC
+9 WR O NC 10 CS” O NC
+11 SIN/TO NC O 12 BUSY O O
+13 GND O O 14 GND O O
+15 VCC O O 16 VCC O O
+© :Connection
+NC : No Connection
+11.2 3pin Connector
+1 3
+. Connection
+No. | Terminal Parallel | Serial
+1 VCC O O
+2 SIN/TO NC O
+3 GND O O
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+© :Connection
+NC : No Connection
+
+15
+CU40026-TW200A
+
+12. Outline dimension
+
+ 
+
+UIGSL-OLS-TIW JOJIaUUoZ ayDW
+JUBIDAINDS JO 4D-d9L-GZ£06-VSWI OSIMI
+
+ 
+
+JOyeuuoy JeamMO,g ¥ JDUDIS uldg,
+
+ 
+
+E-ZZBLAL dWV JOJ29UU0) SjDW
+E-SZeLZL WV
+
+ 
+
+JojJauuo} JaMo0qg ude
+
+Fe ne rn ne sn se se ee en se enw en en enn ow ees oe ene we eee ene ween pee ene en ee ee eee ee ee eee ee ee ee ee
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+GOFO'EZ
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+faz
+Ox ‘ '
+z t TU TUL 1
+> Cy |
+N
+WI og
+D xDW
+(OLC))
+7” (O'LOL) ~|2
+ui sa}oH Buyunoy rose? | B/S
+nan i heaceset | get xmm—t
+I T eee 1 t--_ S |
+6 BER EER ER ERERR ARERR ERR ER ER ERR EER EERERE \| fel.
+a es ee ec eee ee ee ee ee 4 ‘ On
+BER EER ES ESEES ER EERE ERR ER ER ERS ER ER EESEGE =| fu
+ZS o
+> ono umm) >
+aloe
+(SS'88)) (SZZ°SZ) injin|e
+(0022) coon) lin
+GEO? OFZ Soros
+70F07Z
+
+ 
+
+16
+CU40026-TW200A
+
+Notice for the Cautious Handling VFD Modules
+
+Handling and Usage Precautions:
+Please carefully follow the appropriate product application notes for proper usage, safety handling, and operation standards for
+maximum performance.
+
+[VFD tubes are made of glass]
+
+e Because the edges of the VFD glass-envelop are not smooth, it is necessary to handle carefully to avoid injuries to your
+hands
+Please avoid breaking the VFD glass-envelop to prevent injury from sharp glass particles.
+The tip of the exhaust pipe is fragile so avoid shock from impact.
+It is recommended to allow sufficient open space surrounding the exhaust pipe to avoid possible damage.
+Please design the PCB for the VFD-module within 0.3 mm warping tolerance to avoid any forces that may damage the
+display due to PCB distortion causing a breakdown of the electrical circuit leading to VFD failure.
+[High voltage]
+
+e Avoid touching conductive electrical parts, because the VFD-module uses high voltage exceeding approx.35 volts.
+
+° Even when electric power is turned off, it may take more than one minute for the electrical current to discharge.
+[Electrostatic charge]
+
+e \VFD-modules needs electrostatic free packaging and protection from electrostatic charges during handling and usage.
+[Structure]
+
+e During operation, VFD and VFD-modules generate heat. Please consider sufficient heat radiation dissipation using
+
+heat sink solutions.
+e We prefer to use UL grade materials or components in conjunction with VFD-modules.
+e Wrap and twist motion causes stress and may break VFDs & VFD modules. Please adhere to allowances within
+0.3mm at the point of attachment.
+
+[Power]
+
+e Apply regulated power to the VFD-module within specified voltages to protect from failures.
+
+e Because some VFD-modules may consume in rush current equal to twice the typical current at power-on timing,
+
+we recommend using a sufficient power capability and quick starting of the power regulator.
+
+e VFD-module needs a specified voltage at the point of connection. Please use an adequate power cable to avoid a
+decrease in voltage. We also recommend inserting a power fuse for extra protection.
+
+[Operating consideration]
+
+e = Illuminating phosphor will decrease in brightness during extended operation. If a fixed pattern illuminates for an
+extended period,( several hours), the phosphor efficiency will decrease compared to the non operating phosphor
+causing a non uniform brightness among pixels. Please consider programming the display patterns to use all phosphor
+segments evenly. Scrolling may be a consideration for a period of time to refresh the phosphor condition and improve
+even illumination to the pixels.
+
+e Werecommend using a signal cable 30cm or less to avoid some possible disturbances to the signal.
+
+[Storage and operating environment]
+e Please use VFD-modules under the recommended specified environmental conditions. Salty, sulfur and dusty
+environments may damage the VFD-module even during storage.
+[Discard]
+e Some VFDs contain a small amount of cadmium in the phosphor and lead in the solder. When discarding VFDs or
+VFD-modules, please adhere to governmental related laws or regulations.
+[Others]
+
+e Although the VFD-module is designed to be protected from electrical noise, please plan your circuitry to exclude as
+much noise as possible.
+
+e Donot reconstruct or repair the VFD-module without our authorization. We cannot assure the quality or reliability of
+
+unauthorized reconstructed VFD-modules.
+
+Notice:
+
+«We do not authorize the use of any patents that may be inherent in these specifications.
+
+«Neither whole nor partial copying of these specifications are permitted without our approval.
+If necessary , please ask for assistance from our sales consultant.
+
+«This product is not designed for military, aerospace, medical or other life-critical applications. If you choose to use this product for
+
+these applications, please ask us for prior consultation or we cannot take responsibility for problems that may occur.
+
+17

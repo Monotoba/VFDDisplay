@@ -263,6 +263,30 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDCU20025Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDCU40026Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "CU40026",
+        "Noritake 40x2 VFD module (5x7 dots)",
+        "Noritake Itron",
+        "CU40026-TW200A",
+        2, 40,
+        5, 7,
+        188, 16,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS | CAP_DIMMING | CAP_HORIZONTAL_SCROLL | CAP_VERTICAL_SCROLL,
+        255, // blink period programmable
+        16,  // 16 UDFs supported
+        4,   // 4 luminance bands
+        0,
+        10, 100, 100,
+        700, 1200,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedInterface("Parallel");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createGeneric20x2Capabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "Generic 20x2 VFD",
