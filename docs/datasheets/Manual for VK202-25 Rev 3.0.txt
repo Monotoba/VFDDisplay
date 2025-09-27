@@ -1,0 +1,2487 @@
+ 
+
+MATRIX ORBITAL ~
+
+VK202-25
+
+ 
+
+Including VK202-25-USB
+
+Technical Manual
+
+Revision 4.1
+
+PCB Revision: 3.0 or Higher (Standard Model), 1.0 or Higher (USB Model)
+
+Firmware Revision: 5.6 or Higher
+Revision History
+
+| Revision | Date | Description | Author
+
+4.1 January 4, 2018 Correction to Set Non-Standard Baud Rate command Divino
+4.0 January 8, 2016 LKVK manual separated into individual manuals Divino
+L INtrOGUCTION 000... eee cece eee eeeeeeeenecaeaee cee ceeeeeeee eee eeenesaaaaaaaaeaeeeeeeeeeeeeee eens asaaaaaaaaaeaeeceseeeeeeeesesssasaaaaaaaeaeaeeceeeeeeees 1
+2 QUICK CONNECE GUICE....... eee eee ee ceeeeneneaceceeeeceeeeeeeeeeeeeeeesaaaaaaaaeaeeeeeeeeeeeeeseneeeaaaaaaaaeaeeceeeeeeeeeesensteeaaaaaaeaaeaes 2
+2.1 Available Headers o....... ee ceeeeeceeeeeceseenencaeaeeceeceeeeeeeeeeeeeeeeaaaaaaaaaeaeeceeeeeeeeeeenseesaaaaaaaaeaeeceeeeeeeeeeeeneeeeeeagaaaas 2
+2.2 Standard MOule o........eeeceeceeceeeeseenenecaeeceeceeeeeeeeeeeeeeeeaaaaaaaaeaeeceeeeeeeeeeseeseesaaaaaaaaeaeeceeeeeeeeseeeneeeeeeaaaaaas 3
+RECOMMENEA Palts...........ceeeesessensneneceececeeeeeeeeeeeeeeeseeaaaaaaeaeeeeeeeeeeeeeeeestesesaaaaaaeaeeceeeeeeeeeeeesenteeeagaaaaeaaes 3
+Serial CONNECtTIONS......... ccc ccscscecceceeceeeeeeeeeeeeeeeeeeaaaaaeaeeeeeeeeeeeseeeeseeseesaaaaaeaaeaeeceeeeeeeeeesensesaaaaaaaaeaeeeeseeeeeeees 3
+
+I7C CONNECTIONS v..cescscscssscsscsssscssscscscsvscscscscevsvssesesssessscssscscesscssevessssvavesavssesessscsessasecscesesessvensvavavavavasesnsaes 4
+
+2.3 USB MOdUIe oo ccecceceeceeeeeeeeeeeeeeenaaaaeaeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaeaeeeeeeeeeeeees ens seaaaaaaaaaeaeeaeeeeeeeeeeeeeeeeeegea 5
+RECOMMENEA Palts...........ceeeesessensneneceececeeeeeeeeeeeeeeeseeaaaaaaeaeeeeeeeeeeeeeeeestesesaaaaaaeaeeceeeeeeeeeeeesenteeeagaaaaeaaes 5
+
+USB CONNECTIONS .0.... ee eee cece eee ceeceeceeceeeeaeeaae aaa aaa aaa eaaeaaeaaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeceeseeseeaaeaaaaaaaaaaaaaaaaaaeaaaneeeeees 5
+
+3 SOFLWALC eee eeccccccccescennceceeeeeeeeeeeeeeeeeseeeaeeeeeeeseaaeeeeeeeeeeaaeeeeeeeeeeaaaeeeeeeeeeaaaeceeeeeeesaaeaeeeeeeesaaeaeeseeeesesuaeeeeeeseeaaaes 6
+SZ. DL UPLOJOCE occ eccccccce cee eeseeeeeeee eee eeeeeeeeeee sees eeeeeeeeeeass ese eeeeeeAAAGAA AEE EEEEEE;;;;;A AEE EEEEEE;;;;;G AEG EEE EEE SES;;; EE REE EEE EEEEEEA 6
+3.2 Application NOtCS.........ccccscsssssssssessssseeeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaae aaa eee eee eeeeeeseeeeeeeeeeeeeeeeeeeeceeceeseeseeceeaeeaas 7
+
+A HArdWware.........eeceeeeeeeeeessnnnneceececeeeeeeeeeeeeeeeeeeenaaaaeaeeeeeeeeeeeeeeeeeee ees aaaaaaaaeaeeeeeeeeees ees eesaaaaaaaaaaaeaeeeeeeseeeseeeeeeneiea 8
+4.1 Standard Model 00... ceesccccecceceeceeeeeeeeeeeeneeeaeaaeaeeceeeeeeeeeeseeeeensaaaaaaeaaeaeeceeeeeseeeeseesnesaaaaaaaaeaeeseeeeeeeeees 8
+COoMMuNIcation/POWer HACE .....ececcccccccccccccccccececccccccceccecceccesceeseeseeeusussusscessesseeseeccececececeeceececesseeeaeeaas 8
+Serial DBO CONNEC CIOS oo. eeeececceceeceeeeeeeeeeeeeeeaaaaaaeaeeeeeeeeeeeeesenseeseeaaaaaaaaaeaeeceeeeeeeeeeseeeseesuaaaaaaaeaeeseseeeeees 8
+Power Through DB9 JUMPED ........cccccccccncenneentenneeseeseeeeesesseeeeeeeeeeeeeeeeeeeeeeeeeeeseeeeeeeeaeeaeeaaseaeeaeeeseeseeeeeeeeens 9
+Protocol Select JUMPELS........ccccccccccceneeneenneenseeseeseeeeeeeesesseeeeeeeeeeeeeeeeeeeeeeeeeeeseeeeeseeaeeaeeaaeeeeueesesessseeeeeeneens 9
+
+4.2 USB MOdel..........eceeeeeceessssncnceceececeeeeeeeeeeeeeseeneaaaaaaeaeeeeeeeeeeeeeeeeeeesaaaaaaaaaaaeaeeceseeeeeeeeseeeneaaaaaaaaaeaeeceeeeeeegs 10
+Mini USB CONNEC COP... cece cee cee cee eeeeeaee eae aaa aaa eae eeaeeeeeeeeeeeeeeeeeeeeeeeeeeeceeceeseeaeeaaeaaaaaaaaaaaaaaaaaaeeeeeeeeeees 10
+Alternate USB Header ou... ccseeccecceceeceeeeeeeeeeseeneeaaeaeeceeeeeeeeeeeeeeeeeaaaaaaeaeeceeeeeeeeeeseesssssaaaaaaaaaeaeeseseeees 10
+Alternate Power COnne ctor ......ccccccccceceeceeeeeeeseeneneaaeaeeceeeeeeeeeeseeseeaaaaaaaeaeeceeeeeeeeeesenesesssaaaaaaaaeaeeeeseeegs 10
+
+4.3 COMMON FCAtTULES.... ee eeeeeeseeeeeeeeeeeeaeeeeeeeeeeeeeaaaeeeeeeeeeeeeaaaeeeeeeeeeseeaaaeeeeeeeeeseeaaaeneeeeeeeseeaaaaaeeeeeeeeeeaaanne® 11
+General PUrpOSe OUTPUtS 0.0.0... cece cceccessseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaeaae aaa eae eeeseeeEESeeEEeEEEEEEEEEESEESSESeeeeeeeea® 11
+Dallas One-Wire CONNECtOF ..... eee csescececeeceeceeeeeeeeeeeeeaaaaaaeaeeeeeeeeeeeeeeeeeeeesaaaaaaeaeeceeeeeeeeeesensteteeeeagaaaaaas 11
+Keypad HEAel........ccccccccccccecceceeceeeeeeeneeaee eae eee eee eeeeeeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeaeeaaeaaeeaseaeeaaeeeaeasseeeeeeeeees 12
+
+5 TTOUDICSHOOTING .......ccccccccceeceeaeeaeeenseeseeseseeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeGeeaGe GGG ees eee ssGEEEEEEEEEEEEEEEEEEEEEEESEECEESEESOEEEGS 13
+5.1 POWED oo. eeceesseeeeeee cee eee eae eeeeeeee nae aaaeeeeeeeeeaaa aaa eeeeeeeesaeaaa eee eeeeeeaaeaaaeeeeeeeeeseaaaaeeeeeeeeeseeaaaaeseeeeseseaaaaneeeeeeess 13
+
+5.2 DiSPIAY......cecccccccccccccceceeneeneeeeeeseeeeseeeeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaae aaa aea eee sGGsEEEEEEEESEEEEEEEEEEEEEESECEESSEEEOEEEAS 13
+5.3 COMMUNICATION ...........cccecceccsccsccsccscecceecsccsccucescescescescescsseesueceseuseseessessscescusceseeseeseeseeceeceeceseeseeseesensans 14
+
+5.4 Manual OVErride ooo... ceeceeceeeeeeeeeeneeeaaaaeaeeceeeeeeeeeeeeeseeeneaaaaaaaaaeaeeeeeeeeeeeeesenseeseaaaaaaaeaeeaeeceeeeeeeeeeeeeengg 14
+6 COMMANAS 2... eeeeeescecceceeceeeeeeeeeeeeeeeeeaaaeaaeaeeeeeeeeeeeeeeeeeeesaaaaaaaeaeeceeeeeeeeeeseneeesaaaaaaaaeaeeceeeeeeeeeeseeseeteeeeagaaaaags 15
+6.1 COMMUNICATION. ..........ceeeeeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeeceecaeaaeaaeaaeaaaaaaaaaaaaaaaaaasaaeseeeeeeeeeeeeeeeeeeeeeseeeeeas 15
+6.2 TOXt. oo. eeeeeeeeececesseneneaceceeeeceeeeeeeeeeeeeeeeeeeaaaaaaaaeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaeaeeceeeeeeeeeeseneeseaaaaaaaaaaeaeaeeeeeeeeeeeeeeeaes 16
+6.3 Special CHArACTOLS ........cccecesseenseeeeesessesseseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaae aaa eee eee eee eeeeeeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeees 18
+6.4 General PUrpOSe OULPUE ou... eee cecccesseeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaeeaae eae eeeeaGsEEEEEEEEEEEEEEEEEEEESEESEESeEGEOaEEa® 20
+6.5 DallaS ON@-WiIre ooo ceceeeeeeeeeeneeeeaaaaeaeeeeeeeeeeeeeeeeseeenesaaaaaaaaeaeeceeeeeeeeeeseneeesaaaaaaaaeaaeaeeceeeeeeeeseeeeenags 21
+6.6 KOYPAad.......ecccccccccccecceceeneeneeeneeeseeeeeseeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeaeeaae Gee Gee eeGeGGsEEEEEEEEEEEEEEEEEEEEEESESEESSEEEOEEEGS 22
+6.7 DiSplay FUNCTIONS .........ccccccsseesseeseesseseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaee GGG Gee GGG eee esa sEEEEEEEEEEEEEEEEEEEEEEEEEESEECEEEEEEEAS 23
+6.8 Data SQCUSILY oo... ccceeesecseceecce cee eeeeeeeeeee eee eeeeeeeeeeee eee eeeneeeeeeee GAA AEE EEEEES;;;;; AEE EEEEEE;;;;;OGEEHEEEEE EEE SEE EEE EEEEEEEES 24
+6.9 MiSCEIANCOUS oo. ceececceeeeeceeeeeteeeeeeeaaaaeaeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaeaeeceeeeeeeeeeseneeeaaaaaaaaaeaeeaeeeeeeeeeeeeeeenenags 25
+7 APP@Ndix .....cccccccceccecccceeceeceeeeeaneaeeeeeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeGae aaa eae aaG esa sGEEEEEEEEEEEEEEEEEEEEESCECEESSEeEOnEas® 26
+7.1 COMMANA SUMMALY ou... cecceseesseseessessesseeeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaaeaaa eae sea ssGEEEEEEEEEEEEEEEEEEEESEESEECEESSESEOEEEGS 26
+7.2 Character Sets ee ececcccccccceceeceeeeeeeeeeeeeeeaaaeaeeeeeeeeeeeeeeeeeeeeeesaaaaaaaeaeeceeeeeeeeeesenseeaaaaaaaaaeaaeaeeeeeeeeeeeeeeeeeges 29
+7.3 BIOCK DiagraM .......cccccccccessessesnseeseesessseseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeaee nae aaa eae eee esGsGEEEEEEESEEEEEEEEEEEEEESEESEESEEESEEEGS 30
+7.4 Environmental Specifications...........cccccsssscsccccccceccecescessesseeeesenneeaeeeeeeeeeeeeeseeseeeeeeaeaaeaeeeeeeeeeeeeeseeeeeesees 30
+7.5 Electrical TOlCrances ........ceeceeceeeeeeeeeeseecaaeaeeceeceeeeeeeeeeseesneaaaaaaaaaeaeeceeeeeeeeeeseneeseaaaaaaaeaaaaeaeeeeseeeeeeeeeeeaes 30
+7.6 DiIM@NsiOnal DraWwiNGS ........:.:scesesssessesseseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaaeaae eee eee eeeeeeseeeeeeeeeeeeeeeeeeeseeeeeeeeeeeneess 31
+7.7 Optical CHArAacteristiCs ..........ccceecesssssssssseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaae aaa eae eee eeeeeeeeeeeeeeeeeeeeeeeeeeseeceeeeeeeeeeess 32
+B OSCESING .....ceccccccccccencenneeeeeeeeeeesseseseeeeeeeeeeeeeeeeeeeeeeeeeseeseeseeGGe Gee GGG eae sss EEEEEEEEEEEEEEEEEEEEEEESEECEECAECeAsECAAA;A GEA GEE AEE EEE EE 32
+8.1 Part NUMDELING SCHEME 20.0... eccccccceceecceceeceeeeeeeeeeeaee eae eae eee eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeceeeeeceeeeaaeaaaaaaaaaeaaes 32
+8.2 OPtiONs.......ceeecccccccccssessseseeeee eee eeseeeeeeeee eee eeeeeeeeeeee sees eeeeeeee eee GassEEEEEEEAAAGAAAAEEEEEEE;;;;;; GEG EEEEEE;;E;;; GE REE EEE EEEEEE EE 32
+8.3 ACCOSSOSICS.........::cccseeesseeseeseeseeseeeeeeeeeeeeeeeeeeeeceeeeeeeeaeeaaeaaaaaa aaa aaa aaa esaeeeeeeeeeeeeeeeeeeeeseeceseeeseeaeeaaeaaaaaaaaaages 33
+D DeFINITIONS 20... ec cccseneeceeeeseeeaeeeeeeeeeeeaeeeeeeeeeeeaeaeeeeeeeeeaaeeeeeeeeeeaaeeeeeeeeeesaaeeeeeeeeesaaeceeeseeesaaeaeeeeeeeeeaaaeeeeenses 35
+
+1O CONTACT... ecceccscseceesececsscecsceesesseceeesescessecussecsceeseeeeseceseuceseessseceseuseseecessssucesesesseceseeseseesessssecesensusesens 35
+1 Introduction
+
+ 
+
+io 1nnnonooo nT oO
+
+SS S SSS SS SS SS SSS eS Sse
+
+ 
+
+ 
+
+ 
+
+| TW OQ
+090000 J
+
+ 
+
+The VK202-25 is an intelligent alohanumeric liquid crystal display designed to decrease development
+time by providing an instant solution to any project. In addition to the RS232, TTL and I2C protocols
+available in the standard model, a USB communication model allow the VK202-25 to be connected to a
+wide variety of host controllers. Communication speeds of up to 115.2kbps for serial protocols and
+100kbps for I’C ensure lightning fast display updates.
+
+The simple command structure permits easy software control of many settings including backlight
+brightness, screen contrast, and baud rate. On board memory provides up to forty custom characters
+which can be saved within the unit and recalled for start screens, bar graphs or larger numbers.
+
+User input on the VK202-25 is available through a five by five matrix style keypad, and six general
+purpose outputs provide simple switchable five volt sources. In addition, the option of a Dallas One-
+Wire header provides a communication interface for up to thirty-two devices.
+
+The versatile VK202-25, with all the features mentioned above, is available in a variety of colour,
+voltage, and temperature options to suit almost any application.
+2 Quick Connect Guide
+
+2.1 Available Headers
+
+ 
+
+Made In
+Canade
+
+ 
+
+ 
+
++5'VGND
+
+ 
+
+ 
+
+ 
+
+ 
+
+GND D +5¥V
+
+ 
+
+ 
+
+2
+
+& Ri
+
+x
+=
+
+|
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 2: VK202-25 Standard Module Header Locations
+
+ 
+
+ROHS
+arellarct
+ones BAC
+
+ 
+
+ 
+
+GND
+
+D+5¥V
+
+ 
+
+11S
+g ws
+
+>
+2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 3: VK202-25 USB Model Header Locations
+
+Table 1: List of Available Headers
+
+ee
+GPO Header None Offered All Models
+
+2 DB9 Serial Header CSS1FT/CSS4FT Standard Model Only
+3 Keypad KPP4x4 All Models
+
+4 Communication/Power Connector SCCPC5V/BBC Standard Model Only
+5 Mini USB Connector EXTMUSB3FT/INTMUSB3FT USB Model Only
+
+6 Dallas One-Wire Header Temperature Probe USB Model Only
+
+7 Alternate Power Connector PCS USB Model Only
+2.2 Standard Module
+The standard version of the VK202-25 allows for user configuration of three common communication
+protocols. First, the unit can communicate using serial protocol at either RS323 or TTL voltage levels.
+Second, it can communicate using the Inter-Integrated Circuit connect, or I?C protocol. Connections for
+each protocol can be accessed through the four pin Communication/Power Header as outlined in the
+Serial Connections and I’C Connections sections below.
+
+Recommended Parts
+
+——— The most common cable choice for any alphanumeric Matrix Orbital
+7 ~ Display, the Communication/ Power Cable offers a simple connection
+6 to the unit with familiar interfaces. DB9 and floppy power headers
+provide all necessary input to drive your display.
+
+For a more flexible interface to the VK202-25 a Breadboard Cable may
+be used. This provides a simple four wire connection that is popular
+among developers for its ease of use in a breadboard environment.
+
+Serial Connections
+
+A serial interface provides a classic connection to the VK202-25. The Communication/Power Cable is
+most commonly used for this set up as it provides connections for DB9 serial and floppy power cables.
+To place your board in Serial mode, adhere to the steps laid out below.
+
+1. Set the Protocol Select jumpers.
+
+e RS232: Connect the three jumpers* in the 232 protocol box with the zero ohm jumper resistors
+provided or an alternate wire or solder solution.
+e TTL: Connect the two jumpers* in the TTL protocol box.
+
+*Note: Jumpers must be removed from all protocol boxes save for the one in use.
+2. Make the connections.
+
+a. Connect the four pin female header of the Communication/Power Cable to the
+Communication/Power Header of your VK202-25.
+
+b. Insert the male end of your serial cable to the corresponding DB9 header of the
+Communication/Power Cable and the mate the female connector with the desired
+communication port of your computer.
+
+c. Select an unmodified floppy cable from a PC power supply and connect it to the power header
+of the Communication/Power Cable.
+
+3. Create.
+
+Use uProject or a terminal program to get started, and then move on with your own
+development. A number of application notes are available at www.matrixorbital.ca/appnotes.
+
+ 
+
+A more advanced connection to the VK202-25 is provided by the I’C protocol setting. This is best
+
+accomplished using a breadboard and the Breadboard Cable. Power must be supplied from your
+
+breadboard or another external source. To dive right into your application and use the VK202-25 in I7C
+
+mode, get started with the guidelines below.
+
+1.
+
+Set the Protocol Select switches.
+
+I°C: Ensure that the two IC jumpers in the corresponding protocol box are connected while all
+others are open.
+
+Make the connections.
+
+a. Connect the Breadboard Cable to the Communication/Power Header on your VK202-25 and
+plug the four leads into your breadboard. The red lead will require power, while the black
+should be connected to ground, and the green and yellow should be connected to your
+controller clock and data lines respectively.
+
+b. Pull up the clock and data lines to five volts using a resistance between one and ten kilohms on
+your breadboard.
+
+Create.
+
+This time you're on your own. While there are many examples within the Matrix Orbital
+AppNote section, www.matrixorbital.ca/appnotes, too many controllers and languages exist to
+
+ 
+
+cover them all. If you get stuck in development, it is possible to switch over to another protocol
+on the standard board, and fellow developers are always on our forums for additional support.
+The VK202-25-USB offers a single USB protocol for an easy connection to a host computer. This simple
+and widely available protocol can be accessed using the on board mini B style USB connector as outlined
+in the USB Connections section.
+
+The External Mini USB cable is recommended for the VK202-25-USB display.
+| It will connect to the miniB style header on the unit and provide a
+: 4 i | connection to a regular A style USB connector, commonly found ona PC.
+¥ yf
+
+The USB connection is the quickest, easiest solution for PC development. After driver installation, the
+VK202-25-USB will be accessible through a virtual serial port, providing the same result as a serial setup
+without the cable hassle. To connect to your VK202-25-USB please follow the steps below.
+
+1. Set the Protocol Select jumpers.
+
+e USB: The VK202-25-USB offers USB protocol only. Model specific hardware prevents this unit
+from operating in any other protocol, and does not allow other models to operate in USB.
+Protocol Select jumpers on the USB model cannot be moved.
+
+2. Make the connections.
+
+e Plug the mini-B header of your External Mini USB cable into your VK202-25-USB and the regular
+
+USB header into your computer USB jack.
+3. Install the drivers.
+
+a. Download the latest drivers at www.matrixorbital.ca/drivers, and save them to a known
+location.
+
+b. When prompted, install the USB bus controller driver automatically
+
+c. If asked, continue anyway, even though the driver is not signed
+When the driver install is complete, your display will turn on, but communication will not yet be
+possible.
+
+e. Atthe second driver prompt, install the serial port driver automatically
+
+f. Again, if asked, continue anyway
+
+4. Create.
+
+e Use uProject or a terminal program to get started, and then move on with your own
+
+development. A number of application notes are available at www.matrixorbital.ca/appnotes.
+3 Software
+
+The multiple communication protocols available and simple command structure of the VK202-25 means
+that a variety of applications can be used to communicate with the display. Text is sent to the display as
+a character string, for example, sending the decimal value 41 will result in an 'A' appearing on the
+screen. Anumber of control characters are also activated. Commands are merely values prefixed with a
+special command byte, 254 in decimal.
+
+Control Characters
+
+8 Backspace 10 Linefeed/Newline 12 Clearscreen/Newpage 13 Carriage return
+
+Once the correct communication port is identified, the following communication settings can be applied
+to communicate correctly with the VK202-25.
+
+|_BPS | Data Bits | Parity | Stop Bits | Flow Control |
+
+19200 8 None 1 None
+
+Finally, with a communication port identified and correctly setup simple text strings or even command
+bytes can easily be transmitted to control your display.
+
+3.1 uProject
+The Matrix Orbital alohanumeric display tuner, or uProject, is offered as a free download from the
+www.matrixorbital.ca support site. It allows the basic functionality of *any display to be tested using a
+simple graphical user interface system.
+
+While basic functionality can be tested using the GUI portion of the program, more advanced users will
+enjoy the scripting capability found in the uploader tab. Here commands can be stacked, run, and saved
+for later use. Although many commands are available to be dragged into the script dialog, perhaps the
+most powerful is the raw data command found in the other branch.
+
+*Note: The uProject AutoDetect function will not perform correctly when a USB display is connected. Please
+manually configure any USB display.
+This command allows raw bytes to be sent to the display, permitting many different formats for entry
+and displaying in decimal notation. Any command from this manual may be entered in decimal notation
+separated by slashes.
+
+[254] /88/
+
+Again, the clear screen command is sent to a connected display, this time using uProject raw data
+command style. Scripts can be run as a whole using the execute command from the script menu, or as
+single commands by selecting execute once. Before issuing commands, it is a good idea to ensure
+communication with a display is successful using some of the more basic GUI functions in the main
+window.
+
+This program provides scratch pad upon which a tome of display projects and ideas can be assembled.
+
+Full demonstration programs and code are available for Matrix Orbital Displays in the C# language from
+Simple C# AppNote Pack in the Application Note section at www.matrixorbital.ca/appnotes. Difficulty
+
+ 
+
+increases from beginner, with the Hello World program, to advanced with the Dallas One-Wire
+temperature reading application.
+
+Many additional applications are available in a number of different programming languages. These
+programs are meant to showcase the capability of the display and are not intended to be integrated into
+a final design. For additional information regarding code, please read the On Code document also found
+on the support site.
+4 Hardware
+
+4.1 Standard Model
+
+Communication/Power Header
+
+ 
+
+ 
+
+ 
+
+ 
+
+432 1
+HA HA HA E 1 Vv
+cc
+
+2 Rx (SCL)
+
+3 Tx (SDA)
+
+4 Gnd
+
+The Communication/Power Header provides a standard connector for interfacing to the VK202-25.
+Voltage is applied through pins one and four of the four pin Communication/Power Header. Please
+ensure the correct voltage input for your display by referencing Voltage Specifications before connecting
+power. Pins two and three are reserved for serial transmission, using either the RS-232/TTL or clocking
+data through the I?C protocol, depending on what has been selected by the Protocol Select Jumpers.
+The versatile Tyco 640456-4-LF style header used can be mated to a number of connectors, the Molex
+22-01-3047 for example.
+
+Serial DB9 Connector
+
+ 
+
+> Lie
+
+2 TX
+
+3 Rx
+
+5 Gnd
+
+9 NC/Vcc*
+
+ 
+
+ 
+
+The VK202-25 provides a DB-9 Connector to readily interface with serial devices using EIA232 standard
+signal levels. It is also possible to communicate at TTL levels of 0 to +5V by setting the Protocol Select
+Jumpers to TTL. As an added feature it is also possible to apply power through pin 9 of the DB-9
+Connector in order to reduce cable clutter. A standard male DB9 header will provide the perfect mate
+for this connector.
+
+*Note: Do not apply voltage through pin 9 of the DB-9 Connector AND through the Communication/Power Header
+at the same time.
+Power Through DB9 Jumper
+
+In order to provide power through pin 9 of the DB-9 Connector you must connect the Power Through
+DB-9 Jumper labelled D, as illustrated below. This connection can be made using a zero ohm resistor,
+recommended size 0603, or a solder bridge. The VK202-25 allows all voltage models to use the power
+through DB-9 option, see the Voltage Specifications for power requirements.
+
+ 
+
+@eeee
+e OOOO ©
+
+. oe .
+
+ 
+
+ 
+
+ 
+
+Protocol Select Jumpers
+
+The Protocol Select Jumpers provide the means necessary to toggle the VK202-25 between RS-232, TTL
+and |?C protocols. As a default, the jumpers are set to RS-232 mode with solder jumps on the RS232
+jumpers. In order to place the display module in I?C mode you must first remove the solder jumps from
+the RS232 jumpers and then place them on the I’C jumpers. The display will now be in |2C mode and
+have a default slave address of 80, unless changed with the appropriate command. Similarly, in order to
+change the display to TTL mode, simply remove the zero ohm resistors from the RS232 or I?C jumpers
+and solder them to the TTL jumpers.
+4.2 USB Model
+
+Mini USB Connector
+
+cee Cie
+
+[ Sooo | 1 Vec
+Qa) 2 D-
+ae 3 D+
+
+5 Gnd
+
+The VK202-25-USB comes with a familiar Mini USB Connector to fulfill both communication and power
+needs. The standard MiniB style header can be connected to any other USB style using the appropriate
+cable. Most commonly used with a PC, this connection creates a virtual com port that offers a simple
+power solution with a familiar communication scheme.
+
+Alternate USB Header
+
+Some advanced applications may prefer the straight four pin connection offered through the Optional
+Alternate USB Header. This header offers power and communication access in a simple interface
+package. The Optional Alternate USB Header may be added to the VK202-25-USB for an added charge
+as part of a custom order. Please use the Contact section to request more information from the friendly
+Matrix Orbital sales team.
+
+Alternate Power Connector
+
+ 
+
+4 3 ! Coos
+HH HH HA Vec
+Gnd
+Gnd
+
+NC
+
+HD
+
+ 
+
+ 
+
+ 
+
+ 
+
+BwWwWN
+
+The Alternate Power Connector provides the ability to power the VK202-25-USB using a second cable.
+The Tyco 171825-4 style header is particularly useful for connecting to an unmodified floppy power
+cable, a 171822-4 for example, from a PC power supply for a simple bench power solution.
+
+10
+4.3 Common Features
+
+General Purpose Outputs
+
+O
+f
+
+RR
+nd
+
+GPO 1 8 G
+GPO 2 9 Gnd
+GPO 3 10 Gnd
+GPO 4 11 Gnd
+GPO 5 12 Gnd
+GPO 6 13 Gnd
+Vcc 14 Gnd
+
+O
+
+ 
+
+ND OB WN RB
+
+A unique feature of the VK202-25 is the ability to control relays* and other external devices using either
+one or six General Purpose Outputs. Each can source up to 10mA of current at five volts when on or sink
+20mA at zero volts when off. The two row, fourteen pin header can be interfaced to a number of female
+connectors to provide control to any peripheral devices required.
+
+*Note: If connecting a relay, be sure that it is fully clamped using a diode and capacitor in order to absorb any
+electro-motive force (EMF) which will be generated.
+
+Dallas One-Wire Connector
+
+Ci
+
+ 
+
+1 Vcc
+2 D
+3 Gnd
+
+In addition to the six general purpose outputs the VK202-25 offers an Optional Dallas One-Wire bridge,
+to allow for an additional thirty two one-wire devices to be connected to the display. This header can be
+populated with a Tyco 173979 connector at an added cost by custom order only. Please use the Contact
+section to request more information from the Matrix Orbital sales team.
+
+11
+Keypad Header
+
+Pin | Function | Pin | Function |
+
+ 
+
+Gnd 7 Column 1
+Row 1 8 Column 2
+Row 2 9 Column 3
+
+Row 3 10 Column4
+Row 4 11 Column5
+Row 5 12 Gnd/Vcc*
+
+Nu BWN
+
+To facilitate user input, the VK202-25 provides a Keypad Interface Connector which allows a matrix style
+keypad of up to twenty-five keys to be directly connected to the display module. Key presses are
+generated when a short is detected between a row and a column. When a key press is generated, a
+character specific to that key press is automatically sent on the Tx communication line. If the display
+module is running in I?C mode, the “Auto Transmit Keypress” function may be turned off to allow the
+key presses to remain in the buffer so that they may be polled. The character that is associated with
+each key press may also be altered using the “Assign Key Codes” command. The straight twelve pin
+header of the Keypad Interface Connector will interface to a variety of different devices including the
+Matrix Orbital KPP4x4 keypad.
+
+*Note: The Ground / +5V pin is toggled by the jumper to the right of the keypad connector. Jump pads 1 & 2 for
++5V or 2 & 3 for GND.
+
+12
+ 
+
+In order for your VK202-25 to function correctly, it must be supplied with the appropriate power. Ifthe
+screen is not illuminated, power may not be applied correctly. Try the tips below.
+
+e First, make sure that you are using the correct power connector. Standard floppy drive power
+cables from your PC power supply may fit on the Communication/Power Header; however they
+do not have the correct pin out to provide power. Matrix Orbital supplies power cable adapters
+for connecting to a PC, which can be found in the Accessories section.
+
+e Next, check the power cable which you are using for continuity. If you don't have an ohm
+meter, try using a different power cable, if this does not help try using a different power supply.
+
+e If power is applied through the DB9 connector, ensure that the Power Through DB9 Jumper is
+connected.
+
+e If changes have been made to the protocol select block, ensure all the appropriate protocol
+select jumpers are connected and all unused protocol jumpers are disconnected.
+
+e The last step will be to check the interface connector in use on your display. If the power
+connections have become loose, or you are unable to resolve the issue, please Contact Matrix
+Orbital for more information.
+
+ 
+
+If your display is powered successfully, the Matrix Orbital logo, or user created screen should display on
+start up. If this is not the case, check out these tips.
+
+e Ensure the contrast is not too high or too low. This can result in a darkened or blank screen
+respectively. See the Manual Override section to reset to default.
+
+e Make sure that the start screen is not blank. It is possible to overwrite the Matrix Orbital logo
+start screen, if this happens the screen may be blank. Try writing to the display to ensure it is
+functional, after checking the contrast above.
+When communication of either text or commands is interrupted, try the steps below.
+
+First, check the communication cable for continuity. If you don't have an ohm meter, try using a
+different communication cable. If you are using a PC try using a different Com/USB Port.
+
+Next, please ensure that the display module is set to communicate on the protocol that you are
+using, by checking the Protocol Select Jumpers.
+
+In serial and USB protocols, ensure that the host system and display module are both
+communicating on the same baud rate. The default rate for the display module is 19200 bps.
+Match Rx from your display to the transmitting pin from your host and the Tx pin to the
+receiving pin.
+
+If you are communicating to the display via I?C* please ensure that the data is being sent to the
+correct address. The default slave address for the display module is 80.
+
+In °C mode, connect Rx to the clock line of your controller and Tx to the data output.
+
+Unlock the display. See the Set and Save Data Lock command for more info.
+
+Finally, you may reset the display to its default settings using the Manual Override procedure
+outlined below.
+
+*Note: I?C communication will always require pull up resistors on SCL and SDA of one to ten kilohms.
+
+Should the settings of your display become altered in a way that dramatically impacts usability, the
+default settings can be temporarily restored. To override the display, please follow the steps below.
+
+PWN RP
+
+Disconnect power from your display.
+
+Place a jumper on the middle two keypad pins, R5 and C1.
+
+Reconnect power to your unit, and wait for the start screen before removing the jumper.
+
+Settings will be temporarily** overridden to the defaults listed in the Manual Override Settings
+table. At this point any important settings, such as contrast, backlight, or baud rate, should not only
+be set but saved so they remain when the override is removed.
+
+Backlight 255
+Contrast 128
+Baud Rate 19200
+
+°C Address 80
+
+**Note: The display module will revert back to the old settings once turned off, unless desired settings are saved.
+6 Commands
+
+6.1 Communication
+
+ 
+
+1.1 Change 25457 Speed v5.6
+Baud Rate FE39 Speed
+
+m9 Speed
+
+Immediately changes the baud rate. Not available in |2C. Baud rate can be temporarily forced to 19200 by a
+manual override.
+
+Speec Byte Valid settings shown below.
+
+ 
+
+1200 2400 4800 9600 19200 28800 38400 57600 *76800 *115200
+83 41 207 103 ~~ 51 34 25 16 12 8
+
+*Note: Baud rates 76800 and 115200 added with the release of firmware revision 5.7 as per PCN 2006-08-24.
+
+ 
+
+1.2 Change me 25451 Address v5.6
+Slave Address FE33 Address
+
+m3 Address
+
+Immediately changes the IC write address. Only even values are permitted as the next odd address will become
+the read address. Default is 80.
+
+Address Byte Even value.
+
+ 
+
+ 
+
+1.3 Transmission 254160 Protocol v5.6
+Protocol Select FEAO Protocol
+
+ma _ Protocol
+
+Selects the protocol used for data transmission from the display. Data transmission to the display is not affected.
+Must be set to the protocol in use to receive data correctly.
+
+Protocol Byte 1 for Serial (RS232/RS422/TTL/USB) or O for I’C.
+
+ 
+
+ 
+
+1.4 Set a Non-Standard 254164 Speed v5.0
+Baud Rate FEA4 Speed
+
+mit Speed
+
+Immediately changes the baud rate to a non-standard value. Baud must be a whole number between 977 and
+153800. Due to rounding, error increases with baud rate, actual baud must be within 3% of desired baud to ensure
+accurate communication. Not available in 12C. Can be temporarily forced to 19200 by a manual override.
+
+Speed Short Calculations shown below, standard crystal speed is 16MHz.
+
+ 
+
+CrystalSpeed
+Crystalspeed —1 ActualBaud = » P
+
+Ss a= OO —
+pee (8 x DesiredBaud) (8 x (Speed + 1))
+|DesiredBaud — ActualBaud |
+
+DesiredBaud < 0.03
+
+ 
+
+15
+6.2 Text
+
+2.1 Clear 254 88 v5.6
+Screen FE 58
+
+mw X
+
+Clears the contents of the screen.
+
+ 
+
+ 
+
+ 
+
+2.2 Change the 25464 Characters v5.6
+Start Up Screen FE40 Characters
+
+m™@ Characters
+
+Changes the message displayed on start up. Custom characters can be included by adding their decimal value (0-
+7). Characters will automatically wrap on the display.
+
+Characters 80 bytes, space characters can be added as needed
+
+ 
+
+ 
+
+2.3 Auto 254 81 v5.6
+Scroll On FE 51
+
+HQ
+
+The entire contents of screen are shifted up one line when the end of the screen is reached. Display default is on.
+
+ 
+
+ 
+
+2.4 Auto 254 82 v5.6
+Scroll Off FE 52
+
+aR
+
+New text is written over the top line when the end of the screen is reached. Display default is Auto Scroll on.
+
+ 
+
+ 
+
+2.5 Set Auto 254 67 v5.6
+Line Wrap On FE 43
+
+aC
+
+Text will wrap to the next consecutive line once a row becomes full. Default is Auto Line Wrap on.
+
+ 
+
+ 
+
+2.6 Set Auto 254 68 v5.6
+Line Wrap Off FE 44
+
+“aD
+
+Text will skip one line when wrapping once a row becomes full. Writing order will be rows 1, 3, 2, and then 4.
+Default is Auto Line Wrap on.
+
+ 
+
+ 
+
+2.7 Set Cursor 25471 Column Row v5.6
+esi a(el a FE47 Column Row
+
+mG Column Row
+
+Sets the cursor to a specific cursor position where the next transmitted character is printed.
+
+Column Byte Value between 1 and number of character columns.
+
+Row Byte Value between 1 and number of character rows.
+
+ 
+
+16
+ 
+
+2.8Go pete 25472
+Home Hex FE 48
+ASCII gH
+
+Returns the cursor to the top left of the screen.
+
+v5.6
+
+ 
+
+2.9 Move Dec 254 76
+Cursor Back [iat FE 4C
+
+ 
+
+ 
+
+2.10 Move Dec 25477
+Cursor Forward fal FE 4D
+
+ 
+
+ 
+
+2.11 Underline Dec 254 74
+Cursor On Hex FE 4A
+
+ 
+
+ 
+
+2.12 Underline Dec 25475
+Cursor Off Hex FE 4B
+
+ 
+
+ 
+
+2.13 Blinking Dec 254 83
+Block Cursor On Hex FE 53
+
+ 
+
+ 
+
+v5.6
+ASCII aL
+Moves cursor one position to the left. Cursor will obey wrap settings.
+v5.6
+ASCII aM
+Moves cursor one position to the right. Cursor will obey wrap settings.
+v5.6
+ASCII uJ
+Displays a line under the current cursor position. Can be used with block cursor.
+v5.6
+ASCII ak
+Removes line under current cursor position.
+v5.6
+ASCII aS
+Displays a blinking block over the current cursor position. Can be used with underline.
+v5.6
+
+2.14 Blinking Dec 254 84
+Block Cursor Off Hex FE 54
+ASCII aT
+Removes blinking block over current cursor position.
+
+ 
+
+17
+6.3 Special Characters
+
+3.1 Create a Custom 25478 = |D Data v5.6
+Character FE4E_ |D Data
+
+mwN_ ID Data
+
+Creates a custom character. Each character is divided into 8 rows of 5 pixels; each data byte represents one row.
+Each byte is padded by three zero bits followed by five bits representing each pixel state. A one represents an on
+condition while a zero is off. Characters are lost when a new memory bank is loaded, unless they are saved.
+
+ID Byte Character ID, value between 0 and 7.
+
+Data Byte[8] Character pixel data as shown below.
+
+ 
+
+ 
+
+Data[1] 000 p1 p2 p3 p4 p5 00001000 8
+Data[2] 000 [pi p2 |p3) p4 p5 00010100 20
+Data[3] 000 pl p2 p3 p4 p5 00001000
+Data[4] 000 p1 p2 p3 |p4 |p5) 00000011
+Data[5] 000 pl p2 |p3 p4 p5 00000100
+Data[6] 000 p1 p2 |p3) p4 p5 00000100
+Data[7] 000 pl p2 p3 /p4 p5 00000011
+Data[8] 000 p1 p2 p3 p4 p5 00000000
+
+oO w fF FB WwW ©
+
+ 
+
+REVAny: MOLI Ke)a0 254193 Bank ID Data v5.6
+Characters FEC1 Bank ID Data
+
+mii Bank ID Data
+
+Provides access to all memory banks to create and save custom characters, graph bars, and large digits. Any new
+characters saved will overwrite the old, so care should be taken when writing to any bar or digit memory bank.
+Bank structure is shown below.
+
+Bank Byte 1 byte, memory bank ID, value between 0 and 4, as below.
+
+ID Byte 1 byte, value between 0 and 7.
+
+Data  Byte[8] 8 bytes, character pixel data as above.
+
+ 
+
+ry Start-up Characters Horizontal Bars rE Vertical Bars Fi Medium Digits gy Large Digits
+
+ 
+
+3.3 Load Custom 254192 Bank v5.6
+Characters FECO Bank
+
+gt Bank
+
+Loads a bank of custom characters into memory for use. Must be issued before using a bank of characters.
+Alternatively, an appropriate initialize command can be used.
+
+Bank Byte Memory bank ID, value between 0 and 4, as above.
+
+ 
+
+18
+ 
+
+3.4 Save Start Up 254194  !|D Data v5.6
+Screen Custom FEC2 |D Data
+CEI AES w+ I!DData
+
+ 
+
+Saves a custom character to memory for the start up screen or repeated use. Start up characters are displayed by
+sending their ID to the screen.
+
+ID Byte Value between 0 and 7.
+
+Data Byte[8] Character pixel data, see Custom Degree Character example.
+
+ 
+
+3.5 Initialize 254 109 v5.6
+Medium Numbers FE 6D
+=m
+
+ 
+
+Loads the medium number custom character bank into memory. Medium numbers must be initialized before use.
+
+ 
+
+3.6 Place Medium 254111 Row Column Digit v5.6
+Numbers FE6F Row Column Digit
+
+mo Row Column Digit
+
+Places a single medium decimal digit of 2 row height and 1 column width on the display at the position specified.
+Medium numbers must be initialized before being placed.
+
+Row Byte Value between 1 and 20.
+
+Column Byte Value between 1 and 4.
+
+Digit Byte Single decimal digit to display.
+
+ 
+
+ 
+
+3.7 Initialize 254 104 v5.6
+Horizontal Bar FE 68
+
+gh
+
+Loads the horizontal bar graph custom character bank into memory. Horizontal bar characters must be initialized
+before a graph is displayed.
+
+ 
+
+ 
+
+ 
+
+3.8 Place Horizontal 254124 Column Row Direction Length v5.6
+Bar Graph FE7C Column Row Direction Length
+
+=| Column Row Direction Length
+
+Places a horizontal bar graph on the screen beginning at the column and row specified. The bar extends either
+right or left to the length indicated. New bars will overwrite old.
+
+Column Byte 1 byte, value between 1 and 20
+
+Row Byte 1 byte, value between 1 and 4
+
+Direction Byte 1 byte, 0 for right and 1 for left
+
+Length Byte 1 byte, length in pixels of the graph, value between 0 and 100
+
+ 
+
+ 
+
+ 
+
+3.9 Initialize Narrow 254 115 v5.6
+Vertical Bar FE 73
+
+ms
+
+Loads the narrow horizontal bar graph custom character bank into memory. A narrow bar is 2 pixels wide.
+Horizontal bar characters must be initialized before a graph is displayed.
+
+ 
+
+19
+ 
+
+ReOROMIaliClir4emule(sm Dec 254 118 v5.6
+Vertical Bar Hex FE 76
+
+ASCII mV
+
+Loads the wide horizontal bar graph custom character bank into memory. A wide bar is 5 pixels wide. Horizontal
+bar characters must be initialized before a graph is displayed.
+
+ 
+
+ 
+
+3.11 Place Dec 25461 Column Length v5.6
+Viclad(ec|mst-lamm Hex FE3D Column Length
+
+ASCII m= Column Length
+
+Places a vertical bar graph on the screen extending from the first row of the column specified. The bar extends
+upwards to the length indicated. A new bar will over write the old.
+
+Column Byte ~—_- Value between 1 and 20.
+
+Length Byte Height in pixels of the graph, value between 0 and 32.
+
+ 
+
+ 
+
+6.4 General Purpose Output
+
+4.1 General Purpose Dec 25487 Number v5.6
+Output On Hex FE57 Number
+
+ASCII mW Number
+
+Turns the specified GPO on, sourcing current from an output of five volts.
+
+Number Byte GPO to be turned on.
+
+ 
+
+ 
+
+ 
+
+4.2 General Purpose Dec 25486 Number v5.6
+Output Off Hex FE56 Number
+
+ASCII mV Number
+
+Turns the specified GPO off, sinking current to an output of zero volts.
+
+Number Byte GPO to be turned off.
+
+ 
+
+ 
+
+4.3 Set Start Up Dec 254195 Number State v5.6
+GPO State Hex FEC3 Number State
+
+ASCII Z + Number State
+
+Sets and saves the start up state of the specified GPO in non volatile memory. Changes will be seen on start up.
+Number Byte GPO to be controlled.
+
+State Byte 1 for onor 0 for off.
+
+ 
+
+ 
+
+20
+6.5 Dallas One-Wire
+
+5.1 Search for a 254 200 2 v5.6
+One-Wire Device FE C8 02
+
+mg Usot
+
+Sends a search query to each of the up to 32 devices on the one wire bus. Any connected device will respond with
+an identification packet.
+
+Response _ Bytes [14] Dallas One-Wire identification packet as shown below.
+
+ 
+
+ 
+
+0
+
+ 
+
+2 9002 Preamble
+5 1 138 Another device packet will follow OR
+10 Last device packet
+
+3 1 49 Packet Type
+
+4 1 0 Error Code (0 indicates success)
+
+5 8 Device Address
+
+13 1 0 CRC8 address check (0 indicates validity)
+5.2 Dallas One-Wire 2542001 ~=Filags Send Bits Receive Bits Data v5.6
+Transaction FEC801 Flags Send Bits Receive Bits Data
+
+mw Ustx Flags Send Bits Receive Bits Data
+Performs a single Dallas 1-Wire transaction. Consult your device documentation for information regarding device
+specific protocols. If an error is encountered, a corresponding value will be returned by the device.
+
+ 
+
+Flags Byte Flags for transaction, see below.
+
+Send Bits Byte Number of bytes to be sent to the device.
+
+Receive Bits Byte Number of bytes expected to be received from the device.
+Data Byte(s) Data to be transmitted LSB to MSB.
+
+Flag Description Error Description
+
+0 Success
+
+1 Unknown Command
+2 No Devices Found
+3 Fatal Search Error
+
+a
+rs
+
+Unused
+
+O (Future Compatibility)
+
+Add CRC8 to transaction
+
+O (Future Compatibility)
+Read CRC8 from transaction
+Reset Bus prior to transaction
+
+OrRFrNw fu D N
+
+21
+6.6 Keypad
+
+6.1 Auto Transmit 254 65 v5.6
+Key Presses On FE 41
+
+aA
+
+Key presses are automatically sent to the host when received by the display. Default is Auto Transmit on.
+
+ 
+
+ 
+
+ 
+
+6.2 Auto Transmit 254 79 v5.6
+Key Presses Off FE 4F
+
+20
+
+Key presses are held in the 10 key buffer to be polled by the host using the Poll Key Press command. Use this
+mode for I2C transactions. Default is Auto Transmit on.
+
+ 
+
+ 
+
+6.3 Poll Key 254 38 v5.6
+Rods FE 26
+
+a &
+
+Reads the last unread key press from the 10 key display buffer. If another key is stored in the buffer the MSB will
+be 1, the MSB will be 0 when the last key press is read. If there are no stored key presses a value of 0 will be
+returned. Auto transmit key presses must be turned off for this command to be successful.
+
+Response Byte Value of key pressed (MSb determines additional keys to be read).
+
+ 
+
+ 
+
+6.4 Clear Key 254 69 v5.6
+SIUAiclE FE 45
+
+gE
+
+Clears all key presses from the key buffer.
+
+ 
+
+ 
+
+6.5 Set Debounce 25485 Time v5.6
+Time FE55 Time
+
+gU_ Time
+
+Sets the time between a key press and a key read by the display. Most switches will bounce when pressed; the
+debounce time allows the switch to settle for an accurate read. Default is 8 representing approximately 52ms.
+Time Byte Debounce increment (debounce time = | ime * 6.554ms).
+
+ 
+
+ 
+
+6.6 Set Auto 254126 Mode v5.6
+Repeat Mode FE7E Mode
+
+MDEL (\Viode
+
+Sets key press repeat mode to typematic or hold. In typematic mode if a key press is held, the key value is
+transmitted immediately, then 5 times a second after a 1 second delay. In hold mode, the key down value is
+transmitted once when pressed, and then the key up value is sent when the key is released. Default is typematic.
+Viede Byte 1 for hold mode or 0 for typematic.
+
+ 
+
+22
+ 
+
+6.7 Auto Repeat 254 96 v5.6
+Mode Off FE 60
+
+‘\
+
+ 
+
+Turns auto repeat mode off. Default is on (typematic).
+
+ 
+
+6.8 Assign Keypad 254213 Key Down Key Up v5.6
+Codes FEDS Key Down Key Up
+
+mF Key Down Key Up
+
+Assigns the key down and key up values sent to the host when a key press is detected. A key up and key down
+value must be sent for every key, a value of 255 will leave the key unaltered. Defaults are shown below.
+
+Key Down Bytes[25] Key down values, beginning at row one column one moving right then down.
+
+Key Up Bytes [25] Key up values, beginning at row one column one moving right then down.
+
+ 
+
+om
+
+A(65) B(66) C(67) D(68) £(69) a(97) —_b(98) c(99) d(100) e(101)
+F(70) G(71) H(72) = 1(73) = J(74) f(102) g(103) h(104) i(105) (106)
+K(75) (76) M(77) N(78) O(79) k(107) 1(108) m(109) n(110) 0(111)
+P(80) Q(81) R(82) S(83) T(84) p(112) (113) (114) s(115) (116)
+U(85) V(86) W(87) X(88) Y(89) u(117) v(118) w(119) x(120) y(121)
+
+6.7 Display Functions
+7.1 Backlight 25466 Minutes v5.6
+On FE42 Minutes
+@B Minutes
+Turns the display backlight on for a specified length of time. If an inverse display color is used this command will
+essentially turn on the text.
+
+Miinutes Byte Number of minutes to leave backlight on, a value of O leaves the display on indefinitely.
+
+ 
+
+ 
+
+Vey sy-1e 411408 254 70 v5.6
+Off FE 46
+
+a F
+
+Turns the display backlight off. If an inverse display colour is used this command will turn off the text.
+
+ 
+
+23
+ 
+
+7.3 Set VFD 25489 Brightness v5.6
+Brightness FE59 Brightness
+
+mY Brightness
+
+Immediately sets the text brightness. Default is 0.
+
+Brightness Byte Brightness level from 3(Dim) to O(Bright)
+
+ 
+
+ 
+
+7.4 Set and Save 254145 _ Brightness v5.6
+NAS Dey ats ahdat ess FE91 Brightness
+
+me Brightness
+
+Immediately sets and saves the text brightness. Although brightness can be changed using the set command, it is
+reset to the saved value on start up. Default is 0.
+
+Brightness Byte Brightness level from 3(Dim) to O(Bright)
+
+ 
+
+6.8 Data Security
+
+8.1 Set 254147 = Switch v5.6
+Remember FE93 Switch
+
+mO Switch
+
+Allows changes to specific settings to be saved to the display memory. Writing to non-volatile memory can be slow
+and each change consumes 1 write of at least 100,000 available. The Command Summary outlines which
+commands are saved always, never, and when this command is on only. Remember is off by default.
+
+Switch Byte 1for onor 0 for off.
+
+ 
+
+ 
+
+ 
+
+8.2 Set Data 254 202 245160 Level v5.6
+oye FECAFSA0O Level
+
+wt | a Level
+
+Temporarily locks certain aspects of the display to ensure no inadvertent changes are made. The lock is released
+after a power cycle. A new level overrides the old, and levels can be combined. Default is 0.
+
+Level Byte Lock level, see Data Lock Bits table.
+
+ 
+
+7 0
+
+6 5 4 3 2 1
+
+Place holders only, should be 0
+Locks the Baud Rate and |2C address
+
+Setting Locks all settings from being saved
+Locks all commands, text can still be written
+
+Display Locks entire display, no new text can be displayed
+
+  
+
+24
+ 
+
+8.3 Set and Save 254 203 245160 Level v5.6
+Data Lock FECBF5A0 Level
+
+m5) 4 Level
+
+Locks certain aspects of the display to ensure no inadvertent changes are made. The lock is not affected by a
+power cycle. A new level overrides the old, and levels can be combined. Default is 0.
+
+Level Byte See Data Lock Bits table.
+
+ 
+
+6.9 Miscellaneous
+
+ 
+
+9.1 Write 25452 Data v5.6
+Customer Data FE34 Data
+
+m4. Data
+
+Saves a user defined block of data to non-volatile memory. Useful for storing display information for later use.
+Data Byte[16] User defined data.
+
+ 
+
+ 
+
+SPS X=r-[| 254 53 v5.6
+Customer Data FE 35
+
+a5
+
+Reads data previously written to non-volatile memory. Data is only changed when written, surviving power cycles.
+Response Byte [16] Previously saved user defined data.
+
+ 
+
+ 
+
+9.3 Read Version 254 54 v5.6
+Number FE 36
+
+m6
+
+Causes display to respond with its firmware version number. Test.
+
+Response Byte Convert to hexadecimal to view major and minor revision numbers.
+
+ 
+
+ 
+
+9.4 Read 25455 v5.6
+Module Type FE 37
+
+a7
+
+Causes display to respond with its module number.
+
+Response Byte Module number, see Sample Module Type Responses for a partial list.
+
+ 
+
+VK202-25
+25 VK202-25-USB
+
+25
+7 Appendix
+
+7.1 Command Summary
+
+Available commands below include identifying number, required parameters, the returned response and
+
+an indication of whether settings are remembered always, never, or with remember set to on.
+
+| Name | Dec | Hex | ASCII | Parameters | Response | Remembered |
+
+57
+
+51
+160
+164
+
+Change Baud Rate
+Change IC Slave Address
+Transmission Protocol Select
+Set a Non-Standard Baud Rate
+
+39
+33
+AO
+A4
+
+9
+
+3
+a
+A
+
+Byte
+Byte
+Byte
+Short
+
+None
+None
+None
+None
+
+Always
+Always
+Remember On
+Always
+
+ee Ee ee ee
+
+Clear Screen
+Change the Start Up Screen
+Auto Scroll On
+Auto Scroll Off
+Set Auto Line Wrap On
+Set Auto Line Wrap Off
+Set Cursor Position
+Go Home
+Move Cursor Back
+Move Cursor Forward
+Underline Cursor On
+Underline Cursor Off
+Blinking Block Cursor On
+Blinking Block Cursor Off
+
+64
+81
+82
+67
+68
+71
+72
+76
+77
+74
+75
+83
+84
+
+‘0
+51
+52
+43
+44
+47
+48
+AC
+4D
+4A
+4B
+53
+54
+
+ANAC ZrFAHAVAALDSsSD x
+
+None
+Byte[]
+None
+None
+None
+None
+Byte[2]
+None
+None
+None
+None
+None
+None
+None
+
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+None
+
+Never
+Always
+Remember On
+Remember On
+Remember On
+Remember On
+Never
+Never
+Never
+Never
+Remember On
+Remember On
+Remember On
+Remember On
+
+26
+rN rrr Oe HX ed
+
+Create a Custom Character 78 Byte[9] None Remember On
+Save Custom Characters 193 C1 : Byte[10] None Always
+Load Custom Characters 192 CO L Byte None Never
+
+save eT pen Custom 194 C2 T Byte[9] None Always
+
+Initialize Medium Numbers 109 6D m None None Never
+Place Medium Numbers 111 6F O Row, Col, Digit None Never
+Initialize Horizontal Bar 104 68 h None None Never
+
+Place Horizontal Bar Graph 124 7C | Col, Row, Dir, Length None Never
+
+Initialize Narrow Vertical Bar 115 73 S None None Never
+
+Initialize Wide Vertical Bar 118 76 Vv None None Never
+
+Place Vertical Bar 61 3D = Col, Length None Never
+
+ed sd Sn ee ee
+
+General Purpose Output On 86 56 V Byte None Never
+General Purpose Output Off 87 57 W Byte None Never
+Set Start Up GPO State 195 C3 L Byte[2] None Always
+
+ee a ee ee
+
+Search for a One-Wire Device 200,2 C8,02 ‘sort None Byte[14] Never
+Dallas One-Wire Transaction 200,1 C8,01 ‘4 stx  Byte[3], Byte[] Byte[] Never
+
+a ee ee ee
+
+Auto Transmit Key Presses On = 65 None None Remember On
+Auto Transmit Key Presses Off 79 4F . None None Remember On
+Poll Key Press 38 §=626 & None Byte Never
+Clear Key Buffer 69 45 E None None Never
+Set Debounce Time 85 55 U Byte None Remember On
+Set Auto Repeat Mode 126 7E DEL Mode None Remember On
+Auto Repeat Mode Off 96 + 60 . None None Remember On
+Assign Keypad Codes 213 D5 r Byte[25], Byte[25] None Always
+
+27
+Table 29: Display Functions Command Summary
+
+a ee CS eee
+
+Backlight On Byte None Remember On
+Backlight Off me 46 F None None Remember On
+Set VFD Brightness 89 59 Y Byte None Remember On
+
+Set and Save VFD Brightness 145 91 Byte None Always
+
+%B
+
+Table 30: Data Security Command Summary
+
+Nl He Sa
+6
+
+Set Remember Byte None Always
+Set Data Lock 202, os 160 CA, 5 AO dt |,a Byte None Remember On
+Set and Save Data Lock 203,245,160 CB,F5,A0 47, |,a Byte None Always
+
+Table 31: Miscellaneous Command Summary
+
+ee eee
+
+Write Customer Data 52 4 Byte[16] None Always
+Read Customer Data 53 as 5 None Byte[16] Never
+Read VersionNumber 54 36 6 None Byte Never
+
+Read Module Type 55 37 7 None Byte Never
+
+28
+7.2 Character Sets
+
+—-
+
+29
+
+ 
+
+oO
+
+j=» - .
+
+Higher 4-bit (04 to D7) of Character Code (Hexadecimal)
+
+ 
+
+a
+
+ 
+
+CG
+RAM
+
+Zz
+CG
+
+RAM
+(2)
+
+ 
+
+ 
+
+CG
+RAM
+(3)
+
+“3
+
+9
+
+ 
+
+fifo
+
+ 
+
+ 
+
+tr
+
+ 
+
+vy 3
+
+ 
+
+cG
+RAM
+(4)
+
+ 
+
+CG
+RAM
+(5)
+
+ 
+
+ 
+
+cG
+RAM
+(6)
+
+ 
+
+ 
+
+ 
+
+cG
+RAM
+
+(7)
+
+ 
+
+ 
+
+eeeee '
+
+ 
+
+ved!) LEED Beat) PT
+
+ 
+
+ 
+
+goecee
+
+ 
+
+goeece
+*.
+
+ 
+
+Lower 4-bit (00 to D3) of Character Code (Hexadecimal)
+
+ 
+
+ 
+
+ey;
+a |
+
+.
+eeeceee
+
+ 
+
+ 
+
+ 
+
+ 
+
+e°
+eoseees
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 16: VFD Model Japanese Character Set
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+seesseeses
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+7.3 Block Diagram
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+12C |
+GPO |
+TTL Data
+- MATRIX ORBITAL
+USB Command
+Processor
+\_
+SV .
+Vv
+9V-15V Power Keypad
+
+ 
+
+ 
+
+ 
+
+Dallas
+One-Wire
+
+Figure 17: Functional Diagram
+
+7.4 Environmental Specifications
+
+Table 32: Environmental Limits
+
+-20°C to+70°C —- -40°C. to +85°C
+-40°C to +85°C — -50°C to +85°C
+Maximum 80% non-condensing
+Maximum 10°C /min
+
+ 
+ 
+ 
+ 
+
+7.5 Electrical Tolerances
+
+Current Consumption
+Table 33: Current Consumption
+
+Ea ES a eee
+
+40mA 170 mA 20mA each maximum
+
+Table 34: Backlight Current Draw
+
+VFD
+170mA
+
+Input Voltage Specifications
+Table 35: Voltage Specifications
+
+eee)
+
+4.75-5.25V 9.0-15.0V
+
+30
+7.6 Dimensional Drawings
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+108,00
+96.00
+70,80
+© | oon tonnnnon mn © A 1 | poee
+a0 i O}
+Cee AN :
+ose || MNRNEEHEHEEEEEEEEOEE
+oo | ) C 10,
+Moos v0 | 400 13,00 je
+400! Maizs
+24 i? —
+
+ 
+
+ 
+
+28.3
+10.67%
+
+   
+
+MateBiss 2
+
+la
+
+00000 2 —
+7, =
+
+11.60" 80
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+7
+108,00
+56.00
+70.80
+7 3,6
+) 10 innnonnnn 10 © re 4 0s 20
+oo i
+
+ 
+
+ 
+
+ 
+
+ 
+
+po oo
+po oo
+(Es (EE
+(HES LEE
+(He (ES
+(HES (EE
+(HEE
+(EE (Hs
+(HE ES
+(Ess ESE
+(HEE EEE
+(EEE (EE
+(Ee (ESS
+(He ESS
+(HEE (EE
+(EE (EES
+(Es ES
+(Es EEE
+(EEE (ESSE
+(Hs ESSE
+(Hees ESE
+(Fee (ESS
+Jo
+aD
+On
+oOo
+bo 8000
+Boo0000
+Soo0005
+Soo0000
+ooo0000
+oo0o000g
+
+ 
+
+29,00 24,00 1 2°
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+eo TA ) { CJ C950
+4,00 13'00 a7
+TU 10 f O10 bean
+€) 209000 oy | 0.1 Sea
+4.00-! IN 175
++ 2 4,1 —+
+
+3.3
+
+10.4
+.80
+
+ 
+
+31
+7.7 Optical Characteristics
+
+ 
+
+116.00 x 37.00x 29.0 mm
+96.0 x 24.0 mm
+70.8 X 11.6 mm
+2.40 x 4.70 mm
+3.60 x 6.10 mm
+
+0.40 x 0.50 mm
+
+Pixel Pitch 0.50 x 0.70 mm
+Vi Be ats aleay es 350 cd/m2
+
+  
+
+8 Ordering
+
+8.1 Part Numbering Scheme
+
+| vk | -202 | -25 | Fw | -v| | -E |
+1 2 3 4 5 6 7
+
+8.2 Options
+
+a)
+
+LK: Liquid Crystal Display with Keypad Input
+
+| Product Type OK: Organic Light Emitting Display with Keypad Input
+VK: Vacuum Florescent Display with Keypad Input
+2 Display Size -202: 20 columns by 2 rows
+3 Keypad Size 25: 25 key maximum
+4 Colour *NP: Standard (No filter for VFD)
+*NP: Standard Voltage
+° Voltage -V: Wide Voltage
+* .
+6 Protocol NP: Standard Model
+
+-USB: USB Only Model
+*NP: Standard
+
+7 T t
+emperarere -E: Extended Temperature
+
+*Note: NP means No Populate; skip this designator in the part number and move to the next option.
+
+32
+8.3 Accessories
+
+Power
+
+Table 39: Power Accessories
+
+ 
+
+Standard Power Cable
+
+   
+
+ 
+
+ 
+
+Communication
+Table 40: Communication Accessories
+
+ 
+
+CSS1FT 1 ft. Serial Cable
+
+ 
+
+CSS4FT 4 ft. Serial Cable
+
+ 
+
+GU LOK) Mini-USB Cable
+
+ 
+
+INTMUSB3FT Internal Mini-USB Cable
+
+ 
+
+Serial Communication/5V Power
+Cable
+
+S} Ol Teed)
+
+ 
+
+ 
+
+Breadboard Cable
+
+ 
+
+ 
+
+ 
+
+33
+Peripherals
+
+Table 41: Peripheral Accessories
+
+KPP4x4 16 Button Keypad
+KPP20A-XX 7 Button Keypad Overlay
+
+Temperature Probe Dallas One-Wire Temperature Probe
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Mounting
+Table 42: Mounting Accessories
+
+B2041-XX Mounting Bracket with Coloured
+Overlay
+
+B204A-XX Mounting Bracket with Keyed
+Overlay
+
+MK2041-XX Coloured Overlay with Drill Guide a _ | NY °°
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+*Note: Keyed overlays are available in Black (-BK), Silver (-SK), Red (-DR), and Beige(no part extension) Vinyl.
+**Note: Non-keyed overlays are available in Black Vinyl (-BK), Black Brushed Aluminum (-BL), Silver Brushed
+Aluminum (-AL), and Beige Vinyl (no part extension).
+
+34
+9 Definitions
+ASCII: American standard code for information interchange used to give standardized numeric codes
+to alphanumeric characters.
+
+BPS: Bits per second, a measure of transmission speed.
+
+DOW: Dallas One-Wire protocol, similar to °C, provides reduced data rates at a greater distance. One
+wire carries data, while two others supply power and ground. Matrix Orbital tests non-parasitic devices
+only, those that do not draw power from the data line; however, some parasitic devices may work.
+
+FFSTN: Double film super-twisted nematic in reference to an LCD. The addition of two layers of film
+between the STN display and polarizer improves contrast.
+
+GPO: General purpose output, used to control peripheral devices from a display.
+GUI: | Graphical user interface.
+Hexadecimal: A base 16 number system utilizing symbols 0 through F to represent the values 0-15.
+
+IC: Inter-integrated circuit protocol uses clock and data lines to communicate short distances at
+slow speeds from a master to up to 128 addressable slave devices. A display is a slave device.
+
+LSB: Least significant bit or byte in a transmission, the rightmost when read.
+MSB: Most significant bit or byte in a transmission, the leftmost when read.
+RS232: Recommended standard 232, a common serial protocol. A low level is -30V, a high is +30V.
+
+SDA: _ Serial data line used to transfer data in I?C protocol. This open drain line should be pulled high
+through a resistor. Nominal values are between 1K and 10K Q.
+
+SCL: Serial clock line used to designate data bits in |7C protocol. This open drain line should be pulled
+high through a resistor. Nominal values are between 1K and 10K QO.
+
+STN: Super-twisted nematic in reference to an LCD. In a relaxed or nematic state, crystals orientate
+themselves in the same direction and allow light to pass. In an excited state these crystals align to block
+light. Super-twisted crystals move from 180 to 270 degrees providing greater contrast than TN models.
+
+TTL: — Transistor-transistor logic applied to serial protocol. Low level is OV while high logic is 5V.
+
+10 Contact
+
+Phone: 403.229.2737 Phone: 403.204.3750 Purchasing: www.matrixorbital.com
+Email: sales@matrixorbital.ca Email: support@matrixorbital.ca Support: www.matrixorbital.ca
+
+ 

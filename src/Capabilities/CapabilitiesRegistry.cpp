@@ -383,6 +383,29 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDM0216MDCapabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDVK20225Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "VK202-25",
+        "Matrix Orbital VK202-25 20x2 VFD",
+        "Matrix Orbital",
+        "VK202-25",
+        2, 20,
+        5, 7,
+        116, 16,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_SERIAL_INTERFACE | CAP_USER_DEFINED_CHARS | CAP_DIMMING,
+        1,
+        40,  // up to 40 custom chars via banks
+        256, // brightness 0..255
+        0,
+        10, 100, 100,
+        500, 800,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createGeneric20x2Capabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "Generic 20x2 VFD",
