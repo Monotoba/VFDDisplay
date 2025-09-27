@@ -30,9 +30,17 @@ static void test_vfdcu20025_dimming_brightness_set() {
   for (auto &c : cases) { mock.clear(); ET_ASSERT_TRUE(hal.setDimming(c.in)); ET_ASSERT_EQ((int)mock.at(0),(int)c.expected); }
 }
 
+static void test_vfdcu20025_helper_brightness_index() {
+  VFDCU20025HAL hal; MockTransport mock; hal.setTransport(&mock); (void)hal.init();
+  mock.clear();
+  ET_ASSERT_TRUE(hal.setBrightnessIndex(2));
+  ET_ASSERT_EQ((int)mock.size(), (int)1);
+  ET_ASSERT_EQ((int)mock.at(0), (int)0x02);
+}
+
 inline void register_VFDCU20025HAL_device_tests() {
   ET_ADD_TEST("VFDCU20025.init_sequence", test_vfdcu20025_init_sequence);
   ET_ADD_TEST("VFDCU20025.clear_home_pos", test_vfdcu20025_clear_home_and_pos);
   ET_ADD_TEST("VFDCU20025.dimming", test_vfdcu20025_dimming_brightness_set);
+  ET_ADD_TEST("VFDCU20025.helper_brightness_index", test_vfdcu20025_helper_brightness_index);
 }
-
