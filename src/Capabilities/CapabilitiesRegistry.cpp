@@ -209,6 +209,36 @@ DisplayCapabilities* CapabilitiesRegistry::createVFD20S401Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFD20T202Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "VFD20T202",
+        "20x2 Vacuum Fluorescent Display module",
+        "Futaba",
+        "20T202",
+        2,   // rows
+        20,  // columns
+        5,   // char pixel width (typical)
+        8,   // char pixel height (typical)
+        116, // width mm (typical 20x2)
+        16,  // height mm (typical 20x2)
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_HORIZONTAL_SCROLL | CAP_SERIAL_INTERFACE,
+        3,   // blink speeds (assumed)
+        8,   // user-defined chars (conservative default)
+        0,   // dimming levels (unknown)
+        0,   // brightness levels (unknown)
+        10,  // min cmd delay us
+        100, // max cmd delay us
+        100, // reset delay ms
+        400, // typical power mW
+        800, // max power mW
+        1
+    );
+
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createGeneric20x2Capabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "Generic 20x2 VFD",

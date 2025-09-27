@@ -575,6 +575,7 @@ Returns the device/controller name.
 
 **Implementation Notes:**
 - Return a descriptive name (e.g., "VFD20S401", "HD44780")
+  - Implementations include VFD20S401HAL and VFD20T202HAL
 - String should be static/constant
 
 #### const IDisplayCapabilities* getDisplayCapabilities() const

@@ -1,5 +1,6 @@
 # VFD20S401HAL Implementation Documentation
-
+See also
+- 20T202 devices: VFD20T202HAL implements a similar IVFDHAL surface for 20x2 modules.
 ## Overview
 
 The `VFD20S401HAL` class implements the `IVFDHAL` interface for the Futaba VFD20S401 vacuum fluorescent display controller. This 4x20 character display controller supports serial communication and provides a rich set of features including custom characters, scrolling, and various display modes.
