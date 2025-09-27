@@ -1,0 +1,308 @@
+ 
+
+5X7 Dot Character VFD Module CU20025ECPB-W1J
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+OQ 2X 20 Characters 5mm High The module includes the Vacuum Fluorescent Display
+Q LCD Compatible Design glass, driver and micro-controller ICs with refresh RAM,
+OQ Wide Operating Temp -40°C to +85°C character generator and interface logic.
+Q Single 5V Supply with Power Save Mode The high speed 8 bit parallel interface is 5/ CMOS
+Q High Brightness Blue Green Display compatible suitable for connection to a host CPU bus
+QO Selectable 4/8 bit M68/i80 Interface which can be set to M68 or i80 series interface by a solder
+Q ASCII + Extended Character Font link on the module. Brightness control and power down
+Q 8 User Definable Character RAM functions are provided. A full data sheet is available.
+OQ 4Level Brightness Control Function e
+14x @ 1.0 ©
+O O | x
+C9 Pf aero cece cece ser ereree v C) san
+33 J ] |
+38 r i C) 11.5 29.0 37.0
+COM HWW. nnn ene ND “K see
+12.75
+O O F sassesenees N
+Gvvesnte 17.1 >< 70.8 > i 4.0
+108.0 > << 4.0
+116.0 >
+| :
+__| —= PT visye2
+en B cage
+Keo
+Dimensions in mm & subject to tolerances. Mounting holes 3.5mm dia.
+ELECTRICAL SPECIFICATION CHARACTER FONT
+Parameter Symbol _ | Value Condition He! oo | 10} 20] 30] 40] so| 60} 70] eo] 90] Ao] Bo] co] po] E0| Fo
+Power Supply Voltage Vcc 5.0VDC +/- 5% GND=0V o0 : : .
+Power Supply Current Icc 130mADC typ. Vec=5V
+Logic High Input VIH 2.0VDC min. Vcec=5V o1
+Logic Low Input VIL 0.8VDC max. Vec=5V 02
+Logic High Output VOH Vec-0.4VDC min. | loH=-1.6mMA
+Logic Low Output VOL 0.4VDC max. lol =1.6mA oS
+The power on rise time should be less than 50ms.The inrush current at power on can be 2 x Icc. o4
+The lec current is 10mA maximum while in power down mode.
+os
+OPTICAL and ENVIRONMENTAL SPECIFICATIONS
+Parameter Value 06
+Character Size/Pitch (XxY mm) 2.4 x 4.7/3.6 x 6.1 07
+Dot Size/Pitch (XxY mm) 0.4x0.5/0.5x0.7 08
+Luminance 700 cd/m* (204 fL) Typ.
+Colour of Illumination Blue-Green (Filter for more colours) a9 eel [te] EB [ce | go [feb | AES [fae [PPE] GP] POLES
+Operating Temperature -40°C to +85°C oA Medtbe | HO] CPL) et [eee] bg] bd eee [7 Hl]. "|i. oe
+Storage Temperature -50°C to +85°C = tate lielriinl sles) «1d lieleale len
+Operating Humidity (non condensing) | 20 to 80% RH @ 25°C “ see fA ff ef ef ef Reed bases ath fa Poses | Be =
+oc se) Pe YE PE] Bo] bop.) pees [Sg] UR] PUP) sh | per
+SOFTWARE COMMANDS PIN CONNECTIONS oD ee . wel ad re a
+Instruction R/W| RS | DO-D7 Pin Sig Pin Sig * ww fi ef nd PEE] EL wf eds | arte |
+Clear Display L | L 01H 1 Gno_ | 2 Vcc OE yp PRE) Clete] ce Pe P se | EFL SP
+Cursor Return Home | L | L |02H-03H 3 (Fnc) | 4 RS OF ae) or |UELEE evpfae (i |b olaee [hd
+Entry Mode Set L | L 04H-O7H| |5 RW #|6 E# ts eed sees wet et
+Display ON/OFF L L }O8H-OFH 7 DO 8 D1 JUMPER LINKS CONTACT
+Cursor/Display Shift | L | L |10H-1FH 9 D2 10 D3 # Interface M68/i80_—_ Noritake Sales Office Tel Nos
+Function Set L | L 2OH-3FH 11 D4 12 D5 When jumper link JP2 is Nagoya Japan: +81 (0)52-561-9867
+Brightness Set L | H )0H-03H| | 13 Dé 14 D7 spidere’: ne rut OU Canada: +1-416-291-2946
+_ change to Io0 series Chicago USA: +1-847-439-9020
+Set CG RAM Adar. L_ | L 4#0H-7FH TIMING PARAMETERS (rm control lines. Munchen (D): +49 (0)89-3214-290
+Read BUSY/Addr. H | L )OOH-FFH (E)nable Cycle Time | 1000ns Pin 3 (Fnc) Input Rest Europe: +49 (0)61-0520-9220
+(Fne) Inp .
+Write Data to RAM L | H )OOH-FFH (E)nable Pulse Width | 450ns This is normally open circuit. www.noritake-elec.com
+Read Data from RAM| H | H_|OOH-FFH Hold after (E)nable 10ns If pads JP1.1 and JP1.2 are Subject to change without notice.
+linked. Pin 3 = /Reset. IUK Doc Ref: 01086 Iss:3 29SEP00
+
+NORITAKE ITRON VFD MODULES 2x20, 5mm Dot Character
+
+ 

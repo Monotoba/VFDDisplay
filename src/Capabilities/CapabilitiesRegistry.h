@@ -44,6 +44,7 @@ public:
     // Pre-defined capability sets for common displays
     static DisplayCapabilities* createVFD20S401Capabilities();
     static DisplayCapabilities* createVFD20T202Capabilities();
+    static DisplayCapabilities* createVFDCU20025Capabilities();
     static DisplayCapabilities* createGeneric20x2Capabilities();
     static DisplayCapabilities* createGeneric16x2Capabilities();
     

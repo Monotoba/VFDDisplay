@@ -240,6 +240,29 @@ DisplayCapabilities* CapabilitiesRegistry::createVFD20T202Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDCU20025Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "CU20025ECPB-W1J",
+        "Noritake 20x2 VFD module (5x7 dots)",
+        "Noritake Itron",
+        "CU20025ECPB-W1J",
+        2, 20,
+        5, 7,
+        116, 16,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS | CAP_DIMMING,
+        1,   // blink on/off
+        8,   // CGRAM 8 glyphs
+        4,   // 4 brightness levels
+        0,
+        10, 100, 100,
+        400, 800,
+        1
+    );
+    caps->addSupportedInterface("Parallel");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createGeneric20x2Capabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "Generic 20x2 VFD",
