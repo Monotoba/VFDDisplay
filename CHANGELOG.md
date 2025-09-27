@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 2025-09-27
+- Tests: add a lightweight, embedded-friendly unit test framework under `tests/framework/EmbeddedTest.h` that runs on Arduino IDE, PlatformIO, and AVR targets (no external deps).
+- Tests: add `tests/mocks/MockTransport.h` to capture HAL writes for verification.
+- Tests: add reusable IVFDHAL contract tests in `tests/common/IVFDHALContractTests.hpp` (transport injection, invalid args, positioning + write, capabilities presence).
+- Tests: add device-specific tests for VFD20S401HAL in `tests/device/VFD20S401HALTests.hpp` (init/clear/home opcodes, ESC 'H' addressing, null-terminated ESC, custom-char mapping and packing).
+- Tests: add Arduino test sketch `tests/arduino/IVFDHAL_And_Device_Tests/IVFDHAL_And_Device_Tests.ino` to run all tests via Serial.
+- PlatformIO: add `[env:megaatmega2560-tests]` that builds and runs the embedded test runner at `tests/embedded_runner/main.cpp`; links this repo as a library using `library.json`.
+- Docs: add `docs/tests/README.md` describing the test framework, how to run in Arduino IDE and PlatformIO, and how to add tests for new HALs.
+- Makefile: add `tests/%` pattern targets and `tests/all` to build (and optionally upload) tests via PlatformIO, Arduino CLI, or avr-gcc without altering existing example flow.
+
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.
 - Add `AGENTS.md` directives to codify safety rules and commit policy.

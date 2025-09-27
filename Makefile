@@ -204,7 +204,7 @@ BUILD_DISPATCH  = _$(BACKEND)_build
 UPLOAD_DISPATCH = _$(BACKEND)_upload
 CLEAN_DISPATCH  = _$(BACKEND)_clean
 
-.PHONY: help list clean deepclean $(EXAMPLES) %.upload pio arduino avr --pio -pio --arduino -arduino --avr -avr debug release
+.PHONY: help list clean deepclean $(EXAMPLES) %.upload pio arduino avr --pio -pio --arduino -arduino --avr -avr debug release tests tests/all tests/% _pio_test_build _pio_test_upload _arduino_test_build _arduino_test_upload _avr_test_build _avr_test_upload FORCE
 
 help:
 	@echo "Unified Makefile for VFDDisplay"
@@ -259,3 +259,123 @@ deepclean: clean
 
 debug release:
 	@true
+
+########## Tests ##########
+
+# Discover test entry files
+TESTS_INO := $(wildcard tests/arduino/*/*.ino)
+TESTS_CPP := $(wildcard tests/embedded_runner/main.cpp)
+TESTS_ALL := $(TESTS_INO) $(TESTS_CPP)
+
+# Default PlatformIO settings for tests
+PIO_TEST_ENV ?= megaatmega2560
+PIO_TEST_BOARD ?= megaatmega2560
+
+# PlatformIO: build a test from file path TFILE (src_dir = containing folder)
+_pio_test_build:
+	@if [ -z "$(TFILE)" ]; then echo "Set TFILE=<tests/...> e.g. make tests/embedded_runner/main.cpp"; exit 1; fi
+	$(eval TSRC_DIR := $(dir $(TFILE)))
+	$(eval TSRC_DIR_NOSLASH := $(patsubst %/,%,$(TSRC_DIR)))
+	$(eval TNAME := $(notdir $(TSRC_DIR_NOSLASH)))
+	$(eval WORK_PIO_DIR := $(BUILD_ROOT)/pio_tests/$(TNAME))
+	@mkdir -p $(WORK_PIO_DIR)
+	@echo "[PIO][test] Preparing ephemeral project at $(WORK_PIO_DIR)"
+	@printf "[platformio]\nsrc_dir = $(abspath $(TSRC_DIR))\n\n[env:$(PIO_TEST_ENV)]\nplatform = atmelavr\nboard = $(PIO_TEST_BOARD)\nframework = arduino\nlib_ldf_mode = deep+\nbuild_type = $(PIO_BUILD_TYPE)\nbuild_flags = $(PIO_BUILD_FLAGS) -I $(abspath .)\nmonitor_speed = $(BAUD)\nupload_protocol = $(PIO_UPLOAD_PROTOCOL)\n" > $(WORK_PIO_DIR)/platformio.ini
+	@mkdir -p $(WORK_PIO_DIR)/lib/VFDDisplay
+	@cp -r src/* $(WORK_PIO_DIR)/lib/VFDDisplay/
+	@echo "[PIO][test] Building $(TNAME)"
+	pio run -d $(WORK_PIO_DIR) -e $(PIO_TEST_ENV)
+
+_pio_test_upload:
+	@if [ -z "$(PORT)" ]; then echo "Set PORT=/dev/ttyACM0 (or your port)"; exit 1; fi
+	@if [ -z "$(TFILE)" ]; then echo "Set TFILE=<tests/...>"; exit 1; fi
+	$(eval TSRC_DIR := $(dir $(TFILE)))
+	$(eval TSRC_DIR_NOSLASH := $(patsubst %/,%,$(TSRC_DIR)))
+	$(eval TNAME := $(notdir $(TSRC_DIR_NOSLASH)))
+	$(eval WORK_PIO_DIR := $(BUILD_ROOT)/pio_tests/$(TNAME))
+	@echo "[PIO][test] Uploading $(TNAME) to $(PORT)"
+	pio run -d $(WORK_PIO_DIR) -e $(PIO_TEST_ENV) -t upload --upload-port $(PORT)
+
+# Arduino-CLI: build a .ino test
+_arduino_test_build:
+	@if [ -z "$(TFILE)" ]; then echo "Set TFILE=<tests/...>.ino"; exit 1; fi
+	@if [ ! -f "$(TFILE)" ]; then echo "[Arduino-CLI][test] File not found: $(TFILE)"; exit 1; fi
+	@case "$(TFILE)" in \
+	  *.ino) : ;; \
+	  *) echo "[Arduino-CLI][test] Only .ino tests supported with BACKEND=arduino"; exit 1 ;; \
+	esac
+	$(eval TNAME := $(notdir $(patsubst %/,%,$(dir $(TFILE)))))
+	@mkdir -p $(BUILD_ROOT)/arduino_tests/$(TNAME)
+	@echo "[Arduino-CLI][test] Building $(TFILE) (FQBN=$(FQBN))"
+		$(eval ARD_FLAGS := $(if $(filter $(BUILD_TYPE),debug),--build-property "build.extra_flags=-Og -g -DVFD_BUILD_DEBUG -I $(abspath .) -I $(abspath .)/src",--build-property "build.extra_flags=-Os -DNDEBUG -DVFD_BUILD_RELEASE -I $(abspath .) -I $(abspath .)/src"))
+		arduino-cli compile --fqbn $(FQBN) --build-path $(BUILD_ROOT)/arduino_tests/$(TNAME) --library . $(ARD_FLAGS) $(TFILE)
+
+_arduino_test_upload:
+	@if [ -z "$(PORT)" ]; then echo "Set PORT=/dev/ttyACM0 (or your port)"; exit 1; fi
+	@if [ -z "$(TFILE)" ]; then echo "Set TFILE=<tests/...>.ino"; exit 1; fi
+	@echo "[Arduino-CLI][test] Uploading $(TFILE) to $(PORT) (FQBN=$(FQBN))"
+	arduino-cli upload -p $(PORT) --fqbn $(FQBN) $(TFILE)
+
+# avr-gcc: build a .cpp test (e.g., tests/embedded_runner/main.cpp)
+_avr_test_build:
+	@if [ -z "$(TFILE)" ]; then echo "Set TFILE=<tests/...>.cpp"; exit 1; fi
+	@case "$(TFILE)" in \
+	  *.cpp) : ;; \
+	  *) echo "[avr-gcc][test] Only .cpp tests supported with BACKEND=avr"; exit 1 ;; \
+	esac
+	$(eval TNAME := $(notdir $(patsubst %/,%,$(dir $(TFILE)))))
+	$(eval AVR_BUILD := $(BUILD_ROOT)/avr_tests/$(TNAME))
+	@echo "[avr-gcc][test] Building $(TFILE) (MCU=$(MCU))"
+	@mkdir -p $(AVR_BUILD)/core $(AVR_BUILD)/src $(AVR_BUILD)/test
+	@for f in $(wildcard $(CORE_DIR)/*.c); do \
+	  $(AVR_CC) $(AVR_CFLAGS) -c $$f -o $(AVR_BUILD)/core/$$(basename $$f .c).o; \
+	done
+	@for f in $(wildcard $(CORE_DIR)/*.cpp); do \
+	  $(AVR_CXX) $(AVR_CXXFLAGS) -c $$f -o $(AVR_BUILD)/core/$$(basename $$f .cpp).o; \
+	done
+	@for f in $(shell find src -maxdepth 2 -name '*.cpp'); do \
+	oname=$$(echo $$f | sed 's#^src/##; s#/#_#g; s#\\.cpp$$#.o#'); \
+	$(AVR_CXX) $(AVR_CXXFLAGS) -c $$f -o $(AVR_BUILD)/src/$$oname; \
+	done
+	$(AVR_CXX) $(AVR_CXXFLAGS) -I $(abspath .) -c $(TFILE) -o $(AVR_BUILD)/test/$(TNAME).o
+	$(AVR_CXX) $(AVR_LDFLAGS) $(AVR_BUILD)/test/$(TNAME).o $(AVR_BUILD)/src/*.o $(AVR_BUILD)/core/*.o -o $(AVR_BUILD)/$(TNAME).elf
+	$(AVR_OBJCOPY) -O ihex -R .eeprom $(AVR_BUILD)/$(TNAME).elf $(AVR_BUILD)/$(TNAME).hex
+	@echo "[avr-gcc][test] Built: $(AVR_BUILD)/$(TNAME).hex"
+
+_avr_test_upload:
+	@if [ -z "$(PORT)" ]; then echo "Set PORT=/dev/ttyACM0 (or your port)"; exit 1; fi
+	$(eval TNAME := $(notdir $(patsubst %/,%,$(dir $(TFILE)))))
+	$(eval AVR_BUILD := $(BUILD_ROOT)/avr_tests/$(TNAME))
+	@if [ ! -f "$(AVR_BUILD)/$(TNAME).hex" ]; then echo "Build first: make tests/$(TFILE) BACKEND=avr"; exit 1; fi
+	@echo "[avr-gcc][test] Uploading $(TNAME) to $(PORT) at $(BAUD) (programmer=$(AVR_PROGRAMMER))"
+	$(AVRDUDE) -v -p $(MCU) -c $(AVR_PROGRAMMER) -P $(PORT) -b $(BAUD) -D -U flash:w:$(AVR_BUILD)/$(TNAME).hex:i
+
+# Frontend test targets
+tests:
+	@echo "Test runner targets"; \
+	echo "  - make tests/<path-to-test> [BACKEND=pio|arduino|avr] [UPLOAD=1 PORT=/dev/ttyACM0]"; \
+	echo "  - make tests/all (build all discovered tests)"; \
+	echo "Discovered tests:"; \
+	for t in $(TESTS_ALL); do echo "  - $$t"; done
+
+tests/all:
+	@set -e; \
+	for t in $(TESTS_ALL); do \
+	  echo "==== Building $$t ===="; \
+	  t2=$${t#tests/}; \
+	  $(MAKE) tests/$$t2 BACKEND=$(BACKEND) BUILD_TYPE=$(BUILD_TYPE) PORT=$(PORT) BAUD=$(BAUD) UPLOAD=$(UPLOAD); \
+	done
+
+tests/%: FORCE
+	@t="tests/$*"; \
+	if [ "$$t" = "tests/all" ]; then \
+	  $(MAKE) tests/all BACKEND=$(BACKEND) BUILD_TYPE=$(BUILD_TYPE) PORT=$(PORT) BAUD=$(BAUD) UPLOAD=$(UPLOAD); \
+	  exit 0; \
+	fi; \
+	if [ -d "$$t" ]; then tf=$$(find "$$t" -maxdepth 1 -name '*.ino' -o -name 'main.cpp' | head -n1); else tf="$$t"; fi; \
+	if [ -z "$$tf" ]; then echo "[tests] No test file found under $$t"; exit 1; fi; \
+	echo "[tests] Selected: $$tf (backend=$(BACKEND))"; \
+	$(MAKE) _$(BACKEND)_test_build TFILE="$$tf"; \
+	if [ "$(UPLOAD)" = "1" ]; then $(MAKE) _$(BACKEND)_test_upload TFILE="$$tf" PORT="$(PORT)" BAUD="$(BAUD)"; fi
+
+FORCE:

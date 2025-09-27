@@ -26,3 +26,8 @@ Build & Project Conventions
 Collaboration Etiquette
 - Before making changes, run `git status` to understand the working tree state.
 - When in doubt, ask for confirmation instead of guessing; prefer minimal, reversible changes.
+
+Standard Procedure
+- After completing changes, ensure `CHANGELOG.md` is updated to describe what changed and why.
+- Commit changes as small, focused commits with clear messages, following the Commit Policy above.
+- When adding developer tooling or CI/test scaffolding, also add brief usage notes in `docs/`.
