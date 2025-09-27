@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 - Tests: add contract + device tests for `VFD20T202HAL` (init sequence, clear/home, DDRAM addressing). Runners updated.
 - Docs: expand `docs/api/VFD20S401HAL.md` and `docs/api/VFD20T202HAL.md` with IVFDHAL method references, unbuffered and buffered code examples, and device-specific notes.
 - Docs: add `docs/api/HAL_Authoring_Guide.md` and `docs/api/HAL_Doc_Template.md` for consistent HAL documentation and authoring.
+- Tools/Make: add `tools/new_hal.py` scaffold and `make hal` to generate a new HAL skeleton (code, tests, docs) with next steps guidance.
 
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.

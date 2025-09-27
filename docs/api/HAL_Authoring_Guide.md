@@ -18,6 +18,10 @@ Locked Components
 - Map `setCursorPos()` correctly (e.g., HD44780: DDRAM 0x80|addr; row bases 0x00/0x40; 4×20 devices: linear address or device‑specific mapping).
 - If brightness/dimming is device‑specific (e.g., function set bits), expose it through `setDimming()`/`setBrightness()`.
 
+Quick scaffold (optional)
+- `make hal NAME=20X2ABC CLASS=VFD20X2ABCHAL ROWS=2 COLS=20 DATASHEET=docs/datasheets/20X2ABC.pdf FAMILY=hd44780 TRANSPORT=sync3`
+- This generates HAL headers/sources, a device test stub, and a docs page based on the template.
+
 3) Capabilities
 - Add a factory in `CapabilitiesRegistry` (e.g., `create<Your>Capabilities()`): rows/cols, user chars, flags (DIMMING, H/V scroll, interfaces), timing.
 
@@ -54,4 +58,3 @@ Notes
   - 20×2 (HD44780): row0 base 0x00, row1 base 0x40 → command `0x80 | base + col`
   - 4×20 linear (e.g., 20S401): ESC 'H' + linear address `row*20 + col`
 - For brightness: confirm bit positions and valid levels from the datasheet.
-

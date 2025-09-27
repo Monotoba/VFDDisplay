@@ -204,7 +204,7 @@ BUILD_DISPATCH  = _$(BACKEND)_build
 UPLOAD_DISPATCH = _$(BACKEND)_upload
 CLEAN_DISPATCH  = _$(BACKEND)_clean
 
-.PHONY: help list clean deepclean $(EXAMPLES) %.upload pio arduino avr --pio -pio --arduino -arduino --avr -avr debug release tests tests/all tests/% _pio_test_build _pio_test_upload _arduino_test_build _arduino_test_upload _avr_test_build _avr_test_upload FORCE
+.PHONY: help list clean deepclean $(EXAMPLES) %.upload pio arduino avr --pio -pio --arduino -arduino --avr -avr debug release tests tests/all tests/% _pio_test_build _pio_test_upload _arduino_test_build _arduino_test_upload _avr_test_build _avr_test_upload FORCE hal
 
 help:
 	@echo "Unified Makefile for VFDDisplay"
@@ -259,6 +259,24 @@ deepclean: clean
 
 debug release:
 	@true
+
+########## HAL scaffold ##########
+
+# Usage:
+#   make hal NAME=20T202 CLASS=VFD20T202HAL ROWS=2 COLS=20 DATASHEET=docs/datasheets/20T202DA2JA.pdf FAMILY=hd44780 TRANSPORT=sync3
+# Required: NAME, CLASS
+# Optional with defaults: ROWS=2, COLS=20, FAMILY=hd44780, TRANSPORT=serial, DATASHEET (path)
+hal:
+	@if [ -z "$(NAME)" ] || [ -z "$(CLASS)" ]; then \
+	  echo "Usage: make hal NAME=<Model> CLASS=<ClassName> [ROWS=.. COLS=.. DATASHEET=.. FAMILY=hd44780|esc TRANSPORT=serial|sync3|parallel]"; \
+	  exit 1; \
+	fi
+	$(eval _ROWS := $(if $(ROWS),$(ROWS),2))
+	$(eval _COLS := $(if $(COLS),$(COLS),20))
+	$(eval _FAMILY := $(if $(FAMILY),$(FAMILY),hd44780))
+	$(eval _TRAN := $(if $(TRANSPORT),$(TRANSPORT),serial))
+	@echo "[HAL] Scaffolding $(CLASS) (NAME=$(NAME), ROWS=$(_ROWS), COLS=$(_COLS), FAMILY=$(_FAMILY), TRANSPORT=$(_TRAN))"
+	@python3 tools/new_hal.py --name "$(NAME)" --class "$(CLASS)" --rows $(_ROWS) --cols $(_COLS) $(if $(DATASHEET),--datasheet "$(DATASHEET)") --family $(_FAMILY) --transport $(_TRAN)
 
 ########## Tests ##########
 
