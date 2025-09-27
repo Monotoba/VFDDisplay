@@ -1,0 +1,5310 @@
+ 
+
+HOLTEK
+
+HT16514
+
+Dot Character VFD Controller & Driver
+
+ 
+
+Features
+
+e Logic voltage: 2.7V~5.5V
+¢ High voltage: 60V (max.)
+
+¢ Provides a driving segment for cursor display
+(48 units)
+
+¢ Alphanumeric and symbolic display through built-in
+ROM
+
+¢ 80x8-bit display RAM
+
+¢ On chip ROM (5x8 dot), in total 248 characters,
+plus 8 user-defined characters
+
+¢ Customized ROM acceptable
+
+Applications
+
+¢ Consumer products panel function control
+
+e Industrial measuring instrument panel function
+control
+
+General Description
+
+The HT16514 is a Vacuum Fluorescent Display, VFD
+controller/driver with dot matrix VFD display. It consists
+of 80 segment output lines and 24 grid output lines. It
+can display up to 16Cx2L, 20Cx2L, 24Cx2L.
+
+Ordering Information
+
+¢ Display contents:
+— 16 columns by 2 (1) rows + 32 (16) cursors
+— 20 columns by 2 (1) rows + 40 (20) cursors
+— 24 columns by 2 (1) rows + 48 (24) cursors
+¢ Supports display output (80-segment & 24-grid)
+¢ Parallel data input/output (switchable 4 bit or 8 bit) or
+serial data input/output
+¢ Built-in oscillation circuit
+e 144-pin LQFP package
+
+e¢ Other similar application panel function control
+
+The HT16514 has a character generator ROM which
+stores up to 248x5x8 dot characters.
+
+The HT16514 has serial/parallel interface. This VFD
+controller/driver is ideal as an MCU peripheral device.
+
+ 
+
+Part Number
+
+Package Information
+
+ 
+
+HT16514-001 144-pin plastic LQFP (Fine pitch) (20x20), standard ROM (ROM code: 001)
+
+ 
+
+ 
+
+ 
+
+HT16514-002 144-pin plastic LQFP (Fine pitch) (20x20), standard ROM (ROM code: 002)
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10
+
+4 December 3, 2008
+HOLTEK
+
+HT16514
+
+ 
+
+Block Diagram
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+TESTO O«——
+TESTI O——> Parallel to Serial 80-Bit Output
+RL2 Q——> Data Converter Latch & Register|
+RL1 Q——>
+DLS O——>
+DSi ¢ 5p 5) 80
+Dso
+MPM CGRAM CGROM
+M i (8x5x8 Bits) (248x5x8 Bits) segment [> Ps
+i Driver ii
+cs O—> L_»C) S80
+RS, ST O——>) Le 8) 8)
+R, W (WR) O——>)_ 10 8 Data Register |. 8
+E (RD), SCK O——+I Interface (DR) “ Crusor Blink Circuit
+SI, SO O——> 7| 7 8
+1 a a
+DBO~DB3 O«3+>
+. i 4 8 Instruction |8 Instruction |7 Address DDRAM PO) G1
+DB4~DB7 O« +> Register (IR)|7 >] | Decorder Counter [| (80x8 Bits) a ro
+: Grid Driver it
+: RESET G24
+——— i 7 :
+RESET O—)  Gircuit
+% 24)
+1 a t
+oscl O— Timing 24 24-Bit Shift
+OSCO oo Osc Generator “ Register i
+XOUT O«— 4 |
+Le rn oo 5. :
+VDD LGND VH PGND SDO, SLK, CL, LE
+Pin Assignment
+NNNNNNNNNNDHNNNNNNNNNNNHNHNHNHNNHHNHNHHHHHNHNM
+NWMDOMDWMMOOMOOAAIAAAAAAAARPHARAHRARAHROWWWW
+COONAN APWNHAOCOODNAAARWNACOONADMAAPWNACOONDM
+CUE T IE IE
+108 73
+NC 109 724 NC
+S71 > $34
+$720 $33
+$73 $32
+S740 $31
+S75 $30
+S76 $29
+S77 $28
+S78 $27
+S79 — $26
+$80 7 $25
+6247 $24
+G23 C0 $23
+G22 7 $22
+G21 $21
+G20 7 $20
+G19 $19
+G18 HT16514 1S18
+G170 144 LQFP-A 1 S17
+G16 oo $16
+G15 $15
+G14 $14
+613 $13
+G12 1 $12
+G11 $11
+G10 1 S10
+G9 189
+G8 1 S8
+G7 1 S7
+G6 1 S6
+G5 1 S5
+G40 1 S4
+63 1 $3
+G20 1 $2
+G10 (181
+Nc 1144 37f4 NC
+\e 4 36
+UUUUU UU UU UU UU UU UU UU UU UU UU
+4 = 4
+FOSS SOMME OR. On BOBO BOBO =SneComMmoeMoor
+ZI COOL GPR" Aecorre kaon Cc mN OxANSA
+9 407s gee GgU9
+26
+~
+Rev. 1.10 2 December 3, 2008
+HOLTEK ¢ 4
+
+HT16514
+
+ 
+
+Pin Description
+
+ 
+
+Pin Name | Vo |
+
+Description
+
+ 
+
+Logic System (Microprocessor Interface)
+
+ 
+
+When parallel mode is selected, this pin is utilized to select the register, either Instruction Reg-
+ister or Data Register.
+0: IR (Instruction Register)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS, ST | | 1: DR (Data Register)
+When serial mode is selected, this pin performs strobe input. Data can be set as input when this
+signal goes 0.
+During the next rising edge of this signal, command processing is performed.
+—_ When M668 parallel mode is selected (E), this pin is write enable. Writes data at the falling edge.
+E (RD), When i80 parallel mode is selected (RD), this pin is read enable. When this pin is “Low”, data is
+SCK output to the data Bus.
+When Serial mode is selected, this pin is shift clock input, data will be written at the rising edge.
+cs | | When this pin is “Low”, the device is active.
+OSC! | Connected to an external resistor to generate an oscillation frequenc
+OSCO O g quency.
+XOUT O | Oscillator signal output pin
+When M68 parallel mode is selected (R, W), this pin is data mode select pin
+(0: write, 1: read). _
+—— When i80 parallel mode is selected (WR), this pin is a write enable pin. Data will be written at
+R, W (WR) | . .
+rising edge signal.
+When serial mode is selected, connect this pin to “Hi” or "Low”. Read or Write is chosen by
+instruction.
+S| SO 0 When serial mode is selected, this pin is used as I/O pin.
+When parallel mode is selected, this pin needs to be connected to "Hi" or “Low”.
+When parallel mode is selected, these pins are used as I/O pins.
+DBO~DB7 /O | Data are stored sequentially, the first bit which is sent to the HT16514 is MSB.
+If 4 bits mode is selected, only DB4~DB7 are used.
+RESET Initialize all the internal register and commands.
+All segments and digits are fixed PGND.
+Dso. DS1 Set the duty ratio. Duty ratio will determine the number of grid.
+, The relationship between duty ratio and these pins is shown in Table 1-1.
+Select interface mode (parallel mode or serial mode)
+IM 0: Serial mode
+1: Parallel mode
+In parallel mode, instruction will determine the length of word.
+Select interface mode (i80 type CPU mode or M68 type CPU mode)
+MPU | | 0: i80 type CPU mode
+1: M68 type CPU mode
+Select number of display line when power ON reset or resetting.
+DLS | | 0: Select 1 line (N=0), ”N” is display line select flag in Function set command.
+1: Select 2 line (N=1)
+RL1, RL2 | Set segment outputs pin assignment. The selection table is listed as Table 1-2 & Table 1-7
+TESTI O or open: Normal operation mode
+1: Test mode
+TESTO O | For IC testing only, leave this pin open.
+
+ 
+
+Logic System ( To
+
+External Extension Driver)
+
+ 
+
+SDO
+
+O
+
+Serial data output for extension digit driver.
+
+ 
+
+SLK
+
+ 
+
+ 
+
+O
+
+Shift clock pulse for extension digit driver.
+Active during rising edge
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10
+
+3 December 3, 2008
+HOLTEKY ’ HT16514
+
+Pin Name | I/O Description
+
+ 
+
+ 
+
+ 
+
+__ Clear signal for extension digit driver, active low.
+CL © | The digit data stored in the latch register of the extension driver are output when this signal is
+"Hi", if this signal is “Low”, extension driver outputs are “Low”.
+
+ 
+
+ 
+
+ 
+
+ 
+
+LE © | Latch enable signal for extension digit driver.
+Output Pins
+
+G1~G24 OQ | High-voltage output, grid output pins.
+$1~S80 OQ | High-voltage output, segment output pins.
+
+ 
+
+Power System
+
+ 
+
+ 
+
+ 
+
+ 
+
+VDD — | Pins for logic circuit
+
+LGND — | LGND is ground pin for logic circuit
+
+VH — | Power supply pins for VFD driver circuit
+PGND — | PGND is ground pin for VFD driver circuit
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Table 1-1. Duty Ratio Setting
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DSO DSs1 Duty Ratio
+0 0 1/16 (# of grid = 16)
+0 1 1/24 (# of grid = 24)
+1 0 1/20 (# of grid = 20)
+1 1 1/40 # of grid = 40)*
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note: * When setting to 1/40 duty mode, use the external extension grid driver.
+
+Table 1-2. Segment Setting: 2 Line Display (N=1)
+RL1 Table No.
+0 Table 1-3
+
+0 Table 1-4
+4 Table 1-5
+Table 1-6
+
+ 
+
+ 
+
+Rev. 1.10 4 December 3, 2008
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Table 1-3. The Number Of Segment Pins 1
+No. Name No. Name No. Name No. Name
+1 VH 37 NC 73 $35 109 NC
+2 PGND 38 S1 74 $36 110 S71
+3 VDD 39 $2 75 $37 111 S72
+4 XOUT 40 $3 76 $38 112 $73
+5 OSCO At S4 77 $39 113 S74
+6 OSCI 42 $5 78 S40 114 S75
+7 RESET 43 S6 79 S41 115 S76
+8 TESTI 44 S7 80 $42 116 S77
+9 DLS 45 S8 81 $43 117 S78
+10 DS1 46 S9 82 S44 118 $79
+11 Dso 47 S10 83 $45 119 $80
+12 R, W (WR) 48 S11 84 S46 120 G24
+13 RS, ST 49 $12 85 S47 121 G23
+14 E (RD), SCK 50 $13 86 S48 122 G22
+15 SI, SO 51 $14 87 S49 123 G21
+16 DBO 52 $15 88 $50 124 G20
+17 DB1 53 $16 89 $51 125 G19
+18 DB2 54 S17 90 $52 126 G18
+19 DB3 55 $18 91 $53 127 G17
+20 DB4 56 $19 92 $54 128 G16
+21 DB5 57 $20 93 $55 129 G15
+22 DB6 58 $21 94 S56 130 G14
+23 DB7 59 $22 95 S57 131 G13
+24 IM 60 $23 96 $58 132 G12
+25 MPU 61 $24 97 S59 133 G11
+26 cs 62 $25 98 S60 134 G10
+27 RL1 63 $26 99 S61 135 G9
+28 RL2 64 S27 100 S62 136 G8
+29 CL 65 $28 101 S63 137 G7
+30 LE 66 $29 102 S64 138 G6
+31 SDO 67 $30 103 S65 139 G5
+32 SLK 68 $31 104 S66 140 G4
+33 TESTO 69 $32 105 S67 141 G3
+34 LGND 70 $33 106 S68 142 G2
+35 PGND 71 $34 107 S69 143 G1
+36 VH 72 NC 108 S70 144 NC
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10
+
+December 3, 2008
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Table 1-4. The Number Of Segment Pins 2
+No. Name No. Name No. Name No. Name
+1 VH 37 NC 73 S6 109 NC
+2 PGND 38 S40 74 S5 110 S71
+3 VDD 39 S39 75 S4 111 S72
+4 XOUT 40 S38 76 $3 112 $73
+5 Osc 41 S37 77 $2 113 S74
+6 OSsClI 42 $36 78 S1 114 S75
+7 RESET 43 $35 79 S41 115 S76
+8 TESTI 44 $34 80 S42 116 S77
+9 DLS 45 $33 81 S43 117 S78
+10 DS1 46 $32 82 S44 118 S79
+11 Dso 47 $31 83 S45 119 $80
+12 R, W (WR) 48 $30 84 S46 120 G24
+13 RS, ST 49 $29 85 S47 121 G23
+14 E (RD), SCK 50 $28 86 S48 122 G22
+15 SI, SO 51 S27 87 S49 123 G21
+16 DBO 52 S26 88 S50 124 G20
+17 DB1 53 $25 89 S51 125 G19
+18 DB2 54 S24 90 $52 126 G18
+19 DB3 55 $23 1 S53 127 G17
+20 DB4 56 $22 92 S54 128 G16
+21 DB5 57 $21 93 S55 129 G15
+22 DB6 58 $20 94 S56 130 G14
+23 DB7 59 S19 95 S57 131 G13
+24 IM 60 S18 96 S58 132 G12
+25 MPU 61 S17 97 S59 133 G11
+26 cs 62 S16 98 S60 134 G10
+27 RL1 63 S15 99 S61 135 G9
+28 RL2 64 S14 100 S62 136 G8
+29 CL 65 $13 101 S63 137 G7
+30 LE 66 $12 102 S64 138 G6
+31 SDO 67 S11 103 S65 139 G5
+32 SLK 68 S10 104 S66 140 G4
+33 TESTO 69 sg 105 S67 141 G3
+34 LGND 70 S8 106 S68 142 G2
+35 PGND 71 S7 107 S69 143 G1
+36 VH 72 NC 108 S70 144 NC
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10
+
+December 3, 2008
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Table 1-5. The Number Of Segment Pins 3
+No. Name No. Name No. Name No. Name
+1 VH 37 NC 73 S75 109 NC
+2 PGND 38 S41 74 S76 110 S10
+3 VDD 39 S42 75 S77 111 S9
+4 XOUT 40 S43 76 S78 112 S8
+5 OSCO 41 S44 77 S79 113 S7
+6 OSsClI 42 S45 78 S80 114 S6
+7 RESET 43 S46 79 S40 115 $5
+8 TESTI 44 S47 80 $39 116 S4
+9 DLS 45 $48 81 $38 117 $3
+10 DS1 46 S49 82 $37 118 S2
+11 Dso 47 S50 83 $36 119 S1
+12 R, W (WR) 48 S51 84 S35 120 G24
+13 RS, ST 49 $52 85 $34 121 G23
+14 E (RD), SCK 50 S53 86 $33 122 G22
+15 SI, SO 51 S54 87 $32 123 G21
+16 DBO 52 S55 88 $31 124 G20
+17 DB1 53 S56 89 $30 125 G19
+18 DB2 54 S57 90 $29 126 G18
+19 DB3 55 S58 1 $28 127 G17
+20 DB4 56 S59 92 S27 128 G16
+21 DB5 57 S60 93 S26 129 G15
+22 DB6 58 S61 94 $25 130 G14
+23 DB7 59 S62 95 S24 131 G13
+24 IM 60 S63 96 $23 132 G12
+25 MPU 61 S64 97 $22 133 G11
+26 cs 62 S65 98 $21 134 G10
+27 RL1 63 S66 99 $20 135 G9
+28 RL2 64 S67 100 $19 136 G8
+29 CL 65 S68 101 S18 137 G7
+30 LE 66 S69 102 S17 138 G6
+31 SDO 67 S70 103 S16 139 G5
+32 SLK 68 S71 104 S15 140 G4
+33 TESTO 69 S72 105 S14 141 G3
+34 LGND 70 S73 106 $13 142 G2
+35 PGND 71 S74 107 $12 143 G1
+36 VH 72 NC 108 S11 144 NC
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10
+
+December 3, 2008
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Table 1-6. The Number Of Segment Pins 4
+No. Name No. Name No. Name No. Name
+1 VH 37 NC 73 S46 109 NC
+2 PGND 38 $80 74 $45 110 $10
+3 VDD 39 S79 75 S44 111 Sg
+4 XOUT 40 S78 76 $43 112 $8
+5 OSCO 41 S77 77 $42 113 S7
+6 OSCI 42 S76 78 S41 114 S6
+7 RESET 43 S75 79 S40 115 $5
+8 TESTI 44 S74 80 $39 116 S4
+9 DLS 45 S73 81 $38 117 $3
+10 DS1 46 S72 82 $37 118 $2
+11 DSO 47 S71 83 $36 119 S1
+12 R, W (WR) 48 S70 84 $35 120 G24
+13 RS, ST 49 S69 85 $34 121 G23
+14 E (RD), SCK 50 S68 86 $33 122 G22
+15 SI, SO 51 S67 87 $32 123 G21
+16 DBO 52 S66 88 $31 124 G20
+17 DB1 53 S65 89 $30 125 G19
+18 DB2 54 S64 90 $29 126 G18
+19 DB3 55 S63 91 $28 127 G17
+20 DB4 56 $62 92 S27 128 G16
+21 DB5 57 S61 93 $26 129 G15
+22 DB6 58 S60 94 $25 130 G14
+23 DB7 59 $59 95 $24 131 G13
+24 IM 60 $58 96 $23 132 G12
+25 MPU 61 S57 97 $22 133 G11
+26 cs 62 S56 98 $21 134 G10
+27 RL1 63 $55 99 $20 135 G9
+28 RL2 64 $54 100 $19 136 G8
+29 CL 65 $53 101 $18 137 G7
+30 LE 66 $52 102 S17 138 G6
+31 SDO 67 $51 103 S16 139 G5
+32 SLK 68 $50 104 S15 140 G4
+33 TESTO 69 S49 105 $14 141 G3
+34 LGND 70 S48 106 $13 142 G2
+35 PGND 71 S47 107 $12 143 G1
+36 VH 72 NC 108 S11 144 NC
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10
+
+December 3, 2008
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Table 1-7. Segment Setting: 1 Line Display (N=0)
+RL1 RL2 Table No.
+Don't care 0 Table 1-8
+Don't care 1 Table 1-9
+Table 1-8. The Number Of Segment Pins 5
+No. Name No. Name No. Name No. Name
+1 VH 37 NC 73 $35 109 NC
+2 PGND 38 $1 74 $36 110 Don’t use
+3 VDD 39 $2 75 $37 111
+4 XOUT 40 $3 76 $38 112
+5 OSCO 41 $4 77 $39 113
+6 OSCI 42 $5 78 $40 114
+7 RESET 43 S6 79 Don’t use 115
+8 TESTI 44 S7 80 116
+9 DLS 45 $8 81 117
+10 DS1 46 $9 82 118
+11 DSO 47 $10 83 119 Vv
+12 R, W (WR) 48 $11 84 120 G24
+13 RS, ST 49 $12 85 121 G23
+14 E (RD), SCK 50 $13 86 122 G22
+15 SI, SO 51 $14 87 123 G21
+16 DBO 52 $15 88 124 G20
+17 DB1 53 S16 89 125 G19
+18 DB2 54 S17 90 126 G18
+19 DB3 55 $18 91 127 G17
+20 DB4 56 $19 92 128 G16
+21 DB5 57 $20 93 129 G15
+22 DB6 58 $21 94 130 G14
+23 DB7 59 $22 95 131 G13
+24 IM 60 $23 96 132 G12
+25 MPU 61 $24 97 133 G11
+26 cs 62 S25 98 134 G10
+27 RL1 63 $26 99 135 G9
+28 RL2 64 $27 100 136 G8
+29 CL 65 $28 101 137 G7
+30 LE 66 $29 102 138 G6
+31 SDO 67 $30 103 139 G5
+32 SLK 68 $31 104 140 G4
+33 TESTO 69 $32 105 141 G3
+34 LGND 70 $33 106 142 G2
+35 PGND 71 $34 107 143 G1
+36 VH 72 NC 108 v 144 NC
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10
+
+December 3, 2008
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Table 1-9. The Number Of Segment Pins 6
+
+No. Name No. Name No. Name No. Name
+
+1 VH 37 NC 73 S6 109 NC
+2 PGND 38 S40 74 S5 110 Don't use
+3 VDD 39 $39 75 S4 111
+
+4 XOUT 40 $38 76 $3 112
+
+5 OSCO At $37 77 $2 113
+
+6 OSCI 42 $36 78 S1 114
+
+7 RESET 43 $35 79 Don’t use 115
+
+8 TESTI 44 $34 80 116
+
+9 DLS 45 $33 81 117
+
+10 DS1 46 $32 82 118
+
+11 Dso 47 $31 83 119 v
+12 R, W (WR) 48 $30 84 120 G24
+13 RS, ST 49 $29 85 121 G23
+14 E (RD), SCK 50 $28 86 122 G22
+15 SI, SO 51 S27 87 123 G21
+16 DBO 52 S26 88 124 G20
+17 DB1 53 $25 89 125 G19
+18 DB2 54 S24 90 126 G18
+19 DB3 55 $23 1 127 G17
+20 DB4 56 $22 92 128 G16
+21 DB5 57 $21 93 129 G15
+22 DB6 58 $20 94 130 G14
+23 DB7 59 $19 95 131 G13
+24 IM 60 $18 96 132 G12
+25 MPU 61 S17 97 133 G11
+26 cs 62 S16 98 134 G10
+27 RL1 63 $15 99 135 G9
+28 RL2 64 $14 100 136 G8
+29 CL 65 $13 101 137 G7
+30 LE 66 $12 102 138 G6
+31 SDO 67 S11 103 139 G5
+32 SLK 68 S10 104 140 G4
+33 TESTO 69 S9 105 141 G3
+34 LGND 70 S8 106 142 G2
+35 PGND 71 S7 107 143 G1
+36 VH 72 NC 108 v 144 NC
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10
+
+10
+
+December 3, 2008
+HT16514
+
+HOLTEK ¢ 4
+
+ 
+
+HT16514 Connect to VFD as Below Figure
+
++
+Sod
+wo
+©
+r
+<=
+
+ 
+
+S1
+
+S5
+
+S6
+S10
+
+$71
+
+S75
+S76
+S80
+
+ 
+
+December 3, 2008
+
+11
+
+Rev. 1.10
+HOLTEK ¢ 4
+
+HT16514
+
+ 
+
+Approximate Internal Connections
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(MPU) (RS, ST) (CS) (DLS) (DS0) (DS1) | SLK, E(RD), RESET, (R, W/WR) SDO, SLK CL, LE, TESTO
+(IM) (RL1) (RL2) (TESTI) Vop
+Vpp A Vpp
+C- |
+A a
+LGND LGND
+LGND
+$1~S80, G1~G24 OSCO, OSCI, XOUT DO~D7, SI, SO
+VH xouT [_/}_—_
+| Osco >
+———
+penn | CSC!EKH jd
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Absolute Maximum Ratings
+
+Logic Supply Voltage ................. Vss—0.3V to Vggt6.0V
+Input Voltage ............ee Vgs—0.3V to Vppt+0.3V
+Driver Output Voltage ........... ee Vss-0.3V to Vy
+Driver Output Current (Total) ................. 500 (Est.) mA
+Operating Temperature...................0000 —40°C to 85°C
+
+Driver Supply Voltage ................- Vgs—0.3V to Vgg+80V
+Output Voltage... eee Vss—0.3V to Vppt+0.3V
+Driver Output Current .............eceeeeeeeeeeeeeeeeees +50mA
+Storage Temperature .............eee —55°C to 125°C
+
+Note: These are stress ratings only. Stresses exceeding the range specified under "Absolute Maximum Ratings” may
+cause substantial damage to the device. Functional operation of this device at other conditions beyond those listed
+in the specification is not implied and prolonged exposure to extreme conditions may affect device reliability.
+
+ 
+
+Rev. 1.10
+
+12
+
+December 3, 2008
+HOLTEK ¢ 4
+
+D.C. Characteristics
+
+HT16514
+
+ 
+
+Vu=50V, Vss=VLGnp=VpGeNnD=OV, Ta=—40°C~85°C
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Test Conditions
+Symbol Parameter Min. Typ. | Max. Unit
+Vpp Conditions
+Vpp Logic Supply Voltage — — 2.7 5.0 5.5 V
+Vu VFD Supply Voltage — — 20 — 50 V
+Ipp Operating Current 2.7V~5.5V | No load, CPU Non-access — — 1000 LA
+ly Operating Current 2.7V~5.5V | No load — — 500 LA
+. Logic except DBO~DB7, Sl,
+| Hi-level Leakage Current | 2.7V~5.5V — — 1 A
+Hon 9 SO, Vinvout=Vpp M
+ILoL Hi-level Leakage Current | 2.7V~5.5V | Logic Vinvout=Vss —_ —_ | uA
+lH Hi-level Input Current 2.7V~5.5V | TEST, Vin=Vpp 5 — 500 LA
+Ip Pull-up MOS Current 2.7V~5.5V | DBO~DB7, SI, SO 5 125 280 LA
+Except E, SCK, RESET, R
+V oboe __ —_ , , , 0.7V — V
+IH1 H” Input Voltage 1 Ww (WR) DD DD V
+Except E,SCK, RESET, R
+V apo __ —_— , ro — 0.3V,
+
+IL L” Input Voltage 1 W (WR) 0 DD Vv
+Vin2 "H” Input Voltage 2 — E, SCK, RESET, R, W (WR) | 0.8Vpp | — | Vopp V
+ViL2 "L” Input Voltage 2 — E, SCK, RESET, R ,W (WR) 0 — |10.2Vp5p) Vv
+
+DBO~DB7, SI,SO, SDO, SLK
+Vv i- TV~5. — 7 0 "| Vpp-0.5 | — Vv
+OH1 Hi-level Output Voltage | 2.7V~5.5V LE, CL. lo;= -0.1mA DD DD V
+DBO~DB7, SI,SO, SDO, SLK
+Vv _ ~ ee , , — |Vgg5t0.5
+
+OL1 Low-level Output Voltage| 2.7V~5.5V LE, CL. lo;= 0.1mA 0 ss V
+Vona1 $1~S80, Iou2= -0.5mA 48 — — V
+VoH22 ~=+|Hi-level Output Voltage | 2.7V~5.5V | S1~S80, Ioyo= —1mMA 46 — — Vv
+VoH2G G1~G24, loy2= —-15mA 45 — — V
+VoL2 Low-level Output Voltage | 2.7V~5.5V | S1~S80, G1~G24, lo_2= 1MA — — 5 V
+
+A.C. Characteristics Vu=50V, Vss=VLGnp=VpGeNnD=OV, Ta=—40°C~85°C
+Test Conditions
+Symbol Parameter Min. Typ. Max. Unit
+Vobp Conditions
+fosc Oscillation Frequency 2.1V~5.5V | Rogc=56kQ 392 560 728 kHz
+fc Oscillation Frequency 2.7V~5.5V | OSCI external clock 350 560 750 kHz
+try 2.7V~5.5V | C= 50pF, S1~S80 — — 2.5 us
+Rise Time
+tre 2.7V~5.5V | C_=50pF, G1~G24 — — 0.25 us
+. CL= 50pF, S1~S80,
+t ~ _ _
+F Fall Time 2.7V~5.5V G1~C24 2 us
+Switching Timing
+tr tri, tR2
+90% 90%
+Sn, Gn
+10% 10%
+Rev. 1.10 13 December 3, 2008
+
+ 
+
+ 
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Timing Conditions 1 for M68-Type for Parallel Mode, Write Ta=25°C
+Test Conditions
+Symbol Parameter Min. Typ. Max. Unit
+Vpp Conditions
+4.5V~5.5V 500 — — ns
+tcYcLe Enable Cycle Time Et >» Et
+2.7V~4.5V 1000 — — ns
+4.5V~5.5V 230 — — ns
+PWenH Enable Pulse Width High E
+2.7V~4.5V 450 — — ns
+4.5V~5.5V 230 — — ns
+PWeL Enable Pulse Width Low E
+2.7V~4.5V 450 — — ns
+Ce\) __ 4.5V~5.5V 20 — — ns
+tas ((RS), (R, W), (CS)) — (E) RS, R, W, CS > Et
+Setup Time 2.7V~4.5V 60 — — ns
+__ 4.5V~5.5V 10 — — ns
+taH ((RS), (R, W))— (E) EL > RS, R, W
+Hold Time 2.7V~4.5V 20 — — ns
+_ 4.5V~5.5V 20 — — ns
+tou (CS) — (E) Hold Time EL >cCs
+2.7V~4.5V 40 — — ns
+4.5V~5.5V 80 — — ns
+tos Write Data Setup Time Data > ET
+2.7V~4.5V 195 — — ns
+4.5V~5.5V 10 — — ns
+tou Write Data Hold Time EL > Data
+2.7V~4.5V 10 — — ns
+4.5V~5.5V 500 — — ns
+twre Reset Pulse Width __
+2.7V~4.5V 500 — — ns
+M68-Type for Parallel Mode, Read Ta=25°C
+Test Conditions
+Symbol Parameter — Min. Typ. Max. Unit
+Vpp Conditions
+4.5V~5.5V 500 — — ns
+tcYcLe Enable Cycle Time Et >» Et
+2.7V~4.5V 1000 — — ns
+4.5V~5.5V 230 — — ns
+PWenH Enable Pulse Width High E
+2.7V~4.5V 450 — — ns
+4.5V~5.5V 230 — — ns
+PWeL Enable Pulse Width Low E
+2.7V~4.5V 450 — — ns
+Ce\) __ 4.5V~5.5V 20 — — ns
+tas ((RS), (R, W), (CS)) — (E) RS, R, W, CS > Et
+Setup Time 2.7V~4.5V 60 — — ns
+__ 4.5V~5.5V 10 — — ns
+taH ((RS), (R, W))— (E) EL > RS, R, W
+Hold Time 2.7V~4.5V 30 — — ns
+_ 4.5V~5.5V 20 — — ns
+tou (CS) — (E) Hold Time EL >cCs
+2.7V~4.5V 40 — — ns
+4.5V~5.5V — — 160 ns
+top Read Data Setup Time Data > ET
+2.7V~4.5V — — 360 ns
+4.5V~5.5V 5 — — ns
+tour Read Data Hold Time El > Data
+2.7V~4.5V 5 — — ns
+Rev. 1.10 14 December 3, 2008
+HOLTEK ¢ 4
+
+Parallel Mode (M68 Input)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+fo A
+RS
+\. \
+{
+R, W \ /
+\
+tas tAH 8!
+[_———————_
+= \ /
+\.
+PWEH PWEL
+po fo
+E A
+: tps tDHR '
+DBO
+Valid Data ;
+DB7 I i
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+tcYCE
+Parallel Mode (M68 Output)
+f fe
+RS
+\ \
+yo
+R, W
+/ A
+tas tAH »!
+i
+= \ /
+\.
+PWEH PWEL
+
+ 
+
+ 
+
+/ \
+
+ 
+
+ 
+
+ 
+
+E
+top ' tDH '
+! 1
+DBO i i
+i Valid Data i
+DB7 i !
+‘ tcYcE ‘
+
+Note: The input signal rising time and falling time (t,, t,) is specified at 15ns or less.
+
+ 
+
+ 
+
+ 
+
+All timing is specified using 20% and 80% of Vpp as the reference.
+
+PWenu is specified as the overlap between cs being Land E.
+
+HT16514
+
+ 
+
+Rev. 1.10
+
+15
+
+December 3, 2008
+wouter
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Timing Conditions 2 for i80-Type, Parallel Mode Ta=25°C
+Test Conditions
+Symbol Parameter Min. Typ. Max. Unit
+Vpp Conditions
+4.5V~5.5V 10 — — ns
+tRH8 RS Hold Time RS
+2.7V~4.5V 20 — — ns
+__ 4.5V~5.5V |__ 20 — — ns
+tous CS Hold Time cS
+2.7V~4.5V 40 — — ns
+__ 4.5V~5.5V __ 10 — — ns
+trsg RS, CS Setup Time RS, CS
+2.7V~4.5V 30 — — ns
+4.5V~5.5V 200 — — ns
+tcycs System Cycle Time _
+2.7V~4.5V 600 — — ns
+| 4.5V~5.5V | 30 — — ns
+tecLw Control "L” Pulse Width (WR) WR
+2.7V~4.5V 50 — — ns
+__ 4.5V~5.5V |__ 70 — — ns
+tccLR Control "L” Pulse Width (RD) RD
+2.7V~4.5V 200 — — ns
+— | 4.5V~5.5V ]_ 100 — — ns
+tccHw ‘| Control ’"H” Pulse Width (WR) WR
+2.7V~4.5V 200 — — ns
+— | 4.5V~5.5V ]_ 100 — — ns
+tccHR Control "H” Pulse Width (RD) RD
+2.7V~4.5V 200 — — ns
+4.5V~5.5V 30 — — ns
+tose Data Setup Time DBO~DB7
+2.7V~4.5V 60 — — ns
+4.5V~5.5V 10 — — ns
+toHe Data Hold Time DBO~DB7
+2.7V~4.5V 20 — — ns
+4.5V~5.5V — — 70 ns
+taccs RD Access Time DBO~DB7, C,=100pF
+2.7V~4.5V — — 140 ns
+4.5V~5.5V 5 — — ns
+tous Output Disable Time DBO~DB7, C,=100pF
+2.7V~4.5V 5 — — ns
+4.5V~5.5V 500 — — ns
+twre Reset Pulse Width _
+2.7V~4.5V 500 — — ns
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10
+
+16
+
+December 3, 2008
+HOLTEK ¢ 4
+
+HT16514
+
+ 
+
+Parallel Mode (i80)
+
+RS
+
+DBO~DB7
+(Write)
+
+DBO~DB7
+(Read)
+
+Note:
+
+ 
+
+¢ tf
+
+tRH8
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+tRs8
+
+tcycs
+
+ 
+
+tccLr, tecLw
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+tCCHR, tccHw
+
+ 
+
+toss tDH8
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+' tons ' toHs 7
+f \
+\ J
+
+ 
+
+ 
+
+All timing is specified using 20% and 80% of Vpp as the reference.
+
+The input signal rising time and falling time (t;, t;) is specified at 15ns or less.
+
+tccLw and tccLr are specified as the overlap between CS as L and WR and RD at the L level.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Timing Conditions 3 for Serial Mode Ta=25°C
+Test Conditions . .
+Symbol Parameter — Min. Typ. Max. Unit
+Vpp Conditions
+4.5V~5.5V 500 — ns
+tcvkK Shift Clock Cycle SCK
+2.1V~4.5V 1000 — ns
+iqh- i 4.5V~5.5V 200 — ns
+twa High level Shift Clock Pulse SCK
+Width 2.7V~4.5V 300 — ns
+Low-level Shift Clock Pulse| 4.9V~5.5V 200 = ns
+twLk ; SCK
+Width 2.7V~4.5V 300 — ns
+4.5V~5.5V 100 — ns
+tustBK | Shift Clock Hold Time STD! > SCKL
+2.1V~4.5V 150 — ns
+4.5V~5.5V 100 — ns
+tos Data Setup Time Data > SCKT
+2.1V~4.5V 150 — ns
+4.5V~5.5V 100 — ns
+tok Data Hold Time SCKT > Data
+2.1V~4.5V 150 — ns
+__ . 4.5V~5.5V __ 500 — ns
+toKsTB ST Hold Time SCKT > STT
+2.1V~4.5V 750 — ns
+— 4.5V~5.5V 500 — ns
+twsTB ST Pulse Width __
+2.1V~4.5V 750 — ns
+_ 4.5V~5.5V 1 — us
+twart Wait Time 8th CLKT > 1st CLKY
+2.7V~4.5V 1 — us
+4.5V~5.5V — 150 ns
+topo Output Data Delay Time STV > Data
+2.1V~4.5V — 300 ns
+Rev. 1.10 17 December 3, 2008
+ 
+
+HOLTEK Wy HT16514
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Test Conditions . .
+Symbol Parameter — Min. Typ. Max. Unit
+Vpp Conditions
+4.5V~5.5V 5 — — ns
+topH Output Data Hold Time SCKT => Data
+2.7V~4.5V 5 — — ns
+4.5V~5.5V 500 — — ns
+twre Reset Pulse Width _
+2.7V~4.5V 500 — — ns
+Serial Mode (Input)
+twsTB
+i \__
+le tHSTBK > tcyK tDKSTB
+
+ 
+
+tWHK Ji tWLk
+batt ad
+
+tos tDH
+
+TX \
+
+Note: The input rise time and fall time (tr, tf) is specified at 15ns or less.
+
+All timing is specified using 20% and 80% of Vpp as the reference.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Serial Mode (Output)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+twsTB
+ST \ / \
+i tHSTBK , | tcyK tDKSTB
+tWHK tWLK
+SCK \ / \ / \ /
+topo _, toDH _,
+AC Measurement Point
+VIH
+Input VIL
+VOH
+Output VoL
+Reset
+RESET NO
+i i
+‘ tWRE ‘
+18 December 3, 2008
+
+Rev. 1.10
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Timing Condition for interface: M68, i80 and Serial Power On Reset Ta=25°C
+Symbol Parameter Vppb Min. Typ. Max. Unit
+trREs Resetting Time 2.(V~5.5V 100 — — us
+tirDbD VDD Rising Time 2.(V~5.5V 4 — — us
+torr VDD OFF Width 2.7V~5.5V 1 — — ms
+trst Reset Rising Time 2.7V~5.5V 500 — — ns
+ttrDD i€ {RES
+tRsT 44 5V
+VDD 0.2V i
+toFF Internal
+Reset
+Time /~——
+RESET Timing
+Symbol Parameter Vppb Min. Typ. Max. Unit
+trstp Delay Time After Reset 2.7V~5.5V 100 — — us
+tr Reset Rising Time 2.7V~5.5V 4 — — us
+torFt Vpp Off Time 2.7V~5.5V 1 — — ms
+trstt RST/Pulse Width Low 2.7V~5.5V 500 — — ns
+tRsT1 ; 4.5V
+RESET o.2v\ fi
+it toFF1 u Le tRSTD '
+al few i
+RS, STB x
+Power Supply Connection Sequence
+¢ Connect the PGND and LGND externally to have an Voltage
+equal potential voltage
+¢ To avoid faulty connection, turn on the driver power
+supply (Vy) after turning on the logic power supply V
+(Vpp). Then turn off the logic power supply (Vpp) after "
+turning off the driver power supply (Vu).
+e If the power connection sequence recommended by Vpp
+Holtek is not followed, there’s a possibility that the in- > Time
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ternal logic transistors may be damaged.
+
+ 
+
+ 
+
+Rev. 1.10
+
+19
+
+December 3, 2008
+
+ 
+
+ 
+HOLTEKY , HT16514
+
+Functional Description
+
+CPU Interface
+
+HT16514 have 4 or 8-bit parallel interface or serial interface. These modes are selected by IM pin.
+e IM="0": Serial mode
+
+e IM="1": Parallel mode
+
+ 
+
+ 
+
+ 
+
+ 
+
+CPU Interface Table
+IM cs RS,ST /E(RD),SCK| R, W(WR) MPU si, SO DB0~DB7
+0 cs ST SCK Note Note SI, SO Note
+1 cs RS E (RD) R, W (WR) MPU Note DBO~DB7
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note: Keep this pin Hi or Lo.
+
+Registers (IR, DR)
+
+The HT16514 has two 8-bit registers, namely, an instruction register (IR) and a data register (DR). The IR register
+stores instruction code such as display clear and cursor shift. It also contains address information for display data RAM
+(DDRAM) and character generator RAM (CGRAM). The IR can only be written from the MPU. The DR temporarily
+stores data to be written into or read from the DDRAM or CGRAM. Data written into the DR from the MPU is automati-
+cally written into the DDRAM or CGRAM by internal operation. The DR is also used for data storage when reading data
+from the DDRAM or CGRAM. When the address information is written into the IR, data is read and then stored into the
+DR from the DDRAM or CGRAM by internal operation. Data transfer between the MPU is completed when the MPU
+reads the DR. After the read, data in DDRAM or CGRAM atthe next address is sent to the DR for the next read from the
+MPU. These two registers can be selected by the register selector (RS) signal, (Refer to CPU Interface table).
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Registers (IR, DR) Table
+Common M68 i80
+— — Register Selection
+
+RS R, W RD WR
+
+0 0 1 0 Write IR data during internal operation (display clear, etc.)
+
+0 1 0 1 Read data to be busy flag (DB7) and address counter (DB6~DBO)
+1 0 1 0 Write DR data (DR-+DDRAM, CGRAM)
+
+1 1 0 1 Read DR data (DDRAM, CGRAM->DR)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Busy Flag (Read BF Flag)
+Busy flag data (DB7) is always output as ”0”.
+
+Address Counter (AC)
+The Address counter (AC) assigns address to both DDRAM and CGRAM. When an instruction address is written into
+the IR, the address information is sent from the IR to the AC.
+
+Selection of either DDRAM or CGRAM is also determined concurrently by the instruction. After writing into (or read
+from) the DDRAM or CGRAM, the AC is automatically incremented by 1 (or decremented by 1). The cursor position are
+then output to DBO~DB6 when RS=0 and R, W=1 (Refer to Registers (IR, DR) Table).
+
+ 
+
+Rev. 1.10 20 December 3, 2008
+HOLTEKY , HT16514
+
+Display Data RAM (DDRAM)
+
+The Display data RAM (DDRAM) stores display data represented in 8-bit character codes. Its extended capacity is
+80x8 bits or 80 characters. The area in the DDRAM that is not used for display can be used as general data RAM. Refer
+to DDRAM address table for the relationships between DDRAM address and positions on the VFD.
+
+The DDRAM address (ADD) is set in the address counter (AC) as hexadecimal.
+
+ 
+
+DDRAM Address Table
+High Order Bits Low Order Bits
+AC6 AC5 AC4 AC3 AC2 AC1 ACO
+
+ 
+
+ 
+
+ 
+
+Hexadecimal Hexadecimal
+
+ 
+
+ 
+
+ 
+
+ 
+
+Example: DDRAM address "3FH”
+
+ 
+
+0 1 1 1 1 1 1
+3 F
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+e 1-line display (N=0)
+Display Position
+(Digit) 1 2 3 4 5 6 79 80
+DDRAM Address | 00 | 01 | 02 | 03 | 04 | 05 | | 4E | 4F |
+
+ 
+
+ 
+
+(Hexadecimal)
+When there are fewer than 80 display characters, the display begins at the head position. For example, if using only
+one HT16514, 24 characters are displayed. When display shift operation is performed, the DDRAMaddress shifts as
+shown in the following table.
+
+Example: 1-line by 24-character Display Table
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Display Position
+(Digit) 1 2 3 4 5 6 23 24
+DDRAM Address | 00 | 01 | 02 | 03 | 04 | 05 | | 16 | 17 |
+(Hexadecimal)
+For Shift Left 01 | 02 | 03 | 04 | 05 | 06 | | 17 | 18 |
+For Shift Right| 4F | 00 | 01 | 02 | 03 | 04 | | 15 | 16 |
+
+ 
+
+ 
+
+Rev. 1.10 21 December 3, 2008
+HOLTEK J , HT16514
+
+e 2-line display (N=1)
+
+ 
+
+ 
+
+ 
+
+Display Position
+(Digit) 1 2 3 4 5 6 39 40
+DDRAM Address| 00 01 02 03 04 05 26 27
+(Hexadecimal)| 40 41 42 43 44 45 66 67
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+When the number of display character is less than 40x2 lines, the 2 lines are displayed from the head. The first line
+end address and the second line start address are not consecutive.
+For example, if using only one HT16514, 24 characters x 2 lines are displayed. When display shift operation is per-
+formed, the DDRAM address shifts as shown in the following table.
+
+Example: 2-line by 24-character Display Table
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Display Position
+(Digit) 1 2 3 4 5 6 23 24
+DDRAM Address] 00 01 02 03 04 05 16 17
+(Hexadecimal)| 40 A 42 43 44 45 56 57
+01 02 03 04 05 06 17 18
+For Shift Left), 42 43 44 45 46 57 58
+27 00 01 02 03 04 15 16
+For Shift Right) 47 40 At 42 43 4A 55 56
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+40 Charactersx2 line display
+
+The DDRAM stores the character code of each character being displayed on the VFD. Valid DDRAMaddresses are
+OOH to 27H and 40H to 67H. The DDRAMnot used for display characters can be used as general purpose RAM. The
+tables below show the relationship between the DDRAMaddress and the character position on the VFD display shift
+as shown in the following table.
+
+Example: 2-line by 40-character Display Table
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Display Position
+
+(Digit) 1 2 3 4 23 24 25 39 40
+DDRAM Address] 00 01 02 03 16 17 18 26 27
+(Hexadecimal) | 40 41 42 43 56 57 58 66 67
+01 02 03 04 17 18 19 27 00
+For hiftLeft) 44) 4 | 43 | 44 57 | 58 | 59 67 | 40
+27 00 01 02 15 16 17 25 26
+For Shift Right) 67 | 49 | 44 | 42 55 | 56 | 57 65 | 66
+
+HT16514 Display Extension Driver Display
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10 22 December 3, 2008
+HOLTEK ¢ 4
+
+HT16514
+
+ 
+
+¢ Character Generator ROM (CGROM)
+
+¢ CGROM for generating character patterns of 5x8 dots from 8-bit character codes, generates 248 type of character
+
+patterns.
+
+¢ The character codes are shown on the following page.
+¢ Character codes 00H to OFH are allocated to the CGRAM
+
+ 
+
+sas 7] ele al
+
+w
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+a
+
+ 
+
+‘a,
+=
+
+= [=
+
++ =
+
+|
+
+m
+7
+
+Sat Bab
+
+en oe oT
+“IE
+a i Ee 1S 1D. T=" -
+
+_
+=
+4
+
+Liv
+
+a
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+mn
+
+      
+
+ 
+
+ 
+
+an
+
+     
+
+ 
+
+ 
+
+Pei:
+
+Te
+
+hE
+Tt
+ee er.
+
+arab
+EAE:
+Ad
+
+a
+=, |
+
+Le
+o
+a
+a a |
+
+ 
+
+i) 2 oo
+oh
+
+ef
+Par
+
+ 
+
+ 
+
+ 
+
+ 
+
+i Lie
+
+=
+||
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0 1 2
+xxxx0000 | 0 | gary
+
+xxxx0001 | 1] gar,
+
+XXXx0010 | 2] prary
+
+xxxxo01t | 3] gary
+
+xxxx0100 | 4] gary -o .
+Xxxx0101 | 5 | gary oT
+Xxxx0110 | 6 | gar,
+
+XXXXO111 | 7 | gay
+
+xxxx1000 | 8] oe,
+
+xxxx1001 | 9] oe,
+
+xxxx1010 | A] gary
+
+Xxxx1011 | B] gary
+
+XXXx1100 | C | gray
+
+XXXX1101 | D) ary
+
+XXXX1110 | E | gy
+
+XKXX1111 | F | ary
+
+ 
+
+14]
+
+eo ee fe
+* # ey
+
+I
+
+ 
+
+Character Code Table 1 (ROM Code: 001)
+
+ 
+
+a
+aall
+Ht
+0
+
+ 
+
+=
+Is,
+
+ 
+
+Rev. 1.10
+
+23
+
+December 3, 2008
+HOLTEKY , HT16514
+
+ 
+
+ 
+
+    
+  
+   
+  
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    
+    
+    
+ 
+  
+
+    
+
+ 
+
+       
+     
+   
+   
+       
+  
+ 
+
+     
+
+ 
+
+ 
+
+ 
+
+   
+      
+  
+
+    
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+     
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+  
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0 1 2 | A B C | E | F
+CG
+XXXX0000 | 0 | pany
+Ll =
+66 |
+XXXX0001 | 1 | pany 1 ‘A — wil
+. Pr
+= Ci-.-. =
+oc all |_|
+XXXX0010 | 2 | pany a i L. a
+Se |
+ry : of
+xxxxoo11 | 3| £S lle | i
+Rall ~s . ==
+A Pe
+1 | =
+CG
+XXXx0100 | 4 | pany | ic
+CG _ .
+XXXX0101 | 5 | pany _ |
+= a
+= |
+Xxxxo110 | 6 | ©C ra
+RAM a
+oe
+|
+CG
+L ee
+ae F..
+CG
+XXXX1000 | 8 | pany ic rt |
+il ou
+ee
+CG
+XXXX1001 | 9 | pany TT
+XXxxx1010 | A| Ce ck a
+RAM nl
+|
+a a |
+xxxx1011 | B | CS .
+RAM 7" "
+oot
+CG _— _
+XXXX1100 | C | pay 7
+{|
+TT
+Xxxx1101 | D | CS b =I
+RAM
+os he
+XXXX1110 | E | pany al
+a
+L_|
+CG
+XXXX1111 | F | pany
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Character Code Table 2 (ROM Code: 002)
+
+ 
+
+Rev. 1.10 24 December 3, 2008
+HOLTEK HT16514
+
+ 
+
+Character Generator RAM (CGRAM)
+
+The CGRAM stores the pixel information (1=pixel on, O=pixel off) for the eight user-define 5x8 characters. Valid
+CGRAM addresses are 00H to 3FH. CGRAM not used to defined characters can be used as general purpose RAM.
+Character codes OOH~07H (or O8H~OFH) are assigned to the user-defined characters (see section 5.0 character font
+tables). The table below shows the relationship between the character codes, CGRAM addresses, and CGRAM data
+for each user-defined character.
+
+Relationship between CGRAM address and character code (DDRAM) and 5x7 (with cursor) dot character patterns
+(CGRAM)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Character Code (RAM Data} CGRAM Address CGRAM Data
+D7 D6 D5 D4 D3 D2 D1 DO | A5A4A3 | A2 A1 AO | D7 D6 D5 D4 D3 D2 D1 DO
+High Order Bit Low Order Bit High Order Bit Low Order Bit | High Order Bit Low Order Bit
+0000xX 0 0 0 0 0 0 000 ];X X X
+0000xX 0 0 0 0 0 0 0 0 1 xX X X
+0000xX 0 0 0 0 0 0 0 10;]X X X
+0000Xxk 00 0 0 0 0 0 1 1 xX X X Character
+0000xX 0 0 0 0 0 0 100 ]X X X Pattern (1)
+0000xX 0 0 0 0 0 0 1 0 1 xX X X
+0000xX 0 0 0 0 0 0 110 ]X X X
+0000xX 0 0 0 0 0 0 11°41 xX X X Cursor Position
+0000xX 00 1 0 0 1 000 ];X X X
+0000xX 00 1 0 0 1 0 0 1 xX X X
+0000xX 00 1 0 0 1 0 10;]X X X
+0000xX 00 1 0 0 1 O01 1 xX X X Character
+0000x00%1]/001 100 ]X xX X Pattern (2)
+0000xX 00 1 0 0 1 1 0 1 xX X X
+0000xX 00 1 0 0 1 110 ]X X X
+0000xX 00 1 0 0 1 11°41 xX X X Cursor Position
+v v v
+0000x111 11°41 000 ];X X X
+0000x111 1 1°41 0 0 1 xX X X
+0000x111 1 1°41 0 10;]X X X
+0000x111 1 1°41 O01 1 xX X X Character
+0000xX114%4/111 100]X xX X Pattern (8)
+0000x111 11°41 1 0 1 xX X X
+0000x111 1 1°41 110 ]X X X
+0000XxX 11 1 1 1°41 11°41 xX X X Cursor Position
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note: "X” means don’t care
+Character code bits 0~2 correspond to CGRAM address bits 3~5 (3 bits: 8 types)
+
+CGRAM address bits 0~2 designate character pattern line position. The 8th line is the cursor position and its
+display is formed by a logical OR with the cursor. Maintain the 8th line data, corresponding to the cursor display
+position at 0 as the cursor display. If the 8th line data is 1, 1 bit will light up the 8th line regardless of the cursor
+presence.
+
+Character pattern row position corresponds to CGRAM data bits 0~4 (bit 4 being at the left).
+
+CGRAM character patterns are selected when character code bits 4~7 are all 0. However, since character
+code bit 3 has no effect, the ”H” display example above can be selected by either character code OOH or 08H.
+
+1 for CGRAM data corresponds to display selection and 0 to non selection.
+
+Timing Generation Circuit
+
+Timing generation circuit generates timing signals for the operation of internal circuit such as DDRAM, CGRAM and
+CGROM. The RAM reads the timing for display and the internal operation timing by MPU access are generated sepa-
+rately to avoid interfering with each other. Therefore, when writing data to DDRAM, for example, there will be no unde-
+sirable interference, such as flickering, in areas other than the display area.
+
+ 
+
+Rev. 1.10 25 December 3, 2008
+HOLTEKY , HT16514
+
+VFD Driver Circuit
+
+VFD driver circuit consists of 24 grid signal drivers and 80 segment signal drivers. When the character font and number
+of digits are selected by hardware (DSO, DS1) at power on, the required grid signal drivers automatically output drive
+waveforms, while the other grid signal driver continue to output non-selection waveforms.
+
+ 
+
+Sending serial data is latched when the display data character pattern corresponds to the last address of the display
+data RAM (DDRAM).
+
+Since serial data is latched when the display data character pattern corresponds to the starting address enters the in-
+ternal shift register, the HT16514 drives from the head display.
+
+Cursor/Blink Control Circuit
+
+Cursor/blink control circuit generates the cursor or character blinking. The cursor or the blinking will appear with the
+digit located at the display data RAM (DDRAM) address set in the address counter (AC).
+
+For example, when the address counter is 08H, the cursor position is displayed at DDRAM address 08H.
+AC6 AC5 AC4 AC3 AC2 AC1 ACO
+
+acl o | o | o | 1 | o | o [| o |
+Cursor/Blink Control Table
+
+Display position
+(Digit) 1 2 3 4 5 6 7 8 9 10 11 12
+DDRAMaddress | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 0 | 08 |
+(Hexadecimal)
+
+Cursor Position
+
+1-line Display
+
+Display position
+(Digit) 1 2 3 4 5 6 7 8 9 10 11 12
+DDRAM address [__00 01 02 03 04 05 06 07 8 09 OA } OB
+
+(Hexadecimal) | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 4%48 | 49 | 4a | 48
+
+ 
+
+io
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cursor Position
+2-line Display
+
+Note: The cursor or blinking appears when the address counter (AC) selects the character generator RAM
+(CGRAM). However, the cursor and blinking become meaningless when the cursor or blinking is displayed in
+the meaningless position when AC is a CGRAM address.
+
+Interface With CPU Mode
+
+¢ Parallel Data Transfer M68 (IM=1, MPU=1)
+This IC can interface (data transfer) with the CPU in 4 or 8 bits in M68 interface.
+However, the internal registers consist of 8 bits. Using the DB4 to DB7 twice must perform data transfer in 4 bits.
+When using 4-bit parallel data transfer, DBO to DB3 pins remain Hi or Low. The transfer order is initially from the
+higher 4 bits (D4 to D7) then followed by the lower 4 bits (DO to D3).
+BF checks are performed before transferring the higher 4 bits. BF checks are not required before transferring the
+lower 4 bits.
+
+ 
+
+Rev. 1.10 26 December 3, 2008
+HOLTEKY , HT16514
+
+¢ 4-bit data transfer (M68)
+
+ 
+
+RS
+
+ 
+
+ 
+
+R, W
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DB7
+
+@
+TN
+
+IL
+Qo
+a
+Ww
+O
+“I
+iw
+Ww
+
+a
+2 > Sx SS Se
+Q
+yo
+RIMM
+
+ 
+
+ 
+
+ 
+
+ 
+
+DB6
+
+XD
+®
+0
+NS
+
+ 
+
+ 
+
+DBS
+
+Gc
+
+D
+aH
+2
+
+ 
+
+ 
+
+a
+B
+
+SO0c
+NOOO
+
+DB4
+
+a
+B
+a
+Oo
+a
+B
+a
+Oo
+O
+
+5B
+0
+o
+
+ 
+
+ 
+
+a
+z
+28
+
+YY
+y=
+
+YY
+
+az
+>
+ag
+c&
+20.
+°
+a
+
+YY
+a
+os
+
+¢ 8-bit data transfer (M68)
+
+RS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Instruction Instruction nsractn| | Data |
+
+   
+
+ 
+
+Rev. 1.10 2 December 3, 2008
+HOLTEKY , HT16514
+
+Parallel mode for i80 (IM=1, MPU=0)
+
+When setting ”IM=1, MPU=0", i80 is selected. In the HT16514, each time data is sent from the MPU, a type of pipeline
+process between LSls is performed through the bus holder attached to internal data bus.
+
+There is a certain restriction in the read sequence of this display data RAM. Please be advised that data of the specified
+address is not generated by the read instruction issued immediately after the address setup. This data is generated in
+data read for the second time. Thus, a dummy read is required whenever the address setup or write cycle operation is
+selected. This relationship is shown in the following figure.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Writing MPU
+WR
+Internal Timing Latch
+Vv
+
+ 
+
+ 
+
+ 
+
+BUS
+Write
+Signal
+
+Reading MPU
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Internal Timing
+
+ 
+
+ 
+
+Address
+Preset
+
+Read
+Signal
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Vv
+
+Column
+Address x Preset N x Increment N+1 x N+2
+BUS
+Holder x N x n x n+4 x n+2
+
+Address Set Dummy Data Read Data Read
+#n Read #n #n+1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10 28 December 3, 2008
+HOLTEKY , HT16514
+
+Serial Mode
+
+In the synchronous serial interface mode, instructions and data are sent between the host and the module using 8-bit
+bytes. Two bytes are required per read/write cycle and are transmitted MSB first. The start byte contains 5 high bits, the
+Read/Write (R/W) control bit, the Register Select (RS) control bit, and a low bit. The subsequent byte contains the in-
+struction/data bits. The R/W bit determines whether the cycle is a read (high) or a write (low) cycle. The RS bit is used to
+identify the second byte as an instruction (low) or data (high).
+
+ 
+
+This mode uses the strobe (ST) control signal, Serial Clock (SCK) input, and Serial I/O (SI/SO) line to transfer informa-
+tion. In a write cycle, bits are clocked into the module on the rising edge of SCK. In a read cycle, bits in the start byte are
+clocked into the module on the rising edge of SCK. After a minimum wait time, each bit in the instruction/data byte can
+be read from the module after each falling edge of SCK. Each read/write cycle begins on the falling edge of ST and
+ends on the rising edge. To be a valid read/write cycle, the ST must go high at the end of the cycle.
+
+Data Write
+
+ 
+
+Synchronous Bits
+
+>
+nt
+
+1 Yr vor ow orlew/as |e forfoofosfo Kerk KKK
+
+ 
+
+ 
+
+Start Byte | Instruction/Data
+
+t
+big a
+htt Daal vt
+
+ 
+
+Data Read
+
+Wait Time: twait
+
+ 
+
+ 
+
+Sl, so yr man man man man R, w(rs \ une
+
+Synchronous Bits
+
+ 
+
+wm
+1
+
+Start Byte i Read Data
+
+ 
+
+¥.
+—C
+y.
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10 29 December 3, 2008
+HOLTEKY , HT16514
+
+Commands
+Instruction RS |R,W| DB7 | DB6 | DB5 | DB4 | DB3 | DB2 | DB1 | DBO Description
+
+ 
+
+ 
+
+ 
+
+Clear all display, and
+Clear display 0 0 0 0 0 0 0 0 0 1 |sets the DDRAM ad-
+dress at OOH.
+
+Sets the DDRAM ad-
+dress at OOH. Also re-
+turns the display shifted
+to the original position.
+The DDRAM contents
+remain unchanged.
+
+ 
+
+Cursor home 0 0 0 0 0 0 0 0 4 x
+
+ 
+
+Sets the cursor direction
+and specifies the display
+Entry mode set 0 0 0 0 0 0 0 1 /D S_ |shift. These operations
+are performed during
+writing/reading data.
+
+ 
+
+Sets all display
+ON/OFF(D), cursor
+Display On/Off 0 0 0 0 0 0 1 D Cc B  |ON/OFF(C), cursor
+blink of character
+position (B).
+
+ 
+
+Shifts display or cursor,
+Cursor or display shift) 0 0 0 0 0 1 S/C | R/L x x |while keeping the
+DDRAM contents.
+
+ 
+
+Sets data length
+Function 0 0 0 0 1 DL N x BR1 | BRO | (in parallel data transfer)
+and Number of line
+
+Sets the address of the
+CGRAM. After that, data
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+CGRAM address set} 0 0 0 4 ACG of the DDRAM is trans-
+ferred.
+Sets the address of the
+DDRAM. After that, data
+DDRAM address set 0 0 4 ADD of the DDRAM is trans-
+ferred.
+Reads the busy flag (BF)
+Read busy flag & _ and the address counter.
+address 0 1 |BF=0 ACC BF is output as "0" al-
+ways.
+Write data to CGRAM 4 0 Write data Writes data into the
+or DDRAM CGRAM of the DDRAM.
+Read data from Reads data from the
+CGRAMor DDRAM | | ' Read DRdata CGRAM or DDRAM.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note: 1/D=1: Increment, I/D=0: Decrement
+S=1: Display shift enable, S=0: Cursor shift enable
+S/C=1: Display shift, S/C=0: Cursor shift
+R/L=1: Right shift, R/L=0: Left shift
+DL=1: 8bit, DL=0: 4bit
+BR1, BRO= (00: 100%) , (01: 75%) , (10: 50% ), (11: 25%)
+"®’: Don't care
+ACG: CGRAM address
+ADD: DDRAM address
+ACC: Address counter
+DDRAM: Display Data RAM
+CGRAM: Character Generator RAM
+
+ 
+
+Rev. 1.10 30 December 3, 2008
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Clear Display
+RS R, W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+Code 0 0 0 0 0 0 0 0 0 1
+The instruction:
+¢ Fills all locations in the display data RAM (DDRAM) with 20H (Blank character).
+¢ Clears the contents of the address counter (ACC) to OOH.
+¢ Sets display for zero character shifts (returns to original position).
+¢ Sets the address counter to point to the display data RAM (DDRAM).
+e If cursor is displayed, move cursor to the left most character in the top line (upper line).
+e¢ Sets address counter (ACC) to increment on each access to DDRAM or CGRAM.
+When resetting
+DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+0 | 0 0 0 0 0 0 1
+Cursor Home
+RS R, W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+Code 0 0 0 0 0 0 0 0 1 X
+Note: ”x” don’t care
+The instruction:
+¢ Clears the contents of the address counter (ACC) to OOH.
+e Sets the address counter to point to the display data RAM (DDRAM).
+¢ Sets display for zero character shifts (returns to original position).
+e If cursor is displayed, move cursor to the left most character in the top line (upper line).
+Entry Mode
+RS R, W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+Code 0 0 0 0 0 0 0 1 /D S
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+This instruction selects whether the cursor position increments or decrements after each DDRAM or CGRAM access
+and determines the direction the information on the display shifts after each DDRAM write. The instruction also enables
+or disables display shifts after each DDRAM write (information on the display does not shift after a DDRAM read or
+CGRAM access). The DDRAM, CGRAM, and cursor position are not affected by this instruction.
+
+1/D=0: The AC decrements after each DDRAM or CGRAM access.
+
+If S=1, the information on the display shifts to the right by one character position after each DDRAM write.
+
+/D=1: The AC increments after each DDRAM or CGRAM access.
+
+If S=1, the information on the display shifts to the left by one character position after each DDRAM write.
+
+S=0: The display shift function is disabled.
+S=1: The display shift function is enabled.
+
+ 
+
+Cursor Move and Display Shift by the Entry Mode Set
+
+ 
+
+I/D After Writing DDRAM Data
+
+After Reading DDRAM Data
+
+ 
+
+Cursor moves one character to the left.
+
+Cursor moves one character to the right.
+
+ 
+
+Cursor moves one character to the right.
+
+Cursor moves one character to the right.
+
+ 
+
+Display shifts one character to the right without cursor movements. | Cursor moves one character to the left.
+
+ 
+
+=/-A/0/0|/M
+
+0
+1
+0
+1
+
+ 
+
+ 
+
+ 
+
+ 
+
+Display shifts one character to the left without cursor movements. | Cursor moves one character to the right.
+
+ 
+
+When resetting
+DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+
+| o | o {| o | o | o | 1 | i fo |
+
+ 
+
+Rev. 1.10 31
+
+December 3, 2008
+
+ 
+
+ 
+
+ 
+
+ 
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+HT16514
+Display ON/OFF
+RS R, W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+Code 0 0 0 0 0 0 1 D Cc B
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+This instruction selects whether the display and cursor are on or off and selects whether or not the character at the cur-
+
+rent cursor position blinks. The DDRAM, CGRAM, and cursor position are not affected by this instruction.
+
+¢ D=0: The display is off (display blank).
+
+e¢ D=1: The display is on (contents of the DDRAM is displayed).
+
+¢ C=0: The cursor is off.
+
+¢ C=1: The cursor is on (8th rows of pixels).
+
+¢ B=0: The blinking character function is disabled.
+
+e B=1: The blinking character function is enabled
+
+Note: Acharacter with all pixels on will alternate with the character displayed at the current cursor position at a 1Hz
+rate with a 50% duty cycle.
+
+ 
+
+; nanan
+Blink aaa
+Py
+(1 Hz) Sanne
+<——>_ fan
+< > Sanne
+EEE
+Cursor line
+When resetting
+DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+Lo | o | o | o ft | o | of] oo |
+
+ 
+
+Cursor or Display Shift
+RS R, W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+Code 0 0 0 0 0 1 s/c R/L X X
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note: ”x” don’t care
+This instruction shifts the display and/or moves the cursor to the left or right, without reading or writing to the DDRAM.
+"S/C” bit selects movement of the cursor or movement of both cursor and display.
+¢ S/C=1: Shift both cursor and display.
+¢ S/C=0: Shift only the cursor.
+"R/L” bit selects whether moving the direction to the left or right of the display and/or cursor.
+e R/L=1: Shift one character right.
+e¢ R/L=0: Shift one character left.
+
+ 
+
+Cursor or Display Shift
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+s/c R/L Cursor Position Information on the Display
+0 0 Decrements by one (left) No change
+0 1 Increments by one (right) No change
+1 0 Decrements by one (left) Shifts on character position to the left
+1 1 Increments by one (right) Shifts on character position to the right
+
+ 
+
+ 
+
+ 
+
+ 
+
+Function Set
+
+ 
+
+RS R, W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+Code 0 0 0 0 1 DL N X BR1 BRO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note: ’x” don’t care
+
+This instruction sets the width of the data bus for the parallel interface modes, the number of display lines, and the lumi-
+nance level (brightness) of the VFD. DDRAM, CGRAM, and cursor position are not affected by this instruction.
+
+¢ DL=0: Sets the data bus width for the parallel interface modes to 4-bit (DB7~DB4).
+
+¢ DL=1: Sets the data bus width for the parallel interface modes to 8-bit (DB7~DB0O).
+
+¢ N=0: Sets the number of display lines to 1 (this setting is not recommended, using segment output S1~S40,
+S41~S80 fixed to Low level).
+
+¢ N=1: Sets the number of display lines to 2 (using segment output $1~S80).
+
+ 
+
+Rev. 1.10 32 December 3, 2008
+HOLTEK ¢ 4
+
+HT16514
+
+ 
+
+BR1, BRO flag is brightness control for the VFD to modulate the pulse width of the segment output as follows.
+
+tpsp2=200 us, tetKk=1 Ous
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+BR1 BRO Brightness tp
+0 0 100% tpspx1.00
+0 1 75% tpspx0.75
+1 0 50% tpspx0.50
+1 1 25% topspx0.25
+tosp
+tp
+Sn tBLK tBLK
+G1
+Gn
+Note: ’n” means number of grid, T=nx (tpspttgik)
+When resetting
+DB7 DB6 DB5 DB4 DB3 DB1 DBO
+Lo | o | 1_| [oo | 0
+CGRAM Address Set
+RS R,W DB7 DB6 DB4 DB3 DB1 DBO
+Code | 0 | 0 1 A | A A | A
+
+ 
+
+This instruction places the 6-bit CGRAM address specified by DB5~DBO into the cursor position. Subsequent data
+writes (reads) will be to (from) the CGRAM. The DDRAM and CGRAM contents are not affected by this instruction.
+
+When resetting: Don't care.
+
+ 
+
+Rev. 1.10 33 December 3, 2008
+HOLTEKY , HT16514
+
+DDRAM Address Set
+
+ 
+
+RS RW DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+coe] o | o9 | 1 [| a fa [ada ftoaiftada_d
+
+This instruction places the 7-bit DDRAM address specified by DB6~DBO into the cursor position. Subsequent data
+writes (reads) will be to (from) the DDRAM. The DDRAM and CGRAM contents are not affected by this instruction.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Valid DDRAM Address Ranges
+Number of Character Address Range
+
+1st line 40 OOH~27H
+
+2nd line 40 40H~67H
+When resetting: Don't care.
+Read Busy Flag and Address
+
+RS R,W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+
+coe! o | 1 | pe | a toa toa toadaidtaida i
+
+ 
+
+This instruction reads the Busy Flag (BF)* and the value of address counter in binary “AAAAAAA”. This address coun-
+ter is used by the CGRAM and DDRAM addresses, its value is determined by the previous instruction. The address
+counter contents are the same as for instructions "CGRAM address set” and "DDRAM address set”.
+
+Note: ”*” means the Busy Flag (BF) always outputs a “0”.
+
+Write Data to the CGRAM or DDRAM
+
+ 
+
+ 
+
+RS R,W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+Code 1 | 0 D | D D | D | D D D | D
+<High order bit Low order bit>
+
+This instruction writes the 8-bit data byte on DB7~DB0O into the DDRAM or CGRAM location addressed by the cursor
+position. The most recent DDRAM or CGRAM Address Set instruction determines whether the write is to the DDRAM
+or CGRAM. This instruction also increments or decrements the cursor position and shifts the display according to the
+I/D and S bits set by the Entry Mode Set instruction.
+
+Read Data from CGRAM or DDRAM
+
+ 
+
+ 
+
+RS R,W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+Code 1 | 0 D | D D | D | D D D | D
+<High order bit Low order bit>
+
+This instruction reads the 8-bit data byte from the DDRAM or CGRAM location addressed by the cursor position on
+DB7~DBO. The most recent DDRAM or CGRAM Address Set instruction determines whether the read is from the
+DDRAM or CGRAM. This instruction also increments or decrements the cursor position and shifts the display accord-
+ing to the I/D and S bits set by the Entry Mode Set instruction. Before sending this instruction, a DDRAM or CGRAM Ac-
+dress Set instruction should be executed to set the cursor position to the desired DDRAM or CGRAM address to be
+read.
+
+After reading one data, the value of the address is automatically increased or decreased by 1 according to the selection
+by “Entry mode”.
+
+Note: The Address counter is automatically increased or decreased by 1 after a data write instruction to the CGRAM
+or DDRAM are executed. But at this moment the data to be pointed to by the address counter cannot be read if
+a data read instruction is executed. Therefore, to read data correctly, executing an address set instruction or
+cursor shift instruction (the only case of aDDRAM data read) just before reading, or reading the second data in
+case of reading data continuously by executing a read data instruction.
+
+ 
+
+Rev. 1.10 34 December 3, 2008
+HOLTEK J , HT16514
+
+ 
+
+Power ON Reset
+
+After a power-on reset, the module is initialize to the following conditions:
+
+All DDRAM locations are set to 20H (character code for a space).
+The cursor position is set to DDRAMaddress 00H
+The relationship between DDRAM addresses and character positions on the VFD is set to the non-shifted position.
+
+Entry Mode Set instruction bits:
+|/(D=1: The cursor position increments after each DDRAM or CGRAM access.
+If S=1, the information on the display shifts to the left by one character position after each DDRAM write.
+
+S=0: The display shift function is disabled.
+
+Display On/Off Control instruction bits:
+D=0: The display is off (display blank).
+
+C=0: The cursor is off.
+
+B=0: The blinking character function is disabled.
+
+Function Set instruction bits:
+
+DL=1: Sets the data bus width for the parallel interface modes to 8 bits (DB7~DBO).
+N=1: Number of display lines is set to 2.
+
+BR1, BRO=0,0: Sets the luminance level to 100%.
+
+MPw interface, duty ratio selection are based on the following table.
+
+ 
+
+Relationship between Status of HT16514 and Pin Selection at Power on Reset
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pin Name
+Function Remark
+TEST IM | DS1 | DSO
+1 x x x | Self test mode This is effective on aging.
+0 or open 0 X X | Serial interface SI, SO, SCK, ST
+O or open 4 X x | Parallel interface RS, E, R, W, DB7~DB4 or DB7~DBO
+
+ 
+
+O or open x O | Duty= 1/16 (16Cx1 or 2L display)
+
+ 
+
+It’s not necessary to use the extension driver.
+
+0 or open x The number of line is selected by instruction.
+
+1 | Duty= 1/20 (20Cx1 or 2L display)
+
+ 
+
+O or open X 1 0 | Duty= 1/24 (24Cx1 or 2L display)
+
+ 
+
+ 
+
+Extension driver should be used.
+
+0 or open x ' 1 | Duty= 1/40 (40Cx1 or 2L display) The number of line is selected by instruction.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10 35 December 3, 2008
+HOLTEK ¢ 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HT16514
+Example (8-bit Data Parallel, Data Increment Mode)
+Power ON All register set to initialized value.
+Function Set Set data length, display line number and display brightness.
+CGRAM Address Set
+Data Write Write the data to CGRAM.
+Finish Data Writing No
+y Yes
+DDRAM Address Set
+Data Write Write the data to DDRAM.
+Finish Data Writing No
+yYes
+Display ON/OFF Display ON
+Initialization Sequence & Data Set
+Initialization Programming Example & Data Set (M68 series MPU)
+RS | R, W| D7 | D6 | D5 | D4 | D3 | D2 | D1 | Do | Description
+Power On
+Function Set
+0 0 0 0 1 1 1 x 0 4 Data length: 8 bits .
+Display line number: 2 lines
+VFD Brightness: 75%
+0 0 0 1 0 0 0 0 0 0 |CGRAM address set to OOH
+x x x D D D D D
+0 x x x D D D D D_|Write data to CGRAM 64 bytes
+| | | | | (8 characters)
+x x x D D D D D
+0 0 1 0 0 0 0 0 0 0 |DDRAM address set to 00H
+D D D D D D D D
+0 D D D D D D D D__|Write data to DDRAM 80 bytes
+| | | | | | | | (80 characters)
+D D D D D D D D
+Display ON/OFF
+0 0 0 0 0 0 1 1 0 0 |Display ON, cursor OFF, cursor blink
+OFF
+Rev. 1.10 36 December 3, 2008
+HOLTEK HT16514
+
+ 
+
+Application Circuits
+
+ 
+
+ 
+
+Grid External Extension Drive »
+G25~G40
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+SDO SLK CL LE
+
+ 
+
+RS, ST
+E(RD), SCK VFD
+a =
+R,W (WR)
+
+SI, SO
+
+DS0, DS1
+
+MCU IM HT16514 G1~G24 —
+MPU
+DLS
+RL1, RL2
+RESET
+
+= DBO~DDB7
+
+ 
+
+ 
+
+S1~S80
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+OSCl OSCO VDD  LGND VH PGND
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+AW Vop LGND VH PGND
+Rosc
+
+Note: Rogc=56k® for oscillator resistor
+
+ 
+
+Rev. 1.10 37 December 3, 2008
+HOLTEK J , HT16514
+
+Package Information
+
+ 
+
+144-pin LQFP (20mmx20mm) Outline Dimensions
+
+ 
+
+i |
+
+ 
+
+ 
+
+ 
+
+ 
+
+Dimensions in mm
+Nom.
+
+ZTIiOIMIMIVIO;wW|>
+
+ 
+
+ 
+
+Rev. 1.10 38 December 3, 2008
+HOLTEK HT16514
+
+ 
+
+Holtek Semiconductor Inc. (Headquarters)
+
+No.3, Creation Rd. Il, Science Park, Hsinchu, Taiwan
+Tel: 886-3-563-1999
+
+Fax: 886-3-563-1189
+
+http://Awww.holtek.com.tw
+
+Holtek Semiconductor Inc. (Taipei Sales Office)
+
+4F-2, No. 3-2, YuanQu St., Nankang Software Park, Taipei 115, Taiwan
+Tel: 886-2-2655-7070
+
+Fax: 886-2-2655-7373
+
+Fax: 886-2-2655-7383 (International sales hotline)
+
+Holtek Semiconductor Inc. (Shanghai Sales Office)
+
+G Room, 3 Floor, No.1 Building, No.2016 Yi-Shan Road, Minhang District, Shanghai, China 201103
+Tel: 86-21-5422-4590
+
+Fax: 86-21-5422-4705
+
+http://www. holtek.com.cn
+
+Holtek Semiconductor Inc. (Shenzhen Sales Office)
+
+5F, Unit A, Productivity Building, Gaoxin M 2nd, Middle Zone Of High-Tech Industrial Park, ShenZhen, China 518057
+Tel: 86-755-8616-9908, 86-755-86 16-9308
+
+Fax: 86-755-86 16-9722
+
+Holtek Semiconductor Inc. (Beijing Sales Office)
+
+Suite 1721, Jinyu Tower, A129 West Xuan Wu Men Street, Xicheng District, Beijing, China 100031
+Tel: 86-10-6641-0030, 86-10-6641-7751, 86-10-6641-7752
+
+Fax: 86-10-6641-0125
+
+Holtek Semiconductor Inc. (Chengdu Sales Office)
+
+709, Building 3, Champagne Plaza, No.97 Dongda Street, Chengdu, Sichuan, China 610016
+Tel: 86-28-6653-6590
+
+Fax: 86-28-6653-6591
+
+Holtek Semiconductor (USA), Inc. (North America Sales Office)
+46729 Fremont Blvd., Fremont, CA 94538
+
+Tel: 1-510-252-9880
+
+Fax: 1-510-252-9885
+
+http://Awww.holtek.com
+
+ 
+
+Copyright © 2008 by HOLTEK SEMICONDUCTOR INC.
+
+The information appearing in this Data Sheet is believed to be accurate at the time of publication. However, Holtek as-
+sumes no responsibility arising from the use of the specifications described. The applications mentioned herein are used
+solely for the purpose of illustration and Holtek makes no warranty or representation that such applications will be suitable
+without further modification, nor recommends the use of its products for application that may present a risk to human life
+due to malfunction or otherwise. Holtek’s products are not authorized for use as critical components in life support devices
+or systems. Holtek reserves the right to alter its products without prior notification. For the most up-to-date information,
+please visit our web site at htto:/Awww.holtek.com.tw.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rev. 1.10 39 December 3, 2008

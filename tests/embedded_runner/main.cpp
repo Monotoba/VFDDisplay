@@ -6,6 +6,7 @@
 #include "tests/device/VFD20T202HALTests.hpp"
 #include "tests/device/VFDCU20025HALTests.hpp"
 #include "tests/device/VFDCU40026HALTests.hpp"
+#include "tests/device/VFDHT16514HALTests.hpp"
 #include "HAL/VFD20S401HAL.h"
 
 void setup() {
@@ -28,6 +29,10 @@ void setup() {
   // VFDCU40026
   register_IVFDHAL_contract_tests<VFDCU40026HAL>("VFDCU40026");
   register_VFDCU40026HAL_device_tests();
+
+  // HT16514
+  register_IVFDHAL_contract_tests<VFDHT16514HAL>("HT16514");
+  register_VFDHT16514HAL_device_tests();
 
   EmbeddedTest::runAll();
 }

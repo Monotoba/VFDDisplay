@@ -287,6 +287,30 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDCU40026Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDHT16514Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "HT16514",
+        "Holtek HT16514 VFD Controller/Driver (supports 16/20/24 x 2)",
+        "Holtek",
+        "HT16514",
+        2, 20,     // default to 20x2; memory supports 40x2 addressing
+        5, 8,
+        116, 16,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS | CAP_DIMMING,
+        1,   // blink on/off
+        8,   // CGRAM 8 glyphs
+        4,   // 4 brightness levels via Function Set
+        0,
+        10, 100, 100,
+        500, 800,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedInterface("Parallel");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createGeneric20x2Capabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "Generic 20x2 VFD",
