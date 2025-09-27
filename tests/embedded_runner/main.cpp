@@ -9,6 +9,7 @@
 #include "tests/device/VFDHT16514HALTests.hpp"
 #include "tests/device/VFDM202MD15HALTests.hpp"
 #include "tests/device/VFDM202SD01HALTests.hpp"
+#include "tests/device/VFDM0216MDHALTests.hpp"
 #include "HAL/VFD20S401HAL.h"
 
 void setup() {
@@ -43,6 +44,10 @@ void setup() {
   // M202SD01
   register_IVFDHAL_contract_tests<VFDM202SD01HAL>("M202SD01");
   register_VFDM202SD01HAL_device_tests();
+
+  // M0216MD
+  register_IVFDHAL_contract_tests<VFDM0216MDHAL>("M0216MD");
+  register_VFDM0216MDHAL_device_tests();
 
   EmbeddedTest::runAll();
 }

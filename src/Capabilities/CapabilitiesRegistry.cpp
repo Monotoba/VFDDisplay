@@ -359,6 +359,30 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDM202SD01Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDM0216MDCapabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "M0216MD",
+        "Newhaven/Futaba M0216MD 16x2 VFD module",
+        "Newhaven/Futaba",
+        "M0216MD-162MDBR2-J",
+        2, 16,
+        5, 8,
+        80, 16,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS | CAP_DIMMING,
+        1,   // blink on/off
+        8,   // CGRAM 8 glyphs
+        4,   // 4 brightness levels (via function set)
+        0,
+        10, 100, 100,
+        350, 700,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedInterface("Parallel");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createGeneric20x2Capabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "Generic 20x2 VFD",
