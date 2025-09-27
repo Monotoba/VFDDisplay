@@ -406,6 +406,30 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDPT6302Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDPT6314Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "PT6314",
+        "Princeton PT6314 VFD Controller/Driver (HD44780-like)",
+        "Princeton Technology",
+        "PT6314",
+        2, 20,
+        5, 7,
+        116, 16,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS,
+        1,   // blink on/off
+        8,   // CGRAM 8 glyphs
+        0,   // dimming not exposed here
+        0,
+        10, 100, 100,
+        400, 800,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedInterface("Parallel");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createVFDM0216MDCapabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "M0216MD",

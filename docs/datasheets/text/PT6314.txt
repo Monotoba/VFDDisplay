@@ -1,0 +1,7117 @@
+pt Wie
+
+Princeton Technology Corp.
+
+Ero
+
+PT6314
+
+Dot Character VFD Controller/Driver IC
+
+ 
+
+DESCRIPTION
+
+PT6314 is a VFD Controller/Driver IC utilizing CMOS
+technology providing 80 segment outputs and 24 grid
+outputs. It supports dot matrix displays of up to 16
+columns x 2 lines, 20 columns x 2 lines or 24 columns
+x 2 lines. PT6314 also features a character generator
+ROM which stores 248 x 5 x 8 dos characters. Pin
+assignments and application circuits are optimized for
+easy PCB layout and cost saving advantages.
+
+APPLICATIONS
+
+e Electronic equipment with VFD display
+e Microprocessor peripherals
+
+BLOCK DIAGRAM
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+FEATU RES
+
+CMOS technology
+
+e Provides up to 80 x 8 display RAM
+
+e Capable of driving segment for cursor displays (48
+units)
+
+e Built-in oscillation circuit
+
+e Parallel data input/output (switchable 4 or 8 bits) or
+serial data input/output
+
+e Alphanumeric and symbolic display via the built-in
+ROM (5 x 8 dots): 248 characters
+
+e Eight user-defined 5 x 8 dot character CGRAM
+
+e Display contents capability:
+- 16 columns x 2(1) rows + 32(16) cursors
+- 20 columns x 2(1) rows + 40(20) cursors
+- 24 columns x 2(1) rows + 48(24) cursors
+
+e Custom ROM available (please contact PTC
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+OSC1 OSC2 CLK VDD1 VDD2 VSS1 VSS2 SDO SLK /CLR LATCH
+oo
+TESTOUT ©) Oscillation Address Timing 24 24 Bits
+TEST O Circuit Counter Generator 7 Shift Register
+L_,/
+IFSEL O 7f 7 7 24
+ICS & 8, Instruction 8, Instruction a
+RS/STB © 7 Register 7 Decoder Display Data
+R/W(WR) © RAM (DDRAM GR2
+—| ( ) GR3
+E(/RD)/SCK O 7 80x8 Bits
+SISO O A Cre
+DBO © 1/0 8 CRS
+DB1O Buffer 8 . * GRE
+DB2 © es Data 8, oousor Blink GR7
+DB3 © 7 Register ontrol Circuit GR8
+DB4 © Sy y g GR9
+DBS © Grid Signal aan
+DB6 © Character Character Driver GR12
+DB7 © Generator Generator . .
+RAM (CGRAM) ROM (CGROM)
+[RESET © Reset Circuit 8x5x8 Bits 248x5x8 Bits
+MPU © 5p 5
+DSO © 4 4 GR22
+DS1O Parallel to Serial Sod
+DLS © Data Converter
+RL1O
+RL2 © 80 Bits 80, 80 Bits
+Latch 7 Shift Register
+80//
+Segment Signal Driver
+
+ 
+
+ 
+
+SG1 SG2 SG3 SG4 SG5 SG6 SG7 SG8
+
+U U
+
+ 
+
+SG79 SG80
+
+ 
+
+Tel: 886-66296288 + Fax: 886-29174598 + http:/Awww.princeton.com.tw «¢ 2F, 233-1, Baociao Road, Sindian, Taipei 23145, Taiwan
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+CONTENTS
+1. APPLICATION CIRCUITS 20.0... cc ccccccceeecennee eee eeeeeenaeeeeeeeeeecaeaeeeeeeeececneeeeeeeseeceeeeeseeececieeeeeeeseneeeeerseeniineeeeeessnnananes 3
+1.1 SERIAL INTERFACE 0000.00... cece c cece cee cenene eee eee eenncnee eee eee ceeeeeeeeeeecnaeeeeeeeececaeeeeseeeeecaccreeeeeeecnineteeesecicieeesensennieeeeeeed 3
+1.2 180 INTERFACE ........ eee cccceececeee eee ceeeecneeeeeee eee ceaeeeee eee ceaeaeeeeeeeecneaeeeeeeeececaeaeeeeeececaeeeeeesecncieeeeeeeecicieteseseenentneneees 3
+1.3 M68 INTERFACE ...........cccccececececee cee ceneee eee eee eeceeaeeeee eee ceaeeeeeeeeeecneaeeeeeeeececaeaeeeeeececncceeeeeesencieeeeeeeesicieteseseennaneneeeess 4
+2. ORDER INFORMATION |..........ccccccccccceeeeeeerce eee eeeeenneeeee eee eeeeneeeeeeeeeecceeeeeeeeececneeeeseeecesnneeeeeeeeececneeeeseeicieeeseteeneneeeeees 5
+3. PIN CONFIGURATION 0... ... ccc eeccccccceeeececeee eee eee eecne eee eeeeecneeeeeeeecgeaeeeeeeeececnaeeeeeeeeecceeeeeeeeeeecieeeeeecseaeeeeeseeenciteneeeeesies 5
+4. PIN DESCRIPTION... 2... eee eeecccceeceencne eee eeeeecneeeeeeeeeeeaeeeeeeeeceeeeaeeeeescececaeaeeeeeececaeeeeeeeseciceeeeeeeescescieeeeeeessureeeeseesenaranes 6
+4.1 DUTY RATIO SETTING 2.0.2... ccceccecececeee eee eee eeneeeeeeeeeceaeeeeeeeecaeaeeeeeeeeeecaeaeeeeeececcnereeeeeeecdcareeeesecicuetesenesennneeeeees 8
+4.2 SEGMENT SETTING 200.0... eee cececcce cee ceceneeeeeeeeeeeeaeeeeeeeeceaeaeeeeeeeeceeaeeeeeesececaeaeeeeeececacereeeeeeeceeeeeeeesecncneeeeesesenneneeeeess 8
+4.3 VFD DISPLAY 00.00... cece cece cee ece cece eect eee ennee eee eee eee eaeeeeeeeeeecaeeeeeeeeeaceeeeeeeeeececeeeeeeeeeedcaeeeeesecacaeeeeeeeseentireeeeesennenanes 14
+5. FUNCTION DESCRIPTION .......0...ccccccecececeeeeeeeeecceeeeeeeeencneeeeeeeeeecaeaeeeeeeeecicaeeeeeeeececaceeeeeeeecncisaeeeesecarereeeeeesennneeeess 15
+5.1 BLOCK FUNCTIONS ...... 20. ceecececee eee e ee cecnee eee cee ceaaeeeeeeeeecaeeeeeeeeccaaeeeeeeeeeeceeeeeeeeeeencreeeeseenreeeeeetenneeeeeerees 15
+5.2 DISPLAY DATA RAM (DDRAM).....0........:.ceceecceeeeeeeenee cette eee cecneeeee eee senneaeeeeeeeececneeeeeeeesecacareeeseeesicieeesetenicueeeeensees 16
+5.3 CHARACTER GENERATOR ROM (CGROM) ........0...::cccccececeeeeeeeeeceeeeeeeeeeeeiaeeeeeeeececareeeeeeeeecncieeeeeeetenenenerentees 18
+5.4 CHARACTER GENERATOR RAM (CGRAM) .........0::::ccccccececeeeeeeeeeeeeeeeeeeeeenaeeeeeeeeeneareeeeeeeeeennireeeeeetennnnnereesees 18
+5.5 TIMING GENERATION CIRCUIT 000.0... cececcceceeeencee eee ee eee cecneeeeeeeeeececeeeeeeeecenneeeeeeeeeeecneeeeeeesesiceeereteeenaenererees 19
+5.6 VFD DRIVER CIRCUIT .........cccccecceceeeeee eee eeeene cette eee ceneeeeeeeeeenceeeeeeeeccaeaeeeeeececaceeeeeseeeecnaeeeeeeeeicreeeeeetennaaneeenes 19
+5.7 CURSOR/BLINK CONTROL CIRCUIT .......0..ccciceceeeeeeceeeeeneeeeeee eee cecneeeeeeeeeeeiaeeeeeeeecacaeeeeeeesecncireeeeeennnareeeereneens 19
+5.8 CPU INTERFACE (DATA TRANSFER)..........:.:::cccececeeeceeeeeeeeeeeeeeeesennneeeeeeeeencaeeeeeeeeesecneeeeeeeeesicareeessennnneeeeseneees 20
+6. INSTRUCTIONS 0000... cece ceeceecee eee eee e ence eee eee eee eeaeeeeeeeececaeaeeeeeesecaaeeeeeeeececaeeeeeeeseeqcireeeeeeseicureeereeseeeitiretereseenearaees 23
+6.1 “CLEAR DISPLAY” INSTRUCTION 00000... oc. cececcccceeeeneeneeeee eee cenneeeeeeeeeeceaeeeeeeeecennaeeeeeeeeececneeeeeeeeseneeeereeeeenneeeees 23
+6.2 “CURSOR/ HOME” INSTRUCTION ooo... cee ccecccceceeceneee cee eeeeeeecneeeeeeeeeceneeeeeeeeecennneeeeeeeennaraeeeeeeesesureeeeeeesnnereeeess 24
+6.3 “ENTRY MODE” INSTRUCTION . 00.0.0... cece ececeeeeee eee eeceeeeeeeeeeeceeaeeeeeeeecacaeeeeeeeeeecaeaeeeeeeeecicareeeeeeeeneareeeeeenneataneeeees 24
+6.4 “DISPLAY ON/OFF” INSTRUCTION ............cccccceceeeeeeeneeeeeeeeeenceeeeeeeeeeeecneeeeeeeeececeeeeeeeesedicneeeeeeeseenueeeeeeeeeeneneeeess 25
+6.6 “FUNCTION SET” | INSTRUCTION (ooo... cece cece cee cecene eee cee eeceeaeeeeeeeecaceeeeeeeeeecaeaeeeeeececacnneeeeeeeeneieeeresetneaaeeeeeees 26
+6.7 “CGRAM ADDRESS SET” INSTRUCTION 000... .. occ ecceececeeeeeeenee steers eeeneeeeeeeeeecenneeeeeeeeeecaraeeeeeeesesnireeeessentaneeeess 27
+6.8 “DDRAM ADDRESS SET INSTRUCTION 0000... oo. eee eeececceeeeenceee eee eeeennaeeeeeeeeeecasaeeeeeeeecsneraeeeeeeeeeisaeeeeeseentneneess 27
+6.9 “READ BUSY FLAG AND ADDRESS” INSTRUCTION ..........cccccccceceeeeeeceeeeeeeeeeeeeeeeeeecacneeeeeeeeeenneeeeeeeeennneneeees 27
+6.10 “WRITE DATA TO CGRAM OR DDRAM” INSTRUCTION 000... ... eee eececcceeeeeeereeeee eee eenneeeeeeesetncneeeeeeeetenneeeeees 27
+6.11 “READ DATA FROM CGRAM OR DDRAM” INSTRUCTION ...........ccccccceeececeeeeeeceeeeeecereteeeeeencneeeeeeeeeeentneeeess 28
+6.12 POWER ON RESET...........ccccccceececeeeeeeeeeeeeeeneeeeeeeeeceaeeeeeceececneeeeeeeeecaceeeeeseeececaaeeeeeecececareeeeeecncireeeeeeesnnaraneeenes 28
+6.13 CGRAM STROKE FLOWCHART ...0.......cceecececeeeeeeeeeenee eee ee eee eenneeeeeeeeeecneeeeeeeeeesecneeeeeeeecenereeeeeseeseanreeeeseennineeeess 29
+6.14 DDRAM STROKE FLOWCHART ....0.....cceecceceeeceeeeeeeeeee eee ee eee cecneeeeeeeeeenceneeeeeeeecenneeeeeeeecesaraeeeeeeesesnireeeeseenneneeeees 29
+7. ABSOLUTE MAXIMUM RATINGS ............cccccceccceecceeceeeeececeeeeeeeeeecnereeeeeeecncaeaeeeeeeecescireeeeeeeceecnneeeeeesesitetereesennireneees 30
+8. RECOMMENDED OPERAING RANGE ............:c::ccccceceeeeeeeeeeeeeecneeeeeeeeeeceaeeeeeeeecacaaeeeeeeeececareeeeeeeeeeitneeeesnentneneees 30
+9. ELECTRICAL CHARACTERISTICS |... ccccccccccccecceeeeeeceeeeeeeececeeeeeeeeeeeciceeeeeeeeeceeaaeeeeeseceeceeeeeeeeseeenireeereesennneneees 31
+10. SWITCHING CHARACTERISTICS 000.0... ccc ceccecccceeeceeeceeeeee eee eecceeeeeeeececneeeeeeeececneeeeeeeeeeceaneeeeeeesesnireeeeseeeiteeeeeeeeseennats 31
+11. SWITCHING TIMING... 2... ceccee cece eee enc nett eect eeneeeeeee eee eneaeeeee eee ceeaeeeeeeeeeccneeeeseeeeecaeeeeesescireeeeeeeesnnieeeeeteeeees 32
+11.1 TIMING 1 REQUIREMENTS 7.00... cece eceeece eee ee eee eeenee eee eee eeceeaeeeeeeeeceaeaeeeeeeeecicneeeeeseseecaceeeeesseencureneeeeeesensats 32
+11.2 TIMING 2 REQUIREMENTS 0.0... ceecennee eee ee eee eecneeeee eee eecacaeeeeeeeeeeaeaeeeeeeeecicneeeeeseseecncieeeesseencieteeereeeensaes 34
+11.3 TIMING 3 REQUIREMENTS 0.0... cece eceenee ee eee eee cecneeeee cee eeceeaeeeeeeeececneaeeeeeesecicneeeeesessecicereeeesesncuteeeeeesenensats 35
+11.4 TIMING 4 REQUIREMENTS 1.0... cee ceenee eee ee eee eecneeeee eee eeceeaeeeeeeeeceeaeeeeeececncneeeeeeessececieeeeesesicaeteeeeeeeensaes 36
+12. FONT TABLE... ceceeeee cece tence eter eee en cnee eee ee eee cncee eee eee cecceaeeeeseeececneeeeeeeeeecccneeeeeeeesecneeeeteseqncieeeeeeeesnniieeeeeeeesenes 37
+12.1 ENGLISH/JAPANESE CHARACTER FONT TABLE (PT6314-001) ............eecceeeceeeeeeeeeeeeeeeetneeeeeeeeeennnneees 37
+12.2 ENGLISH /EUROPEAN CHARACTER FONT TABLE (PT6314-002) .000..... cee eeeccecceceeeeeeecteeeeeeeeetneeeeeeeeenennanes 38
+12.3 UROPEAN CHARACTER FONT TABLE (PT6314-007) ...........cccccceeceeceeecceeeeeeeeeecneeeeeeeesecneeeeeeeeennireeeeeeeenenaaes 39
+12.4 JAPANESE CHARACTER FONT TABLE (PT6314-008) ..........0.ccccccceceeeceeeeeeeeeeeceeeeeeeeesecneeeeeeesennereeeeeeeenenaes 40
+13. PACKAGE INFORMATION ............c:::cccceeeeeeeceeeeeeeeeenneeeeeeeeeeceaeeeeeeeeesecneeeeeeeeecnceeeeeeeecencireeeeeeeecicieeessesiiireeseeseensaes 41
+IMPORTANT NOTICE |... cece ceeeeeeeceeeeenee eee eee eee eeneeeeeeeeeneeeeeeeeececneeeeeeeececcceeeeeeeeececcieeeeeeececnteeeeeecenncieseeeeesnenieeeeetenenas 42
+
+ 
+
+V1.5 2 October 2009
+PT6314
+
+ 
+
+120
+R24
+
+(
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+42 ( 141
+R2 | GR3
+
+(
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+October 2009
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+43
+GR1
+
+E
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+7/9 tof 24 [2s
+
+ 
+
+ 
+
+v| 5]6
+Vv 5V
+56K 4
+
+5
+
+F 34
+
+ 
+
+1/36
+50V
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ececccccel|eeceeecce +
+eeoeeeeee eeoeeeeee ag eeeeeeee|eeeeeeee
+eoccccce(coccccece .— NT Oleeeeeeee| coccccce
+@eeeeeeaoae|eeeeeee00@ os @eeeeeeneae' eeoee0e000 So
+@eccccecc|coeccecc ec eecceccce|coccccece 5:
+Oo: @e20020000'080000808080 a
+e e DY rm
+OF
+e e o e e DY
+e e To] nnn o| © ° ° o ya
+e e e e a oo]
+e Oe + + e e
+e ue o woo 5 Oo ° Q e¢ 2 a
+> a” e ue © oo
+e e st n > 9 ann
+e o e \ 1} 2 ° ° , °
+© o] % e ® e VL Ad
+° 5° = Nu e £ e a|
+; 3 4 1asdi : a =|, 1as4i
+e N e | N |
+x ! = ° x ° |
+e 7 osa f= tC e 5 | osd
+e = e 1 — e co e 1
+e O e st ssa fe e Oo e + on
+YT I — ~ + | LT sid
+° x on 1as3e/ : x 3 oO Las3a4u/
+co B = | ©
+° o ° 1 - Loso Fe ° o ° 1 ad Loso
+e To | ia zoso LS e ce oO Z9SO
+© 9 I x ro) e « e Ro 1
+° x ° OS o § 5m * oy
+e oe Lay boon Fo K=O ° wo ° x bag
+° ° Og zssn [o_o ° ° 28 Nhe ZSSA
+aY \ 2 + uf e e | oY x
+° ° = =15 LSsa [2 5 e ; =< =15 ISSA
+© NE9 | =
+: : ay \ I} 9 LSSA | +h e e oy Korg LSSA
+= * 316 zaan | < & ; I] zaan
+t+ - @eeeeaeeeveaed'eeee0e0 e le ag
+Ceoeccccce|eeoeeceee KN S]e oO ey im ~at caqn LE Nol cc ccccclcoccccce Ng Y,agi5 GAH Zaan
+eeceoeeeece|eceeveeece a] & = OF aud =| O Sxre€qQ 4 ~zO
++} O n n on x~aeQ > @eeeeeeaeae' eeoeaeeee0@ -
+eoeeocococe;/ecooceece ~ SB ecoeecececee|eceeeeece QP2jTILy Ql apa’
+eoccccce| coecccce 2} 3] 2 wa} & eoccccce| coccccce yyy
+eoececccce|eeoeeecce " I"
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ak RL Fz
+
+Princeton Technology Corp.
+
+TO &
+1. APPLICATION CIRCUITS
+1.1 SERIAL INTERFACE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+MCU
+
+ 
+
+ 
+
+ 
+
+MCU
+
+ 
+
+ 
+
+ 
+
+1.2 180 INTERFACE
+
+V1.5
+
+ 
+PT6314
+
+ 
+
+20
+R24
+
+(c
+
+ 
+
+ 
+
+ 
+
+42 (141
+R2 | GR3
+
+(3
+
+ 
+
+ 
+
+October 2009
+
+ 
+
+ 
+
+ 
+
+ 
+
+43
+GR1
+
+E
+
+ 
+
+ 
+
+ 
+
+ 
+
+[11 24 |25
+
+7 Pyro
+v -
+
+ 
+
+ 
+
+wu
+
+516
+5
+
+3513
+V IseK
+
+5
+
+He
+
+ 
+
+1/36
+50V
+
+ 
+
+ 
+
+ 
+
+@eeeeeaeeaeeae | ee00e20e0e0e0e00
+eeeeaeeeaeeae' eeoea0eeee0
+@eeeeeaoeeaeo' eede0e0e0e0e0 oe
+co
+@eeeeeeaedea | eee0eee0e0 or
+@eee2ee0d080 ecccccee—
+2
+OF
+e e | oY
+e e
+e e ©) ---------------------- |
+e e
+e QO e o a
+° ue () wean oO ©
+e > e + Oo nao”
+° o @ Nf Nd
+e £& e a}o
+e x e ~ asd
+e x e {
+° 35 | osa
+e ra e |
+' Lsa
+: Q : | + sid
+N | oO LaSau/
+e <x e i oO
+° oe | - LOSsO
+° oe oO ZOSO
+co td I
+e x ° Og !
+e oe mu | LGGA
+° ° OF ZSSA
+° ° L 27 N42 LSSA
+e e tH 0 oO
+: : ay \ =|9 LSSA
+10 ZaGA
+@eeeeaeeaoeaeae' e0e00e020e0e008080 cele o NK ag
+V1 & >y 3.5 359A ZaGA
+eeeeaeeaoeaeeaeo ' eeeee0ee0 S16 rewa QO xx oO
+@eeeeaeeaoeaeae'e0e00202008080 -
+eoeoeceecee|eceeeeeee Ne2ySy2]) Sp Ra!
+@eeeeeeaeaea(|eeae0ee0e0e80 {u
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+I Fz
+
+Princeton Technology Corp.
+
+TO &
+
+ 
+
+1.3 M68 INTERFACE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+MCU
+
+ 
+
+ 
+
+ 
+
+V1.5
+
+ 
+Ero
+
+pt Wie
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Princeton Technology Corp. PT6314
+2. ORDER INFORMATION
+Valid Part Number Package Type Top Code
+PT6314-001 144 Pins, LQFP PT6314-001
+PT6314-002 144 Pins, LQFP PT6314-002
+PT6314-007 144 Pins, LQFP PT6314-007
+PT6314-008 144 Pins, LQFP PT6314-008
+3. PIN CONFIGURATION
+O O
+Zz Zz
+
+TSE FSTSISSSSSABHDBAATDAANNANALSSELLILLESS
+VDD2 [_] 1 Tee eee eee 9108
+VSS2 [_] 2 107
+VDD1 [_] 3 106
+CLK [-] 4 105
+osc2 [] 5 104
+osci LE] 6 103
+/RESET [_] 7 102
+TEST L_] 8 101
+DLS [] 9 100
+DSs1 [_]10 99
+DSO [_] 11 98
+R/IWWR) [112 97
+RS/STB [-] 13 96
+E(/RDVSCK [_] 14 95
+S$1/SO [_] 15 94
+DBO [_] 16 93
+DB1 [_]17 92
+pB2 [118 PT6314-LQ 91
+DB3 [-] 19 90
+DB4 [_]20 89
+DB5 [_] 21 88
+DB6 [_] 22 87
+DB7 [_]23 86
+IFSEL [_] 24 85
+MPU [_]25 84
+ICS [_] 26 83
+RL1 [-] 27 82
+RL2 [_] 28 81
+/CLR [_] 29 80
+LATCH [_]30 79
+SDO [_] 31 78
+SLKO [_] 32 77
+TESTOUT [_] 33 76
+vss1 [_] 34 75
+VSS2 [_]35 74
+vbb2 [136 5 2 73
+
+ 
+
+ 
+
+WUUUUUUUUUUUU UU UU UU UU UU
+
+ 
+
+Zz
+O
+
+Note: Pin No. 38 to 71, 73 to 107, 110 to 119 are used as Segment Signal Output Pins, Pin No.120 to 143 are used as Grid Signal Output Pins and are
+
+configured according to the Tables shown in the Duty Ratio Setting Section (see pages 8 to 13).
+
+ 
+
+V1.5
+
+October 2009
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+am =
+CTO & MA
+Princeton Technology Corp. PT6314
+4. PIN DESCRIPTION
+Pin Name 0 Description Pin No.
+VDD2 VFD Driving Power Supply Pin 1, 36
+VSS2 - |VEFD Driving Power Supply Pin 2, 35
+VDD1 - |Logic Power Supply Pin 3
+CLK O | Oscillation Signal Output Pin 4
+OSC2 O- | Oscillation Output Pin 5
+OSC1 | | Oscillation Input Pin 6
+Reset Pin
+/RESET | |When this pin is set to “O”, all internal registers and commands are initialized. The Segment 7
+and Grid Outputs are fixed to VDD.
+Test Pin
+TEST | |0or floating : the Normal Operation Mode 8
+1:the Test Mode is active
+Display Line Select Pin
+DLS This pin is used to select the number of display lines when the Power is ON, Reset or 9
+Resetting.
+0: 1 line is selected (N="0”)* 1: 2 lines are selected (N="1”)*
+Duty Select Pin
+DS1, DSO | These pins set the duty ratio. The duty ratio is determined by the number of Grid. 10, 11
+Read/Write (Write) Signal Pin
+Under the M68 Parallel Data Transfer Mode (R/VWV), this pin functions as the Data Transfer
+Select Pin.
+0: Write Function 1: Read Function
+RAWWR) | Under the i80 parallel data Transfer Mode (/WR), thispin is Write Enable Pin. It writes data at 12
+the rising edge of this signal.
+Under the Serial Transfer Mode, the Read or Write function is selected by instruction and this
+pin is connect to either “H” or “L”.
+Register Select/Strobe Pin
+RS/STB Under the Parallel Transfer Mode is selected, this pin acts as the Register Select Pin. 13
+0: Instruction Register (IR) 1: Data register (DR)
+Under Serial Data Transfer Mode, this pin acts as the Strobe Input Pin.
+Enable (Read)/Shift Clock
+Under the M68 Parallel Data Transfer Mode (E), this pin functions as the Write Enable Pin.
+Data is written at the falling edge.
+E(/RD)/SCK | Under the i80 Parallel Data Transfer Mode (/RD), this pin functions as the Read Enable Pin. 14
+When this pin is set to “LOW’, data is outputted to the Data Bus.
+Under the Serial Data Transfer Mode, this pin functions as the Shift Clock Input Pin. Data is
+written at the rising edge.
+Serial Input/Output Pin
+SI/SO I/O | Under the Serial Data Transfer Mode, this pin functions as an I/O Pin. 15
+Under the Parallel Data Transfer Mode, this pin may be connected to either “H” or “L”
+Parallel Data Input/Output Pins
+DBO to DB7 I/O |Under the Parallel Data Transfer Mode, these pins are used as |/O Pin. 16-23
+Under the 4-bit Transfer Mode, DB4 to DB7 are used.
+I/F Select Pin
+IFSEL | | This pin is used to select the I/F mode: Serial or Parallel Transfer 24
+0: Serial Data Transfer 1: Parallel Data Transfer
+Interface Select Pin
+MCU | | This pin is used to select the interface mode: i80 or M68. 25
+0: i80 CPU Mode 1: M68 CPU Mode
+Chip Select Pin
+ICS | When this pin is set to “L” the PT6314 is active. 26
+V1.5 6 October 2009
+
+ 
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pin Name 0 Description Pin No.
+Segment Output Select Pin
+RLTRL2 | This pins are used to set SG1 to SG80. 27, 28
+Extension Grid Driver Clear Signal Output Pin
+ICLR O Active: Low 29
+The Grid Data stored in extension driver latch are outputted when this pin is set to “HIGH”. If
+this pin is set to "LOW’, the extension driver outputs LOW.
+LATCH OQ | Extension Grid Driver Latch Enable Signal Output Pin 30
+SDO O | Extension Grid Driver Serial Data Output Pin 31
+SLK O Extension Grid Driver Shift Clock Output Pin 32
+Rising Edge: Active
+TESTOUT O Test Pin for IC Testing only. 33
+This pin should be “open”.
+VSS1 - |Logic Ground Pin 34
+GR1 to GR24 OQ |Grid Signal Output Pins 143-120
+SG1 to SG80 O | Segment Signal Output Pins see (2)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Notes:
+1. *=N is the Display Line Select Flag in “Function Set” Command
+2. Refer to Duty Ratio Setting Section
+
+ 
+
+V1.5 7 October 2009
+
+ 
+GTO S it WH
+Princeton Technology Corp.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PT6314
+4.1 DUTY RATIO SETTING
+DSO and DS1 control the duty ratio of PT6314. Please refer to the table below.
+DSO DS1 DUTY RATIO
+0 0 1/16 (No. of GRID=16)
+0 1 1/24 (No. of GRID=24)
+1 0 1/20 (No. of GRID=20)
+1 1 1/40 ( No. of GRID=40)
+Please take note that the external extension grid driver is needed to set up 1/40 duty mode.
+4.2 SEGMENT SETTING
+CONDITION 1: 2-LINE DISPLAY (N="1"), RL1="0" AND RL2="02"
+The number of Segment Pins is controlled by the RL1 and RL2.
+
+Pin Name Pin No. Pin Name Pin No. Pin Name Pin No. Pin Name Pin No.
+SG1 38 SG18 55 NC 72 SG51 89
+SG2 39 SG19 56 SG35 73 SG52 90
+SG3 40 SG20 57 SG36 74 SG53 91
+SG4 41 SG21 58 SG37 75 SG54 92
+SG5 42 SG22 59 SG38 76 SG55 93
+SG6 43 SG23 60 SG39 77 SG56 94
+SG7 44 SG24 61 SG40 78 SG57 95
+SG8 45 SG25 62 SG41 79 SG58 96
+SG9 46 SG26 63 SG42 80 SG59 97
+SG10 47 SG27 64 SG43 81 SG60 98
+SG11 48 SG28 65 SG44 82 SG61 99
+$G12 49 SG29 66 SG45 83 SG62 100
+$G13 50 SG30 67 SG46 84 SG63 101
+$G14 51 SG31 68 SG47 85 SG64 102
+SG15 52 SG32 69 SG48 86 SG65 103
+SG16 53 SG33 70 SG49 87 SG66 104
+SG17 54 SG34 71 SG50 88 SG67 105
+SG68 106 SG77 116 GR18 126 GR8 136
+SG69 107 SG78 117 GR17 127 GR7 137
+SG70 108 SG79 118 GR16 128 GR6 138
+
+NC 109 SG80 119 GR15 129 GR5 139
+SG71 110 GR24 120 GR14 130 GR4 140
+SG72 111 GR23 121 GR13 131 GR3 141
+SG73 112 GR22 122 GR12 132 GR2 142
+SG74 113 GR21 123 GR11 133 GR1 143
+SG75 114 GR20 124 GR10 134 NC 144
+SG76 115 GR19 125 GR9 135
+
+V1.5 October 2009
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PTO SS ak FI Fe
+Princeton Technology Corp. PT6314
+CONDITION 2: 2-LINE DISPLAY (N="1”), RL1="0", RL2="1”
+
+Pin Name Pin No. Pin Name Pin No. Pin Name Pin No. Pin Name Pin No.
+SG40 38 $G23 55 NC 72 SG51 89
+SG39 39 SG22 56 SG6 13 SG52 90
+SG38 40 SG21 57 SG5 74 SG53 91
+SG37 41 SG20 58 SG4 15 SG54 92
+SG36 42 $G19 59 SG3 76 SG55 93
+SG35 43 $G18 60 SG2 77 SG56 94
+SG34 44 SG17 61 SG1 78 SG57 95
+$G33 45 SG16 62 SG41 179 SG58 96
+$G32 46 $G15 63 SG42 80 SG59 97
+$G31 47 $614 64 SG43 81 SG60 98
+SG30 48 $G13 65 SG44 82 SG61 99
+$SG29 49 $G12 66 SG45 83 SG62 100
+$G28 50 S G11 67 SG46 84 SG63 101
+SG27 51 $SG10 68 SG47 85 SG64 102
+SG26 52 SG9 69 SG48 86 SG65 103
+$G25 53 SG8 70 SG49 87 SG66 104
+SG24 54 SG7 71 SG50 88 SG67 105
+SG68 106 SG77 116 GR18 126 GR8 136
+SG69 107 SG78 117 GR17 127 GR7 137
+SG70 108 SG79 118 GR16 128 GR6 138
+
+NC 109 SG80 119 GR15 129 GR5 139
+SG71 110 GR24 120 GR14 130 GR4 140
+SG72 111 GR23 121 GR13 131 GR3 141
+SG73 112 GR22 122 GR12 132 GR2 142
+SG74 113 GR21 123 GR11 133 GR1 143
+SG75 114 GR20 124 GR10 134 NC 144
+SG76 115 GR19 125 GR9 135
+
+V1.5 October 2009
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PTO SS ak FI Fe
+Princeton Technology Corp. PT6314
+CONDITION 3: 2-LINE DISPLAY (N="1”), RL1="1", AND RL2="0”
+
+Pin Name Pin No. Pin Name Pin No. Pin Name Pin No. Pin Name Pin No.
+$G41 38 SG58 55 NC 72 SG30 89
+$G42 39 SG59 56 SG75 13 SG29 90
+$G43 40 SG60 57 SG76 74 SG28 91
+SG44 41 SG61 58 SG77 15 SG27 92
+SG45 42 SG62 59 SG78 76 SG26 93
+SG46 43 SG63 60 SG79 77 SG25 94
+SG47 44 SG64 61 SG80 78 SG24 95
+SG48 45 SG65 62 SG40 179 $G23 96
+SG49 46 SG66 63 SG39 80 SG22 97
+SG50 47 SG67 64 SG38 81 SG21 98
+$G51 48 SG68 65 SG37 82 SG20 99
+$G52 49 SG69 66 SG36 83 SG19 100
+SG53 50 SG70 67 SG35 84 $G18 101
+SG54 51 SG71 68 SG34 85 SG17 102
+SG55 52 SG72 69 SG33 86 SG16 103
+SG56 53 SG73 70 SG32 87 $SG15 104
+SG57 54 SG74 71 $SG31 88 SG14 105
+$613 106 SG4 116 GR18 126 GR8 136
+$612 107 SG3 117 GR17 127 GR7 137
+$G11 108 SG2 118 GR16 128 GR6 138
+
+NC 109 SG1 119 GR15 129 GR5 139
+SG10 110 GR24 120 GR14 130 GR4 140
+SG9 111 GR23 121 GR13 131 GR3 141
+SG9 112 GR22 122 GR12 132 GR2 142
+SG7 113 GR21 123 GR11 133 GR1 143
+SG6 114 GR20 124 GR10 134 NC 144
+SG5 115 GR19 125 GR9 135
+
+V1.5 10 October 2009
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PTO SS ak FI Fe
+Princeton Technology Corp. PT6314
+CONDITION 4: 2-LINE DISPLAY (N="1"), RL1="1"” AND RL2="1”
+
+Pin Name Pin No. Pin Name Pin No. Pin Name Pin No. Pin Name Pin No.
+SG80 38 SG63 55 NC 72 SG30 89
+SG79 39 SG62 56 SG75 13 SG29 90
+SG78 40 SG61 57 SG76 74 SG28 91
+SG77 41 SG60 58 SG77 15 SG27 92
+SG76 42 SG59 59 SG78 76 SG26 93
+SG75 43 SG58 60 SG79 77 SG25 94
+SG74 44 SG57 61 SG80 78 SG24 95
+SG73 45 SG56 62 SG40 179 $G23 96
+SG72 46 SG55 63 SG39 80 SG22 97
+SG71 47 SG54 64 SG38 81 SG21 98
+SG70 48 SG53 65 SG37 82 SG20 99
+SG69 49 $G52 66 SG36 83 SG19 100
+SG68 50 $G51 67 SG35 84 $G18 101
+SG67 51 SG50 68 SG34 85 SG17 102
+SG66 52 SG49 69 SG33 86 SG16 103
+SG65 53 SG48 70 SG32 87 $SG15 104
+SG64 54 SG47 71 $SG31 88 SG14 105
+$613 106 SG4 116 GR18 126 GR8 136
+$612 107 SG3 117 GR17 127 GR7 137
+$G11 108 SG2 118 GR16 128 GR6 138
+
+NC 109 SG1 119 GR15 129 GR5 139
+SG10 110 GR24 120 GR14 130 GR4 140
+SG9 111 GR23 121 GR13 131 GR3 141
+SG9 112 GR22 122 GR12 132 GR2 142
+SG7 113 GR21 123 GR11 133 GR1 143
+SG6 114 GR20 124 GR10 134 NC 144
+SG5 115 GR19 125 GR9 135
+
+V1.5 11 October 2009
+
+ 
+Ero
+
+pt Wie
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Princeton Technology Corp. PT6314
+CONDITION 5:1-LINE DISPLAY (N="0"), RL2="0”
+The RL1 setting is irrelevant. The table below shows the Segment Pin setting.
+
+Pin Name Pin No. Pin Name Pin No. Pin Name Pin No. Pin Name Pin No.
+SG1 38 $G18 55 NC 72 * 89
+SG2 39 $G19 56 SG35 73 * 90
+SG3 40 $G20 57 SG36 74 * 91
+SG4 41 SG21 58 SG37 75 * 92
+SG5 42 $G22 59 SG38 76 * 93
+SG6 43 S$G23 60 SG39 77 * 94
+SG7 44 $G24 61 SG40 78 * 95
+SG8 45 $G25 62 * 79 * 96
+SG9 46 SG26 63 * 80 * 97
+SG10 47 SG27 64 * 81 * 98
+SG11 48 $G28 65 * 82 * 99
+$G12 49 SG29 66 * 83 * 100
+$G13 50 S G30 67 * 84 * 101
+$G14 51 SG31 68 * 85 * 102
+SG15 52 SG32 69 * 86 * 103
+SG16 53 SG33 70 * 87 * 104
+SG17 54 SG34 71 * 88 * 105
+
+* 106 * 116 GR18 126 GR8 136
+* 107 * 117 GR17 127 GR7 137
+* 108 * 118 GR16 128 GR6 138
+NC 109 * 119 GR15 129 GR5 139
+
+* 110 GR24 120 GR14 130 GR4 140
+* 111 GR23 121 GR13 131 GR3 141
+* 112 GR22 122 GR12 132 GR2 142
+* 113 GR21 123 GR11 133 GR1 143
+* 114 GR20 124 GR10 134 NC 144
+* 115 GR19 125 GR9 135
+
+Note: *=Not Used
+
+V1.5 12 October 2009
+
+ 
+Ero
+
+pt Wie
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Princeton Technology Corp. PT6314
+CONDITION 6: 1-LINE DISPLAY, RL2="1”
+The RL1 setting is irrelevant. Segment Output Pin settings are as follows:
+
+Pin Name Pin No. Pin Name Pin No. Pin Name Pin No. Pin Name Pin No.
+SG40 38 S$G23 55 NC 72 * 89
+SG39 39 SG22 56 SG6 73 * 90
+SG38 40 SG21 57 SG5 74 * 91
+SG37 41 SG20 58 SG4 75 * 92
+SG36 42 $G19 59 SG3 76 * 93
+SG35 43 SG18 60 SG2 77 * 94
+SG34 44 SG17 61 SG1 78 * 95
+SG33 45 SG16 62 * 79 * 96
+SG32 46 SG15 63 * 80 * 97
+SG31 47 $G14 64 * 81 * 98
+SG30 48 $G13 65 * 82 * 99
+SG29 49 $G12 66 * 83 * 100
+$G28 50 S G11 67 * 84 * 101
+SG27 51 SG10 68 * 85 * 102
+SG26 52 SG9 69 * 86 * 103
+SG25 53 SG8 70 * 87 * 104
+SG24 54 SG7 71 * 88 * 105
+
+* 106 * 116 GR18 126 GR8 136
+* 107 * 117 GR17 127 GR7 137
+* 108 * 118 GR16 128 GR6 138
+NC 109 * 119 GR15 129 GR5 139
+
+* 110 GR24 120 GR14 130 GR4 140
+* 111 GR23 121 GR13 131 GR3 141
+* 112 GR22 122 GR12 132 GR2 142
+* 113 GR21 123 GR11 133 GR1 143
+* 114 GR20 124 GR10 134 NC 144
+* 115 GR19 125 GR9 135
+
+Note: *=Not Used
+
+V1.5 13 October 2009
+
+ 
+Ero
+
+ot Wie
+
+Princeton Technology Corp.
+
+PT6314
+
+ 
+
+4.3 VFD DISPLAY
+
+PT6314 supports 24 character x 2 display lines. Please refer to the diagram below for VFD Display construction.
+
+ 
+
+ 
+
+SG1
+
+SG40
+
+SG41
+
+SG80
+
+GR1
+GR2
+
+GR24
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(—
+OID, | QUO OOOO
+HOWDY, | QUO OOOO
+HLILIWIL;_ | QUO OOOO
+HWW, || DUO OOOO
+OWL, || DOO OOOO
+WLIW) QUUUU OOOO
+HW, | GUO OOOO
+HWW, || DOO OOOO
+OLLI, || DO000U OOO000
+WWD, | G00 OOOO
+HWW, | GU OUUUU
+OWL, || GDU000U OOOO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sct
+SG5
+SG6
+SG10
+
+SG71
+
+SG75
+SG76
+
+SG80
+
+ 
+
+ 
+
+V1.5
+
+14
+
+October 2009
+ 
+
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+5. FUNCTION DESCRIPTION
+
+5.17 BLOCK FUNCTIONS
+5.1.1 CPU INTERFACE
+
+PT6314 provides either 4 or 8 bits parallel or serial interface. These interface modes may be selected using the IFSEL
+Pin (Pin No.24) as follows:
+
+ 
+
+ 
+
+ 
+
+ 
+
+IFSEL Setting Data Transfer Mode
+“Q” Serial Data Transfer
+“4” Parallel Data Transfer
+
+ 
+
+ 
+
+ 
+
+5.1.2 REGISTERS (INSTRUCTION REGISTER & DATA REGISTER)
+PT6314 supports two 8-bit registers, namely: an Instruction Register (IR) and a Data Register (DR) which may be
+
+ 
+
+ 
+
+ 
+
+selected using the Register Selector (RS) Signal. Please refer to Table below
+IFSEL ICS RS E/SCK R/W MCU SI/SO DBn
+0 ICS STB SCK * * SI/SO *
+1 ICS RS E/(/RD) R/D(/WR) MCU * DBn
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note: *=This pin must be kept in either “HIGH” or “LOW” State.
+
+The Instruction Register (IR) stores (1) instruction codes (i.e. display clear and cursor shift), (2) Display Data RAM
+(DDRAM) Address Information and (3) Character Generator RAM (CGRAM). It can only be written from the MCU.
+
+The Data Register (DR) acts as a temporary storage for (1) data to be written into the DDRAM or CGRAM and (2) data
+to be read from the DDRAM or CGRAM. Data written into the DR from the MCU is automatically written into the DDRAM
+or CGRAM by internal operation. When the data stored in DR is read by the MCU, data transfer is completed. After the
+completion of the data transfer (that is, after the MCU has finished reading the first set of data), the DDRAM or CGRAM
+data in the next address is sent to the DR. The MCU then again performs its Read operation for the next set of data.
+
+BUSY FLAG (READ BF FLAG)
+The Busy Flag Data (DB7) always outputs “0”.
+
+ADDRESS COUNTER (AC)
+
+The Address Counter (AC) designates the addresses of the DDRAM and CGRAM. When an address of instruction is
+written into the Instruction Register, the address information is sent from the Instruction Register (IR) to the Address
+Counter. The selection of either the DRAM or CGRAM is also determined concurrently by the instruction. After writing
+into the DDRAM or CGRAM, the Address Counter is increased by 1. (The Address Counter is decreased by 1 after data
+is read from the DDRAM or CGRAM.) The contents of the Address Counter are then outputted to the DBO~DB6 when
+RS="0” and R/W="1”. Please refer to the table below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+commen Ke 1 Register Selection
+RS R/W /RD IWR
+0 0 1 0 Write IR Data as internal operation (i.e. display clear)
+0 1 0 1 Read data to busy flag (DB7) and Address Counter (DB6 to DBO)
+1 0 1 0 Write DR Data (DR-DDRAM/CGRAM)
+1 1 0 1 Read DR Data (DDRAM/CGRAM—DR)
+
+ 
+
+ 
+
+V1.5 15 October 2009
+
+ 
+pt Wie
+
+Princeton Technology Corp.
+
+Ero
+
+PT6314
+
+ 
+
+5.2 DISPLAY DATA RAM (DDRAM)
+
+The Display Data RAM (DDRAM) stores the display data shown in the 8-bit character codes. When expanded the
+Display Data RAM supports a capacity of 80 x 8 bits or 80 characters. The area in the DDRAM that is not in used for
+display may be used as general data RAM.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+High Order Bits Low Order Bits
+AC Ac6 | AC5 | AC4 AC3 | AC2 | AC1 | ACO
+hexadecimal hexadecimal
+
+Please note that the DDRAM Address (ADD) is set in the Address Counter(AC) as hexadecimal.
+
+Example: DDRAM Address “26”:
+0 1 0 0 1 1 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+5.2.1 N=“0” 1-LINE DISPLAY, 80 CHARACTERS
+
+Display Position
+Digit 1 2 3 4 5 6
+DDRAM Address(hexadecimal) 00 01 02 03 04 05
+
+5.2.2 N="0” 1-LINE DISPLAY, LESS THAN 80 CHARACTERS
+
+In cases when there are less than 80 display characters, the display begins at the head position. For example, if only one
+piece of PT6314 is being used, 24 characters are displayed. When the display shift operation is performed, the DDRAM
+address shifts, please refer to the figure below.
+
+ 
+
+venees 19 80
+ae 4E 4F
+
+ 
+
+ 
+
+ 
+
+ 
+
+Display Position
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Digit 1 2 3 4 5 6... 23 24
+DDRAM Address(hexadecimal) 00 01 02 03 04 05 a... 16 17
+For Shift-Left | 01 02 03 04 05 O06... 17 18 |
+For Shift-Right | 4F 00 01 02 03 0400... 15 16 |
+5.2.3 N=1” 2-LINE DISPLAY, 40 CHARACTERS
+Display Position
+Digit 1 2 3 4 5 6... 39 40
+DDRAM Address 00 01 02 03 04 05... 26 27
+(hexadecimal) 40 41 42 43 44 45... 66 67
+
+ 
+
+ 
+
+ 
+
+5.2.4 N=“1” 2-LINE DISPLAY, LESS THAN 40 CHARACTERS
+
+In cases when the number of display characters is less than 40 x 2 lines, the two lines are displayed from the head. The
+line end address and the second line start address are not consecutive. For example, if only one PT6314 is being used,
+24 characters x 2 lines are displayed. When the display shift operation is performed, the DDRAM address shifts.
+
+Display Position
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Digit 1 2 3 4 5 6... 23 24
+DDRAM Address 00 01 02 03 04 05... 16 17
+(hexadecimal) 40 A 42 43 44 45... 56 57
+
+. 01 02 03 04 05 06. ...... 17 18
+For Shift-Lett a1 42 43 44 45 46... 57 58
+
+a 27 00 01 02 03 04... 15 16
+For Shift-Right 67 40 a1 42 43 44... 55 56
+
+V1.5 16 October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+5.2.5 N=“1” 2-LINE DISPLAY, 40 CHARACTERS
+
+PT6314 can be extended using one of the 16 output extension drivers as GRID. Under this condition, a 40-character x 2
+lines display may be constructed.
+
+Display Position
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Digit 1 2 3 4] a. 23 24 25 | ww. 39 40
+DDRAM Address 00 01 02 03 | ...... 16 17 18 |... 26 2/7
+(hexadecimal) 40 | 41 42 | 43 | 0... 56 | 57 58 |... 66 | 67
+Digit 1 2 3 4] a. 23 24 25 | ww. 39 40
+01 02 03 04 | ...... 17 18 19 |... 27 00
+For Shift-Left
+
+41 42 43 44 |]... 57 58 59 | ...... 67 40
+Digit 1 2 3 4] a. 23 24 25 | ww. 39 40
+oa. 27 00 01 02 | ...... 15 16 17 |... 25 26
+
+For Shift-Right
+67 40 41 42 |... 55 56 57 | ...... 65 66
+PT6314 Display Extension Driver Display
+
+ 
+
+ 
+
+V1.5 17 October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+5.3 CHARACTER GENERATOR ROM (CGROM)
+
+The CGROM is the Read Only Memory (ROM) responsible for the generation of 5 x 8 dots character patterns from 8-bit
+character codes. A total of up to 240 character patterns can be generated. Please note that Character Codes -- OOH to
+07H are allocated to the CGRAM.
+
+5.4 CHARACTER GENERATOR RAM (CGRAM)
+
+The Character Generator RAM (CGRAM) allows the user to reconstruct the character patterns from 8-bit by software
+programming. Eight character patterns can be written and constructed using 5 x 8 dots. Areas that are not used for
+display purposes may be used as general data RAM.
+
+The table below shows the relationship between the CGRAM Address, Character Code (DDRAM) and the 5x7 (cursor
+included) dot character patterns (CGRAM).
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Character Code (DDRAM Data) CGRAM Address CGRAM Data
+
+D7 | Dé | D5 | D4 | D3 | D2 | D1 | Do | Ad [ A4 | AB | A2 | A1 | AO! D7 | DS | DS | D4 [ DB | D2 | D1 | Do
+
+High Order Bit Low Order Bit | High Order Bit Low Order Bit_| High Order Bit Low Order Bit
+
+of] ofofofx {[ofof]ofofof]ofofofofx |x [x [1 1 1 1 1
+0 0 1 1 0 0 0 1
+0 1 0 1 0 0 0 1
+0 1 1 1 1 1 1 1 Character Pattern No. 1
+1 0 0 1 0 0 0 0
+1 0 1 1 0 0 0 0
+1 1 0 1 0 0 0 0
+1 1 1 0 0 0 0 0 Cursor Position
+
+of] ofofofx f[ofof1]ofof]1f{o]fo]o0fx | x [ x [1 1 1 1 1
+0 0 1 0 0 1 0 0
+0 1 0 0 0 1 0 0
+0 1 1 0 0 1 0 0 Character Pattern No. 2
+1 0 0 0 0 1 0 0
+1 0 1 0 0 1 0 0
+1 1 0 0 0 1 0 0
+1 1 1 0 0 0 0 0 Cursor Position
+
+of] ofofofxf[31f14]%14]%1)%1]1] 0] 0] 0fx | x [ x [ 0 1 1 1 1
+0 0 1 1 0 0 0 0
+0 1 0 1 0 0 0 0
+0 1 1 1 0 0 0 0 Character Pattern No. 8
+1 0 0 1 0 0 0 0
+1 0 1 1 0 0 0 0
+1 1 0 0 1 1 1 1
+1 1 1 1 1 1 1 1 Cursor Position
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Notes:
+
+1. X= Irrelevant
+
+2. Character Code Bits 0 to 2 correspond to the CGRAM Address Bits 3 to 5 (3 bits: 8 type).
+
+3. CGRAM Address Bits 0 to 2 determine the character pattern line position. The 8th line is the cursor
+position and its display is formed by a logical OR with the cursor. Maintain the 8th line data,
+corresponding to the cursor display position at 0 as the cursor display. If the 8th line data is “1” all
+the 1 bits will light up the 8th line regardless of the cursor presence.
+
+4. Character pattern row position corresponds to the CGRAM data bits 0 to 4. (bit 4 is positioned at the
+left)
+
+5. The CGRAM character patterns are selected when the character code bits 4 to 7 are all set to “O”.
+The Character Code Bit 3 is irrelevant, the “P” Display shown above (Character Pattern No. 1) can
+be selected by either character Code 00H or 07H.
+
+6. When CGRAM Data="1” the Display is turned ON. When CGRAM data=“0” display is turned OFF.
+
+ 
+
+V1.5 18 October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+5.5 TIMING GENERATION CIRCUIT
+
+Timing signals for internal circuit operations(i.e. DDRAM, CGRAM) are generated by the Timing Generation Circuit. The
+Display RAM Read timing and the MCU access internal operation timing are generated separately in order to avoid
+interferences. Thus, for example, when data is being written to the DDRAM, no undesirable interference occur (i.e.
+flickering in areas other than the display location)
+
+5.6 VFD DRIVER CIRCUIT
+
+The VFD Driver Circuit is composed of 24 grid and 80 segment signal drivers. During power On, the character font and
+number of digits are selected by the hardware (DSO and DS1), the required grid signal drivers automatically output drive
+waveforms while the other grid signal drivers continue to output non-selected waveforms. The serial data sent is latched
+when the display data character pattern corresponding to the last address of the display data RAM (DDRAM). Since the
+serial data is latched when the display data character pattern corresponding to the starting address enters the internal
+shift register, PT6314 drives from the head display.
+
+5.7 CURSOR/BLINK CONTROL CIRCUIT
+
+Cursor and Character blinking are generated by the Cursor / Blink Control Circuit. The cursor or the blinking will appear
+with the digit located at the display data RAM (DDRAM) address set in the address counter (AC).
+For example, when the address counter is 08H, the cursor position is displayed at DDRAM Address 08H.
+
+AC6 AC5 AC4 AC3 AC2 AC1 ACO
+AC 0 0 0 1 0 0 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+5.7.1 FOR 1-LINE DISPLAY:
+
+Display position
+
+ 
+
+Digit 1/2|3 |4/{]5 |6{]7 1/8 | 9 | 10) 14 | 12
+DDRAM Address(hexadecimal) | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 ¢ 08 | 09 | 0A | OB
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cursor Position
+
+5.7.2 FOR 2-LINE DISPLAY:
+Display position
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Digit 1|2|3 /|4{]5 |6]7 / 8 | 9 | 10 | 11 | 12
+| 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 { 08)| 09 | 0A | OB
+
+DDRAM Address(hexadecimal) 7
+40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 48 | 49 | 4A | 4B
+
+ 
+
+Cursor Position
+Note:
+The cursor or blinking appears when the address counter (AC) selects the Character Generator RAM (CGRAM). The cursor and blinking become
+meaningless. When the Address Counter is a CGRAM Address, the cursor or the blinking is displayed in a meaningless position.
+
+ 
+
+V1.5 19 October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+5.8 CPU INTERFACE (DATA TRANSFER)
+
+5.8.1 M68 PARALLEL DATA TRANSFER
+
+The M68 type of parallel data transfer is selected when IFSEL is set to “1” and MCU is set to “O” Under this mode, the
+PT6314 can interface with the CPU in 4 or 8 bits . Please take note that the internal registers are composed of 8 bits.
+During data transfer in 4 bits, DB4 to DB7 performs the data transfer operation two times, the DBO to DB3 must be set to
+either “H” or “L”. The higher order 4 bits (D4 to D7) are initially transferred followed by the lower order 4 bits (DO toD3).
+please refer to the diagrams below.
+
+4-BIT M68 TYPE PARALLEL DATA TRANSFER
+RS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+- | Lt | |
+oer [Cr Xoes Xe Xe XT oF =0_ (s XXo7 X_8 )
+ose [cre Xana Xie Xe XTX are Xe XX 08 X_0 »
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+pps ix 1ps_X_ int X//PX_185_X_ int X///)_1w5_<_in1_X/[[/X_05_X_o1_)
+pes IX ra X iro X///X_p4_X_ ino XIX ra _X_1p0_X/[I/X_o4 X00 _)
+
+| Write Instruction | | Write Instruction | | Read Instruction | | Write Data |
+' | is 7\
+
+! 1 rs “1
+
+ 
+
+ 
+
+8-BIT M68 TYPE PARALLEL DATA TRANSFER
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS
+R/W
+E
+DB7 ITN IR7 XIIITX IR7 X/// pe="o" X//TX D7 iT
+ops ////X Re X///IX_ 6 XU/TIX 6 XIX 8 _X///
+DBO IRO IRO IRO DO
+r Write | r Write | r Read | r Write |
+Instruction Instruction Instruction Data
+
+ 
+
+V1.5 20 October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+5.8.2 i80 TYPE PARALLEL DATA TRANSFER
+
+The i80 type of parallel data transfer mode is selected when IFSEL is set to “1”and MCU is set to “0”. A type of pipeline
+process is performed between LSls via the bus holder attached to the internal data bus whenever data is sent from the
+MCU. It is important to take note that certain restrictions exists in the read sequence of this display data RAM. The data
+of the specified address is not generated by the read instructions issued immediately after the address setup. This data
+is generated in the when the data is read the second time. Thus, a dummy read is required whenever the address setup
+or write cycle operation is selected. Please refer to the diagrams below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+WRITING
+MPU
+wR PPL
+DATA. IN
+Internal Timing LATCH
+Bus Holder s
+XN X  N+t  X  N#2 XN
+Write Signal
+READING
+MPU
+
+ 
+
+IWR a
+RO IT olf 14]
+pata. CNC >_>
+
+Internal Timing
+
+Address Preset
+Read Signal | | | |
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Column Address x PRESET N Xx INCREMENT N+1 x N+2
+Bus Holder Xx N xX n xX nt+1 x n+2
+Address Set Dummy Data Read Data Read
+#n Read #n #n+1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+V1.5 21 October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+5.8.3 SERIAL DATA TRANSFER
+
+PT6314 supports serial data transfer mode. When data is written, it can be inputted when the Strobe goes to “O”. The first
+byte -- Start Byte consists of a total of 8 bits: the Synchronous bits (bit 1 - bit 5), R/W (bit 6), RS (bit 7) and bit 8. The
+register will be selected (IR or DR) by the RS (bit 7) and the data write or read is selected by R/W (bit 6 = “O”) in this byte.
+The Start Byte is followed by the 8-bit Instruction Byte. The Start Byte selects which is process is to be inputted first: read
+the Busy Flag + Address Counter (AC6 to ACO) or read the data which was written in the DDRAM or CGRAM. Data is
+outputted at the falling edge of the shift clock.
+
+DATA WRITE
+
+STB —\ [-
+
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+
+Wr Fl PEEP E OR
+
+‘I
+
+ 
+
+ 
+
+ 
+
+ 
+
+Synchronous Bits
+
+ 
+
+ 
+
+ 
+
+ 
+
+Start Byte Instruction/Data
+
+DATA READ
+
+STB —\ fo
+
+Wait Time: tWAIT
+
+ 
+
+ 
+
+Synchronous Bits
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Start Byte Read Data
+
+ 
+
+V1.5 22 October 2009
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+aa =
+Princeton Technology Corp. PT6314
+6. INSTRUCTIONS
+Instruction RS | R/AW DB7 DB6 | DB5 | DB4 | DB3 | DB2 | DB1 | DBO Description
+Clear Display 0 0 0 0 0 0 0 0 0 1 clea all display, and sets DDRAM address
+Set DDRAM address at OOH. Also returns
+the display being shifted to the original
+Cursor Home 0 0 0 0 0 0 0 0 1 x position. DDRAM contents remain
+unchanged.
+Sets the cursor direction and specifies
+Entry Mode Set 0 0 0 0 0 0 0 1 1/D S display shift. These operations are
+performed during the writing/reading of data.
+Sets all display on/off (D)
+Display ON/Off 0 0 0 0 0 0 1 D C B Cursor on/off (C).
+Cursor blinks on character position (B)
+Cursor or Display 0 0 0 0 0 1 SC R/L x x Shifts display or cursor, also keeps DDRAM
+Shift contents.
+Function Set 0 0 0 0 1 DL N x BR1 | BRO Sets data length (in parallel data transfer)
+and number of line.
+CGRAM Address 0 0 0 1 ACG Sets address of CGRAM. After which
+Set CGRAM data is transferred.
+DDRAM Address Sets DDRAM address, after which DDRAM
+0 0 1 ADD .
+Set data is transferred.
+Read Busy Flag & _ann Reads busy flag (BF) and address counter.
+Write Data to . . .
+CGRAM or DDRAM 1 0 Write Data Writes data into the CGRAM or DDRAM.
+Read Data to
+CGRAM or DDRAM 1 1 Read DR Data Reads data from CGRAM or DDRAM
+Notes:
+1. I/D="1": Increment 1/D="0": Decrement
+2. S="1": Display Shift Enabled $="0”: Cursor Shift Enabled
+3. D,C, B="1”: Turn On D, C, B="0": Turn OFF
+4. $S/C="1": Display Shift S/C="0": Cursor Shift
+5. R/L=“1”: Shift to the Right R/L="0”: Shift to the Left
+6. DL="1": 8 Bits DL="0”: 4 Bits
+7. N="0": 1-Line Display N="1": 2-Line Display
+8. BR1, BRO="00”: 100% BR1, BRO="10”: 50%
+BR1, BRO="01”: 75% BR1, BRO="11": 25%
+9. X=Irrelevant
+10. DDRAM: Display Data RAM
+11. CGRAM: Character Generator RAM
+12. ACG: CGRAM Address
+13. ADD: DDRAM Address
+14. ACC: Address Counter
+77 FE
+6.71 “CLEAR DISPLAY” INSTRUCTION
+RS R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+CODE 0 0 0 0 0 0 0 0 0 1
+During Reset,
+DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+0 0 0 0 0 0 0 1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The CLEAR DISPLAY Instruction performs the following operations:
+. Fills all Display Data RAM (DDRAM) location with 20H (Blank Character).
+. Clears the contents of the Address Counter (ACC) to OOH.
+. Sets the display for Zero Character Shift (Returns to original position.)
+
+. If the cursor is displayed, this instruction will move the cursor to the left most character in the upper display line.
+
+1
+2
+3
+4. Sets the Address Counter to point to the Display Data RAM (DDRAM).
+5
+6
+
+. Sets the Address Counter (ACC) to increment on each access of the DDRAM or CGRAM.
+
+ 
+
+V1.5
+
+23
+
+October 2009
+
+ 
+pt Wie
+
+Princeton Technology Corp.
+
+Ero
+
+PT6314
+
+ 
+
+6.2 “CURSOR HOME” INSTRUCTION
+
+RS R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+CODE 0 0 0 0 0 0 0 0 1 xX
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The CURSOR HOME Instruction performs the following operations:
+
+1. Clears the contents of the Address Counter (ACC) to 00H.
+
+2. Sets the Address Counter to point to the Display Data RAM (DDRAM).
+
+3. Sets the Display for Zero Character Shift (Returns to the original position).
+
+4. lf the cursor is displayed, this instruction moves the cursor to the left most character in the upper line display.
+
+6.3 “ENTRY MODE” INSTRUCTION
+
+RS R/W DB7 DB6 DB5 DB4 DB3
+CODE 0 0 0 0 0 0 0
+
+ 
+
+DB2
+01
+
+DB1 DBO
+1/D S
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The “I/D” Bit provides a way to modify the contents of the address counter after every access to the DDRAM or CGRAM.
+When I/D is set to “1” the Address Counter is incremented after the DDRAM or CGRAM has been accessed. When the
+I/D is set to “O” the Address Counter is decremented after the DDRAM or CGRAM has been accessed.
+
+The “S” Bit controls the display or cursor shift after each read or write operation to the DDRAM. If S is set to “1” the
+“Display Shift” Instruction is enabled. If the S is set to “O” the “Cursor Shift” Instruction is enabled.
+
+The direction in which the display is shifted is opposite to that of the cursor. For example, if S=’0” and I/D="1” the cursor
+will shift one character to the right after the MCU writes to the DDRAM. But, if the S="1” and I/D="1” the display will shift
+one character to the left and the cursor will remain in the same position in the panel display. The cursor has already been
+shifted in the direction selected by the I/D during the reading of the DDRAM irrespective of the value of “S”. Reading and
+writing the CGRAM always shifts the cursor. Both lines are shifted at the same time.
+
+The table below shows the various cursor and display shift movements by the “Entry Mode Set”.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+I/D Ss After Writing DDRAM Data After Reading DDRAM Data
+0 0 Cursor moves one character to the left. Cursor moves one character to the left.
+1 0 Cursor moves one character to the right. | Cursor moves one character to the right.
+0 1 Display shifts one character to the right Cursor moves one character to the left.
+without any cursor movement.
+1 1 Display shifts one character to the left Cursor moves one character to the right.
+without any cursor movement.
+
+ 
+
+During Reset,
+
+ 
+
+ 
+
+DB7
+
+DB6
+
+DB5
+
+DB4
+
+DB3
+
+DB2
+
+DB1
+
+DBO
+
+ 
+
+ 
+
+0
+
+ 
+
+0
+
+ 
+
+0
+
+ 
+
+0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+V1.5
+
+24
+
+October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+6.4 “DISPLAY ON/OFF” INSTRUCTION
+
+RS R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+CODE 0 0 0 0 0 0 1 D C B
+The above instruction controls the various display features:
+D="1”": Display ON D="0": Display OFF
+C="1": Cursor ON C="0": Cursor OFF
+B="1”: Blinking ON B="0”: Blinking OFF
+
+Blinking is achieved by alternating a normal and an all “ON” display of a character. The cursor blinks with a frequency of
+approximately 1 Hz and 50% duty.
+
+ 
+
+ 
+
+BLINK
+(1Hz)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+' ¢—___Cursor Line
+I
+
+ 
+
+During Reset,
+
+ 
+
+DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0 0 0 0 1 0 0 0
+6.5 “CURSOR OR DISPLAY SHIFT” INSTRUCTION
+RS | RW | DB7 | DB6 | DBS | DB4 | DB3 | DB2 | DB1 | DBO
+CODE | 0 0 0 0 0 1 | sc [| RL | X X
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The instruction above will shift the display and/or move the cursor one character to the left or right, without DDRAM
+reading or writing.
+
+“S/C” Bit selects between the movement of both cursor and display or the movement of the cursor alone. When
+“S/C”="1” the cursor and the display are both shifted. When “S/C”="0” only the cursor is shifted.
+
+The “R/L” Bit selects the left or right movement direction of the cursor and/or display. When “R/L”="1” the cursor and/or
+display is shifted one character to the right. When “R/L” is ”0” the cursor and/or character is shifted to the left.
+
+The table below summarizes display and cursor shift and movement.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ss/C R/L Cursor Display
+0 0 Move one character to the left. No shift
+0 1 Move one character to the right. No shift
+1 0 Move one character to the left with display Shift one character to the left.
+1 1 Move one character to the right with display | Shift one character to the right.
+
+ 
+
+ 
+
+V1.5 25 October 2009
+pt Wie
+
+ETO Princeton Technology Corp.
+
+PT6314
+
+ 
+
+6.6 “FUNCTION SET” INSTRUCTION
+
+RS R/W DB7 DB6 DB5
+0 0 0 0 1
+
+ 
+
+DB4
+DL
+
+DB3
+N
+
+DB2
+xX
+
+DB1
+BR1
+
+DBO
+BRO
+
+ 
+
+CODE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The instruction above sets the data length of the data bus lines. This instruction initializes the system, and must be the
+first instructed executed after power is turned ON.
+
+The “DL” and “N” settings are described below:
+
+“DL’="1": 8-bit MCU Interface using DB7 to DBO
+
+“DL’="0": 4-bit MCU Interface using DB7 to DB4
+
+“N’="0": 1-Line Display using SG1 to SG40. (SG41 to SG80 are fixed at “Low Level”)
+“N’="1":2-Line Display using SG1 to SG80
+
+x = Not Relevant
+
+BR1 and BRO flags are used to modulate the pulse width of the Segment Output thereby controlling the VFD brightness.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+BR1 BRO Brightness tp
+0 0 100% tDSP x 1.00
+0 1 15% tDSP x 0.75
+1 0 50% tDSP x 0.5
+1 1 25% tDSP x 0.25
+tDSP+200us, tBLK= 10us
+tDSP i>} q
+tp ie =
+SGn (BLK Cc tBLK
+G1
+Gn
+where n = number of Grid, T =n x (t(DSP + tBLk)
+During Reset,
+DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+0 0 1 1 1 0 0 0
+26 October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+6.7 “CGRAM ADDRESS SET” INSTRUCTION
+
+RS R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+CODE 0 0 0 1 A A A A A A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The above instruction is used to (1) load new 6-bit address into the address counter, and (2) set the address counter to
+point to the CGRAM.
+
+Once the “CGRAM Address Set” instructions has been executed, the contents of the address counter (ACC) is
+automatically modified after every access of the CGRAM, as determined by the "Entry Mode Set” instruction. The active
+width of the address counter, when it is addressing the CGRAM is 6 bits. The counter will wrap around from OOH to 3FH
+if more than 64 bytes of data is written to the CGRAM.
+
+During Reset, this instruction is irrelevant.
+
+6.8 “DDRAM ADDRESS SET” INSTRUCTION
+
+RS R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+CODE 0 0 1 A A A A A A A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The above instruction is used to (1) load new 7 bits address into the address counter, and (2) set the address counter to
+point to the CGRAM.
+
+Once the “DDRAM Address Set” instruction has been executed, the contents of the address counter (ACC) is
+automatically modified after every access of the DDRAM, as determined by the “Entry Mode Set” instruction. The valid
+DDRAM address range is given below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Line Display Number of Characters Address Range
+1st Line 40 OOH to 27H
+2nd Line 40 40H to 67H
+
+ 
+
+ 
+
+ 
+
+ 
+
+During Reset, this instruction is irrelevant.
+
+6.9 “READ BUSY FLAG AND ADDRESS” INSTRUCTION
+
+RS R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+CODE 0 1 BF A A A A A A A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The above instruction reads the Busy Flag (BF) * and the value of the address counter in binary “AAAAAAA”. This
+address counter is used by the CGRAM and DDRAM addresses and its values are determined by the previous
+instruction. Address counter contents are the same as that of “CGRAM Address Set” and “DDRAM Address Set”
+Instructions.
+
+Note: * The Busy Flag (BF) = “O”
+
+6.10 “WRITE DATA TO CGRAM OR DDRAM” INSTRUCTION
+
+RS R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+CODE 1 0 D D D D D A D D
+<High Order Bit Low Order Bit
+The above instruction write 8 bits binary data “DDDDDDDD?” to the CGRAM or DDRAM.
+
+Writing into the CGRAM or DDRAM is determined by the previous instruction of the “CGRAM or DDRAM Address Set”.
+After a data is written, the value of the address is automatically increased or decreased by one in accordance to the
+selection made by the “Entry Mode Set”. The “Entry Mode Set” also determines the display shift.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+V1.5 27 October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+6.11 “READ DATA FROM CGRAM OR DDRAM” INSTRUCTION
+
+RS R/W DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+CODE 1 1 D D D D D A D D
+<High Order Bit Low Order Bit
+
+The above instruction reads the 8 bits binary data “DDDDDDDD” from the CGRAM or DDRAM. The “CGRAM or
+DDRAM Address Set” instruction must be executed first before this instruction can be entered. If the “CGRAM or
+DDRAM Address Set” is not executed prior to the “READ Data from CGRAM or DDRAM” then the first READ data
+becomes invalid. When “Read” Instructions are serially executed, the next address data is normally read from the
+second “Read”. Before the cursor shifts by the “Cursor or Display Shift” Instruction, the address set instruction do not
+need to be executed before the read instruction (only applies to DDRAM). The operation of the cursor shift instruction is
+the same as the “DDRAM Address Set” Instruction.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+After reading one data, the value of the address is automatically increased or decreased by 1 in accordance to the
+selection made in the “Entry Mode’. Please note that the address counter is automatically increased or decreased by 1
+after “Write Data to CGRAM or DDRAM” Instruction is executed. At this moment, the address counter’s target data
+cannot be read if the “Read Data from CGRAM or DDRAM” Instruction is executed. Thus, to read data correctly, the
+“Address Set” or “Cursor Shift” (if Read Data from DDRAM only) Instruction must be executed before reading.
+
+6.712 POWER ON RESET
+
+When PT6314 is initialized, the internal status after power supply has been reset is as follows:
+. Display Clear: 20H (space code) fills the DDRAM
+
+. Address Counter is set to OOH
+
+. Address Counter is pointed to the DDRAM
+
+. Display ON/OFF: D=0, C=0, B=0 (Display OFF)
+
+. Entry Mode Set: I/D=1, S=0 (Increment, Cursor Shifts are enabled)
+
+. Function Set: DL=1, N=1 (8-Bit MCU Interface, 2-Line Display are enabled.)
+
+. Brightness Control: BRO=BR1=0 (Brightness = 100%)
+
+NOOB WD =
+
+For the MCU Interface and Duty Ratio Selection, please refer to the table below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+alae Function Remarks
+TEST | IFSEL | DS1 | DSO
+0 x x x Self Test Mode This is effective specially after long usage.
+1 0 X x Serial Interface SI/SO, SCK, STB
+1 1 Xx Xx Parallel Interface RS, E, R/W, DB7 to DB4 or DB7 to DBO
+1 Xx 0 0 Duty=1/16(16Cx1 or 2b Display) It does not need to use the extension driver.
+4 Xx 0 { Duty=1/20(20Cx1 or 2L Display) The number of display lines is selected by instruction
+1 x 1 0 Duty=1/24(24Cx1 or 2L Display)
+4 Xx 4 4 Duty=1/40(40Cx1 or 2L Display) Pdension driver must be used. The number of display
+ines is selected by instruction.
+
+ 
+
+The above table shows the relationship between the status of PT6314 and the pin states during RESET.
+
+ 
+
+V1.5 28 October 2009
+
+ 
+CTO BM A &
+Princeton Technology Corp.
+
+PT6314
+
+ 
+
+6.13 CGRAM STROKE FLOWCHART
+
+ 
+
+Set CGRAM Address
+increment or Decrement
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Set CGRAM
+Address
+
+ 
+
+ 
+
+Read
+
+ 
+
+ 
+
+ 
+
+| Write
+
+Read Data
+From CGRAM
+
+ 
+
+ 
+
+ 
+
+Write Data
+To CGRAM
+
+ 
+
+ 
+
+ 
+
+6.14 DDRAM STROKE FLOWCHART
+
+ 
+
+Set DDRAM Address
+increment or Decrement
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Set DDRAM
+Address
+
+ 
+
+ 
+
+Read
+
+ 
+
+ 
+
+ 
+
+| Write
+
+Read Data
+From DDRAM
+
+ 
+
+ 
+
+ 
+
+Write Data
+To DDRAM
+
+ 
+
+ 
+
+ 
+
+ 
+
+V1.5
+
+29
+
+October 2009
+Ero
+
+pt Wie
+
+ 
+
+Princeton Technology Corp. PT6314
+7. ABSOLUTE MAXIMUM RATINGS
+(Unless otherwise stated, Ta=+25°C, Vss1=Vss2=0V)
+Parameter Symbol Rating Unit
+Logic power supply voltage VDD1 -0.5 to +6.0 V
+Logic input voltage Vi -0.5 to VDD1 + 0.5 V
+Logic output voltage Vo -0.5 to VDD1 +0.5 V
+Driver power supply voltage VDD2 -0.5 to +60 V
+Driver output voltage VO2 -0.5 to VDD2 + 0.5 V
+Segment IOL2S +10 mA
+Driver output current lOH2S 4 mA
+Grid IOL2G +10 mA
+IOH2G -20 mA
+Power dissipation PD 1.2 W
+Operating temperature Topr -40 to +85 C
+Storage temperature Tstg -65 to +150 C
+8. RECOMMENDED OPERATING RANGE
+(Unless otherwise specified, Ta=+25°C , Vss1=Vss2=0V)
+Parameter Symbol Min. Typ. Max. Unit
+Logic power supply voltage VDD1 4.5 5.0 5.5 V
+Logic system input voltage VIN 0 - VDD1 V
+Driver power supply voltage VDD2 20 - 50 V
+Segment IOL2S - - +5 mA
+Drive output current lOH2S . . 2 mA
+Grid IOL2G - - +5 mA
+IOH2G - - -15 mA
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note: It is recommended that the order in which power is to be applied to the chipset is as follows: VDD1 — Input —~ VDD2
+
+ 
+
+V1.5
+
+30
+
+October 2009
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+am =
+Princeton Technology Corp. PT6314
+9. ELECTRICAL CHARACTERISTICS
+(Unless otherwise specified, Ta=-40 to +85'C, VDD1=5.0V, VDD2=50V, VSS1=VSS2=0V)
+Parameter Symbol Condition Min. Typ. Max. Unit
+High level input voltage 1 VIH1 Logic, Expect E/SCK,RESET 0.7VDD1 - - V
+Low level input voltage 1 VIL1 Logic, Expect E/SCK,RESET, DLS - - 0.3 VDD1 V
+High level input voltage 2 VIH2 E/SCK, RESET 0.8VDD1 - - V
+Low level input voltage 2 VIL2 E/SCK, RESET,DLS - - 0.2 VDD1 V
+High level output voltage DBn, SI/SO, SDO, SLK,
+(LOGIC) VOH1 | LATCHJ/CLR, IOH1=-0.1mA VDD1-0.5| — - - Vv
+Low level output voltage DBn, SI/SO, SDO, SLK,
+(LOGIC) VO LATCH,/CLR, IOL1=+0.1mA - - | VSS140.5 | V
+High level input current IH TEST, VIN=VDD1 20 - 500 yA
+High level leakage current ILOH Logic, VINOUT=VDD1 - - 1.0 yA
+Low level leakage current ILOL Logic, VINOUT=VSS1 - - -1.0 yA
+Hiah level output voltage VOH2S1 | SGito SG80, I|OH2=-1mA 46 - - V
+(DRIVER) upurvonag VOH2S2 | SG1 to SG80, IOH2=-2mA 45 - - V
+VOH2G GR1 to GR24, IOL2=-15mA 45 - - V
+Low level output voltage SG1 to SG80, GR1 to GR24
+(DRIVER) VOL2 lOL2=1mA - - ° Vv
+, IDD1 Logic - - 100 yA
+Current consumption IDD2 Driver : : 100 UA
+Note: The Typical (Typ.) Value is a reference value when Ta=25'C.
+10. SWITCHING CHARACTERISTICS
+(Unless otherwise specified, Ta=-40 to +85°C, VDD1=5.0 +10%)
+
+Parameter Symbol Condition Min. Typ. | Max. | Unit
+Oscillation frequency Fosc R=56KQO 392 560 | 728 | KHz
+Operation frequency fc OSC1 External Clock 450 560 | 900 | KHz
+Rise time TTLH1 SG1 to SG80, CL=50pF - 2.0 us
+Rise time TTLH2 GR1 to GR24, CL=50pF - 2.0 us
+Fall time TTHL SG1 to SG80, GR1 to GR24m, CL=50pF - 2.0 Us
+V1.5 31 October 2009
+
+ 
+
+ 
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+11. SWITCHING TIMING
+
+TTHL TTLH1, 2
+
+90% 90%
+SGn, GRn
+
+10% 10%
+
+ 
+
+ 
+
+!
+Ll
+
+11.1 TIMING 1 REQUIREMENTS
+
+(Unless otherwise specified, Ta=-40 to +85°C ); M68 Interface Parallel Data Transfer: Write (VDD1=5.0V +10%)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol Condition Min. Typ. | Max. | Unit
+Enable cycle time tCYCE Et} —E? 500 - - ns
+Enable “H” pulse width PVWEH E 230 - - ns
+Enable ”L” pulse width PWEL E 230 - - ns
+RS, R/W-E setup time tAS RS,R/W — E ¢ 20 - - ns
+RS, R/W- E hold time tAH E | ~ RS,R/AW 10 - - ns
+Data setup time tDS Data > E | 80 - - ns
+Data hold time tDH E | — Data 10 - - ns
+Reset pulse width tWRE 500 - - ns
+M68 Interface Parallel Data Transfer: Read (VDD1=5.0+10%)
+
+Parameter Symbol Condition Min. Typ. | Max. | Unit
+Enable cycle time tCYCE Et} —E? 500 - - ns
+Enable “H” pulse width PVWEH E 230 - - ns
+Enable ”L” pulse width PWEL E 230 - - ns
+RS, R/W-E setup time tAS RS,R/W — E ¢ 20 - - ns
+RS, R/W- E hold time tAH E | ~ RS,R/AW 10 - - ns
+Data delay time tDD Et — Data - - 160 ns
+Data hold time tDHR E | — Data 5 - - ns
+
+ 
+
+ 
+
+V1.5
+
+32
+
+October 2009
+
+ 
+
+ 
+CTO BM A &
+Princeton Technology Corp. PT6314
+
+11.1.1 PARALLEL I/F (M68 INPUT)
+
+    
+ 
+ 
+ 
+
+  
+
+  
+ 
+
+ 
+
+RS
+
+R/W
+
+tAH
+ICS
+
+PWEH PWEL
+E
+tDS tDH
+DBO to DB7 VALID DATA
+
+ 
+ 
+  
+
+tCYCE
+
+11.1.2 PARALLEL I/F (M68 OUTPUT)
+RS
+
+R/W
+
+tAH
+
+ 
+ 
+ 
+
+ICS
+
+PWE PWE
+
+ 
+ 
+ 
+
+ 
+
+  
+ 
+
+tDD tDHR
+
+ 
+
+VALID DATA
+
+ 
+ 
+
+DBO to DB7
+
+tCYCE
+
+Notes:
+
+1. Input Signal Rise Time and Fall Time (tF, tR) < 15ns.
+
+2. All timing is specified using 0.20VDD1 and 0.80VDD1 as reference.
+3. PWEH is the overlap between /CS="L” and E.
+
+ 
+
+V1.5 33 October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+ 
+
+11.2 TIMING 2 REQUIREMENTS
+
+(Unless otherwise specified, Ta=-40 To +85°C):i80 Interface Parallel Data Transfer: Write (VDD1=5.0 +10%)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol Condition Min. | Typ. | Max. Unit
+RS hold time tRH8 10 - - ns
+RS setup time tRS8 10 - - ns
+System cycle time tCYC8 168 - - ns
+Control “L” pulse width (WR) tCCLW WR 30 - - ns
+Control “L” pulse width (RD) tCCLR /RD 70 - - ns
+Control “H” pulse width (RD) tCCHW WR 100 - - ns
+Control “H” pulse width (RD) tCCHR /RD 70 - - ns
+Data setup time tDS8 DO to D7 55 - - ns
+Data hold time tDH8 Do to D7 55 - - ns
+RD access time tACC8 Do to D7, CL=100pF - - 70 ns
+Output disable time tOH8 Do to D7, CL=100pF 5 - - ns
+Reset pulse width tWRE 500 - - ns
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+11.2.1 PARALLEL I/F (i80)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS x x
+tRHS |
+tr <— tr —>| ke "
+ICS /
+tRS8 | tCCLR, tCCLW tCYCS "
+4 ¥
+MWR, /RD \ / \
+__ tCCHR, tCCHW
+<——— i
+rr {OSS tOHS
+DO to D7 \
+(WRITE) ]
+tOHS
+tACCS 1
+DO to D7 ] r
+(READ) \ J
+
+ 
+
+ 
+
+ 
+
+Notes:
+
+1. Input signal rise time and fall time (tF, tR) < 15ns
+
+2. All timing is specified using 0.20VDD1 and 0.80VDD1 as reference.
+
+3. tCCLW and tCCLR are specified as the overlap between /CS="L’” /WR and /RD="L”
+
+ 
+
+V1.5 34 October 2009
+CTO & A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Princeton Technology Corp. PT6314
+11.3 TIMING 3 REQUIREMENTS
+(Unless otherwise specified, Ta=-40 to +85'C); Serial Data Transfer: (VDD1=5V+10%)
+Parameter Symbol Condition Min. | Typ. | Max. | Unit
+Shift clock cycle tCYK SCK 500 - - ns
+High level shift clock pulse width tWHK SCK 200 - - ns
+Low level shift clock pulse width tWLK SCK 200 - - ns
+Shift clock hold time tHSTBK STB| — SCK| 100 - - ns
+Data setup time tDS Data — SCKt 100 - - ns
+Data hold time tDH SCK*t — Data 100 - - ns
+STB hold time tDKSTB SCKt — STBt 500 - - ns
+STB pulse width tWSTB 500 - - ns
+Wait time tWAIT 8th CLKt— 1st CLK] 1 - - ns
+Output data delay time tODD SCK| — Data - - 150 ns
+Output data hold time tODH SCK*t — Data 5 - - ns
+Reset pulse width tWRE 500 - - ns
+11.3.1SERIAL I/F (INPUT)
+tWSTB
+STB \ on
+iCYK sateen eee eeees —_
+HHSTBK tWHK tWLK tCKSTB
+SCK V A VY Sf | \ _/
+tDS |. tDH
+SI X senna MK
+11.3.2 SERIAL I/F (OUTPUT)
+tWSTB
+STB \ , \
+iCYK yo ——
+IHSTBK > tWHK tWLK tDKSTB
+SCK V J \ Sf \
+tODD ee eee ee eee wees
+so ———(t Mn _X
+
+Notes:
+
+ 
+
+ 
+
+ 
+
+1. Input Signal Rise Time and Fall Time (tF, tR) < 15 ns.
+2. All timing is specified using 0.20VDD1 and 0.80VDD1 as reference.
+
+11.3.3 AC MEASUREMENT POINT
+
+INPUT
+
+OUTPUT
+RESET
+
+VIH
+VIL
+
+VOH
+VOL
+
+/RESET Nf
+
+tWRE
+
+ 
+
+V1.5
+
+35 October 2009
+CTO & A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Princeton Technology Corp. PT6314
+11.4 TIMING 4 REQUIREMENTS
+(Unless otherwise specified, Ta=-40 to +85'C)
+M68 & i80 Serial Interface Common Timing: Power ON RESET (VDD1=5.0+10%)
+Parameter Symbol Condition Min. | Typ. | Max. | Unit
+Reset time tRES VDD 100 - - us
+VDD rising time trDD VDD 1 - - Us
+VDD off width tOFF VDD 1 - - ms
+trDD tRES
+VDD i -
+/ 4.5V
+0.2V -— 5
+tOFF
+Internal
+Reset Time
+36 October 2009
+
+V1.5
+PT6314
+
+ay FL 2
+inceton Technology Corp.
+
+sae
+SS
+Prin
+
+ 
+
+12. FONT TABLE
+
+12.1 ENGLISH/JAPANESE CHARACTER FONT TABLE (PT6314-0071)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+‘GaP RAE =SEer
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+P iAGssAen Pras
+I 2BRbr ae 4uveo
+a
+VP faulouse stron
+cat IZ 3 2Udc dale
+he eee
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+fa} 2 Fom fom fom foe fm fe Pm Pm fm mB
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+PT6314
+
+ 
+
+ 
+
+ 
+
+Ee
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LU TTTT
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{it
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ay FL 2
+on Technology Corp.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+a eee eee
+eer UF will Aone
+£,2L™1 (Mens tid
+E-=M1m? beaeivis
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+sate
+SS
+Princet
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+12.2 ENGLISH/EUROPEAN CHARACTER FONT TABLE (PT6314-002)
+
+fet 2 fos fom fom pot fom Fe Fm fmm fe mB
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+Princeton Technology Corp.
+
+ 
+
+12.3 EUROPEAN CHARACTER FONT TABLE (PT6314-007)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+- 4931
+ee
++t
+
+ 
+
+ 
+
+ae
+- Eee
+- OH
+0
+
+ 
+
+ 
+
+ 
+
+ 
+
+J
+i
+L
+
+ 
+
+PETE
+-_F Bale
+- oe
+
+i
+a
+f
+4
+J
+
+i
+
+ 
+
+ 
+
+ 
+
+ 
+
+I
+
+i
+i
+KA
+I
+me
+
+ 
+
+ 
+
+SLE EEIIEIE
+“PeGH Ad
+aad i TAR
+~ BRERA ee AG
+-| PSC SCS STL deo
+- PSD TAL ERR AGES
+- ead UBURO FRAG aS
+-| MEBEU Toes
+- aT TOWeuT es Sees
+- TA SHahee Stik bet
+ZHBGt eeu
+2S SEUeU
+
+ 
+
+iE
+aa
+ar
+ac
+
+WSO
+
+lee
+bwal
+
+ne be ta
+
+I
+
+ 
+
+ 
+
+I
+t
+I
+
+f
+i
+F
+i
+
+i
+
+ 
+
+ 
+
+i
+i
+i
+
+ARES eget ES ES
+
+ 
+
+—OOSH" G
+
+October 2009
+Princeton Technology Corp.
+
+PT6314
+
+ 
+
+12.4 JAPANESE CHARACTER FONT TABLE (PT6314-008)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+SEE
+7
+1
+4
+~ F4DTdb ae. Th PHo
+~ BASEUeuEo- 44160
+Wage UFuGeon ae
+7
+1
+ot
+et
+a
+ik
+a
+
+ 
+
+SsHHiiia[eetecceafetie eee feccccatil tee ececqsatites[ceeecccctavseet[cecccati| eeteeecnccazatis| eeteceecasatatiei| teeccactieeee| eeccatihl
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+c
+:
+
+ 
+
+ 
+
+f
+
+t
+!
+
+ 
+
+ 
+
+JHE
+Bal
+THb
+
+ 
+
+EEE EEETETE
+“PAE ~350P
+Saas PPS
+
+ZEREPAE (4 UxFO
+FolSCeaks IT Eee
+
+ 
+
+ 
+
+POWSWSe ete 2aT
+
+SHAnKE id es
+Viger Ab
+
+:
+i
+
+ 
+
+a1
+
+ 
+
+J
+i
+L
+
+ 
+
+at
+17h
+
+ee
+
+ed2U
+
+Lk
++1
+IF
+
+ 
+
+ 
+
+ 
+
+4
+I
+
+ 
+
+ 
+
+i
+
+E
+4
+-
+
+ 
+
+ 
+
+ 
+
+re
+a
+iF
+Sa 7C0" A
+cA
+ae
+
+“Hee Tae A
+-OfStule Om
+
+ 
+
+October 2009
+CTO & A
+
+Princeton Technology Corp.
+
+13. PACKAGE INFORMATION
+144 Pins, LQFP (BODY SIZE: 20 X 20MM, PITCH SIZE: 0.50mm,
+
+THK BODY: 1.40mm) ;
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PIN 1 CORNER
+
+ 
+
+ 
+
+ 
+
+ 
+
+PT6314
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PLATING
+\ J BASE METAL
+a
+
+ 
+
+ 
+
+ 
+
+ 
+
+NN
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+“/-—>—
+Nom Max.
+. 1.6
+. 0.15
+1.4 1.45
+b 0.17 0.22 0.27
+C 0.09 . 0.2
+D 22 BSC.
+D1 20 BSC.
+e 0.5 BSC.
+E 22 BSC.
+E4 20 BSC.
+L 0.45 | 0.6 0.75
+L1 1 REF.
+9 0° | 3.5° 7
+
+ 
+
+ 
+
+Notes:
+1. Refer to JEDEC MS-026
+2. All dimensions are in millimeter.
+
+ 
+
+V1.5
+
+41
+
+October 2009
+GTO S it WH
+Princeton Technology Corp. PT6314
+
+IMPORTANT NOTICE
+
+Princeton Technology Corporation (PTC) reserves the right to make corrections, modifications, enhancements,
+improvements, and other changes to its products and to discontinue any product without notice at any time.
+
+PTC cannot assume responsibility for use of any circuitry other than circuitry entirely embodied in a PTC product. No
+circuit patent licenses are implied.
+
+Princeton Technology Corp.
+2F, 233-1, Baociao Road,
+Sindian, Taipei 23145, Taiwan
+Tel: 886-2-66296288
+
+Fax: 886-2-29174598
+http:/Avww.princeton.com.tw
+
+ 
+
+V1.5 42 October 2009
