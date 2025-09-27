@@ -64,9 +64,6 @@ All notable changes to this project will be documented in this file.
   - PT6314: add serial-mode write framing (Start Byte 0xF8 | R/W<<2 | RS<<1) when control lines are unavailable.
   - PT6302: implement CGRAM `setCustomChar()` (0x20 | addr, 7 row bytes) with unit test.
 
-- HAL: STV7710 (VFDSTV7710HAL)
-  - Add placeholder HAL and capabilities for the STV7710 graphics driver (no text DDRAM). Text methods currently NotSupported.
-  - Docs: `docs/api/VFDSTV7710HAL.md`. OCR + text sidecar added for `stv7710.pdf`.
 
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.

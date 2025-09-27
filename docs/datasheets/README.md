@@ -18,7 +18,6 @@ Included PDFs
 - PT6302.PDF — Princeton PT6302 VFD controller IC.
 - PT6314.PDF — Princeton PT6314 VFD controller IC.
 - UPD16314.PDF — NEC uPD16314 VFD controller IC.
-- stv7710.pdf — ST STV7710 VFD driver/controller IC.
 
 Notes
 - The VFD20S401 HAL implements ESC-based positioning (`ESC 'H' + linear address`) per 20s401da1.pdf.

@@ -324,7 +324,6 @@ Implement a new device HAL (e.g., `MyDisplayHAL`) by following these steps:
 - [Princeton PT6302 Controller Datasheet](datasheets/PT6302.PDF) — VFD driver/controller IC
 - [Princeton PT6314 Controller Datasheet](datasheets/PT6314.PDF) — VFD driver/controller IC
 - [NEC uPD16314 Controller Datasheet](datasheets/UPD16314.PDF) — VFD driver/controller IC
-- [ST STV7710 Controller Datasheet](datasheets/stv7710.pdf) — VFD driver/controller IC
 
 ### External Resources
 - [Arduino Reference](https://arduino.cc/reference)

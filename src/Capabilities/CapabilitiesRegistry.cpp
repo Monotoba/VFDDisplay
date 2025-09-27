@@ -454,26 +454,6 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDUPD16314Capabilities() {
     return caps;
 }
 
-DisplayCapabilities* CapabilitiesRegistry::createVFDSTV7710Capabilities() {
-    // Graphics-oriented; no text geometry. Provide nominal 0x0 to indicate unsupported text.
-    DisplayCapabilities* caps = new DisplayCapabilities(
-        "STV7710",
-        "ST VFD Graphics Driver (no text DDRAM)",
-        "STMicroelectronics",
-        "STV7710",
-        0, 0,
-        0, 0,
-        0, 0,
-        CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE,
-        0, 0, 0, 0,
-        0, 0, 0,
-        0, 0,
-        1
-    );
-    caps->addSupportedInterface("Serial");
-    caps->addSupportedInterface("Parallel");
-    return caps;
-}
 
 DisplayCapabilities* CapabilitiesRegistry::createVFDM0216MDCapabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
