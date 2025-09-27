@@ -1,0 +1,1373 @@
+DOT MATRIX VFD MODULE M202SD01HA
+INSTRUCTION MANUAL
+
+GENERAL DESCRIPTION
+
+ 
+
+ 
+
+Futaba Vacuum Fluorescent Display Module M202SD01HA, with Futaba
+VFD 202-SD-01GK display, produces 20 digits on 2 rows.
+
+Each character is displayed in 5X7 dot matrix.
+
+Consisting of a VFD, one chip controller, driver IC, the module can be
+connected directly to the system bus, thus simplifying interfacing,
+
+The bright and aesthetically pleasing VFD makes the module desirable
+
+for application in office equipments, such as electronic typewriters, computer
+
+terminals, measuring equipment, etc.
+
+ 
+
+ 
+CONTENTS PAGE
+
+ 
+
+] . FEATURES TERR ere tenet en etme tate cent eee EOE eee ee ER PERLE ERE RHR ER OH HER ETE E Dee E OTE ADEE DE bE CEE Lene hee l
+
+ 
+
+2. GENERAL SPECIFICATIONS
+
+2-1. DIMENSIONS, WEIGHT vce eee treet 2
+2-2. SPECIFICATIONS OF THE DISPLAY PANEL vtec 2
+2-3. ENVIRONMENT CONDITIONS cect tienes )
+9-4, ABSOLUTE MAXIMUM RATINGS coc teitieeeitess 3
+2-5. RECOMMENDED OPERATING CONDITIONS «oe 3
+2-6. ELECTRICAL CHARACTERISTICS cocci res 3
+
+ 
+
+3. FUNCTION
+
+3-1. DATA AND CONTROL CODE WRITE IN over 4
+3-2. CONTROL CODE ccc ei tie inset cies cnereneesneneeeeieaes 5~8
+3-3. SELF-TEST wvvvtevsssnevstnssssessstsscstessssennsnnatsanensesneesecssstneate 9
+3-4. POWER ON RESE(D vrvesnsvssvsessssssssseunsessesisesensessastsnseneenees 9
+3.5. SELECTION OF INPUT MODE ccc bebee ea eeeeesecetaaas 9
+
+ 
+
+4. INTERFACE CONNECTION
+
+ 
+
+ 
+
+4-1. CONNECTOR PIN CONNECTION cccccecteseeeisecenes 10
+4-2. WRITE-IN TIMING
+
+4-2-1. PARALLEL INPUT coc eee So dddeeceane ete neneeeeeeatenneettvenereeceeteenes 11
+
+4-2-2. SERIAL INPUT Len Cece ee eee tee een eee ee E ee ete EOE EE EHO ENED ONO EEO EEE Eee ee? 12
+
+APPENDIX-1 MECHANICAL DRAWING rece eects tetera 13
+
+APPENDIX-2 CIRCUIT BLOCK DIAGRAM cocci teeters 14
+
+ 
+
+APPENDIX-3 THE LOCATION OF COMPONENTS vec err 15
+
+ 
+
+APPENDIX-4 DISPLAY CHARACTER CODE Leen etek e ee nee teen eee Eee en eee ee 16
+
+ 
+
+5. WARRANTY DR e eet teen eee ee eee EE OEE TERETE e ETA EEE E OEE OORT TEEPE EEE Oe EEE EEE BREE E EEO ES 17
+
+ 
+
+6. OPERATING RECOMMENDATIONS covers terse 17
+
+ 
+1. FEATURES
+
+1-1.
+
+1-2,
+
+1-3.
+
+1-4.
+
+1-6.
+
+1-7
+
+One chip controller is equipped on the module and it realizes
+intelligent terminal.
+The module can be connected to the system bus directly.
+
+Two hundred and twenty-three character fonts consisting of
+alphabets, katakanas, numeral and other symbols can be displayed.
+
+By using dimming function, brightness can be controlled into 5 levels.
+
+Since a DC/DC converter is included, only 5V power source is required to
+
+operate the module.
+
+High quality and reliability, also long life can be achieved with
+FUTABA VFD.
+
+Compact, light weight and thin design by using SMART (Surface Mount
+And Reflow Technology) provides excellent built-in capability.
+
+Either parallel or serial input interface can be selected.
+In case of serial input, it is possible to choose 1200; 2400, 4800, and
+
+9600 bps.
+2. GENERAL SPECIFICATIONS
+2-1. DIMENSIONS, WEIGHT (Refer FIG.2)
+
+ 
+
+ 
+
+ 
+
+ 
+
+TABLE-1
+Item Specification Unit
+Outer (L) 10041
+Dimension (W) 38541 mm
+(T) 26.3 MAX.
+| Weight 80 g
+
+ 
+
+ 
+
+ 
+
+ 
+
+2-2. SPECIFICATIONS OF THE DISPLAY PANEL
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+TABLE-2
+Item Specification Unit
+Display area 69.7 X 12.92 mm
+Number of digits 20digits (5 X 7) X 2rows -
+Digits size (Hx W) 4.16% 2.25 mm
+Digits pitch (Hx W) 8.76 X 3.55 mm
+Color of illumination Green(505nm) -
+2-3. ENVIRONMENT CONDITIONS
+TABLE-3.
+Item Symbol Min. Max. Unit
+Operating temperature Topr -20 +70 °C
+Storage temperature Tstg -20 +70 °C
+Operating humidity Hopr 20 85 Jo
+Storage humidity Hstg 20 90 J
+Vibration (10 to 55 Hz) - - 4 G
+Shock - - 40 G
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note) Avoid operations and or storage in moist environmental conditions.
+ 
+
+2-4,
+
+ABSOLUTE MAXIMUM RATINGS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+TABLE-4
+Item Symbol Min. Max. Unit
+Supply voltage Vcc - 6.5 Vv
+Input signal voltage Vis -0.3 5.5 V
+2-5. RECOMMENDED OPERATING CONDITIONS
+TABLE-S
+Item Symbol } Condition} Min. Typ. Max. | Unit
+Supply voltage Vcc - 4.5 5.0 5.5 V
+H-level Input voltage VIH Voc=5V | 0.7Vcc - Vv
+L-level Input voltage VIL Vec=5V ~ - 0.3Vcc | V
+2-6. ELECTRICAL CHARACTERISTICS
+TABLE-6
+Item Symbol Condition Min. | Typ. | Max. | Unit
+Supply current Icc - 250 350 mA
+Power consumption - Voo=5V — 1.3 _ W
+All on
+Luminance L coo) 200) ~ i)
+H-level input current Try Vcc =5.5V - — 1 uA
+L-level input current Ith Vcc =5.5V -0.22 ; -0.11 | -0.05 mA
+H-level output voltage | Vor Toe -0 nA 3.6 - - Vv
+L-level output voltage | Voz Toe e0 Ban - - 0.9 Vv
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note) The surge current can be approx .10 times the specified supply
+current at power on.
+
+ 
+
+ 
+3. FUNCTION
+
+The module has the functions such as data and control code write,
+
+SELF-TEST, and power-on reset function. (See TABLE-7)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+TABLE-7
+TEST | SEL | WR } RXD Function
+ora one ee L HorL |} HorL | HorL |Self test
+Parallel interface | HorNC L tT NC {Data and control code write in
+Serial interface HorNC | NC NC * Data and control code write in
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Co
+'
+
+DATA AND CONTROL CODE WRITE IN
+
+L
+H
+NC
+t
+
+THE BASIC FUNCTION
+
+Low level (0V)
+
+High level (5V)
+
+non connection
+
+Low to high transition
+RXD (Serial input)
+
+When the data is being written in, the BUSY signal is active which
+
+indicates that the module is processing data.
+
+(When data is under processing, the BUSY signal is high “H”.)
+
+In case of parallel input, data or control command is to be written
+
+at the low-to-high transition of WR(L—H), when SEL=low “L”,
+
+and TEST =high “H”.
+
+The display character from follows equivalent to JIS-6220 (Alphabets
+
+Katakanas and Symbols etc.).
+
+After a character is written in, the write-in position will be shifted to the
+
+right one digit automatically.
+
+The above action can be executed, only when the BUSY signal is
+
+low “L”.
+
+ 
+3-2. CONTROL CODE
+The control codes are available as follows.
+The details will be explained from the next page.
+
+(1) DIM
+(2) BS
+(3) HT
+(4) CLR
+(5) DP
+(6) DC
+
+(7) ALD :
+
+(8) RST
+
+Dimming
+
+Back Space
+Horizontal Tab
+Clear
+
+Display Position
+Cursor Mode
+All Display
+Reset
+
+DATA WRITE-IN
+
+(04 HEX)
+(08 HEX)
+(09 HEX)
+(OD HEX)
+(10 HEX)
+(17 HEX)
+(OF HEX)
+(1F HEX)
+
+Write-in position will be shifted to the right after new character data is
+
+written-in.
+
+A character data is written-in to the right end of 2nd row, the write-in
+
+position will move to the left end of Ist row.
+
+Then new character data is written-in to the left end of 1st row, all
+
+displayed characters will be cleared except new one.
+(1) DIM (Dimming)
+
+The brightness can be controlled into six levels by using this function.
+After writing 04H, the following dimming data is written to change the
+brightness out put.
+
+ 
+
+ 
+
+lbyte + lbyte
+(DIM command code), 04H Dimming level data
+TABLE-8
+Dimming Level Data
+100% FFH
+80% 80H
+60% 60H
+40% 40H
+20% 20H
+0% 00H
+
+ 
+
+ 
+
+ 
+
+ 
+
+(2)BS (Back Space)
+
+The write-in position is shifted to the left one digit, and the character
+previously displayed on the digit will be cleared.
+
+When the write-in position is on the most significant digit of the
+
+second row, the write-in position moves to the least significant digit of the
+first row,
+
+When the write-in position is on the most significant digit of the first row,
+the write-in position moves to the least significant digit of the second row.
+
+(3) HT (Horizontal Tab)
+
+The write-in position is shifted to the right one digit.
+
+When the write-in position is on the least significant digit of the first row,
+the write-in position will move to the most significant digit of the
+
+second row.
+
+When the write-in position is on the least significant digit of the
+
+second row, the write-in position will move to the most significant digit
+
+of the first row.
+(4) CLR (Clear)
+
+All the characters displayed are erased, the write-in position moves to the
+most significant digit of the first row.
+But the Dimming level and Cursor Mode are kept.
+
+(5)DP (Display Position)
+
+Instead of writing a character from the first digit, the write-in starting
+position can be pointed by using this function.
+
+After writing LOHEX to prepare the module for this command, another
+HEX byte is written to specify the position desired.
+
+The most significant digit The least significant digit
+lst row 00 HEX 13 HEX
+2nd row 14 HEX 27 HEX
+
+(6)DC (Cursor Mode):
+After writing L7HEX, another HEX byte mentioned under is written to
+
+change the cursor mode.
+
+ 
+
+ 
+
+ 
+
+ 
+
+lbyte + lbyte
+(DC5 command Code) (Select Mode Data)
+TABLE-9
+Select Mode Data
+Lighting FFH
+Blinking 88H
+No Lighting 00H
+
+ 
+
+ 
+
+ 
+
+ 
+
+The cursor is always displayed at the write-in position.
+
+The cursor is formed by the Sdots located the bottom of 5X7 dot matrix
+character font.
+
+The cursor will be displayed as an over writing mode and the behavior of
+the cursor under the lighting mode and blinking mode are explained below.
+
+@ lighting mode
+When the non displayed position is assigned as a write-in position, the
+cursor will be displayed there.
+But, the position that already one of the character located is assigned,
+this character will be eliminated and the cursor will be displayed.
+@® blinking mode
+The cursor will be repeated ON and OFF every 0.3 second when the non
+displayed position is selected for the write-in position.
+And the position of the character already located is selected is selected (as a
+write-in position), the character and the cursor will be displayed alternately.
+
+@ no lighting mode
+The no lighting mode means that the cursor will not be displayed.
+When the power is turned on, no lighting mode will be selected
+
+automatically.
+Therefore, if the cursor is required, DC command shall be sent to select
+
+the cursor lighting or blinking mode.
+
+(7) ALD (All Display)
+
+The full dots in all digits are displayed.
+The dimming level is set for 100%.
+To release this mode, the module is turned off or the RST command
+
+shall be written.
+
+(8) RST (Reset)
+
+Resetting the module.
+
+All the characters displayed are erased, then the write-in position will be
+set on the most significant digit of the first row.
+
+The displaying status is the same as the power on reset, and cursor mode is
+set for no lighting mode, the dimming level is set for 100%.
+
+3-3. SELF-TEST
+
+When the TEST terminal is kept into “L” (connector pin #16 to be
+connected to GND.)the SELF-TEST starts.
+
+Then the display shows characters, Alphabets, and symbols, in that order.
+Forty (2X20) characters are displayed at a time.
+
+Using this mode, neither data write-in nor control code write-in is allowed.
+
+To release this mode, TEST must be set to “H”.
+3-4. POWER ON RESET
+
+When the module is turned, the display and the meimory are cleared
+
+and the module is initialized.
+
+The cursor mode is set for no lighting mode, and the dimming level
+
+is set for 100%.
+
+When an external reset function is required, please contact Futaba sales office
+
+for further information.
+
+3-5. SELECTION OF INPUT MODE
+
+TABLE-11 shows the combination of the signal lines for the parallel
+or serial input.
+
+It is needed to choose one of the combinations before operation.
+Unused signal lines are to be open (internally pulled up).
+
+In case of serial input, it is possible to choose four kinds of baud rate
+
+by J1~J2, as shown below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+TABLE-10
+Jl OPEN SHORT OPEN SHORT
+Ja OPEN OPEN SHORT | SHORT
+baud rate 9600 4800 2400 1200
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+BAUD RATE SELECTION
+
+ 
+4. INTERFACE CONNECTION
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+4-1. CONNECTOR PINCONECTION
+Connector Al-20PA-2.54DSA(HIROSE)or equivalent
+Socket 3421-6000SL (3M) or equivalent
+TABLE-Li
+
+— ye SERIAL | PARALLEL SERIAL | PARALLEL
+PIN No. | SIGNAL IN IN PIN No. | SIGNAL IN IN
+
+1 D7 NC O 2 5V oO O
+
+3 D6 NC O 4 5V O oO
+
+5 D5 NC O 6 5V O oO
+
+7 D4 NC O 8 GND © ©
+
+9 D3 NC O 10 GND O O
+
+11 D2 NC O 12 GND Oo Oo
+
+13 D1 NC © 14 GND O O
+
+15 DO NC oO 16 TEST oO O
+
+17 WR NC O 18 SEL NC OD
+
+19 RXD O NC 20 BUSY O O
+
+NC NO-CONNECTION
+© CONNECTION
+CONNECTOR PINCONNECTION
+4-2. WRITE-IN TIMING (See FIG.2)
+
+Please be sure the BUSY signal is into “L”, when the data will
+
+ 
+
+be written in.
+In case of the serial input, the module accepts the 10 bit data
+string as a data, first “L” level data as a start bit, 2nd to 9th
+
+data as an input data and the last “H” level data as a stop bit.
+
+When these data are not received exactly, they will be ignored and
+not displayed on the module.
+
+ 
+4-2-1. PARALLEL INPUT
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+s © >\< @ >
+
+DATA x
+7
+SEL
+\ /
++ ® >| @ >|
+WR \J Va
+KY
++ ©,
+
+BUSY -
+
+@
+
+_. © | ® .
+
+4 >|-4 >i |
+
+FIG. 1 WRITE-IN TIMING
+
+Min. Max. Note
+
+@ | tsu(DATA) 50 ns -
+@® th (DATA) 100 ns —
+@ tsu (SEL) 50 ns -
+® th (SEL) 50 ns -
+© | tpwowR) | 50 ns _
+© twait (1) 0 ns -
+@® twait (2) 1 ys -
+@ tdelay - 150 ns
+® twait (3) - 45 us
+
+ 
+
+ 
+4-2-2. SERIAL INPUT
+O
++<——>
+RXD —STARTX Do X D1 XX D2 | D3 XK D4 &K DS &K DE XK D7 STOP
+
+BUSY
+
+ 
+
+ 
+
+ 
+
+©M ttDATA) = 106/baud rate[ys]
+(This depends on the selection of the baud rate.)
+
+® t(DATA) /2 [zs]
+(Busy becomes “H” at the center of stop bit.)
+
+@ t(WAIT) : 2~45[zs}
+
+FIG.2 WRITE-IN TIMING
+ft rn —— OU 8 Got 18.8 -
+
+48.9
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+J+ 95. '8-§ —____________+ Note SPACER
+1.SHAX (1.8) 13.3 45 (69.7) i
+/
+{ : _--
+| ‘ : 4
+95.0 0 23-8 18g (12.92) “! DISPLAY AREA [ (29/52)
+13.5 41.0 . Ee __ ed ed 10.5
+Sant fo ee eT ATT EET TTT TTT —
+| —_ tt
+1 C
+9.122 =-=)-
+cij— Ty,
+25.3 41 TT '
+‘ ‘
+(1.8) Hin Veblen tt Tra
+HL i_.-—_-- [
+(16.19) \ POST FOR MOUNTING
+, M3. DEPTH 7MIN
+6.021)
+
+ 
+
+ 
+
+ 
+
+ 
+
+90.041 4
+CONNECTER COMPONENTS AREA
+
+Note) Avoid touching to any conductors (such as chassis, metal casa, ele. ),
+
+. ‘ |:
+because the leads are alive electrically. UNITanm
+
+ODNIMVUG TVOINVHOSN VHTOCSZ0cN
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DIGL~DIG20
+
+ 
+
+ 
+
+GRID 1-20
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Character Disolay, 40digits, 5X 7duts
+
+202-SD-01G
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+v
+
+GRID 21-40
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+xT
+X1 U7
+D7
+, DO~D7
+ba \
+SEG!~SEG35 ANODE 1-35 >
+RXD ~i SD
+WR ml Wh
+SEL >! SEL
+TEST >| TEST GCLK
+Gp
+BUSY ~ BUSY
+s s BLKO
+INT.
+RESET
+EX'T. | |
+eee, RE
+RESET ») RES
+LSI
+ni ST
+Vec(+5V) *l pepe
+ae >
+CONVERTER DRIVER
+
+ 
+
+>» PIRAMENT
+
+ 
+
+ 
+
+v
+
+ 
+
+DRIVER
+20bils
+
+ 
+
+ 
+
+ 
+
+WVHOVIG MOOTE LINOUNO VHTOdSZ0cW
+M202SD01HA THE LOCATION OF COMPONENTS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+APPENDIX-3
+Ne ae eon CTOR
+© / O
+J1J2
+A OOo
+CONTROLLER DRIVER
+
+ 
+
+ELECTROLYTIC CAPACITOR
+5. WARRANTY
+
+This display module is guaranteed for 1 year after shipment
+form FUTABA.
+
+6. OPERATING RECOMMENDATIONS
+
+6-1. Avoid applying excessive shock or vibration beyond the specification
+for this module.
+
+6-2. Since VFDs are made of glass material, careful handling is important.
+
+6-3. Applying lower voltage than the specified may cause non activation for
+selected pixels.
+Conversely, higher voltage may cause non-selected pixel to be
+activated.
+If such a phenomenon is observed, check the voltage level of the
+power supply.
+
+6-4. Avoid plugging or unplugging the interface connection with
+the power on.
+
+10-5. If the start up time of the supply voltage is slow, the controller
+may not be reset.
+The supply voltage must be risen up to the specified voltage level
+within 30msec.
+
+10-6. Avoid using the module where excessive noise interference is expected.
+Noise affects the interface signal and causes improper operation.
+Keep the length of the interface cable less than 50cm (When the longer
+cable is required, please contact FUTABA engineering.).
+
+10-7. When power supply is turned off, the capacitor does not discharge
+immediately.
+The high voltage applied to the VFD must not contact the controller
+IC. (The shorting of the mounted components within 30seconds after
+power off may cause damage.)
+
+REMARKS
+
+This specification is subject to change without prior notice in order to
+
+improve the design and quality,
+Your consultation with our engineer is recommended for the use of
+
+this module.
+APPENDIX-4
+
+M202SD01HA DISPLAY CHARACTER CODE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+eee Peete] see lee) FP PECTS a PAE 2 egy deme d eye] oo.
+como Pu | AEE) PE] EP LEP GR: DEEP OIET EEE | &
+- - efeecee | cceecge | “Sedeae | EBT | ESPTE CPUL te W EER | cccees
+oy LU pe LTE Bee | EA, tad [lL EEE | crseeee
+ee HPO ip, ech] Ue) EEE] i Peed ade. das
+eee a 4
+- = @ OY OD | Es rf. se Epes. | cates Pep a dees (go
+Promen fonpes nme ren ses foe ew ‘aes, [ge el oe ones
+ceo] fp [i |e a] bel cri] Pep fl]
+— © = @I <t | coon rt L. “y “ ee | BL FRPP
+——- = ~—--. ns wees oH -
+. s e oe ee . . 3 : : ess
+-@@-{ Oo |i Perry RE] cr pce, wits, | Bese | bef} HE
+see ye o*g*® 2° egeene ma, anrneee stece, ahd see, ‘ waese’ = ee 34". %. . ete : orto
+TOS SEO] PARR) Tee] AEP EEE] Be (EE) ell fash PRES) an | ils | bee en it
+O-- =f WH Fi Py og Pfppede (CUPL Un] TEr] Cet [Cee] Bap | eset | ace ceed ceetee, | F
+Ba] | ae fA U vet Tae Pe Pate | oe sUb peep ee jr] Fe
+er re] Ope [UE Ea) EEUER) GEE see) EPR] RT | see [oma] tel [eee] EE] au fos
+CT SPO VER) ELIS EEE EY pees | ll lt Punt | snl putes [Es | beseed | be PPE | :
+e- 2 eo; J (LEE EEE EE aT beed fu] tal | UU UEE pa, PEG
+ao - = 1 semebp EAP] PED ab ETE | Pe ETE EPs aca [oes [tae | EP [atte] ite
+ao - © W woe | OTT EE ebge [U8 L ate te | os, tee fetta | otkte | eekes vf} a],
+Phe (CRE Parla | oe 7 : |
+rz }e-
+= a a
+x. Nn t-
+an oo; @ Oa m r a ze
+6s 8 8 3 LO CO _ N ™ NI in (D i QO Qj) <C (1) O QO tut th
+8 o - © - a - ° - a _ o - o - ce _
+a oO Q _ _ 9 o 7 - © 0 - . @ © — -
+8 a Qo ou 9 - - ~ . © N co ey - - -
+8 a a o a 9 0 a © - - - - - - _
+bo - wenden ee 2 Lee Ll
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+SP : SPACE
+
+ 
+ 
+
+FUTABA
+CORPCRATION
+
+HEAD OFFICE 629 Oshiba, Mobara City, Chiba Prefecture, 297 Japan Phone: 0475-24-1111 Facsimile :0475-25-2534
+CORPORATE MARKETING & SALES DIVISION M.T.G. Building. 8-6F 1-3, Nakase, Mihama-ku, Chiba City, 261-01 Japan
+Phone : 043-296-5117 Facsimile : 043-296-5123
+FUTABA CORPORATION OF AMERICA
+Irvine: 4 Studebaker, Irvine, California 92718, U.S.A. Phone : 714-455-9888 Facsimile : 714-455-9899
+Chicago:711 East State Parkway, Schaumburg, lilinois 60173, U.S.A. Phone : 708-884-1444 Facsimile : 708-884-1635
+Detroit: 14492 Sheldon Road, Suite 370, Plymouth, Michigan 48170, U.S.A. Phone : 313-459-1177 Facsimile : 313-459-1268
+Huntsville: 101 Electronics 8lvd., Huntsville, Alabama 35824, U.S.A. Phone: 205-461-7348 Facsimile : 205-461-7349
+FUTABA(Europe)GmbH, Am Seestern 24, 0-4000 Dusseldorf 11, F.A.Germany. Phone :0211-5287-0 Facsimile :0211-593133
+FUTABA(Hong Kong)CORP.,LTD. Toppan Building, 11th Floor, 22A Westlands Road, Quarry Bay, Hong Kang
+Phone : 563-6141 Facsimile : 811-0802
+FUTABA DENSHI CORP.(S)PTE. LTD. 150 Beach Road = 14-02, The Gateway West, Singapore 0718
+Phone : 291-9882 Facsimile : 291-7391
+TAIWAN FUTABA ELECTRONICS CORP. 6FI., No.309, Fu Hsing North Rd., Taipei, Taiwan, R.O.C.
+Phone : 02-713-0119 Facsimile :02-715-5906

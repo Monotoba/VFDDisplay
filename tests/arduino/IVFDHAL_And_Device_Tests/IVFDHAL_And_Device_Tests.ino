@@ -8,6 +8,7 @@
 #include "tests/device/VFDCU40026HALTests.hpp"
 #include "tests/device/VFDHT16514HALTests.hpp"
 #include "tests/device/VFDM202MD15HALTests.hpp"
+#include "tests/device/VFDM202SD01HALTests.hpp"
 #include "VFDDisplay.h"           // ensure Arduino builder pulls in library sources
 #include "HAL/VFD20S401HAL.h"
 
@@ -42,6 +43,10 @@ void setup() {
   // M202MD15
   register_IVFDHAL_contract_tests<VFDM202MD15HAL>("M202MD15");
   register_VFDM202MD15HAL_device_tests();
+
+  // M202SD01
+  register_IVFDHAL_contract_tests<VFDM202SD01HAL>("M202SD01");
+  register_VFDM202SD01HAL_device_tests();
 
   // Run tests once
   EmbeddedTest::runAll();
