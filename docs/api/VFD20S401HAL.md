@@ -649,7 +649,7 @@ void VFD20S401HAL::centerTextLine(const char* line, char* output, uint8_t maxLen
 - **Reset Delay**: 100ms
 - **Clear Display Time**: 1.64ms maximum
 
-## Usage Example
+## Unbuffered Usage (IVFDHAL via VFDDisplay)
 
 ```cpp
 #include "VFDDisplay.h"
@@ -687,6 +687,105 @@ void setup() {
 
 void loop() {
     // Your application code
+}
+```
+
+### Method-by-Method Examples (Unbuffered)
+
+Lifecycle
+- init/reset
+```cpp
+VFDDisplay vfd(new VFD20S401HAL(), new SerialTransport(&Serial1));
+Serial1.begin(19200, SERIAL_8N2);
+vfd.init();
+vfd.reset();
+```
+
+Screen control
+```cpp
+vfd.clear();
+vfd.cursorHome();
+vfd.setCursorPos(2, 5);
+```
+
+Writing
+```cpp
+vfd.write("Hello");
+vfd.writeChar('!');
+vfd.writeAt(3, 0, "Bottom row");
+vfd.centerText("Centered", 1);
+```
+
+Cursor movement
+```cpp
+vfd.backSpace();
+vfd.hTab();
+vfd.lineFeed();
+vfd.carriageReturn();
+```
+
+Custom characters
+```cpp
+uint8_t smile[8] = {0x00,0x0A,0x00,0x11,0x0E,0x00,0x0A,0x00};
+vfd.setCustomChar(0, smile);
+vfd.writeCustomChar(0);
+```
+
+Display features
+```cpp
+vfd.setDisplayMode(0x11);     // Mode per datasheet
+vfd.setDimming(0x80);         // Example level
+vfd.cursorBlinkSpeed(3);      // Device-specific rate
+vfd.changeCharSet(0);         // CT0
+```
+
+Scrolling and effects
+```cpp
+vfd.hScroll("SCROLL", +1, 0);
+vfd.vScroll("Line1\nLine2\nLine3", +1);
+vfd.vScrollText("A\nB\nC", 0, SCROLL_DOWN);
+vfd.starWarsScroll("A long time ago...", 2);
+vfd.flashText("ALERT", 0, 10, 200, 200);
+```
+
+Escape sequences
+```cpp
+const uint8_t esc[] = { 0x4C, 0x80, 0x00 }; // DIM to example level
+vfd.sendEscapeSequence(esc);
+```
+
+## Buffered Usage (BufferedVFD)
+
+```cpp
+#include "Buffered/BufferedVFD.h"
+
+VFD20S401HAL hal;
+SerialTransport tx(&Serial1);
+VFDDisplay vfd(&hal, &tx);
+BufferedVFD buf(&hal);
+
+void setup() {
+  Serial1.begin(19200, SERIAL_8N2);
+  vfd.init();
+  buf.init();
+
+  buf.clearBuffer();
+  buf.writeAt(0, 0, "Hello");
+  buf.centerText(1, "Centered");
+  buf.flush();
+
+  // Diff flush after updating small region
+  buf.writeAt(0, 6, "!");
+  buf.flushDiff();
+
+  // Non-blocking animations (call step from loop)
+  buf.hScrollBegin(0, "MARQUEE TEXT", 100);
+}
+
+void loop() {
+  static uint32_t t=0; uint32_t now=millis();
+  buf.hScrollStep(now);
+  if (now - t > 50) { buf.flushDiff(); t = now; }
 }
 ```
 
