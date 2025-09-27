@@ -221,9 +221,9 @@ DisplayCapabilities* CapabilitiesRegistry::createVFD20T202Capabilities() {
         8,   // char pixel height (typical)
         116, // width mm (typical 20x2)
         16,  // height mm (typical 20x2)
-        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_HORIZONTAL_SCROLL | CAP_SERIAL_INTERFACE,
-        3,   // blink speeds (assumed)
-        8,   // user-defined chars (conservative default)
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_HORIZONTAL_SCROLL | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS,
+        1,   // blink speeds (on/off)
+        8,   // user-defined chars (HD44780-style CGRAM)
         0,   // dimming levels (unknown)
         0,   // brightness levels (unknown)
         10,  // min cmd delay us
@@ -235,6 +235,7 @@ DisplayCapabilities* CapabilitiesRegistry::createVFD20T202Capabilities() {
     );
 
     caps->addSupportedInterface("Serial");
+    caps->addSupportedInterface("Parallel");
     caps->addSupportedDisplayMode(MODE_NORMAL);
     return caps;
 }

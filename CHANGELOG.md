@@ -14,6 +14,8 @@ All notable changes to this project will be documented in this file.
 - Makefile: add optional `ARDUINO_LIB_DIRS` variable to pass one or more `--libraries` paths to Arduino CLI, keeping PlatformIO flow unchanged.
 - Docs: remove `HD44780.pdf` from datasheets index and root docs since it’s not needed in-repo; keep external reference context in prose if required.
 - Docs: document additional datasheets in `docs/README.md` and `docs/datasheets/README.md` (CU40026-TW200A, CU20025ECPB-W1J, M204SD01A, 20T202DA2JA, M0216MD-162MDBR2-J, VK202-25 manual, HT16514, PT6302, PT6314, uPD16314, STV7710).
+- HAL: add `VFD20T202HAL` (20x2) using HD44780-style instructions (Function Set 0x38, Display On 0x0C, Clear 0x01, Entry Mode 0x06, Set DDRAM 0x80|addr); exposes IVFDHAL surface without modifying locked interfaces.
+- Tests: add contract + device tests for `VFD20T202HAL` (init sequence, clear/home, DDRAM addressing). Runners updated.
 
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.

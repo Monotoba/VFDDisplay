@@ -125,35 +125,46 @@ bool VFD20T202HAL::saveCustomChar(uint8_t index, const uint8_t* pattern) {
 }
 
 bool VFD20T202HAL::setCustomChar(uint8_t index, const uint8_t* pattern) {
-    // If supported by module: ESC 'C' + CHR + PT1..PT5 similar to 20S401; otherwise NotSupported.
-    (void)index; (void)pattern; _lastError = VFDError::NotSupported; return false;
+    if (!_transport || !_capabilities || !pattern) { _lastError = VFDError::InvalidArgs; return false; }
+    if (!_capabilities->hasCapability(CAP_USER_DEFINED_CHARS)) { _lastError = VFDError::NotSupported; return false; }
+    if (index >= _capabilities->getMaxUserDefinedCharacters()) { _lastError = VFDError::InvalidArgs; return false; }
+    // CGRAM address: index * 8
+    uint8_t cgramAddr = (uint8_t)(index * 8) & 0x3F;
+    if (!_writeCmd((uint8_t)(0x40 | cgramAddr))) { _lastError = VFDError::TransportFail; return false; }
+    // Write 8 rows (5 LSBs used)
+    for (uint8_t r=0; r<8; ++r) {
+        uint8_t row = pattern[r] & 0x1F;
+        if (!_writeData(&row, 1)) { _lastError = VFDError::TransportFail; return false; }
+    }
+    _lastError = VFDError::Ok;
+    return true;
 }
 
 bool VFD20T202HAL::setDisplayMode(uint8_t mode) {
-    bool ok = _escMode(mode); _lastError = ok?VFDError::Ok:VFDError::TransportFail; return ok;
+    // Not applicable; return false to indicate unsupported
+    (void)mode; _lastError = VFDError::NotSupported; return false;
 }
 
 bool VFD20T202HAL::setDimming(uint8_t level) {
-    bool ok = _escDimming(level); _lastError = ok?VFDError::Ok:VFDError::TransportFail; return ok;
+    (void)level; _lastError = VFDError::NotSupported; return false;
 }
 
 bool VFD20T202HAL::cursorBlinkSpeed(uint8_t rate) {
-    bool ok = _escCursorBlink(rate); _lastError = ok?VFDError::Ok:VFDError::TransportFail; return ok;
+    // Map: any non-zero rate enables blink, zero disables
+    bool blink = (rate != 0);
+    // Display on, cursor on, blink per flag (0x0C base: display on, cursor off, blink off)
+    uint8_t cmd = (uint8_t)(0x08 | 0x04 | 0x02 | (blink ? 0x01 : 0x00));
+    bool ok = _writeCmd(cmd);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20T202HAL::changeCharSet(uint8_t setId) {
-    if (setId == 0) return writeChar(0x18); // CT0
-    if (setId == 1) return writeChar(0x19); // CT1
-    return false;
+    (void)setId; _lastError = VFDError::NotSupported; return false;
 }
 
 bool VFD20T202HAL::sendEscapeSequence(const uint8_t* data) {
-    if (!_transport || !data) return false;
-    uint8_t esc = ESC_CHAR;
-    if (!_transport->write(&esc, 1)) return false;
-    // send until zero or 8 bytes
-    uint8_t n=0; while (n<8 && data[n]!=0){ if(!_transport->write(&data[n],1)) return false; n++; }
-    return true;
+    (void)data; _lastError = VFDError::NotSupported; return false;
 }
 
 bool VFD20T202HAL::hScroll(const char* str, int dir, uint8_t row) {
@@ -195,48 +206,67 @@ const char* VFD20T202HAL::getDeviceName() const { return _capabilities ? _capabi
 
 // ===== Device-specific primitives (NO_TOUCH) =====
 bool VFD20T202HAL::_cmdInit() {
-    uint8_t cmd = 0x49; // tentative init
-    return _transport->write(&cmd, 1);
+    // Function set: 8-bit, 2-line, 5x8 (0x38)
+    if (!_writeCmd(0x38)) return false;
+    // Display on, cursor off, blink off (0x0C)
+    if (!_writeCmd(0x0C)) return false;
+    // Clear display (0x01)
+    if (!_cmdClear()) return false;
+    // Entry mode: increment, no shift (0x06)
+    if (!_writeCmd(0x06)) return false;
+    return true;
 }
 
 bool VFD20T202HAL::_escReset() {
-    const uint8_t data[] = { 0x49 }; // 'I'
-    return sendEscapeSequence(data);
+    return _cmdInit();
 }
 
 bool VFD20T202HAL::_cmdClear() {
-    uint8_t cmd = 0x09;
-    return _transport->write(&cmd, 1);
+    return _writeCmd(0x01);
 }
 
 bool VFD20T202HAL::_cmdHome() {
-    uint8_t cmd = 0x0C;
-    return _transport->write(&cmd, 1);
+    return _writeCmd(0x02);
 }
 
 bool VFD20T202HAL::_posLinear(uint8_t addr) {
-    const uint8_t data[] = { 0x48, addr };
-    return sendEscapeSequence(data);
+    return _writeCmd((uint8_t)(0x80 | (addr & 0x7F)));
 }
 
 bool VFD20T202HAL::_posRowCol(uint8_t row, uint8_t col) {
-    const uint8_t cols = _capabilities ? _capabilities->getTextColumns() : 20;
-    const uint8_t addr = (uint8_t)(row * cols + col);
+    const uint8_t base[] = { 0x00, 0x40 };
+    if (row >= sizeof(base)) return false;
+    const uint8_t addr = (uint8_t)(base[row] + col);
     return _posLinear(addr);
 }
 
 bool VFD20T202HAL::_escMode(uint8_t mode) {
-    const uint8_t data[] = { mode };
-    return sendEscapeSequence(data);
+    (void)mode; return false;
 }
 
-bool VFD20T202HAL::_escDimming(uint8_t level) {
-    const uint8_t data[] = { 0x4C, level };
-    return sendEscapeSequence(data);
+bool VFD20T202HAL::_escDimming(uint8_t level) { (void)level; return false; }
+
+bool VFD20T202HAL::_escCursorBlink(uint8_t rate) { (void)rate; return false; }
+
+// ===== NO_TOUCH: Bus helpers =====
+bool VFD20T202HAL::_writeCmd(uint8_t cmd) {
+    // If the transport supports control lines, drive RS=0 then pulse E, else just write the byte
+    if (_transport && _transport->supportsControlLines()) {
+        (void)_transport->setControlLine("RS", false);
+        if (!_transport->write(&cmd, 1)) return false;
+        (void)_transport->pulseControlLine("E", 1);
+        return true;
+    }
+    return _transport ? _transport->write(&cmd, 1) : false;
 }
 
-bool VFD20T202HAL::_escCursorBlink(uint8_t rate) {
-    const uint8_t data[] = { 0x42, rate };
-    return sendEscapeSequence(data);
+bool VFD20T202HAL::_writeData(const uint8_t* data, size_t len) {
+    if (!_transport || !data || len == 0) return false;
+    if (_transport->supportsControlLines()) {
+        (void)_transport->setControlLine("RS", true);
+        bool ok = _transport->write(data, len);
+        (void)_transport->pulseControlLine("E", 1);
+        return ok;
+    }
+    return _transport->write(data, len);
 }
-

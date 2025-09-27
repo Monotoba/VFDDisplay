@@ -81,15 +81,16 @@ public:
 
     // ===== NO_TOUCH: Device-specific primitives =====
     // Validate and adjust bytes per 20T202 datasheet before modifying.
-    bool _cmdInit();                 // Suggested: 0x49 ('I') if supported
-    bool _escReset();                // ESC 'I'
-    bool _cmdClear();                // Suggested: 0x09 (Clear)
-    bool _cmdHome();                 // Suggested: 0x0C (Home)
-    bool _posLinear(uint8_t addr);   // ESC 'H' + addr (0x00..0x27 for 20x2)
+    // HD44780-like primitives (verify against 20T202 datasheet)
+    bool _cmdInit();                 // Function set, display on, clear, entry mode
+    bool _escReset();                // Soft re-init sequence
+    bool _cmdClear();                // 0x01
+    bool _cmdHome();                 // 0x02
+    bool _posLinear(uint8_t addr);   // Set DDRAM: 0x80 | addr
     bool _posRowCol(uint8_t row, uint8_t col);
-    bool _escMode(uint8_t mode);     // ESC + mode (0x11..0x17 range if supported)
-    bool _escDimming(uint8_t level); // ESC 0x4C + level (if supported)
-    bool _escCursorBlink(uint8_t rate); // ESC 0x42 + rate (if supported)
+    bool _escMode(uint8_t mode);     // NotSupported (return false)
+    bool _escDimming(uint8_t level); // NotSupported (return false)
+    bool _escCursorBlink(uint8_t rate); // Map to display on/off blink bit
     // ===== NO_TOUCH END =====
 
 private:
@@ -101,5 +102,8 @@ private:
     int16_t _hScrollOffset = 0;
     uint8_t _hScrollRow = 0;
     char _hScrollText[80] = {0};
-};
 
+    // ===== NO_TOUCH: Bus write helpers =====
+    bool _writeCmd(uint8_t cmd);
+    bool _writeData(const uint8_t* data, size_t len);
+};
