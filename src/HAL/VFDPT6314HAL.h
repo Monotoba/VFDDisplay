@@ -81,9 +81,11 @@ private:
     bool _writeData(const uint8_t* data, size_t len);
     // ===== NO_TOUCH END =====
 
+    // Serial-mode helpers (when transport lacks control lines)
+    bool _serialWriteFrame(bool rsData, bool rwRead, const uint8_t* payload, size_t len);
+
     ITransport* _transport = nullptr;
     DisplayCapabilities* _capabilities = nullptr;
     VFDError _lastError = VFDError::Ok;
     bool _twoLine = true;
 };
-

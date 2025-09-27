@@ -99,8 +99,15 @@ bool VFDPT6302HAL::setBrightness(uint8_t lumens) {
 bool VFDPT6302HAL::saveCustomChar(uint8_t index, const uint8_t* pattern) { return setCustomChar(index, pattern); }
 
 bool VFDPT6302HAL::setCustomChar(uint8_t index, const uint8_t* pattern) {
-    // For simplicity, not implemented. Device supports CGRAM with 35-bit patterns.
-    (void)index; (void)pattern; _lastError=VFDError::NotSupported; return false;
+    if (!_transport || !_capabilities || !pattern) { _lastError = VFDError::InvalidArgs; return false; }
+    if (index >= 8) { _lastError = VFDError::InvalidArgs; return false; }
+    // PT6302 CGRAM accepts 35 bits (5x7). We send 7 bytes LSB 5 bits from each row.
+    uint8_t addr = (uint8_t)(index & 0x07);
+    if (!_cmdCGRAMAddr(addr)) { _lastError = VFDError::TransportFail; return false; }
+    for (uint8_t r=0; r<7; ++r) {
+        uint8_t row = pattern[r] & 0x1F; if (!_writeData(&row,1)) { _lastError = VFDError::TransportFail; return false; }
+    }
+    _lastError = VFDError::Ok; return true;
 }
 
 bool VFDPT6302HAL::setDisplayMode(uint8_t mode) { (void)mode; _lastError=VFDError::NotSupported; return false; }
@@ -155,3 +162,8 @@ bool VFDPT6302HAL::_dcramWriteChars(uint8_t addr, const uint8_t* data, size_t n)
     return _writeData(data, n);
 }
 
+bool VFDPT6302HAL::_cmdCGRAMAddr(uint8_t addr3) {
+    addr3 &= 0x07;
+    uint8_t b = (uint8_t)(0x20 | addr3);
+    return _writeByte(b);
+}

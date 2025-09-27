@@ -5,13 +5,14 @@
 #include "../Capabilities/DisplayCapabilities.h"
 #include <Arduino.h>
 
-// VFDPT6302HAL: HAL for Princeton PT6302 VFD Controller/Driver (16-digit, 5x7 chars)
-// Implements PT6302 serial command set: DCRAM (character) write, ADRAM (symbols),
-// CGRAM (user chars), display duty, number-of-digits, and light control.
-class VFDPT6302HAL : public IVFDHAL {
+// VFDSTV7710HAL: Placeholder HAL for STV7710 VFD driver (graphics-oriented)
+// STV7710 is a VFD driver for matrix displays; it does not provide a character
+// DDRAM/CGRAM like HD44780 devices. This HAL exposes IVFDHAL but most text
+// methods are not supported. Intended for future graphics API integration.
+class VFDSTV7710HAL : public IVFDHAL {
 public:
-    VFDPT6302HAL();
-    ~VFDPT6302HAL() override = default;
+    VFDSTV7710HAL();
+    ~VFDSTV7710HAL() override = default;
 
     void setTransport(ITransport* transport) override { _transport = transport; }
 
@@ -66,22 +67,8 @@ public:
     void clearError() override { _lastError = VFDError::Ok; }
 
 private:
-    // ===== NO_TOUCH: PT6302 serial primitives =====
-    bool _cmdDisplayDuty(uint8_t dutyIdx);          // 0..7 -> 8/16..15/16
-    bool _cmdNumberOfDigits(uint8_t digits);        // 9..16
-    bool _cmdAllLights(uint8_t L, uint8_t H);       // 0/1 bits -> normal/off/on
-    bool _cmdDCRAMAddr(uint8_t addr4);              // 0..15, header 0x10 | addr
-    bool _writeByte(uint8_t b);
-    bool _writeData(const uint8_t* p, size_t n);
-    bool _dcramWriteChars(uint8_t addr, const uint8_t* data, size_t n);
-    bool _cmdCGRAMAddr(uint8_t addr3);              // 0..7, header 0x20 | addr
-    // ===== NO_TOUCH END =====
-
-    // Local state for cursor emulation
-    uint8_t _row = 0;
-    uint8_t _col = 0;
-
     ITransport* _transport = nullptr;
     DisplayCapabilities* _capabilities = nullptr;
     VFDError _lastError = VFDError::Ok;
 };
+

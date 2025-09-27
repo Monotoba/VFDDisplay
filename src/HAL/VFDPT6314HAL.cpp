@@ -113,9 +113,33 @@ bool VFDPT6314HAL::_posLinear(uint8_t addr) { return _writeCmd((uint8_t)(0x80 | 
 bool VFDPT6314HAL::_posRowCol(uint8_t row, uint8_t col) { uint8_t base[] = {0x00, 0x40}; if (row>=2) return false; return _posLinear((uint8_t)(base[row]+col)); }
 bool VFDPT6314HAL::_displayControl(bool d, bool c, bool b) { uint8_t cmd = 0x08 | (d?0x04:0) | (c?0x02:0) | (b?0x01:0); return _writeCmd(cmd); }
 
-bool VFDPT6314HAL::_writeCmd(uint8_t cmd) { if (!_transport) return false; if (_transport->supportsControlLines()) (void)_transport->setControlLine("RS", false); return _transport->write(&cmd,1); }
-bool VFDPT6314HAL::_writeData(const uint8_t* data, size_t len) { if(!_transport||!data||len==0) return false; if (_transport->supportsControlLines()) (void)_transport->setControlLine("RS", true); return _transport->write(data,len); }
+bool VFDPT6314HAL::_writeCmd(uint8_t cmd) {
+    if (!_transport) return false;
+    if (_transport->supportsControlLines()) {
+        (void)_transport->setControlLine("RS", false);
+        return _transport->write(&cmd,1);
+    } else {
+        return _serialWriteFrame(false, false, &cmd, 1);
+    }
+}
+
+bool VFDPT6314HAL::_writeData(const uint8_t* data, size_t len) {
+    if(!_transport||!data||len==0) return false;
+    if (_transport->supportsControlLines()) {
+        (void)_transport->setControlLine("RS", true);
+        return _transport->write(data,len);
+    } else {
+        return _serialWriteFrame(true, false, data, len);
+    }
+}
+
+bool VFDPT6314HAL::_serialWriteFrame(bool rsData, bool rwRead, const uint8_t* payload, size_t len) {
+    // PT6314 serial: Start Byte = [sync bits][R/W][RS][0]; use 0b11111 as sync (bits7..3)
+    // Construct a start byte 0xF8 | (rw<<2) | (rs<<1)
+    uint8_t start = (uint8_t)(0xF8 | ((rwRead?1:0) << 2) | ((rsData?1:0) << 1));
+    if (!_transport->write(&start,1)) return false;
+    return _transport->write(payload, len);
+}
 
 // Device-specific helper
 bool VFDPT6314HAL::setBrightnessIndex(uint8_t idx0to3) { (void)idx0to3; _lastError=VFDError::NotSupported; return false; }
-
