@@ -64,6 +64,9 @@ public:
     VFDError lastError() const override { return _lastError; }
     void clearError() override { _lastError = VFDError::Ok; }
 
+    // Device-specific helpers
+    bool setBrightnessIndex(uint8_t idx0to3); // maps to Brightness Set (00..03)
+
     // ===== NO_TOUCH: device primitives =====
     bool _cmdInit();                 // 0x38, 0x0C, 0x01, 0x06
     bool _cmdClear();                // 0x01
@@ -82,4 +85,3 @@ private:
     DisplayCapabilities* _capabilities = nullptr;
     VFDError _lastError = VFDError::Ok;
 };
-

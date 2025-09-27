@@ -18,7 +18,19 @@ All notable changes to this project will be documented in this file.
 - Tests: add contract + device tests for `VFD20T202HAL` (init sequence, clear/home, DDRAM addressing). Runners updated.
 - Docs: expand `docs/api/VFD20S401HAL.md` and `docs/api/VFD20T202HAL.md` with IVFDHAL method references, unbuffered and buffered code examples, and device-specific notes.
 - Docs: add `docs/api/HAL_Authoring_Guide.md` and `docs/api/HAL_Doc_Template.md` for consistent HAL documentation and authoring.
-- Tools/Make: add `tools/new_hal.py` scaffold and `make hal` to generate a new HAL skeleton (code, tests, docs) with next steps guidance.
+ - Tools/Make: add `tools/new_hal.py` scaffold and `make hal` to generate a new HAL skeleton (code, tests, docs) with next steps guidance.
+ 
+ - HAL: CU40026 (VFDCU40026HAL)
+   - Add device-level helpers: `setLuminanceBand(uint8_t)`, `setLuminanceIndex(uint8_t 0..3)`, `setBlinkPeriodMs(uint16_t)`, and `selectFlickerlessMode()` using ESC sequences ('L', 'T', 'S'). No IVFDHAL changes.
+   - Tests: extend `tests/device/VFDCU40026HALTests.hpp` with `helper_luminance_index` verifying ESC 'L' 0x80 for idx=2; keep existing init/clear/home/positioning checks.
+ - HAL: CU20025 (VFDCU20025HAL)
+   - Add `setBrightnessIndex(uint8_t 0..3)` mapping to device Brightness Set (data write 00..03). No IVFDHAL changes.
+   - Tests: extend `tests/device/VFDCU20025HALTests.hpp` with `helper_brightness_index` (writes 0x02 after init for idx=2).
+ - HAL: HT16514 (VFDHT16514HAL)
+   - Add `setBrightnessIndex(uint8_t 0..3)` helper wiring BR1/BR0 via Function Set; keep 2‑line mode. Dimming maps 0:100%, 1:75%, 2:50%, 3:25%.
+   - Tests: cover dimming Function Set codes in `tests/device/VFDHT16514HALTests.hpp`.
+ - HAL: VK202‑25 (VFDVK20225HAL)
+   - Add FE‑prefixed helpers: `autoLineWrapOn()` (FE 67), `autoLineWrapOff()` (FE 68), and `saveBrightness(uint8_t)` (FE 145 Byte). Contract + device tests registered.
 
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.

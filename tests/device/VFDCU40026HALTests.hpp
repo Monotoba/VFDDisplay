@@ -47,5 +47,9 @@ inline void register_VFDCU40026HAL_device_tests() {
   ET_ADD_TEST("VFDCU40026.clear_home", test_vfdcu40026_clear_home);
   ET_ADD_TEST("VFDCU40026.pos_ESC_H_addr", test_vfdcu40026_setCursorPos_ESC_H_addr);
   ET_ADD_TEST("VFDCU40026.dimming_ESC_L", test_vfdcu40026_dimming_ESC_L);
+  ET_ADD_TEST("VFDCU40026.helper_luminance_index", [](){
+    VFDCU40026HAL hal; MockTransport mock; hal.setTransport(&mock); (void)hal.init();
+    mock.clear(); ET_ASSERT_TRUE(hal.setLuminanceIndex(2));
+    ET_ASSERT_EQ((int)mock.at(0),(int)0x1B); ET_ASSERT_EQ((int)mock.at(1),(int)'L'); ET_ASSERT_EQ((int)mock.at(2),(int)0x80);
+  });
 }
-

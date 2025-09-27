@@ -77,6 +77,12 @@ public:
     VFDError lastError() const override { return _lastError; }
     void clearError() override { _lastError = VFDError::Ok; }
 
+    // Device-specific helpers (not in IVFDHAL)
+    bool setLuminanceBand(uint8_t code);         // ESC 'L' + code (00..FF)
+    bool setLuminanceIndex(uint8_t idx0to3);     // 0:25%,1:50%,2:75%,3:100%
+    bool setBlinkPeriodMs(uint16_t periodMs);    // ESC 'T' + (period/30ms, 1..255)
+    bool selectFlickerlessMode();                // ESC 'S' (per datasheet)
+
 private:
     // ===== NO_TOUCH: Device-specific primitives =====
     bool _escInit();                   // ESC 'I'
@@ -95,4 +101,3 @@ private:
     DisplayCapabilities* _capabilities = nullptr;
     VFDError _lastError = VFDError::Ok;
 };
-

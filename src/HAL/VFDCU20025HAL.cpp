@@ -167,3 +167,8 @@ bool VFDCU20025HAL::_brightnessSet(uint8_t idx) {
     return _writeData(&val, 1);
 }
 
+// Device-specific helper
+bool VFDCU20025HAL::setBrightnessIndex(uint8_t idx0to3) {
+    bool ok = _brightnessSet(idx0to3);
+    _lastError = ok?VFDError::Ok:VFDError::TransportFail; return ok;
+}

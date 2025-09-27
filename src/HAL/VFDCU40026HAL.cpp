@@ -107,3 +107,13 @@ bool VFDCU40026HAL::_escUDF(uint8_t chr, const uint8_t rows5[5]) { uint8_t esc=E
 bool VFDCU40026HAL::_writeCmd(uint8_t b) { if (!_transport) return false; return _transport->write(&b,1); }
 bool VFDCU40026HAL::_writeData(const uint8_t* p, size_t n) { if (!_transport||!p||n==0) return false; return _transport->write(p,n); }
 
+// Device-specific helpers
+bool VFDCU40026HAL::setLuminanceBand(uint8_t code) { bool ok=_escLuminance(code); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok; }
+bool VFDCU40026HAL::setLuminanceIndex(uint8_t idx0to3) {
+    uint8_t code = (uint8_t)((idx0to3 & 0x03) << 6); // 0->00,1->40,2->80,3->C0
+    return setLuminanceBand(code);
+}
+bool VFDCU40026HAL::setBlinkPeriodMs(uint16_t periodMs) {
+    uint16_t d = periodMs/30; if (d==0) d=1; if (d>255) d=255; return _escBlinkPeriod((uint8_t)d);
+}
+bool VFDCU40026HAL::selectFlickerlessMode() { uint8_t esc=ESC_CH, S='S'; if(!_transport->write(&esc,1)) return false; return _transport->write((uint8_t*)&S,1); }

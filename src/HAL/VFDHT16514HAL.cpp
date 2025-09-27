@@ -114,3 +114,8 @@ bool VFDHT16514HAL::_displayControl(bool d, bool c, bool b) { uint8_t cmd = 0x08
 bool VFDHT16514HAL::_writeCmd(uint8_t cmd) { if (!_transport) return false; if (_transport->supportsControlLines()) (void)_transport->setControlLine("RS", false); return _transport->write(&cmd,1); }
 bool VFDHT16514HAL::_writeData(const uint8_t* data, size_t len) { if(!_transport||!data||len==0) return false; if (_transport->supportsControlLines()) (void)_transport->setControlLine("RS", true); return _transport->write(data,len); }
 
+// Device-specific helper
+bool VFDHT16514HAL::setBrightnessIndex(uint8_t idx0to3) {
+    bool ok = _functionSet((uint8_t)(idx0to3 & 0x03));
+    _lastError = ok?VFDError::Ok:VFDError::TransportFail; return ok;
+}

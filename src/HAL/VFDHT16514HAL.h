@@ -65,6 +65,9 @@ public:
     VFDError lastError() const override { return _lastError; }
     void clearError() override { _lastError = VFDError::Ok; }
 
+    // Device-specific helpers
+    bool setBrightnessIndex(uint8_t idx0to3); // Function Set BR1/BR0
+
     // ===== NO_TOUCH: HD44780-like primitives =====
     bool _functionSet(uint8_t brightnessIndex);
     bool _cmdInit();                 // function set + display on + clear + entry mode
@@ -84,4 +87,3 @@ private:
     bool _twoLine = true;
     uint8_t _brightnessIndex = 0; // 0..3 => 100/75/50/25
 };
-
