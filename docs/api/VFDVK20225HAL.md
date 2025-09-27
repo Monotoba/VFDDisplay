@@ -39,6 +39,10 @@ Notes
 - Cursor blink rate is not programmable; this HAL reports NotSupported for exact rate control.
 - Custom character banks and advanced drawing are not covered here; this HAL focuses on core text operations and brightness.
 
+Device-Specific Helpers
+- `autoLineWrapOn()` → FE 67
+- `autoLineWrapOff()` → FE 68
+- `saveBrightness(uint8_t)` → FE 145 Byte (persists to NVM)
+
 Tests
 - Clear: FE 58; SetCursorPos row/col → FE 71 C R; Brightness → FE 89 Byte.
-

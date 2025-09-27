@@ -64,6 +64,11 @@ public:
     VFDError lastError() const override { return _lastError; }
     void clearError() override { _lastError = VFDError::Ok; }
 
+    // Device-specific helpers (not in IVFDHAL)
+    bool autoLineWrapOn();     // FE 67
+    bool autoLineWrapOff();    // FE 68
+    bool saveBrightness(uint8_t value); // FE 145 Byte
+
 private:
     // ===== NO_TOUCH: VK command helpers =====
     bool _cmd(uint8_t code);
@@ -75,4 +80,3 @@ private:
     DisplayCapabilities* _capabilities = nullptr;
     VFDError _lastError = VFDError::Ok;
 };
-

@@ -99,3 +99,7 @@ bool VFDVK20225HAL::_cmd3(uint8_t code, uint8_t a, uint8_t b) {
     if(!_transport) return false; uint8_t p[4]={VK_CMD_PREFIX, code, a, b}; return _transport->write(p,4);
 }
 
+// ===== Device-specific helpers =====
+bool VFDVK20225HAL::autoLineWrapOn()  { bool ok=_cmd(67); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok; }
+bool VFDVK20225HAL::autoLineWrapOff() { bool ok=_cmd(68); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok; }
+bool VFDVK20225HAL::saveBrightness(uint8_t value) { bool ok=_cmd2(145, value); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok; }
