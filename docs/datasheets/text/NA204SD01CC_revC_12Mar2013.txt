@@ -1,0 +1,1618 @@
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+REVISION | PAGE REVISION DESCRIPTION APPROVAL DATE
+A1.0 All | Created CEV | 21May02
+Al.l 7 Deleted section 3.8; external reset timing CEV 11Jun09
+
+Released to Production
+A All Part Number was NA204SD01CAI1 (ECO 10-007) CEV | I7Novl0
+7 Section 4.1 GENERAL: Deleted “...or software initialization command (see section 4.4.6)...”
+BLO 11 Section 4.4.6 INITIALIZATION: Was “The initialization command resets the module as upon CEV | 27Apri1
+power up (see section 4.1).
+All | Part Number was NA204SD0O1CA (ECO 11-006)
+Released to Production
+B All Part Number was NA204SD01CB1 (ECO 11-008) CEV | 25Mayl!
+C All | Part Number was NA204SD01CB (ECO 13-001) CEV | 12Marl13
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Futaba.
+
+Futaba Corporation of America
+
+DRAWING TITLE:
+
+PRODUCT SPECIFICATION
+
+ 
+
+PART NUMBER:
+
+ 
+
+ 
+
+ 
+
+ 
+
+DESIGNED BY: QUALITY ASSURANCE APPROVAL: CUSTOMER NAME / PART NUMBER:
+John Kan Dean Sharpe STANDARD PRODUCT
+CHECKED BY: SYSTEMS ENGINEERING APPROVAL: FILE NAME:
+John Hohmeier Charles Voegeli NA204SD01CC_revC_12Mar2013.doc
+CUSTOMER APPROVAL: DIRECTOR OF ENGINEERING APPROVAL: DATE PRINTED: SHEET:
+N/A Gary R. Wires 03/12/13 1 OF 14
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+1.0 INTRODUCTION
+
+This module consists of an 80-character VFD (4 rows of 20 characters), driver circuitry, bus interface,
+DC/DC-AC converter and character generator. Communication with the module is via an 8-bit parallel
+data bus with chip-select, write, and busy control lines, or via asynchronous serial communications
+
+(19200BPS, 8 data bits, even parity, one stop bit) with a busy handshake.
+
+2.0 APPLICABLE DOCUMENTS
+
+The following documents form a part of this product specification:
+
+Futaba America Engineering Standard FAES 801, Printed Circuit Board Markings
+
+Futaba Vacuum Fluorescent Display Specification Number 204-SD-01GY
+
+3.0 SPECIFICATIONS
+
+3.1 GENERAL SPECIFICATIONS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Item Value
+Number of Characters 4 Rows x 20 Characters
+Character Configuration 5x7 Dot Matrix w/Cursor
+Character Height 5.0 mm
+Character Width 3.2mm
+Character Pitch 455mm
+Peak Wavelength of Illumination Green (505 nm)
+Luminance 204 fL typ.
+PART NUMBER: REVISION:
+Futaba. NA204SD01CC C
+Futaba Corporation of America vate Pere: ener"
+Schaumburg, IL 03/12/13 2 OF 14
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+3.2 MECHANICAL DRAWING
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+eS
+J
+WM
+5 [_
+LW Le
+ol | [ 7 |
+' | | | | ||
+[ { | |
++0.7/-0.5
+48.3
++0.2
+ns (33,2) ———_» 1.6
+(23.1) |
+| Pro]
+O seuesees | O] 2 |
+Lo 4
+PIN cf — |
+Fy} EL |
+P= |
+Poco |
+- . Lt
+P ar |
+ee
+Zz
+| Oo
+LJ
+| 6g
+wo Lo
+? | &
+0 Py | th
+q g ~
+S we CN |
+8 os gS 00 <
+G4 = 2 ~ Joos
+0 a z
+st oO —_
+— = | v
+Zz | °c
+= w
+zZ | &
+S | a
+= 5 S ee |
+: L-O Lh |
+nD poe
+L J] § Se
+—_ | i+
+Zz
+z=) + @ 1 | |
+PIN 1 YY
+O ca OF |
+ae a
+a (8.0) .
+S 14.0 MAX
+2 0.13 £0.25
+2 54.00 5.00
+Ww
+£0.25
+PART NUMBER: REVISION:
+Futaba. NA204SDOICC C
+. . DATE PRINTED: SHEET:
+Futaba Corporation of America
+03/12/13 3 OF 14
+
+ 
+
+Schaumburg, IL
+
+ 
+
+ 
+
+ 
+ 
+
+3.3 SYSTEM BLOCK DIAGRAM
+
+ 
+
+ 
+
+ 
+
+V Sa
+ve DC-DC/AC VED
+
+ 
+
+ 
+
+ 
+
+ 
+
+GND. >
+
+CONVERTER 204-SD-01GY
+
+ 
+
+ 
+
+Ll
+
+ul
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+po-p7 ANODE on
+BUSY « INTERFACE DRIVER DRIVER
+LOGIC AND |
+wR" CPU
+CS*
+SIN/
+SELFTEST*
+
+ 
+
+ 
+
+3.4 ENVIRONMENTAL SPECIFICATIONS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Item Symbol | Min | Max | Unit
+Operating Temperature T opr -40 | +85 °C
+Storage Temperature T stg -40 +85 °C
+Relative Humidity (operating) (note 3) Hopr 10 90 %
+Vibration (note 1) - - 4 G
+Shock (note 2) - - 40 G
+
+ 
+
+ 
+
+Notes:
+
+1. Amplitude: 1.5mm; Frequency: 10 - 55 Hz; Sweep time: | min/cycle; Time: 2
+
+hours/axis (X,y,Z).
+2. Duration: 11ms; half sine wave; 3 times each (x,y,z).
+3. Without condensation.
+
+3.5 ABSOLUTE MAXIMUM ELECTRICAL RATINGS
+
+Item Symbol Min Max
+Power Supply Voltage Vv 0.0 6.5
+
+ut Signal Voltage Vout 0.0 Vec
+Input Signal Voltage Vin 0.0 5.5
+
+ 
+
+ 
+
+ 
+
+REVISION:
+
+PART NUMBER:
+Futaba. NA204SD01CC
+
+ 
+
+. . DATE PRINTED: SHEET:
+Futaba Corporation of America
+
+Schaumburg, IL 03/12/13
+
+ 
+
+ 
+
+4 OF 14
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+3.6 RECOMMENDED OPERATING CONDITIONS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Item Symbol | Min Typ Max Unit
+Power Supply Voltage Vec 4.75 5.0 5.25 V
+Power Supply Current (note 1) lee - 0.65 1.0 A
+High Level Input Voltage Vin 2.0 - - Vv
+Input Current lin - - +10.0 uA
+Low Level Input Voltage Vit - - 0.8 Vv
+Low Level Input Current (Vi,_=0.2V, note 2) In - - -0.54 mA
+Low Level Output Voltage (Io. =4mA) VoL - - 0.33 V
+High Level Output voltage Ioq=-4mA) Vou 3.84 - - V
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Notes:
+
+1. A surge current of up to 2 times maximum input current can occur upon power up. The peak surge
+current amplitude and duration are dependent on the host power supply characteristics.
+
+2. Each input has a pull-up resistor to Vcc of 10kQ.
+
+3.7 COMMUNICATION INTERFACE SPECIFICATIONS
+
+(See figures 1 & 2)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Item Symbol Min Max Unit
+DATA set up time tsupATA 37 - ns
+DATA hold time thDATA 60 - ns
+CS* set up time tsucs 0) - ns
+CS* hold time thes 0) - ns
+WR* pulse width time twwR 30 - ns
+BUSY TO CS* delay twBuUSsY-cs 0 - ns
+WR* to BUSY delay twwR-BUSY - 135 ns
+Stop Bit to BUSY delay ta 0 900 us
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The BUSY pulse width (tygusy) 1s dependent upon the data written to the module. The following table
+lists the BUSY time during the quick write mode. BUSY time during the flickerless mode of operation
+will be from 2 to 15 times that of the quick write mode.
+
+BUSY
+DATA DCI MODE DC2 MODE
+
+Character HT, and LF 200us 1000us
+BS, FF, CR, CTO, CT1, DC1, DC2, DC4, DC5, DC6, and DC7 200us
+CLR 900us
+
+1° BYTE 200us
+BYTE (except 'I 200us
+2° BYTE='' 1400us
+3° -8 BYTES 200us / BYTE
+
+ 
+
+ 
+
+ 
+
+PART NUMBER: REVISION:
+Futaba. NA204SD01CC C
+
+ 
+
+ 
+
+. . DATE PRINTED: SHEET:
+Futaba Corporation of America
+
+Schaumburg, IL 03/12/13 5 OF 14
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+DATA
+
+   
+
+ 
+
+ 
+
+A
+¥.
+A
+¥.
+
+tsuDATA thDATA
+
+ 
+
+CS* \ /
+
+ 
+
+ 
+
+ 
+
+tsucs twwR thes
+
+WR* \ /
+
+~ tt. rl ~
+
+twwR-BUSY twBuUSY
+
+BUSY — \_ twausy-cs / \
+\_ / \
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1. Parallel Interface
+The serial interface supports asynchronous serial communication comprised of one start bit, 8 data bits,
+
+even parity, and one stop bit at 19200 bits per second (see figure 4). Data is transmitted least significant
+bit first.
+
+SIN/SELFTEST* \ sTART DO Dl }----- D7 PARITY) STOP
+
+ 
+
+ 
+
+ta itwpusy |
+
+ 
+
+ 
+
+ 
+
+BUSY ----
+
+Figure 2. Serial Interface
+
+ 
+
+ 
+
+PART NUMBER: REVISION:
+Futaba. NA204SD01CC C
+
+ 
+
+. . DATE PRINTED: SHEET:
+Futaba Corporation of America
+
+Schaumburg, IL 03/12/13 6 OF 14
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+4.0 FUNCTIONAL DESCRIPTION
+4.1 GENERAL
+Upon power up, the module resets to the following state:
+
+Display cleared
+
+Cursor set to position 1 (left most character) of row 1
+
+Display mode set to character overwrite (DC1) and invisible cursor (DC4)
+Brightness set to 100%
+
+Blink speed set to 14H
+
+Character table 0 selected (CTO)
+
+Quick write mode selected.
+
+Data is written to the module in either parallel or serial format. Data should only be sent to the module
+while the BUSY signal is low. In parallel format, data is written to the module on the rising edge of the
+WR* pulse while CS* is low. The module sets the BUSY line after data is latched and clears the line
+after the data is processed. In serial format, data is written to the module least significant bit (LSB) first.
+The module sets the BUSY line after the stop bit is sent and clears the line after the data is processed.
+The length of time that the busy line is set depends upon the data that is sent. Refer to section 3.7 for
+specific bus timing.
+
+Since the module is in quick write mode upon power up there may be times when the display flickers
+during high-speed data transmission. This is because in the quick write mode the communications have
+the highest priority resulting in a minimum busy signal. This flicker can be avoided by selecting the
+flickerless mode of operation (see section 4.4.4).
+
+ 
+
+ 
+
+PART NUMBER: REVISION:
+Futaba. NA204SD01CC C
+
+ 
+
+. . DATE PRINTED: SHEET:
+Futaba Corporation of America
+
+Schaumburg, IL 03/12/13 7 OF 14
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+4.2 CHARACTER DATA
+
+Standard character data is from 20H to FFH (see section 7.0). User defined characters can exist at any
+location from 00H to FFH. Writing data from 20H to FFH or a user-defined character will result in the
+corresponding character being displayed at the current cursor position. The horizontal tab command (see
+section 4.3.2) is then executed.
+
+4.3 COMMAND DATA
+Command data is in the range of 00H to 1FH.
+4.3.1 BS: BACKSPACE (08H)
+
+The cursor position is moved one position to the left. At the left most character position of rows 2 - 4
+the cursor will move to the right most character position of the row above it. At the left most character
+position of row | the cursor will not move.
+
+4.3.2 HT: HORIZONTAL TAB (09H)
+
+The cursor position is shifted to the right one position. At the right end of a row the cursor moves to the
+left end of the next lower row. At the right end of the bottom row the cursor movement depends upon
+DC1 and DC2 modes as follows:
+
+DC1 Mode:
+The cursor moves from the right end of the bottom row to the left end of the top row.
+
+DC2 Mode:
+The contents of the each row are shifted up one row. Data in the first row is lost. The bottom row is
+cleared and the cursor is placed at the left most position of the bottom row.
+
+4.3.3 LF: LINE FEED (OAH)
+
+The cursor is shifted to the same column position of the next lower row. At the bottom row movement
+depends upon DC1 or DC2 modes.
+
+DC1 Mode:
+The cursor moves to the same column position of the top row.
+
+DC2 Mode:
+The contents of the each row are shifted up one row. Data in the first row is lost. The bottom row is
+cleared and the cursor remains at the same position.
+
+4.3.4 FF: FORM FEED (0CH)
+
+The cursor moves to the left end of the top row.
+
+ 
+
+ 
+
+PART NUMBER: REVISION:
+Futaba. NA204SD01CC C
+
+ 
+
+. . DATE PRINTED: SHEET:
+Futaba Corporation of America
+
+Schaumburg, IL 03/12/13 8 OF 14
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+4.3.5 CR: CARRIAGE RETURN (0DH)
+
+The cursor position is placed at the left most position of the same row.
+4.3.6 CLR: CLEAR (OEH)
+
+All characters are cleared. The cursor does not move.
+
+4.3.7 DC1: DEVICE CONTROL 1 (11H) (DEFAULT)
+
+Character overwrite mode for character data, horizontal tab (HT) or line feed (LF) commands.
+
+4.3.8 DC2: DEVICE CONTROL 2 (12H)
+
+Display scroll mode for character data, horizontal tab (HT) or line feed (LF) commands.
+
+4.3.9 DC4: DEVICE CONTROL 4 (14H) (DEFAULT)
+Invisible cursor.
+
+4.3.10 DCS: DEVICE CONTROL 5 (15H)
+
+Blinking cursor. The blink rate is controlled by the blink speed control command (see section 4.4.5)
+
+4.3.11 DC6: DEVICE CONTROL 6 (16H)
+
+Invisible cursor.
+
+4.3.12 DC7: DEVICE CONTROL 7 (17H)
+
+Invisible cursor.
+
+4.3.13 CT0: CHARACTER TABLE 0 (18H) (DEFAULT)
+Selects English/International character table.
+
+4.3.14 CT1: CHARACTER TABLE 1 (19H)
+
+Selects the English/Katakana character table.
+
+ 
+
+ 
+
+PART NUMBER:
+Futaba. NA204SDOICC
+
+REVISION:
+
+ 
+
+. . DATE PRINTED:
+Futaba Corporation of America
+
+Schaumburg, IL 03/12/13
+
+ 
+
+ 
+
+SHEET:
+
+9 OF 14
+
+ 
+
+ 
+ 
+
+4.4 ESCAPE COMMANDS
+
+The following commands are executed by first writing the escape character (1BH) followed by one or
+more bytes.
+
+4.4.1 USER DEFINABLE CHARACTER (1BH + 43H + CHR + B4 + BS + B6 + B7 + B8)
+
+Two user definable characters (UDC) are available. Any 5x7 pattern of pixels can be stored at the
+character location identified by CHR, which can be any value from 00H to FFH. Assignment of a UDC
+to a specific character code will cause that character or function to be replaced with the UDC. Only two
+UDCs can be defined at one time. Defining additional UDCs will cause the oldest UDC to revert back
+to its original character or function. If the escape command (1BH) is redefined power must be removed
+to restore the function. Bytes 4 through 8 (B4 ... B8) specify the specific UDC according to figure 4.
+Setting a bit = 1 turns on the pixel while setting the bit = 0 leaves it off (* = do not care).
+
+UDC Example: Define a UDC at location A2H, the UDC is a dash (-). The pixels that need to be turned
+on are P16 - P20. The command sequence is:
+
+1BH + 43H + A2H + 00H + 80H + OFH + 00H + OOH.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+COMMAND BYTES 4 - 8 5X7 PIXEL MAP
+BIT POSITION Pl P2 | P3 P4 | PS
+BYTES 7 6 5 4 3 2 I 0 Po | P7 | P8& | PY | PIO
+4" P&8 | P7 | Po | PS | P4 | P3 P2 Pl Pll | P12 | PI3 | Pl4 | PIS
+
+ 
+
+ 
+
+sf P16 | PIS | Pl4 | PI3 | P12 | PIl | PIO | P9 P16 | P17 | P18 | P19 | P20
+
+ 
+
+ 
+
+6" P24 | P23 | P22 | P21 | P20 | PI9 | Pl8 | PI7 P21 | P22 | P23 | P24 | P25
+
+ 
+
+ 
+
+7" P32 | P31 | P30 | P29 | P28 | P27 | P26 | P25 P26 | P27 | P28 | P29 | P30
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+gn xX xX xX xX xX | P35 | P34 | P33 P31 | P32 | P33 | P34 | P35
+
+ 
+
+ 
+
+Figure 4. User Definable Character Map
+4.4.2 MOVE CURSOR (1BH + 48H + DATA)
+
+The cursor position can be set to any display position by sending escape (1BH), move cursor command
+(48H), and then a parameter byte identifying a specific cursor location according to the following chart:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Col.
+Row 1 2 3 4 --- 20
+1 OOH | O1H | 02H | 03H | --- | 13H
+2 14H | 15H | 16H | 17H | --- | 27H
+3 28H | 29H | 2AH | 2BH | --- | 3BH
+4 3CH | 3DH | 3EH | 3FH | --- | 4FH
+
+ 
+
+ 
+
+DATA values of 50H to FFH are invalid and do not cause the cursor to move.
+
+ 
+
+ 
+
+PART NUMBER: REVISION:
+Futaba. NA204SD01CC C
+
+ 
+
+. . DATE PRINTED: SHEET:
+Futaba Corporation of America
+
+Schaumburg, IL 03/12/13 10 OF 14
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+4.4.33 LUMINANCE CONTROL (1BH + 4CH + DATA)
+
+Display luminance can be set to one of the following four levels by sending escape (1BH), luminance
+
+control command (4CH), and then a luminance byte.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DATA LUMINANCE
+OOH to 3FH 25%
+40H to 7FH 50%
+80H to BFH 75%
+COH to FFH | 100% (Default)
+
+ 
+
+ 
+
+4.4.4 FLICKERLESS MODE (1BH + 53H)
+
+Flickerless mode is selected by sending 1BH + 53H. Flickerless mode makes updating the display the
+highest priority of the module and as such will extend the busy time for many commands. Serial
+communication cannot be used in the flickerless mode. Once flickerless mode is selected, the module
+must be powered down or sent a software initialization command (see section 4.4.6) to reenter the quick
+
+write mode.
+
+4.4.5 BLINK SPEED CONTROL (1BH + 54H + DATA)
+
+The blinking speed of the cursor (an all on character) can be controlled in 30ms increments. The period
+of the blinking cursor equals the multiplying value (represented by DATA) times 30ms.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DATA | Multiplying value
+00H 256
+01H l
+02H 2
+FFH 255
+
+ 
+
+ 
+
+The power up default blink speed value (DATA) ts 14H.
+
+4.4.6 INITIALIZATION (1BH + 49H)
+
+The initialization command performs the following:
+
+Clears Display and UDC Memory
+
+Sets Cursor to position | (left most character) of row 1
+Sets Display Modes to character overwrite (DC1) and invisible cursor (DC4)
+
+Sets Brightness to 100%
+
+Stops Blinking and sets Blink Speed to 14H
+
+Selects Character table 0 (CTO)
+
+ 
+
+ 
+
+Futaba.
+
+Futaba Corporation of America
+Schaumburg, IL
+
+PART NUMBER:
+
+NA204SD01CC
+
+REVISION:
+
+C
+
+ 
+
+ 
+
+DATE PRINTED:
+
+03/12/13
+
+ 
+
+SHEET:
+
+11 OF 14
+
+ 
+
+ 
+ 
+
+5.0 TEST MODE
+
+The test mode can be entered by holding the SIN/SELFTEST™* pin low for more than 100ms at power up
+or during software initialization. See section 3.8 for more information about the power up reset timing.
+During the test mode all characters of character table 0 are sequentially displayed and no communication
+data will be accepted. The mode is exited by disconnecting power from the module.
+
+6.0 CONNECTOR INTERFACES
+
+6.1 JI CONNECTOR INTERFACE
+
+3M P/N: 2516-6002UB
+SYMBOL SYMBOL
+
+D7 D6
+D5 D4
+D3 D2
+
+D1 DO
+WR*
+SIN/SELFTEST*
+GND
+VCC
+
+ 
+
+6.2 J2 CONNECTOR INTERFACE
+
+(AMP P/N: 171825-3)
+
+ 
+
+ 
+
+ 
+
+ 
+
+PIN SYMBOL
+I VCC
+2 SIN/SELFTEST*
+3 GND
+
+ 
+
+ 
+
+ 
+
+ 
+
+7.0 JUMPER CONFIGURATION
+
+The bus mode selection jumpers are located on the component side of the PCB. Solder a jumper at JP1
+for single module mode or at JP2 to select multiple module mode. The module is initially configured for
+single module bus mode operation. Contact Futaba for initial setup of multiple bus mode.
+
+ 
+
+ 
+
+PART NUMBER: REVISION:
+Futaba. NA204SD01CC C
+
+ 
+
+. . DATE PRINTED: SHEET:
+Futaba Corporation of America
+
+Schaumburg, IL 03/12/13 12 OF 14
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+8.0 CHARACTER TABLES
+
+Character codes fall into the range of 20H to FFH.
+
+8.1 CHARACTER TABLE 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+a o 900/0001/00101001 1010010101101 101011 sf: 000/101); 010/101 11 100l1 101111101117
+LSB: D3-Do
+0000 Ll ml [at "|p i a ssi ry fl oh, ah
+0001 pcr § i ii i.i aad |"aned = : + ot i as ey
+gor poo] FF ASSP SAE | acy ey Sh
+0011 BE p Semi poet) fam eS
+0100 oc4 |e, ch it T ™ Ti ' “— i " cs "t a ,
+0101 pcs). te, few ievai pa Li oe i! fs s it, ,
+ee ado os
+out 007] | eb ooalh e HSScHIE e Hes=lalhfomlecczs| = [EL__|"ss JIT Jono
+1000 | BS [cto] £T [ameS|Beeed "ta" |Bome,|*eatoclant=.| || (ecilacsPelat a ant
+1001 HT |CT1 "t oul T a mt wetse Hed) Eek " S| prots os
+nor for} femoie Dir ere) SE a fe
+mo PRY ae a 7
+ui A Ae] fe | IEE Per
+PART NUMBER: REVISION:
+
+ 
+
+ 
+
+Futaba.
+
+Futaba Corporation of America
+
+Schaumburg,
+
+IL
+
+NA204SD01CC
+
+C
+
+ 
+
+DATE PRINTED:
+
+03/12/13
+
+ 
+
+ 
+
+SHEET:
+
+13 OF 14
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+_ SES0088 | See 7 a a Ce i |
+_ PTT TT BESEE08 | SSRRREs See ee) ho a ann a a ange
+SESRE88 | See BERERES | SRRRR88 | See) 8 eee) oc || 6d an
+_ SERRE | SRR | BEREEES |SSeees| 2 a a a ann ange
+_ SESEE88 | SERRE | | Seeenee 7 a a 7 a ae
+oO SESEE88 | Seeeeee| 2 a | | = 88 s| #8 a Sanne = 8 a 225 28 a
+— = 8 |8 8 a os | eT a. s8| seeeee| 2 eee) cl = 8 7 aang a a ann
+=o 8 8/8 88 anne BEREEE8 | Seen | ee | eee lll an58 | a annnn a a aannn
+_ ao os8 6 | a a6 a6 | = o8|88 228 = 558 = 6 = #88 a Pr a a ann
+— Sannn8 =| #5 a = 8 | = 5 7 a =e o66| See | a Tr} a8 7
+— a ann| #8 aH 8 =n a| S55588 ann a5 a SEnEEn| S558 ==
+oO an 8 a | a8 8 a5 SEeees| 2 Be 8 | a a a | @ 7 7 a
+ans 7 a a oe a a os) 98 8/8 8 7 7 anneEn a a a| @ a a|5
+_ a = se | BER | Senne 8 a) oe 88 © a =| @ a| @ a | 8
+_ 7 aan ee | 7 =| os 8 8 a ann Seeee| Sees) See) oe a a| @
+2 os ie ie eee 7 7 a |. 28 os” |seeee Pie 7 ee = 7
+oO a8 68 S22 TT) on ee ot | a PTT | a s| = 8 an S58 a 7 a | @ a a SnneEEe
+_ TT =| =o 2 8 | | S2ene88 = 8 a s| e288 = 66 7 a | @ =| @ a
+— a a8 ann a a a =| @ =| @ a S88 | SERe88 a a = 8
+— a aa5 7 nnn a a| 8 anne | =nnn a SEnnEn| 68 == rt =| 5 a
+— a = 68 a = 6 a a |S000088| &@ a] oo a a aunnn a o| S88 7 an ae 8
+CO a = S508 SEnn8 | a8 a| Sen) 8 a SEnnnEE| a| 8 =| a| 8 a =| 2 @ a a
+a a 7 a a a a| = &@ annEee a8 = ar a a\mmee 8) oe sos hd oe TT
+_— a a 7 =" a =| @ a a s| oo a a a =| @ ae so 6 a| @
+oO a nnn 5 225 = 8 a a5 a
+— a gee a8 a : 8 | nnn a6 San | #5888
+EEE | EEE EEE a nn | a n BH EEE an a EEE nn | a a | an
+oO a6 : 7 == a8 a 7 7 7 = #8 an nnn = | 8G
+— ct 7 a =n a a = = 8 | a =| 86 ==
+7 SESEEE8| See88 SEES |SS88888| Se ann annnn nnn a a SEneeee| 2 8 = #25
+oO a js 8 |8 s\n = 8 o|8 8 gle aia a on . an E588 | See a6 = 68
+oO os s\n 8 8| soem 6 lCU SB SSe8 | Sees 6 eee 6 OC ann oan an ann Seeeeee| Seeee| 2
+a n\n a a a aH a aif aif a naif a a nn EEE nn a EERE HH a a
+_ BEEBE 8 = |SSSne88| 88 a| S5555 =nn5n annnn nnn a a SEnnnEH| 8 a a
+oO ee ee ee meee | SSSSSEe | SR a.
+OQ = 8 8/8 a LT | a a a 7 a So 8 | S580088 a a SESE888 | See |
+oO a s8 hie =nnnn a8 7 7 a 7 a annnn ff = o8| @ a a 7 a a | Se08588
+— EEEREEEE | BEE =| an an a a | EERE | SER | CL a nan EEE nnn EEREEEEE | CUBE a
+_ 7 nnn a = 8 = 8 TTT 55 ann 7 a 7 a a 7 a ao
+_ a6 a6 a ans a a a a 7 a6 7 a oie 7 == 28 a =n 8
+— a6 a8 a a8 8 | eee a a == 7 5 ee a|S08 858 \8 a| @ Sunn
+a6 | a a | a a a 7 a8 : 8 = 88| 98 88 a a| @ =n 8
+oO aann8 . =nnn8 = 8 7 ==58 58 558 a . a 7 7 7 . a |
+oO nnn =" a | S2een88 =n 8 8 nnn 25 a 7 Sunn ann an
+— . =n 8 = 8 a 7 = #8 a | an 68 a = S558 a8 a a a = #6
+a ans = 8 a 7 = 8 S88| S88 an 68 a = 5558 a a PELE LT oan a = #6©
+_ a a | a a = ss aege a ans a S| SSR8888 | a a a ass
+oO = | SS08888 =n =n ann = 8 | Se88eee 7 ann annnn
+_ == SEnn 8| 88 a on |e SEnee8 | see SEnnnn | 88 an | a8 =n a 7 a a
+oO = 8 a a re a a 7 a6 7 a8 a\f 7 7 SEnnnEn| 8 a
+— = #8 a a e|5 8 = 8 §| See a a == a TT on | 7 . a a\s a
+| a a | os 8/8 a a a i | 7 a a8 | See a a a| @ a
+Oo BeSE88| Sees || oe a|a Senne | oe annn8 | 88 a5 | o28 7 =n a . 7
+oO ee ee ee ee og a2 SESE | SER wl emeee |e 7 2 | S200008 See :
+O = 68 |8 a = 8 8|8 a|a ain 8 8/8 § os 8 8 a Seenn88 |e a | a TT a a
+_ = 8 sie a oe a\a a|e 8 8|8 so a a a a a a a a| 8 a a
+oO = #8 BESEE8 | SSSR ees |) Bee | | ee | |) eee | S | SSSR 888 | Se | ee |
+_ annEn 5 a\f 5 a = 855 on |o8 an 88 annn | a
+— a6 a S)/n 8 8|88 8 8) 88888 | gin 8 8/8 @ =o 8 8\h 88 a a a8 |
+ee ee nee ee Smee oe oe Se | SEs] “a | oe ie” Me
+oO annEn a iL a a5 ann 68 ann8 (8 =n 88 a5 a a8
+Oo a8 a s8 7 on a8 i Z Z
+_— ann SEBEEEE| Bo = 88) 8 a a a oan a a a
+ann 68 a SnnneEe a ae ee a 7 7 a annnn nnn on a on
+oO TT SEnenee| Bee |e le on a oe ann a 7 a a a | a =n
+Oo as = 8 |S a =n 88 | a a
+= — A + WO oO N oO — O
+Oo
+= O © O O © O -— — Y
+Oo A a a OC a a O CO Lil
+O
+S ” LK Le Le a 0
+3 mM a _l Le OC) oO)
++
+7
+Bm
+aA
+a oO CO — C —s C — DD 4 CO — Cc) — CO a a —
+” 4 © CO — — OC i) —S — a CO —_ — - oD) 4 —4
+= | @ © en) © a — = — O O @ CO — — 4 4
+m Oo CO Oo © -) © © © — —_ —4 — a — 4 —
+a
+~
+_
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+8.2 CHARACTER TABLE 1
+
+ 
+
+ 
+
+14 OF 14
+
+REVISION:
+SHEET:
+
+ 
+
+03/12/13
+
+NA204SD01CC
+
+DATE PRINTED:
+
+ 
+
+PART NUMBER:
+
+ 
+
+IL
+
+Futaba.
+Schaumburg,
+
+Futaba Corporation of America
+
+ 
+
+ 
+
+ 
+
+ 
