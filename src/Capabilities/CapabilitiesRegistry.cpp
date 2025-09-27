@@ -221,7 +221,7 @@ DisplayCapabilities* CapabilitiesRegistry::createVFD20T202Capabilities() {
         8,   // char pixel height (typical)
         116, // width mm (typical 20x2)
         16,  // height mm (typical 20x2)
-        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_HORIZONTAL_SCROLL | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_HORIZONTAL_SCROLL | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS | CAP_DIMMING,
         1,   // blink speeds (on/off)
         8,   // user-defined chars (HD44780-style CGRAM)
         0,   // dimming levels (unknown)

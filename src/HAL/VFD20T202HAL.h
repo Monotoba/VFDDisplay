@@ -106,4 +106,9 @@ private:
     // ===== NO_TOUCH: Bus write helpers =====
     bool _writeCmd(uint8_t cmd);
     bool _writeData(const uint8_t* data, size_t len);
+
+    // Function-set composition (brightness + lines)
+    bool _writeFunctionSet(uint8_t brightnessIndex);
+    bool _twoLine = true;
+    uint8_t _brightnessIndex = 0; // 0:100%, 1:75%, 2:50%, 3:25%
 };

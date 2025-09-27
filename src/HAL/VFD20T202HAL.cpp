@@ -117,7 +117,16 @@ bool VFD20T202HAL::getCustomCharCode(uint8_t index, uint8_t& codeOut) const {
 }
 
 bool VFD20T202HAL::setBrightness(uint8_t lumens) {
-    (void)lumens; _lastError = VFDError::NotSupported; return false;
+    // Map 0..255 to 4 levels: 0(100%), 1(75%), 2(50%), 3(25%)
+    uint8_t idx = 0;
+    if (lumens < 64) idx = 3;          // lowest -> 25%
+    else if (lumens < 128) idx = 2;    // 50%
+    else if (lumens < 192) idx = 1;    // 75%
+    else idx = 0;                      // 100%
+    bool ok = _writeFunctionSet(idx);
+    if (ok) _brightnessIndex = idx;
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20T202HAL::saveCustomChar(uint8_t index, const uint8_t* pattern) {
@@ -146,7 +155,12 @@ bool VFD20T202HAL::setDisplayMode(uint8_t mode) {
 }
 
 bool VFD20T202HAL::setDimming(uint8_t level) {
-    (void)level; _lastError = VFDError::NotSupported; return false;
+    // level 0..3 -> 0:100%, 1:75%, 2:50%, 3:25%
+    uint8_t idx = (uint8_t)(level & 0x03);
+    bool ok = _writeFunctionSet(idx);
+    if (ok) _brightnessIndex = idx;
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 bool VFD20T202HAL::cursorBlinkSpeed(uint8_t rate) {
@@ -207,7 +221,7 @@ const char* VFD20T202HAL::getDeviceName() const { return _capabilities ? _capabi
 // ===== Device-specific primitives (NO_TOUCH) =====
 bool VFD20T202HAL::_cmdInit() {
     // Function set: 8-bit, 2-line, 5x8 (0x38)
-    if (!_writeCmd(0x38)) return false;
+    if (!_writeFunctionSet(0)) return false; // default 100%
     // Display on, cursor off, blink off (0x0C)
     if (!_writeCmd(0x0C)) return false;
     // Clear display (0x01)
@@ -269,4 +283,12 @@ bool VFD20T202HAL::_writeData(const uint8_t* data, size_t len) {
         return ok;
     }
     return _transport->write(data, len);
+}
+
+bool VFD20T202HAL::_writeFunctionSet(uint8_t brightnessIndex) {
+    // Compose Function Set: DB5=1, DB4=1, DB3=N (1 for 2-line), DB2=x, DB1..DB0 = BR1..BR0
+    uint8_t cmd = 0x30; // DB5..DB4 = 11b
+    if (_twoLine) cmd |= 0x08; // DB3
+    cmd |= (brightnessIndex & 0x03); // DB1..DB0
+    return _writeCmd(cmd);
 }

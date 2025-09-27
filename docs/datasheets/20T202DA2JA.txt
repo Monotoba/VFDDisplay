@@ -1,0 +1,2106 @@
+en?
+
+20T202DA2JA (Rev 2.0)
+
+Page 2/17
+
+ 
+
+ 
+
+1. SCOPE
+
+This specification applies to VFD module (Model No.: 20T202DA2JA) manufactured by Samsung SDI.
+
+2. FEATURES
+
+2.1 Simple connection to the host system data bus via three-wired synchronous serial interface (/STB,
+
+SCK, SIO).
+
+2.2 Since a DC-DC/AC converter is used, only +5Vdc power source is required to operate the module.
+
+2.3 High quality of display and luminance.
+
+2.4 Compact and light-weight unit by using new VFD technology and flat packed one-chip controller.
+
+2.5 Luminance adjustment available by software (4 levels).
+
+2.6 8 user definable fonts available (CG-RAM font).
+
+2.7 ASCII and Japanese characters (CG-ROM font).
+
+3. GENERAL DESCRIPTIONS
+
+3.1 This specification becomes effective after being approved by the purchaser.
+
+3.2 When any conflict is found in the specification, appropriate action shall be taken upon agreement of
+
+both parties.
+
+3.3 The expected necessary service parts should be arranged by the customer before the completion of
+
+production.
+
+4. PRODUCT SPECIFICATIONS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+4.1 Type Table_1
+Type 20T202DA2JA
+Digit Format 5x7 Dot Matrix with Cursor
+4.2 Outer Dimensions, Weight (See Fig-5 on Page 6/17 for details) Table 2
+Parameter Specification Unit
+Width 116.0 +/-1.0 mm
+Outer
+; Height 37.0 +/-1.0 mm
+Dimensions ;
+Thickness 18.7 Max mm
+Weight Typical 50 g
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+an?
+
+ 
+
+ 
+
+20T202DA2JA (Rev 2.0) Page 3/17
+
+4.3 Specifications of the Display Panel Table 3
+Parameter Symbol Specification Unit
+Display Size WxH 70.8 x 11.5 mm
+Number of Digit - 20 Digits x 2 Lines -
+Character Size (excluding cursor) WxH 2.4 x 4.7 mm
+Character Pitch - 3.6(H) / 6.1(V) mm
+Dot Size WxH 0.4 x 0.5 mm
+Display Color - Blue-Green (peak 505 nm) -
+
+4.4 Environment Conditions Table 4
+Parameter Symbol Min. Max. Unit
+Operating Temperature Topr -20 +70 °C
+Storage Temperature Tstg -40 +85 °C
+Humidity (Operating) Hopr 0 85 %
+Humidity (Non-operating) Hstg 0 90 %
+Vibration (10 ~ 55 Hz) - - 4 G
+Shock - - 40 G
+
+4.5 Absolute Maximum Ratings Table_5
+Parameter Symbol Min. Max. Unit
+Supply Voltage Vcc -0.5 6.0 Vpc
+Input Signal Voltage VIS -0.5 Vec+0.5 VDC
+
+4.6 Recommend Operating Conditions Table_6
+Parameter Symbol Min. Typ. Max. Unit
+Supply Voltage Vcc 4.5 5.0 5.5 VDC
+Signal (Logic) Input Voltage VIS 0 - Vcc Vbc
+Operating Temperature TOPR -20 +25 +70 °C
+
+4.7 DC Characteristics (Ta=+25 °C, Vcc=+5.0 VDc) Table 7
+Parameter Symbol Min. Typ. Max. Unit
+Supply Current *) Icc - 150 220 mA
+Logic Input Voltage "H" Level VIH 0.8xVCC - - VDC
+"L" Level VIL - - 0.2xVCc VDC
+"H" level Input current VIN=VCC IIH 20 - 500 uA
+Luminance L 100 200 - tL
+
+(340) (680) (cd/m’)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+*) Icc shows the current when all dots are turned on. The surge current can be approx. 3 times the
+
+specified supply current at power on. However, the exact peak surge current amplitude and
+duration are dependent on the characteristics of the host power supply.
+
+ 
+
+ 
+en?
+
+20T202DA2JA (Rev 2.0)
+
+Page 4/17
+
+ 
+
+4.8 Timing Chart and AC Characteristics
+
+4.8.1 RESET Timing
+
+ 
+
+ 
+
+[ Power-On Reset ]
+tRVCC
+
+   
+
+ 
+
+ 
+
+—
+torr Max 1ms
+Min 100ms
+Vec *
+tRES
+Min 100us
+
+ 
+
+ 
+
+STB
+
+ 
+
+ 
+
+ 
+
+Fig-1. Power-on Reset and RESET signal Timing
+
+4.8.2 Serial Input (Write) Timing
+
+ 
+
+ 
+
+STB
+
+ 
+
+tHSTBK tcykK
+Min 500ns
+
+ 
+
+tWLK tWHK
+
+a
+
+‘Min 200ns | Min 200ns
+
+ 
+
+ 
+
+ 
+
+SCK \ ff \ f-
+
+tos toH
+Min 100ns ‘Min 100ns
+
+ 
+
+ 
+
+SIO
+
+ 
+
+ 
+
+    
+
+    
+
+toKsTB
+Min 500ns
+
+  
+
+Min 500ns
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Fig-2. Data write-in Timing Diagram
+
+4.8.3 Serial output (Read) Timing
+
+ 
+
+ 
+
+ 
+
+ 
+
+< tHSTBK « tcvk _
+"Min 100ns Min 500ns
+
+tWek ple tWHK ~
+
+Min 200ns | Min 200ns
+
+ 
+
+topp
+Max 150ns
+
+toDH _
+Min 5ns
+
+ 
+
+ 
+
+ 
+
+SCK \ J NS |
+
+ 
+
+SIO
+
+ 
+
+K
+
+ 
+
+ 
+
+    
+
+    
+
+{DKSTB
+Min 500ns
+
+  
+
+Min 500ns
+
+ 
+
+ 
+
+ 
+
+ 
+
+Fig-3. Data read-out Timing Diagram
+
+ 
+
+ 
+ 
+
+en?
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+20T202DA2JA (Rev 2.0) Page 5/17
+4.9 Signal Interfacing
+‘Connector(Male) : 104426-3 (by AMP) or equivalent
+See the Table_8 for description of each pin
+Table 8
+
+No. Signal Signal Description
+
+1 GND GND: Ground Terminal.
+
+2 Vcc Vcc : Power Supply Terminal. (+5Vdc is required.)
+
+3 SlO SIO : Input/Output Terminal for Display or Control Codes.
+
+4 /STB /STB: Strobe Input Terminal.
+
+5 SCK SCK: Shift Clock Input Terminal of Shift Register.
+
+ 
+
+ 
+
+/StB =-
+
+#5
+Stk
+3
+sid 2
+
+(+5Vc)
+Vee #2
+
+#1
+GND
+
+ 
+
+4.10 System Block Diagram
+
+72 Lines
+STB
+SCK
+
+20 Lines
+ISO
+
+Controller
+
+DC-DC/AC
+Converter
+
+Fig-4. System Block Diagram of this VFD Module
+
+VFD
+2071202
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+a?
+
+20T202DA2JA (Rev 2.0)
+
+Page 6/17
+
+ 
+
+ 
+
+ 
+
+4.11 Outer Dimensions
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(30.2)
+
+ 
+
+ 
+
+(
+| 6.0-7-1.0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+« 116.0+/-10
+| 40105, 1g 108 Ow.o3 4-03.5+1.0.3
+| |
+r |
+37.0+-05 bP EDD eee eeneessecccscen= jrromocrscensssssss a '
+29.0+/.0.3 18.5)
+4 --—-—--DISPLAY-AREA- (70:8"445)--—-—-+-—-— 4
+hy
+im
+, ayn oe ene n ee ennesenen lewekeneennencneen —h— 12.75)
+za
+! \
+hones | 7 (59.0) ~ (57.0)
+—— V.C.L. of Display Area H.C.L. of PCB, Display Area, and Connector Holes
+11.5+41.0 . 95.0 08 (9.5)
+1 t
+8.0£1.0
+| [et | 18.7, Max
+2.5+ 1.0 wo ™ if | Unit : mm
+4.04/05 ig eee eee eo eee ~
+(74.6) >» \Component Area
+
+6.8 Max |NOTE: Dimensions in ( ) are |
+
+ 
+
+V.C.L.: Vertical Center Line
+
+  
+
+ 
+
+ 
+
+Fig-5. Outer Dimensions
+
+4.12 Connector Cable Location
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+A
+13.42
+4.0 @ ——Ih_ EEE
+: “4
+| oy ae
+(9 2s4x4 ae es
+1 {1 | 2.54 GH AER
+|S
+(11.5) I a So
+eo cu:
+; Fig-6. 5-pin Cable & Through hole Dimensions
+4.13 Pattern Details
+* 70.80 ~
+360 |
+240, 11.29 0.40 0.10 |
+re’ OOOOO  §=OOOOO ooo0o00 OOOO DOOOO=| 0.50
+| OOOOO O0O0O0 OOOO OOOWL OOOOO
+| OOOOO OOO0OO OOOUOO OO0OO00 OOOO0
+5400000OO OOOUOO OUODID eeeeeeeeoooooes (OOD OOUOO_+, 5,
+gio, GUDOU UJOOOOO OOOO OOOUU OOOOO" tr”
+HOOOO OQO0O0OO0 OOOO OOOO OOOO
+OOOOO OOOO OOOO OOOO OOOOO
+~~ Cf | 1770.40
+11.50 | 0.70 0.30
+4 - OOOOO QOOOO0 OOOOO ~ OOOO OOOOO
+| OOOOO OO00O0 OO0O00 OOOO OOOO0
+| OOOOO oOoooo0 OOOOO OOOOO OOOOO
+47 00000 OOOOO (IOI eeeeeeooooooeoe (KO OOOOO
+OOOOO OOOOO OOOO OOOO OOOOO
+OOOOO QUOOO0 OOOO OOOOO OOOO
+Sy OOOOO OOO0OO OOOO00 OOOO0 OOOO00O
+Moc I [ (Unit:mm) [ [ ]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Fig-7. Pattern Details
+
+ 
+
+ 
+ 
+
+en”,
+
+20T202DA2JA (Rev 2.0) Page 7 /17
+
+ 
+
+5. FUNCTION DESCRIPTIONS
+5.1 Registers in VFD Controller
+
+The VFD controller has two 8-bit registers, an instruction register (IR) and a data register (DR).
+
+IR stores instruction codes, such as display clear and cursor shift, and address information for DD-RAM
+and CG-RAM. The IR can only be written from the host MPU. DR temporarily stores data to be written
+into DD-RAM or CG-RAM and temporarily stores data to be read from DD-RAM or CG-RAM. Data written
+into the DR from the MPU is automatically written into DD-RAM or CG-RAM by an internal operation.
+The DR is also used for data storage when reading data foom DD-RAM or CG-RAM. When address
+information is written into the IR, data is read and then stored into the DR from DD-RAM or CG-RAM by
+internal operation. Data transfer between MPU is then completed when the MPU reads the DR.
+
+After the read, data in DD-RAM or CG-RAM at the next address is sent to the DR for the next read from
+the MPU. By the register selector (RS) signal, these two registers can be selected (See Table 9).
+
+Table_9. Register Selection
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS R/W
+
+0 0 IR write as an internal operation (display clear, etc.)
+
+0 1 Read busy flag (DB7) and address counter (DBO to DB6)
+
+1 0 DR write as an internal operation (DR to DDRAM or CGRAM)
+
+1 1 DR read as an internal operation (DDRAM or CGRAM to DR)
+5.1.1 Address Counter (ACC)
+
+5.1.2
+
+The address counter (ACC) assigns addresses to both DD-RAM and CG-RAM. When an address
+of an instruction is written into the IR, the address information is sent from the IR to the ACC.
+Selection of either DD-RAM or CG-RAM is also determined concurrently by the instruction.
+
+After writing into (reading from) DD-RAM or CG-RAM, the ACC is automatically incremented by 1
+(decremented by 1). The ACC contents are then output to DBO to DB6 when RS = O and
+
+R/W = 1 (See table_9).
+
+Display Data RAM (DD-RAM)
+
+Display data RAM (DD-RAM) stores display data represented in 8-bit character codes.
+
+The area in DD-RAM that is not used for display can be used as general data RAM.
+
+See Table_10 for the relationships between DD-RAM addresses and positions on the VFD.
+
+Table 10. Relation between Digit Position and DD-RAM data
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Left End | 2nd Column | 3rd Column | _............. 19th Column! Right End
+ist Row | 00 Hex 01 Hex O02 Hex | eee 12 Hex 13 Hex
+2nd Row | 40 Hex 41 Hex 42 Hex | weeeeee 52 Hex 53 Hex
+
+5.1.3 Character Generator ROM (CG-ROM)
+
+The CG-ROM generates character patterns of 5x7 dots from 8-bit character codes (Table_11).
+It can generate 240 kinds of 5x7 dot character patterns. The character fonts are shown on the
+following page. The character codes OOH to OFH are allocated to the CG-RAM.
+
+5.1.4 Character Generator RAM (CG-RAM) 1,2];,3),4)5
+In the character generator RAM (CG-RAM), the user can rewrite 6|7 10
+character patterns by program. For 5x7 dots and cursor, eight
+patterns can be written. Write into DD-RAM the character codes 11 | 12 | 13 | 14 | 15
+at the addresses shown as the left column of Table_11 to show 161171181191 20
+the character patterns stored in CG-RAM. See Table_12 for the 211221 231 241 25
+relationship between CG-RAM addresses and data and display
+patterns and refer to Fig-8 for dot assignment of VFD. Areas 26 | 27 | 28 | 29 | 30
+that are not used for display can be used as general data RAM. 311321331 34135
+
+Fig-8. Dot Assignment 36
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+& /17
+
+2.0)
+
+>
+
+Y
+<
+S
+=
+a
+_
+by
+S
+N
+
+ 
+
+ 
+
+ 
+
+3
+
+d CG-RAM codes
+
+Table (CG-ROM) an
+
+~
+=
+°
+
+F
+
+Table-11. Characters
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+~~~ —| o | RE | a EB ES EE SE
+~~ ~ ©} a | BRR GRRL GE | Fs EN | RS ee ed
+~~ co ~| 0 | SOB HGR GR Ha ES PT ESE es
+~~ oc o| 0 | (BA AAR RF OR Se ee
+~o-~ ~| 0 | HE BE Be Te He Ee Gs 2 Fe a Ess
+~o- of ¢] (0) | RE A Ee Ea HS Re SA | es
+-cooc-| >| BE TF Be) Ge i ty Se ee EE Td ee
+~ oo of @ | BRE RE ARE EL SPE RD | aE | Fe | ee
+o~ ~ ~| § | ABE SU BG GB Se Ee Re
+o~ ~ of © | RRR) AGL) ER) EA | TRE EN es
+o- oc -| © | Gt) HS) HE Bi Ee El Es Ee Re Ge Bd Go ae Ba ee
+o- co ol ~ | GR) GE Gi Ch BE) Ge 6 a
+oo ~ ~| @ | Ei) A RS Re BR) | Be | se
+oo of w | (ii) AR RE BRR RR
+coo ~| ~ | Ee) in| i i i ff Ee ae ee ee ee ee
+mm om oiler | ni on] +), wo» | ©] KR | © | © qim/);o/;}aj;swi|u.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+a?
+
+20T202DA2JA (Rev 2.0)
+
+Page 9/17
+
+ 
+
+ 
+
+Table-12. Relationship between CG-RAM Addresses, Character Codes(DD-RAM) and 5x7 (with Cursor)
+Dot Character Patterns (CG-RAM data)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Character Codes Character Patterns
+CG-RAM Address
+(DD-RAM data) (CG-RAM data)
+D|DID!D|D|D/DjiD DiID|D}DiDiD;D!OD
+BiIB|BiB;}B;|B/|BiB A5|A4|A3}A2/A1}A0 BiIB|B;};/BiBiBs;BI{B
+7 514}),3;,2]1);0 7/6/5)/4;,3;21110
+0/010 x|x{|x|1 2:13 )4/;5
+0/;0;1 xixix}|617/18+;9 110
+0/110 x|x]x]|11)12113) 14) 15
+olalal [xix] x}416/17/ 48119] 20) > Character
+0;0/0/0;/x/0/0]0 0/010 Pattern(1)
+1:0/0 x|x]x | 21] 22) 23 | 24) 25
+1;0/1 x|x]x | 26] 27/28) 29; 30
+1:1/]0 x|x]x | 31 | 32 | 33 | 34) 35
+1/1/4]| |x|x|x| 36 x > Cursor
+position
+0;0;0 x{x{]x] 1
+0;0/;1 xixix] 6 10
+0/;1/0 xixix{|11)12)13|14)15
+0141/4 x 1x} x /16/17118] 19] 20] S Character
+0;01;0;0|x ;0/0j; 1 0;0;1 Pattern(2)
+1,;0;0 x}|x {|x| 21/22 | 23 | 24 | 25
+1/0/41 x|x ix | 26] 271] 28 | 29 | 30
+1;1;0 x|x ix | 31) 32] 33 | 34) 35
+aia}a] [x}x}]xl36] x | x x |» Cursor
+position
+0/;0;0 xi|x]x}1]2]3
+0,;0/1 x|x{}|x}] 6; 7) 8 10
+0;0;0;0;x;0;:1]0 01';1;0/;0;110 x|x}]x {11/121 13) 14) 15
+| 0;1/1 xi|xix {16/17 | 18 19}
+O;o;o;o|lx]}/1}1/ 1 4}4}4}4)0]41 fx xx [26 [27 | 28 | 29 | 30
+1 0 x|x ix | 31/32) 33 | 34 | 35
+1:1/ 1 x|xix}]361xixixix
+Notes:1. Character code bits 0 to 2 correspond to CG-RAM address bits 3 to 5 (3 bits : 8 types).
+
+5. 1 for CG-RAM data corresponds to display selection and 0 to non-selection.
+
+CG-RAM address bits 0 to 2 designate the character pattern line position. The 8th line is the
+
+cursor position and its display is formed by a logical OR with the cursor. Maintain the 8th line
+data, corresponding to the cursor display position, at 0 as the cursor display.
+If bit 4 of the 8th line data is 1, 1 bit will light up the cursor regardless of the cursor presence.
+3. Character pattern row positions correspond to CG-RAM data bits 0 to 4 (bit 4 being at the left).
+4. As shown Table-12, CG-RAM character patterns are selected when character code bits 4 to 7
+
+are all 0. However, since character code bit 3 has no effect, the R display example above can
+be selected by either character code OOH or O8H.
+
+"x" Indicates no effect (Don't care)
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+an 20T202DA2JA (Rev 2.0) Page 10/17
+
+ 
+
+ 
+
+5.2 Data transfer
+When data written, data can be input when strobe goes "0". 1st byte is Start byte, register to
+select IR or DR by RS (bit6) bit and data write or read by R/W (bit5=0) in this byte.
+And next byte is instruction byte. (See Fig-9)
+When data is read, to read the Busy flag + Address counter (AC6 to ACO) or to read the data
+which was written in DD-RAM or CG-RAM is chosen by the start byte to input first.
+Data is output at the falling edge of the shift clock (See Fig-10 and Fig-11).
+
+ 
+
+/ste. \
+
+sx 8 LfLFLILF LF FUE UE Faas
+mqmomqmomqn eqn oq \ RW ( Rs } "0" Kosi DB6 x DB5 X DB4 X DB3 X DB2 X DBI Y Deo!
+
+Synchronous bits
+
+ 
+
+ 
+
+   
+
+ 
+
+-
+
+ 
+
+Start byte Instruction/Data
+
+itt. a,
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+A
+
+ 
+
+ 
+
+Fig-9. Serial Data Transfer ( Data Write)
+
+ 
+
+ 
+
+_____ Synchronous bits
+
+_|
+<< |
+
+ 
+
+ 
+
+Start byte Address Read
+
+Sa» <
+wr; r= i
+
+A
+
+”
+=
+oS
+<
+=
+=
+=
+=
+=
+A
+wn
+Ss
+lo
+em
+Bs)
+aD
+a
+an
+x
+a
+ee
+&
+a
+Be
+y Oo
+
+ 
+
+ 
+
+ 
+
+Fig-10. Serial Data Transfer ( Address Read )
+
+ 
+
+/sta. \ [
+
+*{twal
+fin tus|
+sx LELFLFLFUELiLfLE UUUUUUUU
+
+SiO WL mgm onqe omg ogy View ps \ 0" KZXoer\ Be X oes \ B4 KBs XDB2 Bt X DB0 77
+
+Synchronous bits
+_ Data Read
+— wi
+
+Fig-11. Serial Data Transfer ( Data Read )
+
+ 
+
+_|
+wd
+
+ 
+
+ 
+
+ 
+
+Start_byte >
+
+ 
+
+ 
+
+ 
+
+*Note) twait: Wait time
+
+ 
+
+ 
+
+ 
+an 20T202DA2JA (Rev 2.0) Page 11/17
+
+ 
+
+ 
+
+5.3 Reset Function
+
+5.3.1 Power-on reset
+An internal reset circuit automatically initializes the module when the power is turned on.
+The following instructions are executed during the initialization.
+1) Display clear
+Fill the DD-RAM with 20H (Space Code)
+2) Set the address counter to OOH
+Set the address counter (ACC) to point DD-RAM.
+3) Display on/off control:
+
+D=0 ; Display off
+C=0 ; Cursor off
+B=0 ; Blinking off
+4) Entry mode set:
+/D = 1 ; Increment by 1
+S=0 ; No shift
+5) Function Set
+N = 1 ; 2-line display
+BRO = BR1 =0 ; Brightness = 100%
+
+6.INSTRUCTIONS
+
+6.1 Outline
+
+Only the instruction register (IR) and the data register (DR) of the VFD controller can be controlled by
+the user's MPU. Before starting the internal operation of the controller, control information is temporarily
+stored into these registers to allow interfacing with various MPUs, which operate at different speeds, or
+various peripheral control devices. The internal operation of the controller is determined by signals sent
+from the MPU. These signals, which include register selection signal (RS), read/write signal (R/W), and
+the data bus (DBO to DB7), make up the controller instructions (See Table_14).
+
+There are four categories of instructions that:
+
+* Designate controller functions, such as display format, data length, etc.
+* Set internal RAM addresses
+
+* Perform data transfer with internal RAM
+
+* Perform miscellaneous functions
+
+Normally, instructions that perform data transfer with internal RAM are used the most.
+
+However, auto-increment by 1 (or auto-decrement by 1) of internal RAM addresses after each data
+write can lighten the program load of the MPU. Since the display shift instruction can perform
+concurrently with display data write, the user can minimize system development time with maximum
+programming efficiency.
+
+ 
+
+ 
+
+ 
+am 20T202DA2JA (Rev 2.0) Page 12/17
+
+ 
+
+ 
+
+Table-14. Instruction Set
+
+ 
+
+Instruction CODE Description
+
+RS_|R/W|DB7 | DB6 | DB5 | DB4 | DB3 | DB2 | DB1 | DBO
+
+ 
+
+ 
+
+Clears all display and sets
+Display Clear 0 0 0 0 0 0 0 0 0 1 j|DD-RAM address 0 in address
+counter.
+
+Sets DDRAM address 0 in ACC.
+Also returns the display being
+
+ 
+
+ 
+
+Cursor Home 0 0 0 0 0 0 0 0 { * shifted to the original position. DD-
+RAM contents remain unchanged.
+Sets the cursor direction and
+Entry Mode Set olololojlojol|ot!41 wo] gs (specifies display shift.
+
+These operations are performed
+
+during writing/reading data.
+
+. Sets all display ON/OFF(D), cursor
+
+cehay ONIOFF 0}|o}0j;]0]0]0 141} 0}|c | B IONOFF(C), cursor blink of
+character position(B)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cursor or Shifts display or cursor, keeping
+Display Shift 0 0 0 0 0 1 {SiC RIL] x * IDD-RAM contents.
+Sets data length(IF), number of
+Function Set 0 0 0 0 1 IF N x |BR1{ BRO /display lines(N), Set brightness
+level(BR1,BRO)
+SonM Address 1 o fo} o | 1 ACG Sets the CG-RAM address.
+etting
+DDRAM Address | 9 | 9 | 4 ADD Sets the DD-RAM address.
+Setting
+Busy Flag & Read busy flag(BF) and address
+Address Reading 0 { BF ACC counter (ACC).
+Data Writing to CG wa: Writes data into CG-RAM or
+or DDRAM 1]; 2 Data writing DDRAM.
+Data Reading from , Reads data from CG-RAM or
+CG or DDRAM 1 Data reading DDRAM.
+I/D = 1 : Increment [ Abbreviation ]
+I/D = 0 : Decrement
+DD-RAM : Display Data RAM
+S = 1:: Display shift enabled
+S = 0: Cursor shift enabled CG-RAM : Character Generator
+, , RAM
+S/C = 1: Display shift
+SiC = 0 : Cursor move ACG : CG-RAM Address
+R/L = 1 : Shift to the right
+R/L = 0 : Shift to the left ADD : DD-RAM Address
+IF =1.°: 8bits ACC : Address Counter
+* NOTE IF = 0: 4bits
+N = 1: 2 Lines display
+N =0: 1 Line display
+BR1, BRO = 00 : 100%
+01: 75%
+10 : 50%
+11: 25%
+BF = 1: Busy (Internally operating)
+BF = 0: Not busy (Instruction acceptable)
+
+ 
+
+ 
+
+ 
+
+ 
+
+x : Don't Care
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+am 20T202DA2JA (Rev 2.0) Page 13/17
+
+ 
+
+ 
+
+6.2 Instruction Descriptions
+6.2.1 Display Clear
+
+DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+0 o | o | 0 | 0 0 0 4 01H
+RS =0, RW=0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+This instruction
+
+1) Fills all locations in the display data RAM (DD-RAM) with 20H (Blank-character).
+2) Clears the contents of the address counter (ACC) to OOH.
+
+3) Sets the display for zero character shift (returns original position).
+
+4) Sets the address counter (ACC) to point to the DD-RAM.
+5
+6
+
+ee a eee ee ee
+
+) Sets the address counter (ACC) to increment on the each access of DD-RAM or CG-RAM.
+
+6.2.2 Cursor Home
+DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+| o | o | o { o | o | o | 4 | x | o2H to 03H
+RS =0, RW=0 x : Don't care
+
+ 
+
+ 
+
+This instruction
+
+1) Clears the contents of the address counter (ACC) to OOH.
+
+2) Sets the address counter (ACC) to point to the DD-RAM.
+
+3) Sets the display for zero character shift (returns original position).
+
+4) If the cursor is displayed, moves the left most character in the top line (upper line).
+
+ee a ee
+
+6.2.3 Entry Mode Set
+DB7 DB6 DB5 DB4 DB3 DB2_ ODB‘1_ DBO
+| 0 | 0 | 0 | 0 | 0 | 1 | vo | S | 04H to 07H
+RS =0, RW=0
+
+ 
+
+ 
+
+The I/D bit selects the way in which the contents of the address counter (ACC) are modified after
+every access to DD-RAM or CG-RAM.
+
+I/D = 1 : The address counter (ACC) is increased.
+
+I/D = 0 : The address counter (ACC) is decreased.
+
+The S bit enables display shift, instead of cursor shift, after each write or read to the DD-RAM.
+S = 1: Display shift enabled.
+S = 0: Cursor shift enabled.
+
+The direction in which the display is shifted is opposite in sense to that of the cursor.
+
+For example, if S=O and |/D=1, the cursor would shift one character to the right after a MPU writes
+to DD-RAM. However if S=1 and I/D=1, the display would shift one character to the left and the
+cursor would maintain its position on the panel.
+
+The cursor will already be shifted in the direction selected by I/D during reads of the DD-RAM,
+irrespective of the value of S. Similarly reading and writing the CG-RAM always shift the cursor.
+Also both lines are shifted simultaneously.
+
+) If the cursor is displayed, moves the cursor to the left most character in the top line (upper line).
+
+ 
+
+ 
+am,
+
+20T202DA2JA (Rev 2.0)
+
+ 
+
+Table_15. Cursor move and Display shift by the "Entry Mode Set"
+
+ 
+
+ 
+
+ 
+
+ 
+
+Page 14/17
+
+ 
+
+ 
+
+/D |S After writing DD-RAM data After reading DD-RAM data
+
+O | O |The cursor moves one character to the left. {The cursor moves one character to the left.
+
+1 | 0 |The cursor moves one character to the right. |The cursor moves one character to the right.
+The display shifts one character to the right
+
+0 | 1 without cursors move. The cursor moves one character to the left.
+The display shifts one character to the left ;
+
+1 1 without cursor's move. The cursor moves one character to the right.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+6.2.4 Display ON/OFF
+
+DB3 DB2 DB1 DBO
+1 | D | Cc | B | 08H to OFH
+
+DB6 DBS DB4
+fo | o | o | o
+RS =0, RW =0
+
+ 
+
+ 
+
+ 
+
+This instruction controls various features of the display.
+
+D = 1: Display on, D = 0: Display off.
+C = 1: Cursor on, C = 0: Cursor off.
+B = 1 : Blinking on, B = 0: Blinking off
+
+(Blinking is achieved by alternating between a normal and all! on display of a character.
+The cursor blinks with a frequency of about 1.0 Hz and DUTY 50%.)
+
+6.2.5 Cursor/Display Shift
+
+DB2 DB1 DBO
+R/L x x
+
+DB3
+s/c
+
+DB7 DB6 DB5 DB4
+0 0 0 1
+RS =0, RIW=0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+10H to 1FH ( x : Don't care )
+
+ 
+
+This instruction shifts the display and/or moves the cursor, one character to the left or right,
+without reading or writing DD-RAM.
+
+The S/C bit selects movement of the cursor or movement of both the cursor and the display.
+S/C = 1: Shift both cursor and display
+S/C = 0: Shift cursor only
+
+The R/L bit selects left ward or right ward movement of the display and/or cursor.
+
+R/L = 1: Shift one character right
+R/L = 0 : Shift one character left
+
+Table_16. Cursor/Display shift
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+S/C | R/L Cursor shift Display shift
+
+0 0 |Move one character to the left No shift
+
+0 1 |Move one character to the right No shift
+
+1 0 |Shift one character to the left with display [Shift one character to the left
+1 1 {Shift one character to the right with display |Shift one character to the right
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+am 20T202DA2JA (Rev 2.0) Page 15/17
+
+ 
+
+ 
+
+6.2.6 Function Set
+DB7 DB6 DBS DB4 DB3 DB2 DB1 DBO
+| o | o | 1 [| 1 [| w | x [Rt] BRO | 20H to 3FH
+RS = 0, RW =0 x : Don't care
+
+This instruction sets the number of display line and brightness control.
+This instruction initializes the system, and must be the first instruction executed after power-on.
+
+ 
+
+ 
+
+The N bit selects between 1-line or 2-line display.
+
+N = 1: Select 2 line display (Using anode output A1 to A80)
+
+N = 0: Select 1 line display (Using anode output A1 to A40. A41 to A80 fixed Low level.)
+BR1, BRO flag is control to brightness of VFD to modulate pulse width of Anode output as follows.
+
+BR1 BRO Brightness
+0 0 100 %
+0 1 75 %
+1 0 50 %
+1 1 25 %
+
+6.2.7 Set CG-RAM Address
+
+DB7 DB6 DBS DB4 DB3 DB2 DB1 DBO
+lo | 4 ACG 40H to 7FH
+RS = 0, RW =0
+
+ 
+
+ 
+
+ 
+
+ 
+
+This instruction
+(1) Load a new 6-bit address into the address counter (ACC).
+(2) Sets the address counter (ACC) to address CG-RAM.
+
+Once "Set CG-RAM Address" has been executed, the contents of the address counter (ACC) will be
+automatically modified after every access of CG-RAM, as determined by the “Entry Mode Set” instruction.
+The active width of the address counter (ACC), when it is addressing CG-RAM, is 6 bits, so the counter
+will wrap around to OOH from 3FH if more than 64 bytes of data are written to CG-RAM.
+
+6.2.8 Set DD-RAM Address
+
+DB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+
+| 4 | ADD | 80H to A7H (1-Line)
+RS = 0, RIW=0 COH to E7H (2-Line)
+
+ 
+
+ 
+
+This instruction
+(1) Loads a new 7-bit address into the address counter (ACC).
+(2) Sets the address counter (ACC) to point to the DD-RAM.
+
+Once the "Set DD-RAM Address" instruction has been executed, the contents of the address counter
+(ACC) will be automatically modified after each access of DD-RAM, as selected by the "Entry Mode Set"
+instruction.
+
+Table_17. Valid DD-RAM address Ranges
+
+ 
+
+Number of Character Address Range
+1st line 40 OOH to 27H
+2nd line 40 40H to 67H
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+am 20T202DA2JA (Rev 2.0) Page 16/17
+
+ 
+
+ 
+
+6.2.9 Read Address
+DB7 DB6 DB5 DB4 ODB3 ODB2 ~~ ODB!1 DBO
+| BF=0 | ACC
+RS = 0, R/W = 1
+
+ 
+
+ 
+
+ 
+
+The next instruction will not be accepted until BF is reset to 0. Check the BF status before the next
+write operation. At the same time, the value of the address counter (ACC) in binary AAAAAAA is
+
+read out. This address counter (ACC) is used by both CG-RAM and DD-RAM addresses, and its value
+is determined by the previous instruction. The address contents are the same as for instructions set
+CG-RAM address and set DD-RAM address.
+
+6.2.10 Write Data to CG or DD-RAM
+
+DB7 DB6 DB5 DB4 DB3 DB2 ~ ODB1_ DBO
+Data Write 00H to FFH
+
+ 
+
+ 
+
+RS =1, RW =0
+
+This instruction writes 8-bit binary data (DB7 to DBO) into CG-RAM or DD-RAM.
+
+To write into CG-RAM or DD-RAM is determined by the previous specification of the CG-RAM or
+DD-RAM address setting. After a write, the address is automatically incremented or decremented by 1
+according to the entry mode. The entry mode also determines the display shift.
+
+When data is written to the CG-RAM, the DB7, DB6 and DB5 bits are not displayed as characters.
+
+6.2.11 Read Data from CG or DD-RAM
+
+DB7 DB6 DB5 DB4 DB3 ODB2 ~ ODB1_ DBO
+Data Read
+
+ 
+
+ 
+
+RS = 1, R/W = 1
+
+This instruction reads 8-bit binary data (DB7 to DBO) from CG-RAM or DD-RAM.
+
+The previous designation determines whether CG-RAM or DD-RAM is to be read.
+
+Before entering this read instruction, either CG-RAM or DD-RAM address set instruction must be
+executed. If not executed, the first read data will be invalid. When serially executing read instructions,
+the next address data is normally read from the second read. The address set instructions need not
+be executed just before this read instruction when shifting the cursor by the cursor shift instruction
+(when reading out DD-RAM).
+
+The operation of the cursor shift instruction is the same as the set DD-RAM address instruction.
+
+After a read, the entry mode automatically increases or decreases the address by 1.
+
+Note : The address counter (ACC) is automatically increased or decreased by 1 after the write instructions
+to CG-RAM or DD-RAM are executed. The RAM data selected by the ACC cannot be read out at this
+time even if read instructions are executed. Therefore, to correctly read data, execute either the address
+set instruction or cursor shift instruction (only with DD-RAM), then just before reading the desired data,
+execute the read instruction from the second time the read instruction is sent.
+
+ 
+
+ 
+ 
+
+am 20T202DA2JA (Rev 2.0) Page 17/17
+
+ 
+
+ 
+
+7.OPERATING RECOMMENDATIONS
+
+7.1 Avoid applying excessive shock or vibration beyond the specification for the VFD module.
+
+7.2 Since VFDs are made of glass material, careful handling is required.
+i.e. Direct impact with hard material to the glass surface(especially exhaust tip) may crack
+the glass.
+
+7.3 When mounting the VFD module to your system, leave a slight gap between the VFD glass
+and your front panel.
+The module should be mounted without stress to avoid flexing of the PCB.
+
+7.4 Avoid plugging or unplugging the interface connection with the power on, otherwise it may
+cause the severe damage to input circuitry.
+
+7.5 Exceeding any of maximum ratings may cause the permanent damage.
+
+7.6 Since the VFD modules contain high voltage source, careful handling is required during
+powered on.
+
+7.7 When the power is turned off, the capacitor does not discharge immediately.
+The high voltage applied to the VFD must not contact to the ICs. And the short-circuit of
+mounted components on PCB within 30 seconds after power-off may cause damage to those.
+
+7.8 The power supply must be capable of providing at least 3 times the rated current, because
+the surge current can be more than 3 times the specified current consumption when the
+power is turned on.
+
+7.9 Avoid using the module where excessive noise interference is expected. Noise may affects
+the interface signal and causes improper operation. And it is important to keep the length of
+
+the interface cable less than 50cm.
+
+7.10 Since all VFD modules contain C-MOS ICs, anti-static handling procedures are always required.
+
+ 
+
+ 
