@@ -383,6 +383,29 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDNA204SD01Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDPT6302Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "PT6302",
+        "Princeton PT6302 VFD Controller/Driver (16-digit, 5x7 CGROM/CGRAM)",
+        "Princeton Technology",
+        "PT6302",
+        1, 16,
+        5, 7,
+        80, 12,
+        CAP_SERIAL_INTERFACE | CAP_USER_DEFINED_CHARS | CAP_DIMMING,
+        0,    // blink speeds (N/A)
+        8,    // CGRAM 8 chars
+        8,    // 8 duty levels
+        0,
+        10, 100, 100,
+        300, 600,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createVFDM0216MDCapabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "M0216MD",
