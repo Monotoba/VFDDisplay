@@ -29,8 +29,12 @@ All notable changes to this project will be documented in this file.
  - HAL: HT16514 (VFDHT16514HAL)
    - Add `setBrightnessIndex(uint8_t 0..3)` helper wiring BR1/BR0 via Function Set; keep 2‑line mode. Dimming maps 0:100%, 1:75%, 2:50%, 3:25%.
    - Tests: cover dimming Function Set codes in `tests/device/VFDHT16514HALTests.hpp`.
- - HAL: VK202‑25 (VFDVK20225HAL)
-   - Add FE‑prefixed helpers: `autoLineWrapOn()` (FE 67), `autoLineWrapOff()` (FE 68), and `saveBrightness(uint8_t)` (FE 145 Byte). Contract + device tests registered.
+- HAL: VK202‑25 (VFDVK20225HAL)
+  - Add FE‑prefixed helpers: `autoLineWrapOn()` (FE 67), `autoLineWrapOff()` (FE 68), and `saveBrightness(uint8_t)` (FE 145 Byte). Contract + device tests registered.
+
+- Docs: datasheets
+  - Reorganize OCR outputs into `docs/datasheets/ocr/` and text sidecars into `docs/datasheets/text/`; stage removals of old top-level sidecar files.
+  - Add/refresh OCR and `.txt` for CU40026, CU20025, HT16514, 20T202DA2JA, M202MD15AJ, and M202SD01HA; include VK202‑25 manual OCR and sidecar.
 
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.
