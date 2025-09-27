@@ -1,0 +1,4577 @@
+Ero
+
+= mt
+
+Princeton Technology Corp.
+
+PT6302
+
+VED Driver/Controller IC with Character RAM
+
+ 
+
+DESCRIPTION
+
+PT6302 is a dot matrix VFD Driver/Controller IC
+utilizing CMOS Technology specially designed to
+display characters, numerals, and symbols. PT6302
+provides 35 dot matrix, 2 additional segment drivers
+and 16 grid drivers. 248 types of character data
+(CGROM), 8 types of character data (CGRAM), 16
+display digits x 2 bits symbol data, 16 display digits x 8
+bits register for character data display and 2 general
+output bits for static operation are provided. Pin
+assignments and application circuit are optimized for
+easy PCB layout and cost saving advantages.
+
+APPLICATIONS
+
+e Microcontroller peripheral device
+
+e Audio/Video equipment
+
+BLOCK DIAGRAM
+
+VDD
+VSS
+VEE
+
+RSTB
+
+DIN
+
+CLKB
+CSB
+
+OSCO
+OSCI
+
+FEATURES
+
+CMOS technology
+
+Logic power supply: VDD=3.3V+10% or 5.0V+10%
+
+VFD drive power supply: VEE=-20V to -35V
+
+Built-in oscillation circuit (External RC)
+
+One-byte instruction execution (not including Data
+
+Write to RAM)
+
+Microcontroller interface
+
+Display contents:
+
+- Character generator ROM (CGROM): 5x7 Dots
+(248 Character data types)
+
+- Character generator RAM (CGRAM): 5x7 Dots (8
+Character data types)
+
+- Additional data RAM (ADRAM): 16 Display digits
+x 2 Bits (Symbol data)
+
+- Data control RAM (DCRAM): 16 Display digits x 8
+Bits (Character data display register)
+
+- General output port: 2 bits (Static operation)
+
+Display control function:
+
+- Display digits: 9 to 16 digits
+
+- Display duty (Contrast adjustment): 8 stages
+
+- All display lights: ON/OFF mode
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+CGROM sot
+e—248 words x 35 bits} ] :
+DCRAM
+16 words x 8 bits SEGMENT
+DRIVER
+CGRAM 2
+8 words x 35 bits SG35
+8-BIT
+SHIFT
+REGISTER
+ADRAM AD1
+16 words x 2 bits AD
+ADDRESS DRIVER
+SELECTOR AD2
+COMMAND { {
+DECODER
+WRITE READ
+ADDRESS ADDRESS P1
+COUNTER COUNTER PORT
+DRIVER
+t P2
+|
+CONTROL
+CIRCUIT DIGIT
+CONTROL 0 er!
+GRID
+DRIVER
+DUTY
+CONTROL C GR16
+TIMING | TIMING
+GENERATOR 1 GENERATOR 2
+OSCILLATOR
+
+ 
+
+ 
+
+—
+
+ 
+
+ 
+
+Tel: 886-66296288 + Fax: 886-29174598 + http:/Awww.princeton.com.tw «¢ 2F, 233-1, Baociao Road, Sindian, Taipei 23145, Taiwan
+TOC wm FH FR
+
+Princeton Technology Corp. PT6302
+
+APPLICATION CIRCUIT
+
+-35V
+
++5V 47pF 3.3ka
+
++; SEGMENT
+VSS
+Micro-Controller
+Output Port
+
+VDD
+
+PT6302 SEGMENT
+
+(5 x 7 Dot Matrix)
+
+Oo
+c
+©
+oO
+>
+&
+a
+&
+Q
+Q
+Le
+>
+
+ 
+
+ 
+
+V2.1 2 August 2010
+pt Wie
+
+Ero
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Princeton Technology Corp. PT6302
+ORDER INFORMATION
+Valid Part Number Package Type Top Code
+PT6302LQ-001 64 pins, LQFP PT6302LQ-001
+PT6302LQ-002 64 pins, LQFP PT6302LQ-002
+PT6302LQ-003 64 pins, LQFP PT6302LQ-003
+PT6302LQ-005 64 pins, LQFP PT6302LQ-005
+PT6302LQ-006 64 pins, LQFP PT6302LQ-006
+PT6302LQ-007 64 pins, LQFP PT6302LQ-007
+PIN CONFIGURATION
+PEERS ESSE ESE RE ES
+FREER PERERA BB
+vss [49] [32] GR1
+osci [50] 31] SG35
+osco [57] 130] SG34
+RSTB [52] [29] SG33
+css [53] [28] SG32
+CLKB [54] [27] SG31
+DIN [55] 126] sG30
+VDD [56] 125] SG29
+| PT6302-LQ LF sovs
+p2 [68] [23] SG27
+Ab2 [59] [22] SG26
+Ap1 [60] [21] se25
+soi [61 [20] SG24
+sc2 [62] 19] SG23
+sG3 [63] [18] SsG22
+so4 [64] [17] sG21
+\
+HPNH ES EEE Eee
+PIN DESCRIPTION
+Pin Name /O Description Pin No.
+se oe O Segment driver output pin 6 he 4
+GR1 to GR16 O Grid driver output pin 32 ~ 47
+VEE - Power supply 48
+VSS - Ground pin 49
+OSCI | Oscillator input pin 50
+OSCO O Oscillator output pin 51
+Reset input pin
+RSTB | When this pin is set to "LOW'", all functions are initialized. 82
+Chip select input pin
+CSB When this pin is set to "High" Level, the serial data transfer is 53
+disabled.
+Shift clock input pin
+CLKB | The serial data is shifted at the rising edge of CLKB. 34
+DIN | Serial data input pin 55
+VDD - Positive power supply 56
+P1 to P2 O General purpose output pin 57 ~ 58
+AD2 to AD1 O Segment driver output pin 59 ~ 60
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+V2.1
+
+3
+
+August 2010
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+ 
+
+INPUT & OUTPUT CONFIGURATION
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LOGIC INPUT PINS
+VDD
+VDD 7
+A =
+INPUT o Wb fee
+A —
+VSS ¥ vss
+LOGIC OUTPUT PINS
+VDD
+vss
+DRIVER OUTPUT PINS
+
+VDD
+
+ 
+
+ 
+
+ 
+
+ 
+
+V2.1 4 August 2010
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+ 
+
+FUNCTION DESCRIPTION
+OSCILLATION CIRCUIT
+
+An oscillation circuit may be constructed by connecting external Resistor (R1) and Capacitor (C1) between the oscillator
+pins -- OSCO and OSCI. The RC time constant depends on the value of VDD voltage used. The target oscillation
+frequency is 2MHz. Please refer to the diagram below.
+
+OSCl OSCO
+
+ 
+
+R1
+
+ 
+
+ 
+
+TT
+
+RESET FUNCTION
+
+The Reset Function is enabled when the RSTB Pin is set to "Low" Level. All functions are initialized. The initial status of
+the various functions is given below:
+
+Address of each RAM: Address "00"H
+
+Data of each RAM: All contents are undefined.
+
+General Output Ports: All General Output Ports are set to "LOW".
+
+Display Digit: 16 Digits
+
+Contrast Adjustment: 8/16
+
+All Display Lights: OFF Mode
+
+Segment Output: All Segment Outputs are set to "LOW".
+
+AD Output: All AD Outputs are set to "LOW".
+
+ONOARWN>
+
+The RSTB Pin may be connected to either the microcontroller or an external Resistor and capacitor. For an external RC
+connection, please refer to the diagram below.
+
+RSTB |
+
+ 
+
+VDD
+R2=2.2K |
+
+ 
+
+ 
+
+C2=1pF ——
+
+ 
+
+ 
+
+V2.1 5 August 2010
+CTO & i A iz
+
+Princeton Technology Corp. PT6302
+
+After reset, the PT6302 must be set according to the Initial Setting Flowchart shown below.
+
+       
+
+APPLY VDD
+
+APPLY VEE
+
+---- 1 STATUS OF ALL
+| Samson | ouRSey ese
+| UGHTSOFF | SIGNAL INPUT
+
+GENERAL OUTPUT
+PORT SETTING
+
+Y
+
+NO, OF DIGIT SETTING
+
+Y
+
+DISPLAY DUTY SETTING
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+®&) SELECT ARAM TO BE USED
+
+: ’ ’
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DCRAM CGRAM ADRAM
+DATA WRITE MODE DATA WRITE MODE DATA WRITE MODE
+(WITH ADDRESS (WITH ADDRESS (WITH ADDRESS
+SETTING) SETTING) SETTING)
+I
+INCREMENTED MATICALLY] ADDRESS IS AUTOMATICALLY | ADDRESS IS AUTOMATICALLY
+| INCREMENTED -————|_ INCREMENTED >
+Y y y
+OCRAM CGRAM CHARACTER ADRAM
+CHARACTER CODE CODE CHARACTER CODE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NO
+
+     
+ 
+
+ 
+
+ 
+
+ 
+
+IS CHARACTER CODE
+
+ 
+
+      
+
+ 
+
+YES ANOTHER RAM
+
+TO BE SET?
+
+ 
+
+RELEASES ALL DISPLAY LIGHTS DISPLAY OPERATION
+OFF MODE MODE
+
+ 
+
+ 
+
+ 
+
+ 
+
+V2.1 6 August 2010
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+ 
+
+RELATIONSHIP BETWEEN SEGMENT DRIVERS SGN AND ADN (ONE
+DIGIT)
+
+The following diagram best describes the relationship between the Segment Drivers -- SGn and ADn.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+CO AD1 <+—| DATAIS WRITTEN BY ADRAM.
+C1 AD2 THIS CORRESPONDS TO THE 2ND BYTE
+Co C1 C2 C3 C4
+SG1 SG2 SG3 SG4 SG5
+C5 C6 C7 C8 C9
+SG6 SG7 SG8 SG9 SG10
+C10 C11 C12 C13 C14
+SG11 S$G12 $613 SG14 SG15
+C15 C16 C17 C18 C19
+SG16 SG17 SG18 SG19 SG20
+C20 C21 C22 C23 C24
+SG21 SG22 SG23 SG24 SG25
+C25 C26 C27 C28 C29
+SG26 SG27 SG28 SG29 SG30
+C30 C31 C32 C33 C34
+SG31 SG32 SG33 SG34 SG35
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ | DATA IS WRIITEN BY THE CGRAM
+
+DATA IS WRITTEN BY THE THIS CORRESPONDS TO THE 6TH
+
+CGRAM. THIS CORRESPONDS
+TO THE 2ND BYTE DATA IS WRITTEN BY THE CGRAM
+THIS CORRESPONDS TO THE 5TH
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DATA IS WRIITEN BY THE CGRAM THIS DATA IS WRITTEN BY THE CGRAM
+CORRESPONDS TO THE 3RD BYTE. THIS CORRESPONDS TO THE 4TH
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DATA TRANSFER
+
+The Display Control Command and the data are written by an 8-bit serial data transfer. Please refer to the Write Timing
+Diagram below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+<——> <— >
+' {DOFF } ' tCSH
+CSB |
+CLKB ‘
+DIN so| et | e2 | 89 | a | 9 | 26 | 87 so| et | e2 | 82 | 84 | 5 | 20 | 7 so| et | 82 | 82 | 84 | 5 | 86 | 7
+, LSB FIRST BYTE MSB ; , LSB SECOND BYTE MSB ; , LSB SECOND BYTE MSB ;
+COMMAND& ADDRESS DATA : : CHARACTER CODE DATA . CHARACTER CODE DATA OF
+
+THE NEXT ADDRESS
+
+Note: When data is written into the RAM (DCRAM, ADRAM, CGRAM) in a continuous manner, the address are automatically incremented. Therefore
+it is not necessary to specify the first byte of the 2nd and later bytes when writing the RAM data.
+
+When the CSB pin is set to "LOW" Level, data transfer operation is enabled. 8 bits of data are sequentially inputted into
+the DIN Pin (LSB first). The shift clock is inputted into CLKB pin and the shift register reads the data at rising edge of the
+shift clock. The internal load signals are automatically generated and the data is written to each register and RAM. Thus,
+it is not necessary to input load signals externally.
+
+When the CSB Pin is set to "HIGH" Level, the data transfer operation is disabled. The data input when the CSB Pin
+changes from "HIGH" to "LOW' is recognized in 8-bit units.
+
+ 
+
+V2.1 7 August 2010
+Ero
+
+pt Wie
+
+Princeton Technology Corp.
+
+PT6302
+
+ 
+
+COMMANDS
+
+The following are the list of commands issued by PT6302. When data is written into the RAM (DCRAM, CGRAM, or
+ADRAM) in a continuous manner, the addresses are automatically incremented internally. It is therefore not necessary
+to specify the first byte.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LSB FIRST BYTE MSB | LSB SECOND BYTE MSB
+Mey | ctehilolide BO | B1 | B2 B3 | B4 | B5 | B6 | B7 BO B1 B2 B3 B4 B5 B6 B7
+1 DCRAM DATA WRITE XO | X1 | X2 X3 1 0 0 0 Co C1 C2 C3 C4 C5 C6 C7
+co C5 | C10 | C15 | C20 | C25 | C30 *
+C1 C6 | C11 | C16 | C21 | C26 | C31 *
+2 CGRAM DATA WRITE XO | X1 | X2 * 0 1 0 0 C2 C7 | C12 | C17 | C22 | C27 | C32 *
+C3 C8 | C13 | C18 | C23 | C28 | C33 *
+C4 C9 | C14 | C19 | C24 | C29 | C34 *
+3 ADRAM DATA WRITE XO | X1 | X2 X3 1 1 0 0 Co C1 * * * * * *
+GENERAL OUTPUT * *
+4 PORT SET P1 | P2 0 0 1 0
+5 DISPLAY DUTY SET DO | D1} D2 * 1 0 1 0
+6 NO. OF DIGITS SET KO | K1 K2 * 0 1 1 0
+7 ALL LIGHTS ON/OFF L H * * 1 1 1 0
+TEST MODE 0 0 0 * 0 0 0 1
+Notes:
+1. The Test Mode is not a user function, but an IC internal function
+2. *=Not relevant
+3. Xn=RAM address bit, n= 0 to 3
+4. Cn=RAM character code bit, n=0 to 34
+5. Pn=General output port status bit, n=1 to 2
+6. Dn=Display duty bit, n=0 to 2
+7. Kn=Number of digits bit, n=0 to 2
+8. H=AIl lights on
+9. L=All lights off
+
+DATA CONTROL RAM (DCRAM) DATA WRITE COMMAND
+
+2ND
+BYTE
+3RD
+BYTE
+4TH
+BYTE
+5TH
+BYTE
+6TH
+BYTE
+
+The DCRAM Data Write Command is used to specify the address of the DCRAM and writes the character code of the
+CGROM and CGRAM. The DCRAM consists of 4 address bits which are used to store the CGRAM & CGROM character
+codes. The character codes specified by the DCRAM is converted to a 5 x 7 dot matrix character pattern via the CGROM
+and CGRAM. The DCRAM can store up to 16 characters. The DCRAM Data Write Command Format is shown below.
+
+(1st)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LSB MSB
+1stByte | BO | B1 | B2 | B3 | B4 | BS | B6 | B7
+xo | X1 | X2 | X3 | 1 0} 0] 0
+LSB MSB
+2nd Byte | Bo | B1 | B2 | B3 | B4 | BS | B6 | B7
+Co | C1 | C2 | C3 | C4 | C5 | C6 | C7
+
+(2nd)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DCRAM Data Write Mode is selected and the
+
+DCRAM Address is specified. (i.e. DCRAM Address =
+
+OH)
+
+CGROM & CGRAM Character Codes are specified.
+
+(They are written into the DCRAM Address 0H)
+
+During a continuous data write operation from one DCRAM Address to the next, it is not necessary to specify the
+DCRAM address since they are automatically incremented; however, the character code must be specified. Please refer
+to the information below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LSB MSB
+2nd Byte Bo | B1 B2 B3 | B4 | B5 | BE | B7 | Character Code of CGRAM & CGROM are specified and
+itten into the DCRAM Add 1H.
+(3rd) colc1!colc3lcalcs!celc written into the DC ress
+V2.1 8 August 2010
+Ero
+
+PT6302
+
+ 
+
+2nd Byte
+(4th)
+
+2nd Byte
+(17th)
+
+2nd Byte
+(18th)
+
+where:
+
+ 
+
+Character Code of CGRAM & CGROM are specified and
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+written into the DCRAM Address 2H.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+saz 6
+aS ak Fl 2
+
+Princeton Technology Corp.
+LSB MSB
+BO | B1 | B2 B3 | B4 | B5 | B6 | B7
+Co |C1 |C2 |C3 |C4 |C5 | C6 | C7
+LSB MSB
+BO | B1 B2 | B3 | B4 | BS | B6 | B7
+CO |} C1] C2 | C3 | C4 | C5 | C6 | C7
+LSB MSB
+BO | B1 B2 | B3 | B4 | BS | B6 | B7
+CO |} C1] C2 | C3 | C4 | C5 | C6 | C7
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Character Code of CGRAM & CGROM are specified and
+written into the DCRAM Address FH.
+
+Character Code of CGRAM & CGROM are specified and
+rewritten into the DCRAM Address 0 H.
+
+1. XO (LSB) to X3 (MSB): DCRAM Address Bits (16 Characters)
+2. CO (LSB) to C7 (MSB): CGROM & CGRAM Character Code Bits (256 Characters)
+
+Please refer to the table below for the GRID position and DCRAM Address setting relationship.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Hex | xO | X1 | X2 | X3 GRID Position
+0 0 0 0 0 GR1
+1 1 0 0 0 GR2
+2 0 1 0 0 GR3
+3 1 1 0 0 GR4
+4 0 0 1 0 GR5
+5 1 0 1 0 GR6
+6 0 1 1 0 GR7
+7 1 1 1 0 GR8
+8 0 0 0 1 GR9
+9 1 0 0 1 GR10
+A 0 1 0 1 GR11
+B 1 1 0 1 GR12
+C 0 0 1 1 GR13
+D 1 0 1 1 GR14
+E 0 1 1 1 GR15
+F 1 1 1 1 GR16
+V2.1 9 August 2010
+Ero
+
+pt Wie
+
+Princeton Technology Corp.
+
+PT6302
+
+ 
+
+CGRAM DATA WRITE COMMAND
+
+The Character Generator RAM (CGRAM) Data Write Command is used to specify the CGRAM address (00H to 07H)
+and write the character pattern data. It consists of 3 address bits which is used to store the 5 x 7 dot matrix character
+patterns. The CGRAM can store up to 8 types of character patterns which may be displayed by specifying the Character
+Code (DCRAM Address). The CGRAM Data Write Command Format is given below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LSB MSB
+1st Byte Bo | B1 | B2 | B38 | B4 | B5 | Be | B7 | CGRAM Data Write Mode is selected and the CGRAM
+(1st) xo | x1 | x2 x 0 1 0 0 Address is specified (i.e. CGRAM Address = 00H).
+
+LSB MSB
+2nd Byte | Bo | B1 | B2 | B3 B4 | B5 | Be | Bz | 1st Column Data is specified and rewritten into the
+(2nd) CGRAM Address OOH.
+
+Co | C5 | C10 | C15 | C20 | C25 | C30] *
+
+LSB MSB
+3rd Byte Bo | B1 B2 B3 B4 B5 B6 | B7 | 2nd Column Data is specified and rewritten into the
+(3rd) c1 | ce | ci1 | cite | c21 | c26 | cat | «= | CORAM Address 00H.
+
+LSB MSB
+4th Byte Bo | B1 B2 B3 B4 B5 B6 | B7 | 3rd Column Data is specified and rewritten into the
+(4th) c2 | c7 | c12 | C17 | C22 | c27 | c32 | * | CGRAM Address 00H.
+
+LSB MSB
+5th Byte BO | B1 |} B2 | B3 | B4 | BS | B6 | BZ | 4th Column Data is specified and rewritten into the
+(5th) C3 | C8 | C13 | C18 | C23 | C28 | C33) * | CGRAM Address OOH.
+
+LSB MSB
+6th Byte | BO | B1 | B2 B3 B4 | Bs B6 | B7 | 5th Column Data is specified and rewritten into the
+(6th) C4 | c9 | C14 | C19 | C24 | C29 | C34 | * | CGRAM Address 00H.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+During a continuous data write operation from one CGRAM Address to the next, it is not necessary to specify the
+CGRAM address since they are automatically incremented; however, the character pattern data must be specified. The
+2nd to the 6th character pattern data byte are considered as one data item, therefore 300ns is sufficient value for
+
+parameter tDOFF between bytes. Please refer to the information below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LSB MSB
+2nd Byte | BO | B1 B2 B3 B4 BS B6 | BZ | 1st Column Data is specified and rewritten into the
+(7th) Co | C5 | C10 | C15 | C20 | C25 | C30 | * | CGRAM Address 01H.
+LSB MSB
+6th Byte BO | B1 B2 B3 B4 BS B6 | B7 | 5th Column Data is specified and rewritten into the
+(11th) C4 | C9 | C14 | C19 | C24 | C29 | C34 | * | CGRAM Address 01H.
+where:
+
+1. XO (LSB) to X2 (MSB): CGRAM Address Bits (8 Characters)
+2. CO (LSB) to C34 (MSB): Character Pattern Data Bits (35 outputs/digit)
+
+ 
+
+V2.1
+
+10
+
+August 2010
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+ 
+
+Please refer below for the CGROM Address and CGRAM Address Setting relationship.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HEX X0 X1 X2 | CGROM Address
+00 0 0 0 RAMO00(00000000B)
+01 1 0 0 RAM01(00000001B)
+02 0 1 0 RAM02(00000010B)
+03 1 1 0 RAM03(00000011B)
+04 0 0 1 RAM04(00000100B)
+05 1 0 1 RAM05(00000101B)
+06 0 1 1 RAM06(00000110B)
+07 1 1 1 RAMO07(00000111B)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The CGROM and CGRAM output area placement is given in the table below.
+
+ 
+
+CO C1 C2 C3 C4
+
+ 
+
+C5 C6 C7 C8 C9
+
+ 
+
+C10 C11 C12 C13 C14
+
+ 
+
+C15 C16 C17 C18 C19
+
+ 
+
+C20 C21 C22 C23 C24
+
+ 
+
+C25 C26 C27 C28 C29
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+C30 C31 C32 C33 C34
+
+ 
+
+A A A A t
+
+ 
+
+Area corresponds to the 6th Byte (5th Column)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Area corresponds to the 5th Byte (4th Column)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Area corresponds to the 4th Byte (3rd Column)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Area corresponds to the 3rd Byte (2nd Column)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Area corresponds to the 2nd Byte (1st Column)
+
+ 
+
+Note: The Character Generator ROM (CGROM) consists of 8 CGROM Address bits generating 5 x 7 dot matrix character patterns. It can store up to a
+maximum of 248 types of character patterns.
+
+ 
+
+V2.1 11 August 2010
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+ADRAM DATA WRITE COMMAND
+
+The Additional Data RAM (ADRAM) consists of 4 address bits used to store the symbol data. It can store up to 2 types of
+symbol patterns per digit. The symbol data specified by the ADRAM is directly outputted. The terminals to which the
+ADRAM data are outputted may be used as a cursor. The ADRAM command format is given below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LSB MSB
+1st Byte BO B1 B2 B3 B4 B5 B6 B7 | ADRAM Data Write Mode is selected and the
+(1st) ADRAM address is specified. (i.e. ADRAM Address
+XO | X1 X2 X3 1 1 0 0 = OH)
+LSB MSB
+2nd Byte Bo | B1 B2 B3 B4 B5 B6 B7 | Symbol Data is specified and written into the ADRAM
+(2nd) co | ci ; ; ; ; ; ; Address OH.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+During a continuous data write operation from one ADRAM Address to the next, it is not necessary to specify the
+ADRAM address since they are automatically incremented; however, the symbol data must be specified. Please refer to
+the information below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LSB MSB
+2nd Byte | Bo | B1 | B2 B3 B4 B5 B6 B7_ | Symbol Data is specified and written into the ADRAM
+(3rd) Address 1H.
+
+Co C1 * * * * * *
+
+LSB MSB
+2nd Byte | Bo | B1 | B2 B3 B4 B5 B6 B7 | Symbol Data is specified and written into the ADRAM
+(4th) Address 2H.
+
+Co C1 * * * * * *
+
+LSB MSB
+2nd Byte Bo | B1 B2 B3 B4 B5 B6 B7 | Symbol Data is specified and written into the ADRAM
+(17th) co | ct . . . . . . Address FH.
+
+LSB MSB
+2nd Byte BO B1 B2 B3 B4 B5 B6 B7 | Symbol Data is specified and rewritten into the
+(18th) CO C1 x x x x x x ADRAM Address OH.
+
+where:
+
+1. XO (LSB) to X3 (MSB): ADRAM address bits (16 Characters)
+2. CO (LSB) to C1 (MSB): Symbol data bits (2 symbol data per digit)
+
+ 
+
+V2.1 12 August 2010
+Ero
+
+pt Wie
+
+Princeton Technology Corp.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PT6302
+Please refer to the table below for the GRID and ADRAM Address relationship.
+HEX X0 X1 X2 X3 GRID Position
+0 0 0 0 0 GR1
+1 1 0 0 0 GR2
+2 0 1 0 0 GR3
+3 1 1 0 0 GR4
+4 0 0 1 0 GR5
+5 1 0 1 0 GR6
+6 0 1 1 0 GR7
+7 1 1 1 0 GR8
+8 0 0 0 1 GR9
+9 1 0 0 1 GR10
+A 0 1 0 1 GR11
+B 1 1 0 1 GR12
+C 0 0 1 1 GR13
+D 1 0 1 1 GR14
+E 0 1 1 1 GR15
+F 1 1 1 1 GR16
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+GENERAL OUTPUT PORT SET COMMAND
+
+The General Output Port Set Command is used to specify the general output port status. The general output port is used
+to control other input/output devices as well as turn on the LED Display. When the general output port is set to "HIGH",
+the output is equivalent to the VDD voltage. When the general output port is set to "LOW" Level, the output becomes
+
+ground potential. The command format is given below.
+
+LSB
+
+MSB
+
+ 
+
+1st Byte | BO
+
+B1
+
+B2
+
+B3
+
+B4
+
+B5
+
+B6
+
+B7
+
+ 
+
+ 
+
+P1
+
+ 
+
+P2
+
+ 
+
+*
+
+ 
+
+ 
+
+ 
+
+ 
+
+0
+
+1
+
+ 
+
+ 
+
+ 
+
+where:
+
+1. P1, P2: General output port
+2. *=Not relevant
+
+A General Output Port is selected and the output
+status is specified.
+
+The following table shows the data setting in relation to the Status of the General Output Port
+
+ 
+
+ 
+
+ 
+
+ 
+
+P1 P2 General Output Port Display Status
+0 O | P1 ="LOW’, P2="LOW' (see note 1)
+
+1 O | P1="HIGH", P2="LOW'
+
+0 1 P1="LOW', P2="HIGH"
+
+ 
+
+ 
+
+1
+
+ 
+
+1
+
+ 
+
+P1="HIGH", P2="HIGH"
+
+ 
+
+ 
+
+Note: The state when the power is applied or when the RSTB is inputted.
+
+ 
+
+V2.1
+
+13
+
+August 2010
+Ero
+
+pt Wie
+
+Princeton Technology Corp.
+
+PT6302
+
+ 
+
+DISPLAY DUTY SET COMMAND
+
+The Display Duty Set Command is used to write the display duty value to the duty cycle register. Using a 3-bit data, the
+display duty adjusts the contrast in 8 stages. When the power is turned ON or when the RSTB signal is inputted, the duty
+cycle register value is set to "0". It is advisable to always execute this command before turning on the display, after which
+the desired duty value may be set. The command format is given below.
+
+1st Byte
+
+where:
+1. DO (LSB) to D2 (MSB): Display duty data bits (8 stages)
+
+2. *=Not relevant
+
+ 
+
+Display Duty Set Mode is selected and the duty value
+
+ 
+
+ 
+
+LSB MSB
+BO B1 B2 B3 B4 B5 B6 | B7
+DO D1 D2 * 1 0 1 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+is specified.
+
+ 
+
+ 
+
+The Relationship between the Setup Data and the Controlled GRID Duty is given in the table below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+HEX D2 D1 DO GRID Duty
+0 0 0 0 8/16
+1 0 0 1 9/16
+2 0 1 0 10/16
+3 0 1 1 11/16
+4 1 0 0 12/16
+5 1 0 1 13/16
+6 1 1 0 14/16
+t 1 1 1 15/16
+
+ 
+
+ 
+
++——_
+
+ 
+
+ 
+
+The state when the Power is turned ON or when
+the RSTB signal is inputted
+
+ 
+
+ 
+
+NUMBER OF DIGITS SET COMMAND
+
+The Number of Digits Set Command is used to write the number of display digits into the display digit register. Using a
+3-bit data, the Number of Digits Set Command can display 9 to 16 digits. When the power is turned ON or when the
+
+RSTB signal is inputted, the value is set to "0". It is advisable to always execute this command before the turning on the
+display. The command format is given below.
+
+1st Byte
+
+ 
+
+ 
+
+ 
+
+LSB MSB
+BO | B1 B2 B3 B4 B5 B6 B7
+KO | K1 K2 * 0 1 1 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The Number of Digits Set Mode is selected and the
+number of digit value is specified.
+
+The table below shows the relationship between the setup data and the controlled GR.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+a Fhe state when the Power ie tumed ON of
+1 0 0 1 GR1 ~ GRO when the RSTB signal is inputted.
+2 0 1 0 GR1~ GR10
+3 0 1 1 GR1~GR11
+4 1 0 0 GR1~GR12
+9 1 0 1 GR1~ GR13
+6 1 1 0 GR1~ GR14
+f 1 1 1 GR1~ GR15
+V2.1 14 August 2010
+Ero
+
+pt Wie
+
+Princeton Technology Corp.
+
+DISPLAY LIGHT SET COMMAND
+
+The Display Light Set Command is used to turn all display lights ON or OFF. All Display Lights ON Mode is primarily
+used for testing the display. The All Display Light OFF Mode is used for the blinking display and to prevent any
+malfunction when the power is turned ON. The general output port cannot be controlled by this command. The command
+format is given below.
+
+1st Byte
+
+where
+
+ 
+
+ 
+
+ 
+
+LSB MSB
+BO B1 B2 B3 B4 B5 B6 B7
+L H * * 1 1 1 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1. L=All display lights are turned off
+2. H=AIll display lights are turned on
+3. *=Not relevant
+
+The table below shows the SG and AD Display Status in relation to the Display Light Set Command data.
+
+ 
+
+PT6302
+
+The Display Light Set Command is selected.
+
+ 
+
+ 
+
++——
+
+ 
+
+ 
+
+The state when the power is applied or when the RSTB
+signal is inputted
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+L H | SG and AD Display State
+0 0 Normal Display Mode
+
+1 0 | All Outputs ="LOW'"
+
+0 1 | All Outputs ="HIGH"
+
+1 1 | All Outputs = "HIGH"
+
+ 
+
+ 
+
++m — All Display Light ON Mode has the first priority.
+
+ 
+
+ 
+
+ 
+
+RECOMMENDED SOFTWARE FLOWCHART
+
+Notes:
+
+1. Display light active mode (ex. 0111XX00B)
+
+2. Test mode off (ex. 1000X000B)
+
+V2.1
+
+START
+
+ 
+
+GENERAL OUTPUT PORT SETTING
+
+ 
+
+!
+
+ 
+
+NO. OF DIGIT SETTING
+
+ 
+
+'
+
+ 
+
+DISPLAY DUTY SETTING
+
+ 
+
+!
+
+ 
+
+MAIN PROGRAM +
+
+ 
+
+ 
+
+!
+
+ 
+
+NO. OF DIGIT SETTING
+
+ 
+
+ 
+
+DISPLAY DUTY SETTING
+
+ 
+
+!
+
+ 
+
+SELECT ROM TO BE USED
+
+ 
+
+ 
+
+DISPLAY LIGHT SETTING
+(see Note 1)
+
+ 
+
+ 
+
+ 
+
+TEST MODE
+
+ 
+
+ 
+
+(see Note 2)
+
+ 
+
+ 
+
+ 
+
+y
+END
+
+15
+
+August 2010
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+ 
+
+ABSOLUTE MAXIMUM RATINGS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol Condition Rating Unit
+Supply voltage 1 Vop - -0.3 to 6.5 V
+Supply voltage 2 Vee - -35 to Vppt+0.3 V
+Input voltage Vin - -0.3 to Vppt+0.3 V
+Power dissipation Pp Ta<25C 541 mvVw
+Output current 1 low GR1 to GR16 -40 to 0 mA
+Output current 2 loz AD1 to AD2 -20 to 0 mA
+Output current 3 lo3 SG1 to SG35 -10 to 0 mA
+Output current 4 loa P1 to P2 -4.0 to 4.0 mA
+Operating temperature Topr - -40 to +85 C
+Storage temperature Tstg - -65 to +150 C
+RECOMMENDED OPERATING CONDITIONS
+Parameter Symbol Condition Min. Typ. Max. Unit
+Supply voltage 1 Vop 4.2 9.0 9.5 Vv
+3.0 3.3 3.6 V
+Power supply voltage=5V -35 - -20 V
+Supply voltage 2 Vee Power supply voltage=3.3V -35 - -20 V
+Power supply voltage=5V 0.7V - - V
+High level input Vv All input pins except OSCI. ef DP
+voltage IH Power supply voltage=3.3V
+0.8V - - V
+All input pins except OSCI. DD
+Power supply voltage=5V - - 0.3V V
+Low level input Vv All input pins except OSCI. merbp
+voltage IL Power supply voltage=3.3V
+- - 0.2Vop V
+All input pins except OSCI.
+Power supply voltage=5V - - 1.0 MHz
+CLKB frequency fc Power supply voltage=3.3V - - 1.0 MHz
+Power supply voltage=5V
+a R1=3.3KQ, C1=47pF 1s 2:0 25 | Mr
+Oscillation frequency fosc =
+Power supply voltage=3.3V 15 20 25 MHz
+R1=3.3KQ, C1=39pF
+Power supply voltage=5V
+DIGIT=1 to 16, R1=3.3KO, C1=47pF 183 244 305 Hz
+Frame frequency fer =
+Power supply voltage=3.3V 183 44 305 Hz
+DIGIT=1 to 16, R1=3.3KQ, C1=39pF
+; ; Power supply voltage=5V 200 - -
+RSTB input time tkson [Bower supply voltage=3.3V 200 - - HS
+Operating T Power supply voltage=5V -40 - 85 C
+temperature opr Power supply voltage=3.3V -40 - 85 C
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+V2.1 16 August 2010
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+ 
+
+DC ELECTRICAL CHARACTERISTICS
+
+(Unless otherwise specified, Vece=-35V, Ta=-40 to +85°C)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol Condition Min. Max. Unit
+Vpp=5.0£10% _
+; CSB, CLKB, DIN, RSTB 0.7Vop Vv
+High level input voltage Vin
+Vpp=3.3+10% 0.8V _ VV
+CSB, CLKB, DIN, RSTB me DD
+Vpp=5.0£10% _
+CSB, CLKB, DIN, RSTB 0.3Vop | V
+Low level input Voltage Vit
+Vpp=3.3+10% _ 0.2V VV
+CSB, CLKB, DIN, RSTB re EDD
+Vpp=5.0£10% _
+CSB, CLKB, DIN, RSTB: Vis=Vop 1.0 1.0 MA
+High level input current i
+Vopp=3.3+10% -1.0 1.0 A
+CSB, CLKB, DIN, RSTB; Vin=Vpo H
+Vpp=5.0£10% _
+CSB, CLKB, DIN, RSTB: V,=0V 1.0 1.0 MA
+Low level input current lip
+Vpp=3.3+10% -1.0 1.0 A
+CSB, CLKB, DIN, RSTB; V,.=0V H
+Vpp=5.0£10% _ _
+GR1 to GR16: Ioy=-30mA Vop-1.9 Vv
+High level output voltage 1 Vout
+Vpp=3.3+10% Vane1 5 _ VV
+GR1 to GR16; Io4y=-30mMA ppv"
+Vpp=5.0£10% _ _
+| AD1 to AD2, Iou=-15mA Voo-1.9 Vv
+High level output voltage 2 Von2
+Vopp=3.3+10% Vane1 5 _ VV
+AD1 to AD2, loy=-15mA DD"
+Vpp=5.0£10% _ _
+| Vous | $61 to SG35, loy=-6mA Voo-1.5 V
+High level output voltage 3
+Vpp=3.3+10% Vane1 5 _ VV
+SG1 to SG35, |oy=-6mA ppv"
+Vpp=5.0£10% _ _
+, P1 to P2, loy=-5MA Voo-1.0 V
+High level output voltage 4 Vou
+Vpp=3.3+10% Vane1.0 _ VV
+P1 to P2, Ioy=-2.5mA Dp
+Vpp=5.0£10% _
+GR1 to GR16, AD1 to AD2,SG1 to SG35 Veet1.0) V
+Low level output voltage 1 Vout
+Vopp=3.3+10% Vent1.0 VV
+GR1 to GR16, AD1 to AD2; SG1 to SG35 cr
+Vpp=5.0£10% _ 1.0 VV
+Low level output voltage V P1, P2, l= 15mA |
+O12 | Vpp=3.3£10% - 10 V
+P1, P2, lo. =7.5mA
+Vpp=5.0£10%
+Vpp, fosc=2MHz, No Load - 4 mA
+Current consumption 1 Duty 15/16, DIGIT 1 to 16; All outputs lights ON
+P rot W7pp=3.3410%
+Vop, fosc=2MHz, No Load - 3 mA
+Duty 15/16, DIGIT 1 to 16; All outputs lights ON
+Vpp=5.0£10%
+Vpp, fosc=2MHz, No Load - 3 mA
+Current consumption 2 Duty 8/16, DIGIT 1 to 9; All outputs lights OFF
+P Dbz Vp =3.3410%
+Vpp, fosc=2MHz, No Load - 2 mA
+Duty 8/16, DIGIT 1 to 9; All outputs lights OFF
+
+ 
+
+ 
+
+V2.1 17 August 2010
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+ 
+
+AC CHARACTERISTICS
+
+(Unless otherwise specified, Vece=-35V, Ta=-40 to +85°C)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol Condition Min. Max. Unit
+Vpp=5.0V+10% 1.0 - Us
+CLKB cycle time fc
+Vpp=3.3V+10% 1.0 - Us
+Vpp=5.0V+10% 300 - ns
+CLKB pulse width tow
+Vpp=3.3V+10% 300 - ns
+Vpp=5.0V+10% 300 - ns
+DIN setup time tos
+Vpp=3.3V+10% 300 - ns
+Vpp=5.0V+10% 300 - ns
+DIN hold time tou
+Vpp=3.3V+10% 300 - ns
+CSB setup time t Vpp=5.0V+10% 300 - ns
+up ti
+P CSS Mpp=3.3V+10% 300 : ns
+Vpp=5.0V+1 0%
+| R1=3.3KQ, C1=47pF 16 - Hs
+CSB hold time tes
+Vpp=3.3V+1 0% 16 _ s
+R1=3.3KQ, C1=39pF H
+a Vpp=5.0V+10% 300 - ns
+CSB wait time tesw
+Vpp=3.3V+10% 300 - ns
+Vpp=5.0V+1 0% 8 _ s
+a R1=3.3KQ, C1=47pF H
+Data processing time tporr
+Vpp=3.3V+1 0% 8 _ s
+R1=3.3KQ, C1=39pF H
+Vpp=5.0V+1 0%
+When the RSTB signal is externally 300 - ns
+inputted from the microcontroller.
+RSTB pulse width tweste
+Vpp=3.3V+1 0%
+When the RSTB signal is externally 300 - ns
+inputted from the microcontroller.
+a Vpp=5.0V+10% 300 - ns
+DIN wait time trsorr
+Vpp=3.3V+10% 300 - ns
+Vpp=5.0V+1 0%
+. Ci=100pF, tR=20% to 80% - 4.0 Hs
+8 Vpp=3.3V+10% - 40 A
+Ci=100pF, tR=20% to 80% H
+All outputs slew rate
+Vpp=5.0V+1 0% _ 40 s
+; Ci=100pF, tF=80% to 20% H
+° Vpp=3.3V+10% - 40 us
+
+Ci=100pF, tF=80% to 20%
+
+Vpp=5.0V+1 0%
+
+ae ti Mounted in the Unit 100 -
+VDD rise time torz us
+Vpp=3.3V+10% 400 /
+
+Mounted in the Unit
+Vpp=0V
+Mounted in the Unit
+
+ 
+
+ 
+
+ 
+
+VDD off time tpor 5.0 - ms
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+V2.1 18 August 2010
+soe
+3
+
+Princeton Technology C
+
+Ero
+
+ak RL Fz
+
+orp.
+
+PT6302
+
+ 
+
+TIMING CHARACTERISTICS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol VDD=3.3V+10% VDD=5.0+10%
+High level input voltage Vin 0.8Vpp 0.7Vpp
+Low level input voltage VIL 0.2Vpp 0.3Vpp
+DATA TIMING
+CSB ees } tcsw vie
+tc tCSH
+PL :
+CLKB < > VIL
+tps > > <— tDH
+b -VIH
+DIN \ VALID VALID X vaio | vaio | \ “y
+RESET (RSTB) TIMING
+VDD — WHEN INPUT EXTERNALLY ee
+— tRSON tpor — 0.0v
+RSTB A \ Ai \ tussnal/ — osyo0
+
+tRSOFF
+
+j
+
+DIN
+
+OUTPUT TIMING
+
+    
+
+ 
+
+ 
+
+ 
+
+|X d
+
+ 
+
+WHEN EXTERNAL nnn
+R & CARE CONNECTED
+
+/\ X vn
+
+tR — i t-}— | <— /
+All Outputs
+
+- 0.8 VDD
+
+- 0.2 VEE
+
+VIH
+
+DIGIT OUTPUT TIMING (16-DIGIT DISPLAY, DUTY= 15/16)
+
+oo
+>
+
+FRAME CYCLE: t1 = 1024T (t1=4.096 ms when fosc=2.0MHz)
+
+<— DISPLAY TIMING: tz =60T (t2=240us when fosc=2.0MHz)
+
+i —> <— BLANKTIMING: ts = 4T (ts=16us when fosc=2.0MHz)
+
+GR1
+
+>
+
+ 
+
+ 
+
+ 
+
+GR2
+
+ 
+
+ 
+
+GR3
+GR4
+GR5
+GR6
+GR7
+GR8
+GR9
+GR10
+GR11
+GR12
+
+ 
+
+GR13
+
+ 
+
+GR14
+
+ 
+
+GR15
+
+ 
+
+GR16
+
+ 
+
+AD1 toAD2
+SG1 to SG35
+
+where: T=8/fosc
+
+ 
+
+ 
+
+V2.1
+
+19
+
+August 2010
+PT6302
+
+ 
+
+GTO S it WH
+Princeton Technology Corp.
+
+PT6302-001 CHARACTER FONT TABLE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+EUG
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ethie
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+“31 Tkoxe
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+=BROrJat= S080
+ECKL EO} oe
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+‘(OWP *pS=m* anad
+P! Allaat, | Anan
+
+ 
+
+ 
+
+cl a -
+
+oO
+Pet | TY
+L feof TTT I
+
+JESLSCSTER? AGao
+TFS 0UTUCrPS agac
+AS SEUeUT TFHAoaG
+
+eee ty
+
+ 
+
+4J0 Shans tT PT EMes
+rit: JZIZNba*buen
+po. L199 too
+aA7-SMimr Sb atvis
+
+wu O_Lone
+
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+° = nN o xt wo © he
+o = = = = = = = =
+
+qo GS
+a a a a a a a ac
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+=Yroaol eo | =~ f|oon fom fos fo wm fo wo fmf wm me i a
+
+ 
+
+ 
+
+ 
+PT6302
+
+a RL Fz
+
+Princeton Technology Corp.
+
+PT6302-002 CHARACTER FONT TABLE
+
+TO &
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+os
+
+ 
+
+ 
+
+ 
+
+eal ET
+
+ 
+
+ 
+
+ 
+
+ 
+
+SESE EE EE EH
+= RE 2 Ane HHH
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1100 | 1101
+
+ 
+
+Tr:
+
+|
+
+| F
+
+ 
+
+ 
+
+ 
+
+Feo
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+aT
+
+ 
+
+ 
+
+ 
+
+    
+
+    
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+  
+
+Pe Hie es :
+ook a ee he DA
+
+ern
+1) RR A eee
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ls
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+- *
+
+i se Se
+A
+
+ek OR ORE ar
+(STOW
+
+ACCOR DOs «= eT Ae
+ee = ee ae ee
+A PT Da a a
+clelelelecel# lil: er Wo
+| £18 1s 1] a | 2]2]2)/2E]8 | 8] ss] es] BF] 2B] EE] E
+
+ 
+
+ 
+
+ 
+
+August 2010
+
+21
+
+V2.1
+pt Wie
+
+Princeton Technology Corp. PT6302
+
+ 
+
+PT6302-003 CHARACTER FONT TABLE
+
+0000 | OOO1 | OO1O | GO11 | O100 | O107 | O110 | O117 | 1000 | 1001 | 1010 | 1017 | 1100 | 1107 | 1110) 1171
+
+His a
+
+RAMO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+RAMS
+
+ 
+
+RAMA
+
+ 
+
+ 
+
+ 
+
+RAMS
+
+ 
+
+RAM6
+
+ 
+
+ 
+
+ 
+
+RAM?
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+V2.1 22 August 2010
+PT6302
+
+A Fz
+
+Princeton Technology Corp.
+
+soe
+3
+
+Ero
+
+ 
+
+PT6302-005 CHARACTER FONT TABLE
+
+ 
+
+Sores rst ret
+
+HEM
+
+   
+
+          
+
+ 
+
+     
+
+     
+
+s
+“sie
+
+ 
+
+est et Oo
+
+i
+
+     
+
+ar =)
+
+roe
+
+ 
+
+ea i Tisai
+
+ 
+
+a Oo .re
+
+a
+
+ 
+
+ 
+
+a s..
+' s
+—_
+
+, 5.
+—
+
+Ee
+
+ge ed
+
+ar
+
+       
+
+ 
+
+ 
+
+ast Oo OS
+
+ 
+
+hs
+
+as
+
+earn
+
+ 
+
+cs
+
+ 
+
+aor re
+
+LCL
+
+. ‘ii. “1.
+
+ABLES
+
+=
+
+= Sc
+
+ae
+
+ 
+
+“on oo
+
+oe | eT
+
+—_j |
+-|a-.-g
+i
+
+ 
+
+a eu
+
+ 
+
+ 
+
+a oo KH
+
+Maca | Aad | Ta | At
+
+ea
+
+ 
+
+ale
+
+ot
+
+ 
+
+as oOo Oo
+
+an ort 3
+
+ 
+
+Co = + eI
+
+ 
+
+ 
+
+=a 7]
+
+Bee PEE
+
+:
+:
+
+ 
+
+on nm mS
+
+ 
+
+ 
+
+—
+
+Stdtas:
+
+ 
+
+Ae|
+
+ 
+
+ 
+
+ 
+
+ 
+
+ore Oo et
+
+Sc
+
+    
+
+    
+
+ 
+
+ 
+
+elo
+
+ 
+
+ 
+
+ 
+
+om oOo &
+
+ 
+
+Tmt 3G.
+
+ 
+
+ooclUrmhre€
+
+         
+
+      
+
+a
+
+i
+
+Fohiawen
+
+ 
+
+oo x ©
+
+ 
+
+= Be
+
+ties
+
+ 
+
+ 
+
+ 
+
+oo Oo =
+
+=
+
+ 
+
+cna)
+
+ 
+
+ 
+
+oo eo &
+
+0
+
+(3)
+
+CG-RAM
+
+(=
+
+“sa
+“s,
+
+ 
+
+Ds
+D4
+
+ 
+
+ 
+
+Upper] D7
+Nibble| Dé
+
+Lower
+Nibble
+
+ 
+
+D3 D2 Di Do
+
+ 
+
+ 
+
+ 
+
+ 
+
+001 1)3
+
+ 
+
+010 0) 4
+
+ 
+
+ 
+
+011 0] 6
+
+ 
+
+014141)7
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+l11i141s)Fi *
+
+ 
+
+ 
+
+ 
+
+August 2010
+
+23
+
+V2.1
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+ 
+
+PT6302-006 CHARACTER FONT TABLE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+D7; O 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
+D6; O 0 0 0 1 1 1 1 0 0 0 0 1 1 1 1
+D5; O 0 1 1 0 0 1 1 0 0 1 1 0 0 1 1
+D4; O 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+ID3 D2 D1 DO 0 1 2 3 4 5 6 7 8 9 A B c D E F
+ne a ". ee | “oo = ee | 8 a5
+0000 0|RAMC | samen SP 2 i a ee) oe =n oe os 2 =, =n
+as ' foo” a” | oom tee = foot | oe | ee =
+nn . == an | oe 8 | oe = 8 | ooo sues | oon
+2558 s : = = 2 . i | . Tm |
+0001 a8 ' le le -=8 seen | "5 : a ". =| oo aoe
+1 | RAM1 Hs e | | oot | eee an s| a E { ae | eee | es
+= a |S s|5 8 =| so08 a = 8 a = Seems |e on | @ =: 8
+. . s |= o| oe =n s| = aan 6 Z = = «| sees |e 8
+ee ee ee a2. | aie *. -" *,
+= a a s|e Senn Soe |e 8 8 ma elese . ann 25
+0010 | 2/RAM2| Hae ole ie el ae S] es | Blase) Eo) om | om
+= = s\|\e = |S | 8 . s 8 | =o. Se5n8 a\|m ses\a
+= ee a «| ooo . == = . = ann ames | one
+a ann ann ann ann iT an | on 8 a 8 a
+0011 ese | lll sues | ome | ooo =" . aoe | "ome i"
+3 | RAM? : ss | = lated : Seeee | ooen s a "| 5 = oon =n
+= | meee |e hum le a|8 2 . = seems |e 6 6|l .
+= a8 ann 25 = omen | Seen = een | 5 on ann aaa | o5n
+eens | seem ee. | s| 8 H sees | oom” | 7" a8 _S on
+0100 4| RAMA a as a6 = 68 Seen | Seen an a S| 6 = . ann o=8
+= uae |e 6 = 8 a s s| 8 a6 a s\|s 8 aoe |S 8 =a
+Be ne” | me | em) em | a
+5558 . = | ooo a =n = = a . 68 ann amen | oem
+s | oo SSSen | Sees | elle a x8 . as | = an 8
+0101 F ee ee | Eee :/ ome | me | oe | ne naan oe | ne | Moe HS _-
+5 | RAME .E -" ‘i. «|| 8 : : ==an8 cee lle | oe
+= 8 | ole hls = 8 = 2 . a Z ane | wees | ehUmll hl
+= as | See | wee | le oeen | oe 5 /| =anne a . ann seen | =en
+meeem | oom eee " see | seme a. a ee) |le a2
+0110 6 | RAME a s\|e se a a a 8 | omen | 8 gem |e eo ele 8 ann a6
+a s| 8 8 | oes | eee = 8 = = Seeee | sen = as o=8 seen | one
+ee ee |) | oe ene" | en
+=. «8 an 5 | oe |e 2 = . seen | Seeee = =a on | one aos | oon
+a a anna ann a a ann in ann
+0144 on = ieee ee | | eee | tem _ | = 2
+7 | RAN? | semen : Seep i ea eesi|e a8 8 = 68 = 68 = = . = | seeee
+= a a s\n es ome |e 8 . . = = sume | = 8 28
+a a a a | oS @8 a an 88 a8 a a a a 5
+= : 5 = 8 | om = «8 = = 25 =
+eee em | ame REE wees || fe) | | | em |
+1000 8 = = s| 8 = sie s| oe |e ee |e = 8 a 6 see | Seeee | oe a8 |
+a = | 8 eee | Seeee 2 as | = 8 =o | 8 a 6 = aeeles  sos\|s ss
+ann a a a a8 a as a a a ann 8 a a a aaa ann BEmEen | 88s
+: -- *, | Meee |e |e lee | : = = : focus | one sees | oe
+a a ann ann a a a a a a a a a
+1001 ee ". H :. = = 8 ioe sooo | | oe i.
+9 | aumms | sa 8 = =nnn = - 2 a a8 oa508 s s\e os|s 5
+a = = = 2 = =am8 . ae 68 =. aeee | so 8 | come | elle
+on = a” on” a. ' -=8 oon” | om - a io Seems | eee | eee | eee
+25558 =| 5 if ", : . ee ee -” a a ="
+1010 A a |= . a = ae | See . a = = Seems |e 06 | oe
+= =| oo a 2 2 = | o8| 8 8 | ome = : s =. «8
+: :|* ome |e | lee) gent | sees | seme | Se
+Sees | seee8 = saa58 = Tl) ae oo Seeee | @68 amen | on 8
+a8 = 8 | oem = |g a. | =
+1011 ee : _- H :. : foeee | ee | om oe aoe | ™™ == a
+B | saame as | o2e8 == = a8 . a = 8 = = as s\ag = 8
+= as. = ty a a a o|o 8 = TT oe oe ee ee
+a6 a a a 8 a ie a a a 66 a a a a aS 88
+. = = = = s| oom |S 8 = een | sees | oe ee | ce Seeee | =68 omen | oe 8
+a| = a == . =. 2
+1100 Cc aeons - = = A 5 "a, : = _ =e A oo : = _. is A
+= 68 = = = a = . . a = 8 = = 8
+= | oom " *, | Susen Sj 8 : a = *". one | "eee | oon «een
+a a ann a an = a a a
+—_ emeee | ee = | os : os =. if = 1 o "= s os
+1104 /D) omg) oe | wm |e | S| Ee] a |e |g omens me | | Se | Sunes
+a ase a a a Eas a a a a a a a a
+a ee =a s| oom |e ee e| =| oo = 5 . 25 25
+s 2 aa . a = = . = = =
+1110 E anon | MEM"E , ee hl *, | om | "* | 28 .
+= a8 os |aese TT aee| 8 = =| oo = = = 68
+oe | 5 = |5 Peis at ifes oe | oe eee ee
+=n aan | 8 a = 8 =: «= a . see | one a8 =
+= ann 25 =n = = = es
+toe | e |" S\|5 8 -=8 aaeee | oon = = 25 . .| =. 8
+Patt PR) oe) mee | em | ee oF — es e | ee] Se | Same
+= a a | a a a . 8 a a 68 a a
+== = . 25 saan ==8 . = -=5 oem | @ oe 25 =a
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+V2.1 24 August 2010
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+ 
+
+PT6302-007 CHARACTER FONT TABLE
+
+MSB
+0000 | 0001 | 0010} OOTI | 0100 | 0101 | 0110] O11 | 1000 | 1001 | 1010} 1011
+LSB
+
+0000 | RAMO
+
+ 
+
+ 
+
+a
+a
+=
+i
+i
+o
+o
+Md
+Md
+Ki
+c
+=
+7
+i
+A
+
+ 
+
+V2.1 25 August 2010
+Ero
+
+pt Wie
+
+Princeton Technology Corp.
+
+PACKAGE INFORMATION
+64 PINS, LQFP
+
+Notes:
+
+ 
+
+PT6302
+
+ 
+
+   
+
+GAUGE PLANE
+
+T lt, fe
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
++— C
+
+ 
+
+ 
+
+—>
+A2
+A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Al
+>| |e
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Symbol Min. Nom. Max.
+A - - 1.60
+A1 0.05 - 0.15
+A2 1.35 1.40 1.45
+b 0.30 0.35 0.40
+Cc 0.09 - 0.16
+D 16.00 BSC
+D1 14.00 BSC
+E 16.00 BSC
+E1 14.00 BSC
+e 0.80 BSC
+L 0.45 | 0.60 | 0.75
+L1 1.00 REF.
+
+9 0° | 3.5° | 7°
+
+ 
+
+ 
+
+ 
+
+1. All dimensions are in millimeter
+2. Refer to JEDEC MS-022 BE
+
+ 
+
+V2.1
+
+26
+
+August 2010
+GTO S it WH
+Princeton Technology Corp. PT6302
+
+IMPORTANT NOTICE
+
+Princeton Technology Corporation (PTC) reserves the right to make corrections, modifications, enhancements,
+improvements, and other changes to its products and to discontinue any product without notice at any time.
+
+PTC cannot assume responsibility for use of any circuitry other than circuitry entirely embodied in a PTC product. No
+circuit patent licenses are implied.
+
+Princeton Technology Corp.
+2F, 233-1, Baociao Road,
+Sindian, Taipei 23145, Taiwan
+Tel: 886-2-66296288
+
+Fax: 886-2-29174598
+http:/Avww.princeton.com.tw
+
+ 
+
+V2.1 27 August 2010

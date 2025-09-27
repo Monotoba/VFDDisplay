@@ -42,6 +42,12 @@ All notable changes to this project will be documented in this file.
   - Tests: device tests for reset, clear/home, 4th-row positioning, and dimming; registered in Arduino and embedded runners along with IVFDHAL contract tests.
   - Docs: `docs/api/VFDNA204SD01HAL.md` short reference and link to datasheet. Added OCR+text sidecar for `NA204SD01CC_revC_12Mar2013.pdf`.
 
+- HAL: PT6302 (VFDPT6302HAL)
+  - New HAL for Princeton PT6302 providing a 1x16 character abstraction using CGROM (5x7) and DCRAM writes; supports number-of-digits (K=7, 16 digits), duty/dimming (8 levels), and lights control.
+  - Capabilities: 1x16, serial interface, 8 CGRAM chars, 8 dimming levels; factory added to CapabilitiesRegistry.
+  - Tests: device tests for init bytes, DCRAM header + chars on writeAt, and dimming codes; registered in both runners alongside contract tests.
+  - Docs: `docs/api/VFDPT6302HAL.md` command summary; OCR + text sidecar added for `PT6302.PDF`.
+
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.
 - Add `AGENTS.md` directives to codify safety rules and commit policy.
