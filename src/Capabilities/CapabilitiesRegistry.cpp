@@ -359,6 +359,30 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDM202SD01Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDNA204SD01Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "NA204SD01",
+        "Noritake NA204SD01 20x4 VFD module",
+        "Noritake Itron",
+        "NA204SD01CC",
+        4, 20,
+        5, 7,
+        100, 26,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_DIMMING,
+        1,   // blink on/off
+        0,   // UDF not specified in SD01 series
+        6,   // 6 dimming levels (00,20,40,60,80,FF)
+        0,
+        10, 100, 100,
+        400, 800,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedInterface("Parallel");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createVFDM0216MDCapabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "M0216MD",
