@@ -312,6 +312,17 @@ Implement a new device HAL (e.g., `MyDisplayHAL`) by following these steps:
 - [M202MD15FA Futaba Datasheet](datasheets/M202MD15FA-Futaba.pdf)
 - [M202SD01HA Datasheet](datasheets/M202SD01HA.pdf)
 - [NA204SD01CC Module Datasheet](datasheets/NA204SD01CC_revC_12Mar2013.pdf) — 20x4 VFD module electrical and timing details
+- [M204SD01A Module Datasheet](datasheets/M204SD01A.pdf) — 20x4 VFD module variant
+- [20T202DA2JA Module Datasheet](datasheets/20T202DA2JA.pdf) — 20x2 VFD module specs
+- [M0216MD-162MDBR2-J Module Datasheet](datasheets/M0216MD-162MDBR2-J.pdf) — 16x2 VFD module specs
+- [CU20025ECPB-W1J Module Datasheet](datasheets/cu20025ecpb-w1j.pdf) — Noritake 20x2 VFD module
+- [CU40026-TW200A Module Datasheet](datasheets/CU40026-TW200A_e00-f7.pdf) — Noritake 40x2 VFD module
+- [VK202-25 Module Manual](datasheets/Manual%20for%20VK202-25%20Rev%203.0.pdf) — Matrix Orbital 20x2 module manual
+- [Holtek HT16514 Controller Datasheet](datasheets/Holtek-HT16514-001-datasheet.pdf) — VFD driver/controller IC
+- [Princeton PT6302 Controller Datasheet](datasheets/PT6302.PDF) — VFD driver/controller IC
+- [Princeton PT6314 Controller Datasheet](datasheets/PT6314.PDF) — VFD driver/controller IC
+- [NEC uPD16314 Controller Datasheet](datasheets/UPD16314.PDF) — VFD driver/controller IC
+- [ST STV7710 Controller Datasheet](datasheets/stv7710.pdf) — VFD driver/controller IC
 
 ### External Resources
 - [Arduino Reference](https://arduino.cc/reference)

@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - Makefile: add `tests/%` pattern targets and `tests/all` to build (and optionally upload) tests via PlatformIO, Arduino CLI, or avr-gcc without altering existing example flow.
 - Makefile: add optional `ARDUINO_LIB_DIRS` variable to pass one or more `--libraries` paths to Arduino CLI, keeping PlatformIO flow unchanged.
 - Docs: remove `HD44780.pdf` from datasheets index and root docs since it’s not needed in-repo; keep external reference context in prose if required.
+- Docs: document additional datasheets in `docs/README.md` and `docs/datasheets/README.md` (CU40026-TW200A, CU20025ECPB-W1J, M204SD01A, 20T202DA2JA, M0216MD-162MDBR2-J, VK202-25 manual, HT16514, PT6302, PT6314, uPD16314, STV7710).
 
 ## 2025-09-23
 - Restore full repository from archive and preserve `.git/`, `src/`, `examples/`, `docs/`, and `utility/`.
