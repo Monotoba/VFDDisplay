@@ -14,6 +14,7 @@
 #include "tests/device/VFDVK20225HALTests.hpp"
 #include "tests/device/VFDPT6302HALTests.hpp"
 #include "tests/device/VFDPT6314HALTests.hpp"
+#include "tests/device/VFDUPD16314HALTests.hpp"
 #include "VFDDisplay.h"           // ensure Arduino builder pulls in library sources
 #include "HAL/VFD20S401HAL.h"
 
@@ -72,6 +73,10 @@ void setup() {
   // PT6314
   register_IVFDHAL_contract_tests<VFDPT6314HAL>("PT6314");
   register_VFDPT6314HAL_device_tests();
+
+  // uPD16314
+  register_IVFDHAL_contract_tests<VFDUPD16314HAL>("uPD16314");
+  register_VFDUPD16314HAL_device_tests();
 
   // Run tests once
   EmbeddedTest::runAll();

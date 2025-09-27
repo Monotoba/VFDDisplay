@@ -54,6 +54,7 @@ public:
     static DisplayCapabilities* createVFDVK20225Capabilities();
     static DisplayCapabilities* createVFDPT6302Capabilities();
     static DisplayCapabilities* createVFDPT6314Capabilities();
+    static DisplayCapabilities* createVFDUPD16314Capabilities();
     static DisplayCapabilities* createGeneric20x2Capabilities();
     static DisplayCapabilities* createGeneric16x2Capabilities();
     

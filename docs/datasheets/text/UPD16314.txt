@@ -1,0 +1,5516 @@
+DATA SHEET
+
+Nl Ec / MOS INTEGRATED CIRCUIT
+uPD16314
+
+ 
+
+ 
+
+ 
+
+DOT CHARACTER VFD CONTROLLER/DRIVER
+
+ 
+
+DESCRIPTION
+
+The uw PD16314 is a VFD controller/driver capable of displaying a dot matrix VFD. It has 80 anode outputs and 24
+grid outputs. A single u PD16314 can display up to 16C x 2L, 20C x 2L, or 24C x 2L. The wy PD16314 has character
+generator ROM in which 248 x 5 x 8 dot characters are stored.
+
+FEATURES
+
+e Dot matrix VFD controller/driver
+
+e Capable of driving anodes for cursor display (48 units)
+
+¢ 80 x 8 bits display RAM incorporated
+
+¢ Capable of alphanumeric and symbolic display through internal ROM (5 by 8 dots)
+240 characters plus 8 user-defined characters
+
+e Display contents
+16 columns by 2(1) rows + 32(16) cursors, 20 columns by 2(1) rows + 40(20) cursors,
+or 24 columns by 2(1) rows + 48(24) cursors.
+
+e Parallel data input/output (switchable between 4 bits and 8 bits) or serial data input/output can be selected.
+
+¢ On-chip oscillator
+
+¢ Custom ROM supported
+
+ORDERING INFORMATION
+
+Part Number Package
+u PD16314GJ-001-8EU 144-PIN PLASTIC LQFP(FINE PITCH)(20x20), Standard ROM (ROM code: 001)
+u PD16314GJ-002-8EU 144-PIN PLASTIC LQFP(FINE PITCH)(20x20), Standard ROM (ROM code: 002)
+
+The information in this document is subject to change without notice. Before using this document, please
+confirm that this is the latest version.
+
+Not all devices/types available in every country. Please check with local NEC representative for
+availability and additional information.
+
+Date Published March 2000 NS CP(k) © NEC Corporation 1997
+Printed in Japan
+OOSCOAIPALEZELS JeoUS Bled
+
+yuewoy
+
+“seubis MoO] BANOe SOyTeOIPUI Xxx/
+
+OSCin OSCout
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+24
+
+ 
+
+24-BIT SHIFT
+
+ 
+
+ 
+
+ 
+
+ 
+
+REGISTER
+
+ 
+
+ 
+
+ 
+
+24 ff
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+GRID SIGNAL
+DRIVER
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+tf, ws ts
+TESTout an | I I
+TEST OSCILATIOR
+ADDRESS TIMING
+IM Q——
+G COUNTER GENERATOR
+7
+icS Q— 7) I
+Ty
+8
+ASSTE ¢ 0 INSTRUCTION INSTRUCTION
+> B REGISTER DECORDER DISPLAY DATA
+U 7 RAM (DDRAM)
+RWWR) F 80 x 8 bits
+F
+E
+EV/RD),SCK Q——| R 8
+8 DATA 8
+REGISTER
+sso O— 8 7 8
+4
+DBo to DB: Oe CHARACTER CHARACTER
+GENERATOR GENERATOR
+4 RAM (CGRAM) ROM (CGROM)
+DBs to DB? <7» 8x 5x 8 bits 248 x 5 x 8 bits
+RESET
+/RESET Q——>]
+G CIRCUIT
+5K 5A
+MPU
+Dso
+DST PARALLEL TO SERIAL
+DATA CONVERTER
+DLS
+R.L1
+NS NS NF NH
+
+ 
+
+CURSOR BLINK
+CONTROL CIRCUIT
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+24
+
+>
+
+80
+
+C4
+
+ 
+
+ 
+
+ANODE SIGNAL
+DRIVER
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+80 VY
+
+80-BIT LATCH |
+
+A.
+
+80 Vf
+
+ 
+
+ 
+
+80-BIT SHIFT
+
+ 
+
+ 
+
+ 
+
+REGISTER
+
+ 
+
+ 
+
+ 
+
+SDO
+
+) SLK
+/CL
+
+LE
+
+) G1 to G24
+
+) Al to A80
+
+ 
+
+ 
+
+Vop1 Vppe2 Vss1
+
+Vss2
+
+INVYSVIG HOOTE “+
+
+JAN
+
+vlegldd”
+
+ 
+uPD16314
+
+NEC
+
+ 
+
+2. PIN CONFIGURATION (Top View)
+
+ 
+
+— zad/,
+— zSS/\
+H— ISSA,
+-— 1NO 1 SAL
+
+ 
+
+Remark Use all power supply pins. Leave N.C. pins open.
+
+Data Sheet S13231EJ1VODSO00
+NEC
+
+3. PIN FUNCTIONS
+
+3.1 Power System
+
+Pin bol Pin Name
+Vop1 ic
+
+Vsst ic ground pin
+
+Vobe2 VED drivi
+
+Vsse VED drivi round pin
+
+Data Sheet S13231EJ1VODSO00
+
+uPD16314
+
+Power for
+Ground pin for logic
+Power for VFD driving circuit
+
+Ground pin for VFD drivi
+
+ 
+NEC
+
+uPD16314
+
+ 
+
+3.2 Logic system (Microprocessor Interface)
+
+ 
+
+Pin Symbol
+
+Pin Name
+
+Pin No.
+
+/O
+
+Output
+
+Description
+
+ 
+
+RS,STB
+
+Register
+
+select/strobe
+
+13
+
+When Parallel data transfer is selected, this pin is Register
+select.
+
+L: Select instruction register(IR).
+
+H: Select data register(DR).
+When serial data transfer mode is selected, this pin is the
+strobe input. Data can be input when this signal goes L.
+Command processing is performed at the rising edge of this
+
+signal.
+
+ 
+
+ICS
+
+Chip select
+
+26
+
+When this pin is L, this device is active.
+
+ 
+
+E(/RD),
+SCK
+
+Enable(read)/shift
+
+clock
+
+14
+
+When M68 parallel data transfer mode is selected (E), this
+pin is enabled. Data is written at the falling edge.
+
+When i80 parallel data transfer selected (/RD), this pin is a
+read-enable pin. When this pin is L, data is output to the
+data bus.
+
+When serial data transfer is selected, this pin is the shift
+
+clock input. Data is written at the rising edge.
+
+ 
+
+R,/W(WR)
+
+Read/write signal
+
+(write)
+
+12
+
+When M68 parallel data transfer mode is selected (R,/W),
+this pin is the data transfer select pin.
+
+L: Write
+
+H: Read
+When i80 parallel data transfer mode is selected (/WR), this
+pin is written a write-enable pin. Data is written at rising
+edge of this signal.
+When serial data transfer mode is selected this pin is fixed
+to HorL.
+
+ 
+
+SI,SO
+
+Serial I/O
+
+15
+
+/O
+
+CMOS-
+
+3-states
+
+When serial data transfer mode is selected, this pin is used
+as an I/O pin.
+
+When parallel data transfer mode is selected, this pin is
+fixed to H or L. DBo to DB7
+
+ 
+
+DBo - DB7
+
+Parallel data I/O
+
+16 to 23
+
+/O
+
+CMOS-
+
+3-states
+
+When parallel data transfer mode is selected, these pins
+are used as I/O pins.
+
+When 4-bits transfer mode is selected, DB4 to DB7 are
+used. Data is transferred starting from the most significant
+
+bit (MSB) and stored sequentially.
+
+ 
+
+ 
+
+/RESET
+
+ 
+
+Reset
+
+ 
+
+ 
+
+ 
+
+ 
+
+L: Initializes all the internal registers and commands.
+
+Anode and grid outputs are fixed to Vsse.
+
+ 
+
+Data Sheet S13231EJ1VODSO00
+
+ 
+NEC pu PD16314
+
+ 
+
+3.3 Logic System (Other Logic)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pin Symbol Pin Name Pin No. /O Output Description
+
+OSCin Oscillator pin 6 — — The resister for determining the oscillation frequency
+
+OSCout 5 is externally attached to this pin.
+
+Xout Oscillator output 4 CMOS _| Oscillator signal output pin.
+
+DSO Duty selector 11 | — Sets the duty ratio. The duty ratio is determined by
+
+DS1 10 the number of grids. The relationship between the
+duty ratio and these pins is shown in 4 DUTY
+RATIO SETTING.
+
+IM Interface select 24 | — Selects the interface mode: Serial transfer or parallel
+transfer.
+
+L: Selects serial data transfer
+H: Selects parallel data transfer
+(In Parallel data transfer mode, the word length
+
+differs depending on the instruction.)
+
+ 
+
+MPU Interface select 25 | — Selects the interface mode: i80-type CPU mode or
+M68-type CPU mode.
+
+L: Selects i80-type CPU mode.
+
+H: Selects M68-type CPU mode.
+
+ 
+
+DLS Display line select 9 | Selects the number of display lines at power ON
+
+reset or reset.
+Note _
+
+ 
+
+ 
+
+ 
+
+ 
+
+L: Selects 1 line (N 0)
+H: Selects 2 lines (N N° — 1)
+R,L1 Anode output select 27 | —_ Sets the anode outputs. The Ox pins are set by
+these pins.
+R,L2 28 The relationship between Ox and Ax (anode) is
+shown in 5 ANODE SETTING.
+TEST Test pin 8 | — A pin for testing the IC.
+
+L or open: Normal operation mode
+
+H: Test mode
+
+ 
+
+TESTout Test pin 33 O —_ A pin for testing the IC. Leave this pin open.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note N: Display line selection flag for function setting command.
+
+3.4 Logic System (External Extension Driver)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pin Symbol Pin Name Pin No. /O Output Description
+
+SDO Serial data output 31 O CMOS _| Serial data output for extension grid driver.
+SLK Serial clock output 32 O CMOS _| Shift clock pulse for extension grid driver.
+/CL Clear signal 29 O CMOS | Clear signal for extension grid driver.
+
+The signal is active low. The grid data stored in the
+latch of the extension driver is output when this
+signal is H. If this signal is L, the extension driver
+
+outputs L.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LE Latch enable 30 O CMOS Latch enable signal for extension grid driver.
+
+ 
+
+6 Data Sheet S13231EJ1VODSO00
+NEC uPD16314
+
+ 
+
+3.5 Output Pins
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pin Symbol Pin Name Pin No. /O Output Description
+Gi - G24 Grid output Note O CMOS _| Grid signal output pins.
+
+Al - A80 Anode output Note O CMOS _ | Anode signal output pins.
+
+(O1 - 080)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note Refer to 4 DUTY RATIO SETTING.
+
+Data Sheet S13231EJ1VODSO00 7
+NEC
+
+4. DUTY RATIO SETTING
+
+The duty ratio of the u PD16314 is set by DSO and DS1 as shown in Table 4—1 below.
+
+Table 4-1. Duty Ratio Setting
+
+DSO DS1 ratio
+
+L L 1/16 (# of grids = 16
+L H 1/20 (# of grids = 20
+H L 1/24 (# of grids = 24
+H H
+
+1/40 (# of grids = 40) Nt
+
+ 
+
+uPD16314
+
+Note When to set to 1/40 duty mode, the external extension grid driver can be used.
+
+5. ANODE SETTING
+
+The anode pins are set by R,L1 and R,L2 as shown in Table 5-1 below.
+
+Table 5-1. Anode Setting: 2 Line Display (N=1)
+
+L1 L2 Table No.
+Table 5-2
+
+Table 5-3
+Table 5-3
+Table 5—4
+
+ 
+
+8 Data Sheet S13231EJ1VODSO00
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NEC u PD16314
+Table 5-2. Anode Pin Layout (When R,L1 =L, R,L2 = L)
+
+No. Name No. Name No. Name No. Name
+1 Vove2 37 N.C. 73 A35 109 N.C.
+2 Vsse 38 Al 74 A36 110 A71
+3 Voo1 39 A2 75 A37 111 A72
+4 Xout 40 A3 76 A38 112 A73
+5 OSCourt 41 A4 77 A39 113 A74
+6 OSGin 42 A5 78 A40 114 A75
+7 /RESET 43 A6 79 A41 115 A76
+8 TEST 44 A7 80 A42 116 A77
+9 DLS 45 A8 81 A43 117 A78
+10 DS1 46 AQ 82 A44 118 A79
+11 DSO 47 A10 83 A45 119 A80
+12 R,/W(/WR) 48 Al 84 A46 120 G24
+13 RS,STB 49 Ail2 85 A47 121 G23
+14 E(/RD),SCK 50 A13 86 A48 122 G22
+15 SI,SO 51 A14 87 A49 123 G21
+16 DBo 52 A15 88 A50 124 G20
+17 DB 53 A16 89 A51 125 G19
+18 DBz 54 A17 90 A52 126 G18
+19 DBs 55 A18 91 A53 127 G17
+
+20 DBa 56 A19 92 A54 128 G16
+
+21 DBs 57 A20 93 A55 129 G15
+
+22 DBs 58 A21 94 A56 130 G14
+
+23 DB7 59 A22 95 A57 131 G13
+
+24 IM 60 A23 96 A58 132 G12
+
+25 MPU 61 A24 97 A59 133 G11
+
+26 ICS 62 A25 98 A60 134 G10
+
+27 R,L1 63 A26 99 A611 135 G9
+
+28 R,L2 64 A27 100 A62 136 G8
+
+29 /CL 65 A28 101 A63 137 G7
+
+30 LE 66 A29 102 A64 138 G6
+
+31 SDO 67 A30 103 A65 139 G5
+
+32 SLK 68 A31 104 A66 140 G4
+
+33 TESTout 69 A32 105 A67 141 G3
+
+34 Vss1 70 A33 106 A68 142 G2
+
+35 Vsse 71 A34 107 A69 143 G1
+
+36 Vope 72 N.C. 108 A70 144 N.C.
+
+Data Sheet $13231EJ1VODS00 9
+NEC pu PD16314
+
+ 
+
+Table 5-3. Anode Pin Layout (When R,L1 = L, R,L2 = H)
+
+Zz
+°
+
+No. Name No. Name
+
+—
+
+Vope2 37 Cc. 73
+Vsse2 38 74
+Vop1 39 75
+XoutT 40 76
+OSCour 41 77
+OSCin 42 78
+/RESET 43 79
+TEST 44 80
+DLS 45 81
+
+Oo joO IN JO Jo [HR Jo {Pp
+
+—
+oO
+
+DSi: 46 82
+
+—
+—
+
+DSo 47 83
+48 84
+
+—_> Jo
+wo 1M
+
+49 85
+
+—
+&
+
+50 86
+
+—
+oi
+
+51 87
+
+—
+OD
+
+52 88
+
+—
+~
+
+53 89
+
+18
+
+54 90
+
+—
+wo
+
+99 91
+
+Nh
+oO
+
+56 92
+
+NR
+—
+
+57 93
+
+Nh
+Nh
+
+98 94
+
+Nh
+wo
+
+59 95
+60 96
+
+NR |Rh
+ao j-
+
+61 97
+62 98
+63 99
+64
+
+NM jh JM [RM
+Oo |CO IN |o
+
+65
+66
+
+oO |e
+-— |O
+
+67
+68
+69
+
+OO |W |
+& [oO [Ph
+
+70
+
+oO
+oi
+
+71
+
+ 
+
+wo
+oO
+
+72
+
+10 Data Sheet S13231EJ1VODSO00
+NEC uPD16314
+
+ 
+
+Table 5-4. Anode Pin Layout (When R,L1 = H, R,L2 = L)
+
+Zz
+°
+
+No. Name No. Name
+
+—
+
+Vope2 37 Cc. 73
+Vsse2 38 74
+Vop1 39 75
+XoutT 40 76
+OSCour 41 77
+OSCin 42 78
+/RESET 43 79
+TEST 44 80
+DLS 45 81
+DS1 46 82
+
+Oo joO IN JO Jo [HR Jo {Pp
+
+—» «$f
+— |I[©@
+
+DSO 47 83
+IWR 48 84
+
+—_> Jo
+wo 1M
+
+49 85
+
+—
+&
+
+50 86
+
+—
+oi
+
+51 87
+
+—
+OD
+
+52 88
+
+—
+~
+
+53 89
+
+18
+
+54 90
+
+—
+wo
+
+99 91
+
+Nh
+oO
+
+56 92
+
+NR
+—
+
+57 93
+
+Nh
+Nh
+
+98 94
+
+Nh
+wo
+
+59 95
+60 96
+
+NR |Rh
+ao j-
+
+61 97
+62 98
+63 99
+64
+
+NM jh JM [RM
+Oo |CO IN |o
+
+65
+66
+
+oO |e
+-— |O
+
+67
+68
+69
+
+OO |W |
+& [oO [Ph
+
+70
+
+oO
+oi
+
+71
+
+ 
+
+wo
+oO
+
+72
+
+Data Sheet $13231EJ1VODS00 11
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NEC uPD16314
+Table 5-5. Anode Pin Layout (When R,L1 = H, R,L2 = H)
+No. Name No. Name No. Name No. Name
+* 1 Vope 3/ N.C. 73 A46 109 N.C.
+* 2 Vss2 38 A80 74 A45 110 A10
+* 3 Voo1 39 A79 75 A44 111 AQ
+* 4 Xout 40 A78 76 A43 112 A8
+* 5 OSCour A A77 77__|A42 113 |A7
+* 6 OSCin 42 A76 78 A41 114 A6
+7 /RESET 43 A75 79 A40 115 A5
+8 TEST 44 A74 80 A39 116 A4
+9 DLS 45 A73 81 A38 117 A3
+10 DS1 46 A72 82 A37 118 A2
+11 DSO 47 A71 83 A36 119 Al
+12 R,/W 48 A70 84 A35 120 G24
+13 RS,STB 49 A69 85 A34 121 G23
+14 E(/RD),SCK 50 A68 86 A33 122 G22
+15 SISO 51 A67 87 A382 123 G21
+16 DBo 52 A66 88 A31 124 G20
+17 DBi 53 A65 89 A30 125 G19
+18 DBz 54 A64 90 A29 126 G18
+19 DBs 55 A63 91 A28 127 G17
+20 DBa 56 A62 92 A27 128 G16
+21 DBs 57 A61 93 A26 129 G15
+22 DBe 58 A60 94 A25 130 G14
+23 DB7 59 A59 95 A24 131 G13
+24 IM 60 A58 96 A23 132 G12
+25 MPU 61 A57 97 A22 133 G11
+26 ICS 62 A56 98 A21 134 G10
+2/ R,L1 63 A55 99 A20 135 G9
+28 R,L2 64 A54 100 A19 136 G8
+29 /CL 65 A53 101 A18 137 G7
+30 LE 66 Ad2 102 A17 138 G6
+31 SDO 67 Ad1 103 A16 139 G5
+32 SLK 68 A50 104 A15 140 G4
+33 TESTout 69 A49 105 A14 141 G3
+34 Vsst 70 A48 106 A13 142 G2
+35 Vss2 71 A47 107 Al2 143 G1
+36 Vope 72 N.C. 108 Al1 144 N.C.
+
+ 
+
+12
+
+Data Sheet S13231EJ1VODSO00
+
+ 
+NEC uPD16314
+
+Table 5-6. Anode Setting: 1 Line Display (N=0)
+
+ 
+
+ 
+
+ 
+
+R,L1 R,L2 Table No.
+Don’t care L Table 5-7
+Don’t care H Table 5-8
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Table 5-7. Anode Pin Layout (When R,L2 = L)
+
+Zz
+o
+
+No. Name No. Name
+
+—
+
+Vope 37 Cc. 73
+Vsse2 38 74
+Vop1 39 75
+Xout 40 76
+OSCout A1 77
+OSCin 42 78
+/RESET 43 79
+TEST 44 80
+DLS 45 81
+DS1 46 82
+DSO 47 83
+R,/W 48 84
+RS,STB 49 85
+E »oCK 50 86
+SISO 51 87
+DBo 52 88
+DB 53 89
+DBz 54 90
+DBs 55 91
+DBa 56 92
+DBs 57 93
+DBs 58 94
+DB7 59 95
+IM 60 96
+61 97
+62 98
+63 99
+64 100
+65 101
+LE 66 102
+SDO 67 103
+SLK 68 104
+TESTout 69 105
+Vss1 70 106
+Vsse2 71 107
+Vope 72 Cc. 108
+
+Oo |}O IN [OO [oO FR Jo {PMP
+
+= J/o3 Joa Joa Joa fo fa fa
+“NOD ~fo;,R oO JM JH] [oO
+
+18
+
+CO 1O [oO [0 TO [oO IN ITN ITM IM ITM TM [M [NW TM [Mw J+
+ap [oO IM JH FO JO FO TN IO TO THR [oO Jw JH [oO Oo
+
+ 
+
+wo
+oO
+
+Data Sheet $13231EJ1VODS00 13
+NEC pu PD16314
+
+ 
+
+Table 5-8. Anode Pin Layout (When R,L2 = H)
+
+Zz
+°
+
+No. Name No. Name
+
+—
+
+Vope 37 Cc. 73 A6
+Vsse2 38 74 A5
+Voo1 39 75 A4
+Xout 40 76 A3
+OSCout 41 77 A2
+OSCin 42 78 Al
+/RESET 43 79 Unused
+TEST 44 80
+DLS 45 81
+DS1 46 82
+DSO 47 83
+
+48 84
+
+Oo joO IN JO Jo [HR Jo {Pp
+
+= Jf. of J
+oO jy | [CO
+
+49 85
+50 86
+51 87
+52 88
+53 89
+54 90
+
+—_ oj of hl lO
+Oo }O IN JOD Jo [sR
+
+55 91
+56 92
+57 93
+38 94
+59 95
+60 96
+61 97
+62 98
+63 99
+64
+
+NM |M IM [wR [MB [RHR [MR [rR [RM [RM
+Oo |O IN [DO Jo [HR [wo [MP |[— JO
+
+65
+66
+
+oO |e
+-— |O
+
+67
+68
+69
+
+OO |W |
+& [oO [Ph
+
+70
+
+oO
+oi
+
+71
+
+ 
+
+wo
+oO
+
+72
+
+14 Data Sheet S13231EJ1VODSO00
+NEC uPD16314
+
+ 
+
+6. VFD DISPLAY
+
+The » PD16314 can display 24 characters x 2 lines, and a VFD can be connected as shown in the figure below.
+
+Figure 6-1. VFD Display
+
+=t
+isp)
+©
+Q
+a
+
+=e
+
+ 
+
+Data Sheet $13231EJ1VODS00 15
+NEC pu PD16314
+
+7. BLOCK FUCTIONS
+
+7.1 CPU Interface
+The « PD16314 is provided with a 4-or 8-bit parallel interface and a serial interface. The interface mode is set by the
+IM pin.
+IM = “L”: Serial data transfer
+IM = “H”: Parallel data transfer
+
+Table 7-1. CPU Interface
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+IM ICS RS,STB E(/RD),SCK R,/W(/WR) MPU SISO DBn
+L ICS STB SCK Note Note SISO Note
+H ICS RS E(/RD) R,/W(/WR) MPU Note DBn
+
+ 
+
+ 
+
+Note Fix this pin to H or L.
+
+7.2 Registers (IR, DR)
+
+The 4 PD16314 has two 8-bit registers: an instruction register (IR) and a data register (DR). The IR stores
+instruction codes, such as display clear and cursor shift, and address information for display data RAM (DDRAM) and
+character generator RAM (CGRAM). The IR can only be written to from the MPU. The DR temporarily stores the
+
+data to be written or read from DDRAM or CGRAM
+
+Table 7-2. Register Selection (IR, DR)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Common M68 i80 Function
+RS R,/W /RD /WR
+L L H L IR data is written as an internal operation (display clear, etc.)
+L H L H Data is read to the busy flag (DB7) and address counter (DBs to DBc)
+H L H L DR data is written (DR — DDRAM, CGRAM).
+H H L H DR data is read (DDRAM, CGRAM — DR).
+
+ 
+
+7.3 Busy Flag (Read BF Flag)
+Lis always output for busy flag data (DB7).
+
+7.4 Address Counter (AC)
+
+The address counter(AC) assigns addresses to both DDRAM and CGRAM. When an instruction address is written
+the IR, the address information is sent from the IR to the AC.
+
+Selection of either DDRAM or CGRAM is also determined concurrently by the instruction. After writing to (reading
+from) DDRAM or CGRAM, the AC is automatically incremented (+1) . The AC contents are output to DBo to DBs
+when RS = L and R,/W = H (Refer to Table 7-2. Register Selection (IR,DR).).
+
+16 Data Sheet S13231EJ1VODSO00
+NEC uPD16314
+
+7.5 Display Data RAM (DDRAM)
+Display data RAM (DDRAM) stores display data displayed in 8-bit character codes. Its capacity is 80 x 8 bits, or 80
+characters. The area in DDRAM that is not used for display can be used as general data RAM. Refer to 7.5.1
+
+1-line display (N = 0), 7.5.2 2-line display (N = 1) for the relationship between the DDRAM address and the
+position on the VFD.
+
+The DDRAM address (ADD) is set in the address counter (AC) as hexadecimal.
+
+Figure 7-1. DDRAM Address
+
+ 
+
+High-order bits Low-order bits
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+AC AC6 AC5 AC4 AC3 AC2 AC1 ACO
+Hexadecimal Hexadecimal
+Example : DDRAM address “26”
+0 1 0 0 1 1 0
+2 6
+7.5.1 1-line display (N = 0)
+Figure 7-2. 1-Line Display
+Display position
+(Digit) 1 2 3 4 5 Cees 79 80
+DDRAM address | 00 01 02 03 04 O56 fo kee 4E 4F
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(Hexadecimal)
+
+When there are fewer than 80 display characters, the display begins at the head position. For example, if using
+only one w PD16314, 24 characters are displayed. When a display shift operation is executed, the DDRAM address
+
+shifts. Refer to Figure 7-3. Example of 1-line/24-Character Display.
+
+Figure 7-3. 1-line by 24 Characters Display Example
+Display position
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(Digit) 1 2 3 4 5 6 a 23 24
+
+DDRAM address | 00 01 02 03 04 O65 fF oe 16 17
+(Hexadecimal)
+
+Left shift | 01 02 03 04 05 O6 | aa 17 18
+
+Right shift | 4F 00 01 02 03 04 f[ 15 16
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Data Sheet S13231EJ1VODSO00
+
+ 
+NEC pu PD16314
+
+7.5.2 2-line display (N = 1)
+
+Figure 7-4. 2-Line Display
+Display position
+
+ 
+
+ 
+
+(Digit) 1 2 3 4 5 6 on. 39 40
+DDRAMaddress | 00 | 01 | 02 | 03 | 04 | 05 J... 26 | 27
+(Hexadecimal) 40 | 41] 42 | 49 | 44] 45]. 66 | 67
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+When the number of display character is less than 40 x 2 lines, the 2 lines are displayed from the head. The first
+line end address and the second line start address are not consecutive.
+
+For example, if using only one uw PD16314, 24 characters x 2 lines are displayed. When a display shift operation is
+executed, the DDRAM address shifts. Refer to Figure 7-5. Example of 2-Line/24-Character Display.
+
+Figure 7-5. Example of 2-Line/24-Character Display
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Display position
+(Digit) 1 2 3 4 5 6 neta: 23 24
+DDRAM address | 00 | 01 02 | 03 | 04 | 05 | a. 16 17
+(Hexadecimal) | 40 | 41 42 | 43 | 44 | 45 | a. 56 | 57
+01 02 | 03 | 04 | 05 | 06 | an. 17 18
+
+Left shift
+41 42 | 43 | 44 | 45 | 46 | a... 57 | 58
+27 | 00 | 01 02 | 03 | 04 fa. 15 16
+
+Right shift
+67 | 40 | 41 42 | 43 | 44 | a. 55 | 56
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+For 40 characters x 2 lines display, the 4 PD16314 can be extended using one 16-output grid extension driver.
+When a display shift operation is executed, the DDRAM address shifts. Refer to Figure 7-6. Example of
+2-Line/40-Character Display.
+
+Figure 7-6. Example of 2-Line/40-Character Display
+Display position
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(Digit) 1 2 3 4 23 24 25 39 40
+DDRAM address |_00 01 02 03 16 17 18 26 27
+(Hexadecimal) | 40 41 42 43 56 57 58 66 67
+01 02 03 04 17 18 19 27 00
+Left shift
+41 42 43 44 57 58 59 57 40
+27 00 01 02 15 16 17 25 26
+Right shift
+67 40 41 42 55 56 57 65 66
+u PD16314 display Extension driver display
+
+ 
+
+ 
+
+ 
+
+ 
+
+18 Data Sheet S13231EJ1VODSO00
+NEC uPD16314
+
+7.6 Character Generator ROM (CGROM)
+CGROM, which is ROM for generating character patterns of 5 x 8 dots from 8-bit character codes, generates 240
+types of character patterns.
+
+The character codes are shown on the following page. The character codes OOH to OFH are allocated to the
+CGRAM.
+
+Data Sheet $13231EJ1VODS00 19
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+uPD16314
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+  
+  
+
+ 
+
+ 
+
+ 
+
+Te ici: Tales
+
+- PTR SURUTUR SE [
+
+ek Ee a ME Eo
+tbe ia ae IFOGED:OLere
+
+     
+
+    
+
+ 
+  
+
+ 
+
+ 
+
+ 
+
+eR ee
+et eo oe [S| &> Se ga
+
+  
+
+ 
+
+  
+
+S40 Poe eae hoot sc
+
+ 
+
+ 
+
+CFL Se LS a StS eee
+
+ 
+
+ 
+ 
+ 
+
+Lt a Se
+
+ 
+
+ 
+
+ 
+
+  
+
+I Te et
+
+ 
+
+ 
+
+ 
+
+o eT i " a
+Rotem
+
+ 
+
+ 
+
+   
+  
+
+ 
+
+Figure 7-7. Character Code Table 1 (ROM code: 001)
+
+ 
+
+ST Oo
+
+ 
+
+ 
+
+ 
+
+   
+
+r- ob
+
+ 
+
+ 
+
+ 
+
+ 
+
+se is
+oo 4F
+
+— — — — — —~ | of2-/ o2—~ | o&=2 — — — — — _
+
+& =] OSs |} OfSf2 Or! | OF | SCFL|] SCF |] OF YN | 6Bte |} OST! OFZL!] OSL] OSL
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NEC
+
+ 
+
+20
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+     
+   
+
+   
+
+    
+    
+
+ 
+
+ 
+
+  
+
+ 
+
+  
+  
+
+  
+
+  
+
+   
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+  
+ 
+
+ 
+ 
+
+  
+ 
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+      
+
+  
+  
+ 
+
+  
+
+   
+ 
+
+ 
+    
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+  
+ 
+  
+  
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+  
+
+ 
+
+  
+
+ 
+
+ 
+ 
+ 
+
+  
+ 
+ 
+
+  
+
+  
+
+ 
+
+ 
+ 
+  
+
+ 
+
+    
+
+ 
+ 
+
+ 
+
+ 
+
+  
+
+ 
+    
+
+ 
+   
+
+  
+
+ 
+
+ 
+
+ 
+
+   
+ 
+     
+
+ 
+
+   
+
+    
+  
+
+      
+ 
+
+ 
+  
+
+ 
+ 
+
+ 
+
+ 
+
+    
+
+    
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+  
+
+  
+
+ 
+
+ 
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+  
+  
+
+  
+
+ 
+ 
+  
+
+  
+
+ 
+
+  
+
+ 
+
+  
+
+  
+
+ 
+
+   
+  
+ 
+ 
+ 
+ 
+
+  
+ 
+ 
+
+   
+  
+  
+
+ 
+
+ 
+
+   
+    
+
+   
+  
+
+ 
+  
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+NEC uPD16314
+Figure 7-8. Character Code Table 2 (ROM code: 002)
+0 1 2 3 4 5 6 7 8 9 A B C D E F
+|| [|
+—
+ecoom |e 68 ti *
+(0) i "|
+| —_ 7
+XXXX0001 RAM Se ‘aA — m= § LL - a
+Sooo
+7
+ee ee eh
+XXXX0011 RAM ll | | 2 =
+(3) on a -
+te ad 7
+co ay
+XXXX0100 RAM | | —
+ae a
+XXXX0101 RAM va | So — 1) a ||
+(5) |_|
+a |_|
+XXXX0110 RAM A = - 1k |
+° | ee ee
+XXXXO111 ral rr 7 1 |_| ae
+. | fet ae
+XXXX1000 RAM nat a Pays =” | 7 _
+0 — kw LI a
+ATL.
+XXXX1001 RAM 1 Tr | ~
+(1) = P|
+cc a —"] |
+XXXX1010 naM = ” | | ” -
+XXXX1011 vn ch = " k { “" = ,
+a 7
+XXXX1100 RAM —_ =
+(4) a
+km
+XXXX1101 RAM
+(5) a
+-
+XXXX1110 ea a = "a, | - T=
+nts
+oer S
+XXXX1111 Ra . ||
+
+ 
+
+ 
+
+ 
+
+ 
+
+    
+
+ 
+
+   
+
+ 
+
+ 
+
+Data Sheet S13231EJ1VODSO00
+
+21
+NEC pu PD16314
+
+ 
+
+7.7 Character Generator RAM (CGRAM)
+
+With character generator RAM (CGRAM), the user can rewrite character patterns by program. For 5 x 8 dots, 8-
+character patterns can be written.
+
+Character codes 00H to 07H and 08H to OFH have the same CGRAM contents.
+
+Refer to Figure 7-9 for the relationship between the CGRAM address and data and display patterns. Areas
+that are not used for display can be used as general data RAM.
+
+Figure 7-9. Relationship between the CGRAM Address, Character Code (DDRAM)
+and 5 x 7 (With Cursor) Dot Character Patterns (CGRAM)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Character code (DDRAM data) CGRAM address CGRAM data
+D7 D6 D5 D4 D3 D2 Di DO]A5 A4 AZ]A2 At AO]D7 D6 D5 D4 D3 D2 D1 ODO
+High-order bits Low-order bits | High-order bits |Low-order bits | High-order bits Low-order bits
+0 60 0 0 x 0 0.6 (U0 0.6 (U0 0 0.6 (U0 0 x x x 1 0 0 60 1
+0.6 (U0 1 1 0 0.6 (U0 1
+0 1 0 1 1 0 O 1 | Character
+0 1 1 1 0 1 0 1 | pattern (0)
+1 0 0 1 0 0 1 1
+1 0 1 1 0 0.6 (U0 1
+1 1 0 1 0 0.6 (U0 1
+1 1 1 0 0 OG O - 9G {Cursor position
+0 60 0 0 x 0 0 1 0.6 (U0 1 0 60 0 X X X 1 1 1 1 1
+0.6 (U0 1 1 0 0.6 (U0 0
+0 ' 0 j 0 0 0 0 Character
+0 1 1 1 1 1 1 1 pattern (1)
+1 0 0 1 0 0.6 (U0 0
+1 0 1 1 0 0.6 (U0 0
+1 1 0 1 1 1 1 1
+1 1 1 0 0 0 0 Q | Cursor position
+0.6 (U0 0 0 x 1 1 1 1 1 1 0 60 0 X X X 0 1 1 1 0
+0.6 (U0 1 1 0 0.6 (U0 1
+0 1 0 : 0 0 0 0 Character
+0 1 1 1 0 0.6 (U0 0 pattern (7)
+1 0 0 1 0 0.6 (U0 0
+1 0 1 1 0 0.6 (U0 1
+1 1 0 0 1 1 1 0
+1 1 1 1 1 1 1 1 | Cursor position
+
+ 
+
+ 
+
+ 
+
+Remarks = 1. x: Don’t care.
+2.Character code bits 0 to 2 correspond to CGRAM address bits 3 to 5 (3 bits: 8 types).
+3.CGRAM address bits 0 to 2 designate the character pattern line position. The 8th line is the
+cursor position and its display is formed by a logical OR with the cursor specification. If the 8th
+line data is made 0, the display is determined by the cursor specifiaction. If the 8th line data is 1,
+the 8th line will light up regardless of the cursor presence.
+4.1 for CGRAM data corresponds to display selection and 0 to non selection.
+
+22 Data Sheet S13231EJ1VODSO00
+NEC uPD16314
+
+7.8 Timing Generator
+
+The timing generator generates timing signals for the operation of internal circuits such as DDRAM, CGRAM and
+CGROM. The RAM read timing for display and internal operation timing by MPU access are generated separately to
+avoid interference. Therefore, when writing data to DDRAM, for example, there will be no undesirable interference,
+such as flickering, in areas other than the display area.
+
+7.9 VFD Driver Circuit
+The VFD driver circuit consists of 24 grid signal drivers and 80 anode signal drivers. When the character font and
+number of digits are selected, the required grid signal drivers automatically output drive waveforms.
+
+7.10 Cursor/Blink Control Circuit
+
+The cursor/blink control circuit generates the cursor or character blink. The cursor or blink is valid at the digit
+located at the display data RAM (DDRAM) address set in the address counter (AC).
+
+For example, when the address counter is 08H, the cursor position is displayed at DDRAM address 08H.
+
+Figure 7-10. Cursor/Blink Control
+AC6 AC5 AC4 AC3 AC2 ACI ACO
+AC 0 0 0 1 0 0 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+For 1-line display
+Display position
+(Digit) 1 2 3 4 5 6 7 8 9 10 11 12
+DDRAM address | 00 | 01 02 | 03 | 04 | 05 | 06 | O7 | 08 | 09 | OA | OB
+
+(Hexadecimal) A
+
+Cursor position
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+For 2-line display
+Display position
+(Digit) 1 2 3 4 5 6 7 8 9 10 11 12
+DDRAM address | 00 | 01 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | OA | OB
+
+(Hexadecimal) | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 Pug 49 | 4A | 4B
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cursor position
+
+Data Sheet $13231EJ1VODS00 23
+NEC pu PD16314
+
+8. INTERFACING WITH CPU (DATA TRANSFER)
+
+8.1 Parallel Data Transfer M68 (IM = H, MPU = H)
+
+This IC can interface (data transfer) with the CPU in 4 or 8 bits (M68 interface: IM = H, MPU = H).
+
+However, because the internal registers consist of 8 bits, when transfering data in 4 bits DB4 to DB7 must be used
+twice. When using 4-bit parallel data transfer, maintain the DBo to DB3 pins at H or L. The transfer order is the higher
+4 bits first (D4 to D7) followed by the lower 4 bits (DO to D3).
+
+Figure 8-1. Parallel Data Transfer M68 (IM = H, MPU = H)
+
+(a) 4-bit data transfer (M68)
+
+ 
+
+RS
+
+ 
+
+ 
+
+ 
+
+ 
+
+R,/W
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+IR
+
+ao
+
+ihe fm Alper «2 Mo 2?)
+Wh fe AL foe 22)
+
+» TE)
+» eG
+» TN)
+
+ 
+
+Nh
+
+ 
+
+IR
+
+_
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DBa HN IR4 Y IRO
+| Write | | Write | | Read | | Write |
+instruction | | instruction instruction data |
+|
+(b} 8-bit data transfer (M68)
+RS
+R,/wW
+E A
+y y vy
+DB7 HIN IR7 IX IR7 BF = "0" D7
+
+ 
+
+ 
+
+ 
+
+DBo HIN IRO KIX IRO
+Write Write Read Write
+instruction instruction instruction data
+
+24 Data Sheet S13231EJ1VODSO00
+NEC uPD16314
+
+8.2 Parallel Data Transfer i80 (IM =H, MPU = L)
+
+When IM = H, MPU = L is set, i80 is selected. In the 4 PD16314, each time data is sent to and from the CPU, the
+data is retained the bus holder attached to internal data bus, and is written to the display data RAM by the next data
+write cycle. When the CPU reads the contents of the display data RAM, the read data is retained in the bus holder
+for the first data read cycle (dummy), and is read out on the system bus at the next data read cycle.
+
+There are certain restrictions in the read sequence of this display data RAM. Be advised that data of the specified
+address is not generated by the read instruction issued immediately after the address setting. This data is generated
+when the data is read of the second time. Thus, a dummy read is required following an address setting or write cycle.
+This relationship is shown in following figure.
+
+Figure 8-2. Parallel Data Transfer i80 (IM = H, MPU = L)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Writing
+MPU
+/WR
+tna ining CoE L ne BO
+v
+
+ 
+
+ 
+
+ 
+
+BUS
+N N+1 N+2 N+3
+holder
+Write 4 s 4
+signal
+
+Reading
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+MPU
+
+ 
+
+/WR
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Internal timing
+
+ 
+
+Address
+preset
+
+Read
+signal
+Column
+Preset N Increment N+1 N+2
+address
+BUS
+N n n+1 n+2
+holder
+
+Address set Dummy Data read Data read
+#n read #n #n+1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Data Sheet $13231EJ1VODS00 25
+NEC pu PD16314
+
+8.3 Serial Data Transfer
+
+This IC can interface (data transfer) with the CPU in serial.
+Data can be written when STB = L. The first byte is the start byte. The IR or the DR is selected by the RS bit(bit 6)
+
+and data write or read by R,/W(bit 5 = 0). The next first bytes are instructions on data.
+When data is read, whether to read the busy flag + address counter (AC6 to ACO) or to read the data written in
+DDRAM or CGRAM is chosen by the start byte input first. Data is output at the falling edge of the shift clock.
+
+Figure 8-3. Serial Data Transfer
+
+Data write
+
+STB \
+
+ 
+
+ 
+
+> EERE REL
+
+Synchronous bits |
+
+ 
+
+Start byte Instruction/Data
+
+ 
+
+Data read
+
+STB \
+
+Wait time : twar
+
+Tus
+
+ 
+
+ 
+
+Synchronous bits |
+
+ 
+
+Start byte Read data
+
+ 
+
+ 
+
+26 Data Sheet S13231EJ1VODSO00
+NEC
+
+uPD16314
+
+ 
+
+9. INSTRUCTIONS
+
+ 
+
+Instruction
+
+RS
+
+R,/W
+
+DB7 DBe DBs DBa DB3 DBz DB: DBo
+
+Description
+
+ 
+
+Clear display
+
+Clears the entire display,
+and sets the DDRAM
+address to OOH.
+
+ 
+
+Cursor home
+
+Sets the DDRAM address
+to OOH.
+
+Also returns the display
+being shifted to the
+original position.
+
+DDRAM contents remain
+
+unchanged.
+
+ 
+
+Entry mode set
+
+0 0 0 0 0 1 I/D S
+
+Sets the cursor direction
+and specifies display
+shift. These operations
+are performed during
+
+writing/reading data.
+
+ 
+
+Display ON/OFF
+
+Turns the entire display
+ON/OFF(D), the cursor
+ON/OFF(C), and sets the
+cursor blink at the
+
+character position(B).
+
+ 
+
+Cursor or display shift
+
+S/C R/L x x
+
+Shifts the display or
+cursor. Maintains DDRAM
+
+contents.
+
+ 
+
+Function set
+
+BR1 | BRO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sets the data length
+(parallel data transfer)
+
+and number of lines
+
+ 
+
+CGRAM address set
+
+ACG
+
+ 
+
+Set the address of
+CGRAM. After that,
+CGRAM data is
+
+transferred.
+
+ 
+
+DDRAM address set
+
+Set the address of
+DDRAM. After that,
+DDRAM data is
+
+transferred.
+
+ 
+
+Read busy flag &
+
+address
+
+BF='0’ AC
+
+ 
+
+Reads the busy flag (BF)
+and address counter.
+
+BF o always outputs ‘0’.
+
+ 
+
+Write data to CGRAM
+or DDRAM
+
+Write data
+
+Writes data to CGRAM or
+DDRAM.
+
+ 
+
+Read data from
+CGRAM or DDRAM
+
+ 
+
+ 
+
+ 
+
+ 
+
+Read DR data
+
+ 
+
+Reads data from CGRAM
+or DDRAM.
+
+ 
+
+Data Sheet S13231EJ1VODSO00
+
+27
+
+ 
+NEC
+
+uPD16314
+
+ 
+
+Remarks 1.
+
+28
+
+I/D = 1: Increment
+
+I/D = 0: Decrement
+
+S = 1: Display shift enabled
+S = 0: Cursor shift enabled
+S/C = 1: Display shift
+
+S/C = 0: Cursor shift
+
+R/L = 1: Shift to the right
+R/L = 0: Shift to the left
+
+DL = 1: 8 bits
+
+DL = 0: 4 bits
+
+N =0:1 Line
+
+N =1:2 Lines
+
+BR1,BR0 = 00: 100%
+01: 75%
+10: 50%
+11: 25%
+
+X: Don’t care
+
+DDRAM: Display Data RAM
+CGRAM: Character Generator RAM
+ACG: CGRAM address
+
+ADD: DDRAM address
+
+AC: Address counter
+
+Data Sheet S13231EJ1VODSO00
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NEC uPD16314
+10. INSTRUCTION DESCRIPTION
+10.1 Clear Display
+RS R,/W DB7 DBe DBs DBa DBs DB2 DB: DBo
+
+Code 0 0 0 ) ) ) ) ) ) 1
+This instruction:
+(1) Writes to 20H (Space code) all locations in display data RAM (DDRAM)
+(2) Sets the address counter (AC) to the DDRAM address OOH.
+(3) Returns the display Shift to 0.
+(4) If cursor is displayed, the cursor is moved to the far left edge of the top line (upper line).
+After reset:
+
+DB7 DBe DBs DBa DBs DB2 DB: DBo
+
+0 0 0 ) ) ) ) 1
+10.2 Cursor Home
+RS R,/W DB7 DBe DBs DBa DBs DB2 DB: DBo
+
+Code 0 0 0 ) ) ) ) ) ) Xx
+This instruction:
+(1) Sets the address counter (AC) to the DDRAM address OOH.
+(2) Returns the display Shift to 0.
+(3) If cursor is displayed, the cursor is held at the far edge of left the top line (upper line).
+
+Data Sheet S$13231EJ1VODS00 29
+NEC pu PD16314
+
+ 
+
+10.3 Entry Mode
+
+RS R/W DB7 DBe DBs DBa DBs DBz2 DB: DBo
+Code 0 0 0 0 0 0 0 1 I/D S
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The I/D determines the way in which the contents of address counter are modified after every access to DDRAM or
+CGRAM.
+I/D = 1: Address counter incremented after access to DDRAM or CGRAM.
+I/D = 0: Address counter decremented after access to DDRAM or CGRAM.
+
+The S bit determines a display shift whether or a cursor shift occurs after each write or read to/from DDRAM.
+S = 1: Display shift enabled.
+S = 0: Cursor shift enabled.
+The direction in which the display is shifted is the opposite to that of the cursor.
+For example, if S = 0 and I/D = 1, cursor would shift one character to the right after a CPU write to DDRAM. However
+if S = 1 and I/D = 1, the display would shift one character to the left and cursor would maintain its position on the
+panel.
+Note that the cursor is shifted in the direction selected by I/D when DDRAM is read, irrespective of the value of S.
+Similarly reading and writing CGRAM always causes the cursor to shift.
+
+Table 10-1. Cursor Move and Display Shift by Entry Mode Setting
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+I/D Ss After Writing DDRAM Data After Reading DDRAM Data
+0 0 Cursor moves one character to the left. Cursor moves one character to the left.
+1 0 Cursor moves one character to the right. Cursor moves one character to the right.
+0 1 Display shifts one character to the right without Cursor moves one character to the left.
+cursor moving.
+1 1 Display shifts one character to the left without Cursor moves one character to the right.
+cursor moving.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+After reset:
+DB7 DBe DBs DBa DBs DBz2 DBi DBo
+
+0 0 0 0 0 1 1 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+30 Data Sheet $13231EJ1VODS00
+NEC uPD16314
+
+10.4 Display ON/OFF
+
+RS R/W DB7 DBe DBs DBa DBs DBz2 DB: DBo
+Code 0 0 0 0 0 0 1 D C B
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+This instruction controls various features of the display.
+
+D = 1: Display on, D = 0: Display off.
+
+C = 1: Cursor on, C = 0: Cursor off.
+
+B = 1: Blink on, B = 0: Blink off.
+Blinking is achieved by alternating between a normal and all-on display of a character.
+The cursor blinks with a frequency of 1 Hz and a duty of 50 %.
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Blink Hy
+in
+(1 Hz) f
+<——>_ i
+< a
+a
+Cursor line
+After reset:
+DB7 DBe DBs DB4 DBs DBz DB: DBo
+0 0 0 0 1 0 0 0
+10.5 Cursor or Display Shift
+RS R,/W DB7 DBs DBs DBa DBs DBz DB: DBo
+Code 0 0 0 0 0 1 S/C R/L X X
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+This instruction shifts the display and/or moves the cursor, one character to the left or right, without reading or
+writing to DDRAM.
+The S/C bit selects movement of the cursor or movement of both the cursor and display.
+S/C = 1: Shifts both the cursor and display.
+S/C = 0: Shifts only the cursor.
+The R/L bit selects whether to move the display and/or cursor to the left or right.
+R/L = 1 : Shift one character to the right.
+R/L = 0 : Shift one character to the left.
+
+Table 10-2. Cursor or Display Shift
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+S/C R/L Cursor Display
+0 0 Moves one character to the left. No shift.
+0 1 Moves one character to the right. No shift.
+1 0 Moves one character to the left with the display. Shifts one character to the left.
+1 1 Moves one character to the right with the display. Shifts one character to the right.
+
+ 
+
+Data Sheet $13231EJ1VODS00 31
+NEC
+
+ 
+
+ 
+
+uPD16314
+10.6 Function Setting
+RS R,/W DB7 DBe DBs DBa DB3 DB2 DB: DBo
+Code 0 0 0 0 1 DL N X BR1 BRO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+This instruction sets the data length of the data bus line (when using the parallel interface, IM = H), the number of
+display lines and the brightness adjustment.
+This instruction initializes the system, and must be the first instruction executed after power-on.
+DL = 1: 8-bit CPU interface using DB7 to DBo
+DL = 0: 4-bit CPU interface using DB7 to DBa
+N = 0: Selects 1-line display (using anode outputs A1 to A40. A41 to A80 are fixed to low .).
+N = 1: Selects 2-line display (using anode outputs A1 to A80).
+The BR1, BRO flags control the brightness of VFD by adjusting the to pulse width of the anode outputs as follows.
+
+tosP= 200 ws, tp.K=10us
+
+ 
+
+ 
+
+BR1 BRO htness
+0 0 100 % tose x 1.00
+0 1 75% tose x 0.75
+1 0 50 % tose x 0.50
+25 % tose x 0.25
+T
+tpsP
+tp
+An {BLk {BLk
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+G1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Remark n: Number of grids, T =n x (tosp + teLk)
+
+After reset:
+DB7 DBe DBs DBa DBs DBz2 DBi DBo
+0 0 1 1 1 0 0 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+32 Data Sheet $13231EJ1VODS00
+NEC uPD16314
+
+ 
+
+10.7 CGRAM Address Setting
+
+RS R/W DB7 DBe DBs DBa DB3 DBz2 DBi DBo
+Code 0 0 0 1 A A A A A A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+This instruction:
+(1) Loads a new 6-bit address into the address counter.
+(2) Sets the address counter to point to CGRAM.
+
+Once the CGRAM data write instruction has been executed, the value of the address counter (AC) will be
+automatically incremented (+1) or decremented (-1), as determined by the entry mode setting instruction. The
+CGRAM address is moved from 3FH to OOH (+1, increment setting) or from OOH to 3FH (-1, decrement setting).
+
+After reset: Don’t care.
+
+10.8 DDRAM address setting
+
+RS R/W DB7 DBe DBs DBa DBs DBz2 DB: DBo
+Code 0 0 1 A A A A A A A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+This instruction:
+(1) Loads a new 7-bit address into the address counter.
+(2) Sets the address counter to point to DDRAM.
+
+Once the DDRAM address setting has been executed once, the contents of the address counter (AC) will be
+automatically incremented (+1) or decremented (-1) after every access of DDRAM, as determined by the entry mode
+setting instruction.
+
+Table 10-3. Valid DDRAM Address Range
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Number of Characters Address Range
+1st line 40 OOH to 27H
+2nd line 40 40H to 67H
+After reset: Don’t care.
+10.9 Reading Busy Flag and Address
+RS R,/W DB7 DBe DBs DB4 DB3 DB2 DB: DBo
+Code 0 1 BF A A A A A A A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+This instruction reads the busy flag (BF)“°* and the value of the address counter in binary “AAAAAAA’. This
+address counter is used by the CGRAM and DDRAM addresses, and its value is determined by the previous
+instruction. The address counter contents are same as for the CGRAM address setting and DDRAM address setting
+instructions.
+
+Note The busy flag (BF) always outputs 0.
+
+Data Sheet $13231EJ1VODS00 33
+NEC pu PD16314
+
+10.10 Writing Data to CGRAM or DDRAM
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS R,/W DB7 DBe DBs DBa4 DB3 DB2 DBi DBo
+Code 1 0 D D D D D D D D
+<High-order bits Low-order bits>
+
+This instruction writes 8-bit binary data “DDDDDDDD” to CGRAM or DDRAM.
+
+Whether to write to CGRAM or DDRAM is determined by the following instruction of CGRAM address setting or
+DDRAM address setting. After a data write, the value address is automatically incremented or decremented by 1
+according to the entry mode set. The entry mode also determines the display shift.
+
+10.11 Reading Data from CGRAM or DDRAM
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS R,/W DB7 DBe DBs DBa4 DB3 DB2 DBi DBo
+Code 1 1 D D D D D D D D
+<High-order bits Low-order bits>
+
+This instruction reads 8-bit binary data “DDDDDDDD” from CGRAM or DDRAM.
+
+The previous specification determines whether CGRAM or DDRANM is to be read. Before entering this instruction,
+either the CGRAM address setting or the DDRAM address setting instruction must be executed. If neither is
+executed, the first read data is invalid, so when consecutively executing read instructions, the next address data is
+normally read from the second read. The address setting instructions do not need to be executed just before this
+read instruction, when the cursor is shifted by the cursor or display shift instruction (only when reading out data from
+DDRAM).
+
+The operation of the cursor shift instruction is the same as the DDRAM address setting instruction. After reading
+one data, the value of the address is automatically incremented or decremented by 1 according to the entry mode
+selection.
+
+Caution The address counter is automatically incremented or decremented by 1 after the data write
+instruction to CGRAM or DDRAM is executed. However, even if the contents of the RAM to be data
+read instruction is executed indicated by the address counter cannot be read.
+
+Therefore, to read the data correctly, execute the address setting instruction or the cursor shift
+instruction (only in the case of DDRAM data read) just before reading, or, read from the second data
+in the case of executing the consecutive read data instruction.
+
+34 Data Sheet $13231EJ1VODS00
+NEC uPD16314
+
+10.12 Power On Reset
+
+The Internal status of 4 PD16314 is initialized as follows after the power supply is turned on.
+(1) Display clear: DDRAM is filled with 20H (space code).
+(2) The address counter is set to OOH.
+
+The address counter is set to point to DDRAM.
+
+(3) Display ON/OFF: D=0, C =0,B=0
+(4) Entry mode set: I/D =1,S =0
+(5) Function set: DL = 1, N = 1
+(6) Brightness adjustment: BRO = BR1 = 0
+(7) The CPU interface and duty ratio selection are based on Table 10-4.
+
+Table 10-4. Relationship between Status of 1 PD16314 and Pin Selection at Power on Reset
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pin Name Function Remark
+TEST IM DS1 DSO
+H X X X Self test mode
+L or open L x x Serial interface SISO, SCK, STB used
+L or open H 4 4 Parallel interface RS, E, R,W, DB7 to DBa, or DB7 to DBo used
+L or open X L L Duty = 1/16 (16C x 1 or 2L display) The extension driver does not need to be used.
+L or open Xx L H Duty = 1/20 (20C x 1 or 2L display) The number of lines is selected
+L or open X H L Duty = 1/24 (24C x 1 or 2L display) by insutruction.
+L or open X H H Duty = 1/40 (40C x 1 or 2L display) The extension driver should be used.
+The number of lines is selected by instruction.
+
+ 
+
+Remark X: Don’t care
+
+Data Sheet $13231EJ1VODS00 35
+NEC
+
+uPD16314
+
+11. EXAMPLE OF DATA TRANSFER (8-bit Parallel, Data Increment Mode)
+
+Figure 11-1. Initialization and Data Setting Procedure
+
+ 
+
+Power ON
+
+ 
+
+i
+
+ 
+
+Function setting
+
+ 
+
+z
+
+ 
+
+CGRAM address setting
+
+ 
+
+Y
+
+ 
+
+Data write
+
+ 
+
+z
+
+ 
+
+End of data write
+
+ 
+
+4 Yes
+
+ 
+
+DDRAM address setting
+
+ 
+
+y
+
+ 
+
+Data write
+
+ 
+
+ 
+
+End of Data write
+
+ 
+
+yYes
+
+ 
+
+ 
+
+Display ON/OFF
+
+ 
+
+ 
+
+All registers set to initialized value.
+
+Set data length, display line number and display brightness.
+
+Write the data to CGRAM.
+
+Write the data to DDRAM.
+
+ 
+
+Display ON
+
+Table 11-1. Example of Initialization and Data Setting (M68 Series CPU)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS | R,/W D7 | D6 | D5 | D4 | D3 | D2 | D1 | DO |
+Power ON
+0 0 0 0 1 1 1 X 0 1 Function setting
+Data length: 8 bits,
+Display line number: 2 lines
+VED brightness: 75%
+0 0 1 0 0 0 0 0 0 CGRAM address set to 00H
+1 Xx Xx Xx D Write data to CG4RAM
+X X X D D D D D 64 bytes (8 characters)
+Xx Xx Xx D D D D D
+0 1 0 0 0 0 0 0 0 DDRAM address set to OOH
+1 D D D D D D D D Write data to DDRAM
+D D D D D D D D 80 bytes (80 characters)
+D D D D D D D D
+0 0 0 0 1 1 0 0 Display ON, cursor OFF, cursor blink OFF
+36 Data Sheet $13231EJ1VODS00
+NEC uPD16314
+
+ 
+
+>
+
+12. ELECTRICAL SPECIFICATIONS
+
+Absolute Maximum Ratings (Ta = 25 °C, Vssi = Vss2 = 0 V)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol Rating Unit
+Logic power supply voltage Voo1 —0.5 to +6.0 V
+Logic input voltage Vi —0.5 to Voo1+ 0.5 V
+Logic output voltage Vo1 —0.5 to Von1 + 0.5 V
+Driver power supply voltage Vope —0.5 to +60 V
+Driver output voltage Voe —0.5 to Vov2 + 0.5 V
+Driver output current Anode loL2a 10 mA
+lon2a -2 mA
+Grid lovee 15 mA
+lon2a —20 mA
+Allowable loss Pp 1.2 W
+Operating ambient temperature TA —40 to +85 °C
+Storage temperature Tstg —65 to +150 i ©
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Caution Product quality may suffer if the absolute maximum rating is exceeded even momentarily for any
+parameter. That is, the absolute maximum ratings are rated values at which the product is on the
+verge of suffering physical damage, and therefore the product must be used under conditions that
+ensure that the absolute maximum ratings are not exceeded.
+
+Recommended Operating Range (Ta =25 °C, Vssi = Vssz = 0 V)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol MIN. TYP. MAX. Unit
+Logic power supply voltage Voo1 2./ 5.0 5.5 V
+Logic system input voltage Vin 0 Vop1 V
+Driver power supply voltage Vope 20 50 V
+Driver output current Anode loL2a 5 mA
+loH2a —1 mA
+Grid lotze 8 mA
+lon2a -15 mA
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Remark NEC recommends that power is applied to the chipset in the order given below.
+Vop1 — Input + Vooz2
+When turning the power off, the reverse order should be applied.
+
+Data Sheet $13231EJ1VODS00 37
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NEC uPD16314
+Electrical Characteristics
+(Unless otherwise specified, Ta -—40 to +85 °C, Vpp1 = 5.0 V, Vpop2 = 50 V, Vss1 = Vssz = 0 V)
+Parameter Symbol Conditions MIN. TYP. MAX. Unit
+* High-level input voltage 1 Vint Logic, except E,SCK, /RESET, R,/W 0.7 Vop1 V
+* Low-level input voltage 1 Vi Logic, except E,SCK, /RESET, R,/W 0.3 Vpp1 V
+* High-level input voltage 2 Vine E,SCK, /RESET, R,/W 0.8 Vpp1 V
+* Low-level input voltage 2 Vive E,SCK, /RESET, R,/W 0.2 Vop1 V
+High-level output voltage (Logic) Vout DBn, SI,SO, SDO, SLK, LE, /CL Vopp1 — 0.5 V
+low = —0.1 mA
+Low-level output voltage (Logic) Vout DBn, SI,SO, SDO, SLK, LE, /CL Vssi1+ 0.5 V
+lo = 0.1 mA
+High-level input current liq TEST, Vin = Voo1 20 500 LA
+High-level leakage current ILOH Logic, Viniout = Voo1 1.0 LA
+* Low-level leakage current ILo Logic, except DBn, SI, SO -1.0 LA
+* Pull-up MOS current -Ip DBn, SI, SO 30 125 280 LA
+* High-level output voltage (Driver) | Voxeat A1 to A80, lon2 = -0.5 mA 48 V
+* Vonea2 A1 to A80, lone = —1 mA 46 V
+Von2a G1 to G24, lone = -15 mA 45 V
+Low-level output voltage (Driver) Voie A1 to A80, G1 to G24, loz=1mA 5 V
+* Current consumption Ipo1 Logic (no CPU access) 100 LA
+Ipp2 Driver 100 LA
+Remark The TYP. value is a reference value when Ta = 25 °C.
+Switching Characteristics (Unless otherwise specified, Ta = —40 to +85 °C, Vpp1 = 5.0 V + 10 %)
+Parameter Symbol Condition MIN. TYP. MAX. Unit
+Oscillation frequency fosce R = 56 kQ 392 560 728 kKHZ
+* Oscillation frequency fc OSCin external clock 350 560 750 kKHZ
+* Rise time Tri A1 to A80, C.= 50 pF 2.5 LS
+TTLH2 G1 to G24, C. = 50 pF 0.25 Ls
+Fall time TTHL A1 to A80, G1 to G24, Ci = 50 pF 1.0 Ls
+Remark The TYP. value is a reference value when Ta = 25 °C.
+Switching Timing
+TTHL _y TTLH1,2
+90% 90%
+Am, Gn
+10% “KX 7 10%
+
+38
+
+ 
+
+ 
+
+ 
+
+Data Sheet S13231EJ1VODSO00
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NEC uPD16314
+
+Required Conditions for Timing 1 (Unless otherwise specified, Ta =—40 to +85 °C)
+
+Parallel data transfer (M68 interface): Write (Vpp1 = 5.0 V + 10 %)
+
+Parameter Symbol Conditions MIN. | TYP. | MAX. Unit
+
+Enable cycle time tcvce ET SET 500 ns
+Enable “H’” pulse width PWeEH E 230 ns
+Enable “L” pulse width PWet E 230 ns
+RS, R,/W - E setup time tas RS, R,/W > ET 20 ns
+RS, R,/W - E hold time TAH E J > RS, R,/W 10 ns
+Data setup time ios DATA > ET 80 ns
+Data hold time tox El — DATA 10 ns
+Reset pulse width twRe 500 ns
+
+Parallel data transfer (M68 interface): Read (Vpp1 = 5.0 V+ 10 %)
+
+Parameter Symbol Conditions MIN. | TYP. | MAX. Unit
+Enable cycle time tcyce EToET 500 ns
+Enable “H’” pulse width PWEH E 230 ns
+Enable “L” pulse width PWet E 230 ns
+RS, R,/W - E setup time tas RS, R,/W > ET 20 ns
+RS, R,/W - E hold time taH E J > RS, R,/w 10 ns
+Data delay time top ET — DATA 160 ns
+Data hold time toHR El — DATA 5 ns
+Data Sheet $13231EJ1VODS00 39
+
+ 
+
+ 
+NEC
+
+Parallel Interface (M68 input)
+
+ 
+
+RS x
+RW — \
+
+ 
+
+tas
+
+ 
+
+ 
+
+TAH
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ICS /
+NK
+PWen PWet |
+cE / a,
+le tps {DH ,|
+
+DBo
+
+to Valid Data
+DB7
+
+tcYce
+
+Parallel Interface (M68 output)
+
+ 
+
+ 
+
+ 
+
+ 
+
+x
+RS
+K
+
+ 
+
+R,/W /
+
+4
+
+tas
+
+ 
+
+ICS \
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+E
+top {DHR
+DBo
+to Valid Data
+DB7
+
+ 
+
+Remarks 1. The input signal rise time and fall time (tr, tt) is specified at 15 ns or less.
+2. All timing is specified using 20 % and 80 % of Vop1 as the reference.
+
+tcYce
+
+ 
+
+ 
+
+ 
+
+3. PWeu is specified as the overlap between /CS being L and E.
+
+40
+
+Data Sheet S13231EJ1VODSO00
+
+uPD16314
+NEC uPD16314
+
+Required Conditions for Timing 2 (Unless otherwise specified, Ta =—40 to +85 °C)
+
+Parallel data transfer (i80 interface): Write (Vpp1 = 5.0 V +10 %)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol Conditions MIN. | TYP. | MAX. Unit
+RS hold time tRHs AO 10 ns
+RS setup time trss AO 10 ns
+System cycle time tcyce 200 ns
+Control “L” pulse width(WR) tecLw /WR 30 ns
+Control “L” pulse width(RD) tccLr /RD 70 ns
+Control “H” pulse width(WR) tecHw /WR 100 ns
+Control “H” pulse width(RD) tecHR /RD 100 ns
+Data setup time toss DBo to DB7 30 ns
+Data hold time tpH8 DBo to DB7 10 ns
+/RD access time taccs DBo to DB7, C. = 100 pF 70 ns
+Output disable time tous DBo to DB7, Ci = 100 pF 5 ns
+Reset pulse width twre 500 ns
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parallel Interface (i80)
+/
+
+ns \
+
+X
+
+ICS
+
+ 
+
+tt tr TRH8
+
+ 
+
+ 
+
+ 
+
+tRss tcycs
+
+ 
+
+ 
+
+tcecLr, tccLw
+
+/WR, /RD \ V \
+
+tccHR, tccHw
+
+ 
+
+ 
+
+ 
+
+Lo
+_
+Lo
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+toss tDH8
+
+DBo to DB7
+(Write)
+
+taccs tous
+DBo to DB7
+(Read)
+
+Remarks 1. The input signal rise time and fall time (tr, tf) is specified at 15 ns or less.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2. All timing is specified using 20 % and 80 % of Von as the reference.
+3. tccLw and tccLr are specified as the overlap between /CS being L and /WR and /RD being at the L
+level.
+
+Data Sheet $13231EJ1VODS00 41
+NEC pu PD16314
+
+Required Conditions for Timing 3 (Unless otherwise specified, Ta =—40 to +85 °C)
+
+Serial data transfer (Vpp1 = 5.0 V +10 %)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol Conditions MIN. | TYP. | MAX. Unit
+Shift clock cycle tcvk SCK 500 ns
+High-level shift clock pulse width twHk SCK 200 ns
+Low-level shift clock pulse width tw SCK 200 ns
+Shift clock hold time tHsTBK STB J > SCK J 100 ns
+Data setup time tos DATA > SCKT 100 ns
+Data hold time tbH SCK T > DATA 100 ns
+STB hold time toKsTe SCK T > STBT 500 ns
+STB pulse width twsTB 500 ns
+Wait time twat 8th CLK T > 1st CLK J 1 Ls
+Output data delay time tooo STB | > DATA 150 ns
+Output data hold time tovx SCK T > DATA 5 ns
+Reset pulse width twre 500 ns
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Serial Interface (Input)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+twsTB
+STB /
+tHSTBK tcyK {DKSTB
+r twLk tWHK
+SCK \ / \ ff
+tos {DH |
+|
+Sl
+NO Ne
+Serial Interface (Output)
+twsTB
+
+STB /
+
+ 
+
+ 
+
+ 
+
+ 
+
+tHSTBK tcyK {DKSTB
+r twLk tWHK
+soe LI NS
+topp tODH
+
+ 
+
+ 
+
+ 
+
+ 
+
+SO x
+Remarks 1. The input signal rise time and fall time (tr, tf) is specified at 15 ns or less.
+
+2. All timing is specified using 20 % and 80 % of Vpn as the reference.
+
+42 Data Sheet S13231EJ1VODSO00
+NEC
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+u PD16314
+AC Measurement Point
+Vin
+Input ViL
+Vou
+Output VoL
+Reset
+/RESET
+twrRe
+Required Conditions for Timing 4 (Unless otherwise specified, Ta =—40 to +85 °C)
+Common timing (M68, i80, serial interface): Power ON reset (Vop1 = 5.0 V + 10 %)
+Parameter Symbol Conditions MIN. | TYP. | MAX. Unit
+Resetting time tres Vobp 100 Us
+Vop rising time trop Vop 1 Us
+Vop OFF width torr Vpbp 1 ms
+trop | tRES
+Vop 4.5V
+0.2V
+torr
+Internal
+reset time
+
+ 
+
+ 
+
+ 
+
+Data Sheet $13231EJ1VODS00 43
+NEC
+
+13. PACKAGE DRAWING
+
+144-PIN PLASTIC LQFP (FINE PITCH) (20X20)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+uPD16314
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+A
+B
+HARA ARR ARR BAAR AAR AAA AAR
+108 73
+Ey 109 72
+coo —I
+cS —l
+oS —r
+cS —l
+oS —r
+cS —
+oS —l
+coo —I .
+= =o Detail of lead end
+cS —
+oS —l
+cS —I
+oS = ro
+== + = C OD Ss
+cS —
+oS —l
+coo —I
+cS —l
+oo = R
+cS —l
+oS —r Q
+= =o
+coo —I
+= =
+= O =
+cS —
++ _s54'44 2 ao
+fe HOHHHD aaa
+G1 H
+—p K
+-M
+f/| N L
+NOTE ITEM MILLIMETERS INCHES
+Each lead centerline is located within 0.10 mm (0.004 inch) of A 22.0+0.2 0.866+0.008
+its true position (T.P.) at maximum material condition. 0.009
+P (T.P.) B 20.0+0.2 0.787+0.009
+0.009
+C 20.040.2 0.78775 908
+D 22.0+0.2 0.866+0.008
+F 1.25 0.049
+G 1.25 0.049
+H 0.22+8-09 —— 0.009+0.002
+0.10 0.004
+J 0.5 (T.P.) 0.020 (T.P.)
+0.009
+K 1.0+0.2 0.03975 998
+0.008
+L 0.5+0.2 0.02075 "999
+M —_—-0.145+8-893  0.006+0.002
+N 0.10 0.004
+P 1.4+0.1 0.055+0.004
+Q 0.125+0.075 0.005+0.003
+7 7
+R 3 *4 3%
+S 1.7 MAX. 0.067 MAX.
+
+44
+
+ 
+
+Data Sheet S13231EJ1VODSO00
+
+3144GJ-50-8EU-2
+NEC uPD16314
+
+ 
+
+14. SOLDERING CONDITIONS
+
+Solder the product under the following recommended conditions.
+
+For details of the recommended soldering conditions, refer to information Document Semiconductor Device
+Mounting Technology Manual (C10535E).
+
+For soldering methods and soldering conditions other than those recommended, please contact an NEC
+salesperson.
+
+Surface Mount Type
+
+PD16314GJ-001-8EU: 144-PIN PLASTIC LQFP (20x20 mm)
+Soldering Soldering Condition Symbol of Recommended
+Method Soldering Condition
+Infrared reflow Package peak temperature: 235 °C, Time: 30 seconds MAX. (210 °C MIN.), | IR35-103-3
+Number of times: 3 MAX.
+<Precaution>
+
+ 
+
+ 
+
+Products other than in heat-resistant trays (such as those packaged in a
+magazine, taping, or non-thermal-resistant tray) cannot be baked in their
+package.
+
+VPS Package peak temperature: 215 °C, Time: 40 seconds MAX. (200 °C MIN.), | VP15-103-3
+Number of times: 3 MAX.
+<Precaution>
+
+ 
+
+Products other than in heat-resistant trays (such as those packaged in a
+magazine, taping, or non-thermal-resistant tray) cannot be baked in their
+package.
+
+Wave soldering Solder path temperature: 260 °C MAX., Time: 10 seconds MAX., WS-60-103-1
+Number of times:1,
+
+ 
+
+Preheating temperature: 120 °C MAX. (Package surface)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Partial heating Pin temperature: 300 °C MAX., Time: 3 seconds MAX. (per side of device) -
+
+ 
+
+Caution Do not use two or more soldering methods in combination (except the partial heating method).
+
+Data Sheet $13231EJ1VODS00 45
+NEC
+
+uPD16314
+
+ 
+
+[MEMO]
+
+46
+
+Data Sheet S13231EJ1VODSO00
+NEC uPD16314
+
+ 
+
+ 
+
+ 
+
+NOTES FOR CMOS DEVICES
+
+G@ PRECAUTION AGAINST ESD FOR SEMICONDUCTORS
+
+Note:
+
+Strong electric field, when exposed to a MOS device, can cause destruction of the gate oxide and
+ultimately degrade the device operation. Steps must be taken to stop generation of static electricity
+as much as possible, and quickly dissipate it once, when it has occurred. Environmental control
+must be adequate. When it is dry, humidifier should be used. It is recommended to avoid using
+insulators that easily build static electricity. Semiconductor devices must be stored and transported
+in an anti-static container, static shielding bag or conductive material. All test and measurement
+tools including work bench and floor should be grounded. The operator should be grounded using
+wrist strap. Semiconductor devices must not be touched with bare hands. Similar precautions need
+to be taken for PW boards with semiconductor devices on it.
+
+@ HANDLING OF UNUSED INPUT PINS FOR CMOS
+
+Note:
+
+No connection for CMOS device inputs can be cause of malfunction. If no connection is provided
+to the input pins, it is possible that an internal input level may be generated due to noise, etc., hence
+causing malfunction. CMOS devices behave differently than Bipolar or NMOS devices. Input levels
+of CMOS devices must be fixed high or low by using a pull-up or pull-down circuitry. Each unused
+pin should be connected to Vop or GND with a resistor, if it is considered to have a possibility of
+being an output pin. All handling related to the unused pins must be judged device by device and
+related specifications governing the devices.
+
+@ STATUS BEFORE INITIALIZATION OF MOS DEVICES
+
+Note:
+
+Power-on does not necessarily define initial status of MOS device. Production process of MOS
+does not define the initial operation status of the device. Immediately after the power source is
+turned ON, the devices with reset function have not yet been initialized. Hence, power-on does
+not guarantee out-pin levels, I/O settings or contents of registers. Device is not initialized until the
+reset signal is received. Reset operation must be executed immediately after power-on for devices
+having reset function.
+
+ 
+
+ 
+
+ 
+
+Data Sheet $13231EJ1VODS00 47
+ 
+
+NEC pu PD16314
+
+ 
+
+¢ The information in this document is subject to change without notice. Before using this document, please
+confirm that this is the latest version.
+
+¢ No part of this document may be copied or reproduced in any form or by any means without the prior written
+consent of NEC Corporation. NEC Corporation assumes no responsibility for any errors which may appear in
+this document.
+
+¢ NEC Corporation does not assume any liability for infringement of patents, copyrights or other intellectual property
+rights of third parties by or arising from use of a device described herein or any other liability arising from use
+of such device. No license, either express, implied or otherwise, is granted under any patents, copyrights or other
+intellectual property rights of NEC Corporation or others.
+
+¢ Descriptions of circuits, software, and other related information in this document are provided for illustrative
+purposes in semiconductor product operation and application examples. The incorporation of these circuits,
+software, and information in the design of the customer's equipment shall be done under the full responsibility
+of the customer. NEC Corporation assumes no responsibility for any losses incurred by the customer or third
+parties arising from the use of these circuits, software, and information.
+
+e While NEC Corporation has been making continuous effort to enhance the reliability of its semiconductor devices,
+the possibility of defects cannot be eliminated entirely. To minimize risks of damage or injury to persons or
+property arising from a defect in an NEC semiconductor device, customers must incorporate sufficient safety
+measures in its design, such as redundancy, fire-containment, and anti-failure features.
+
+e NEC devices are classified into the following three quality grades:
+
+"Standard", "Special", and "Specific". The Specific quality grade applies only to devices developed based ona
+customer designated "quality assurance program" for a specific application. The recommended applications of
+a device depend on its quality grade, as indicated below. Customers must check the quality grade of each device
+before using it in a particular application.
+
+Standard: Computers, office equipment, communications equipment, test and measurement equipment,
+audio and visual equipment, home electronic appliances, machine tools, personal electronic
+equipment and industrial robots
+
+Special: Transportation equipment (automobiles, trains, ships, etc.), traffic control systems, anti-disaster
+systems, anti-crime systems, safety equipment and medical equipment (not specifically designed
+for life support)
+
+Specific: Aircraft, aerospace equipment, submersible repeaters, nuclear reactor control systems, life
+support systems or medical equipment for life support, etc.
+
+The quality grade of NEC devices is "Standard" unless otherwise specified in NEC's Data Sheets or Data Books.
+If customers intend to use NEC devices for applications other than those specified for Standard quality grade,
+they should contact an NEC sales representative in advance.
+
+ 
+
+ 
+
+M7 98.8
+
+ 

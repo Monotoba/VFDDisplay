@@ -430,6 +430,30 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDPT6314Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDUPD16314Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "uPD16314",
+        "NEC/Renesas uPD16314 VFD Controller/Driver (HD44780-like with brightness)",
+        "NEC/Renesas",
+        "uPD16314",
+        2, 20,
+        5, 8,
+        116, 16,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS | CAP_DIMMING,
+        1,   // blink on/off
+        8,   // CGRAM 8 glyphs
+        4,   // 4 brightness levels via Function Set (BR1/BR0)
+        0,
+        10, 100, 100,
+        400, 800,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedInterface("Parallel");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createVFDM0216MDCapabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "M0216MD",
