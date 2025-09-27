@@ -3,6 +3,7 @@
 #include "tests/framework/EmbeddedTest.h"
 #include "tests/common/IVFDHALContractTests.hpp"
 #include "tests/device/VFD20S401HALTests.hpp"
+#include "tests/device/VFD20T202HALTests.hpp"
 #include "HAL/VFD20S401HAL.h"
 
 void setup() {
@@ -13,6 +14,10 @@ void setup() {
 
   register_IVFDHAL_contract_tests<VFD20S401HAL>("VFD20S401");
   register_VFD20S401HAL_device_tests();
+
+  // VFD20T202
+  register_IVFDHAL_contract_tests<VFD20T202HAL>("VFD20T202");
+  register_VFD20T202HAL_device_tests();
 
   EmbeddedTest::runAll();
 }

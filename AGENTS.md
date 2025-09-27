@@ -13,6 +13,11 @@ No‑Touch Code Markers
 - Do NOT edit, refactor, or remove code within methods or regions annotated with NO_TOUCH.
 - When extending functionality, build on higher‑level layers or add new methods; do not alter NO_TOUCH blocks.
 
+Locked Interfaces and Existing HALs
+- The `IVFDHAL` interface is considered LOCKED. Do not modify its methods or signatures.
+- Existing device HALs (e.g., `VFD20S401HAL`) and `BufferedVFD` are LOCKED. Do not change their behavior or public APIs.
+- When adding a new device HAL, all changes must remain within the new HAL implementation (and its documentation/capabilities). Adjust NO_TOUCH primitives only within that new HAL as required by its datasheet.
+
 Commit Policy
 - Commit all changes you make as small, focused commits with clear messages.
 - Keep the `CHANGELOG.md` up to date in the same commit(s) describing what changed and why.
