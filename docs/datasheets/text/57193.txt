@@ -1,0 +1,245 @@
+ 
+
+5X7 Dot Character VFD Module CU40026-TW200A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+QO 2Lines of 40 Characters 5mm High The module includes the Vacuum Fluorescent Display glass,
+QO High Speed Parallel/Serial Interface driver and micro-controller ICs with refresh RAM, character
+QO Operating Temp -40°C to +85°C generator and interface logic. The high speed 8 bit parallel
+Q Single 5V Supply interface is 5V CMOS compatible suitable for connection to a
+Q} High Brightness Blue Green Display host CPU bus. The asynchronous serial interface accepts baud
+Q ASCII, Katakana & Extended Character Font rates up to 19,200 with or without parity. Two character font
+QO 2 User Definable Character RAM tables can be hardware or software selected. User defined
+characters and many control commands are available.
+O SZ l I O° x
+oa be PL ie 16.5
+O oo LU O 16. 0 43.0
+2- eee eee eee eee eee eee y .
+13, 5 21. 5
+2 5K 188.55 >
+230.0 > <-5.0
+240.0
+I > y yy 1.9
+SF--jT --  —  — ST. = A
+| | | | 2 | nN | 1.6 | 13.0
+PWR (AMP171825-3) IDC (16 WAY)
+Dimensions in mm & subject to tolerances. Mounting holes 3.5mm dia.
+ELECTRICAL SPECIFICATION CHARACTER FONTS International Font Additional Katakana Font
+
+oO} 10} 20) 30} 40] SO] 60} 70} 80] 90} AO} BO] CO} DO] EO] FO 80) 90 |) AO} BO} CO} DO] EO} FO
+
+u e€
+
+. Ccc=
+max. Ccc=
+
+    
+
+. max. =
+power on 100ms. current at power on can be 2 x
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+OPTICAL and ENVIRONMENTAL SPECIFICATIONS
+
+Parameter Value
+
+Character Size/Pitch (XxY mm) 3.3 x 5.05/4.75 x 9.95
+
+Dot Size/Pitch (XxY mm) 0.5x0.55/0.7 x 0.75
+
+Luminance 700 cd/m (204 fL) Typ.
+
+Colour of Illumination Blue-Green (Filter for colours)
+
+Operating Temperature -40°C to +85°C
+
+Storage Temperature -40°C to +85°C
+
+Operating Humidity (non condensing) | 20 to 80% RH @ 25°C
+
+SOFTWARE COMMANDS
+
+Instruction DO-D7 Instruction DO-D7
+
+Back Space 08H International Font 18H
+
+Horizontal Tab 09H Katakana Font 19H
+
+Line Feed OAH _ | Euro Currency Mark 1AH
+
+Form Feed OCH Escape 1BH
+
+Carriage Return ODH_ | > Send User Font +43H
+
+Clear Display OEH | > Position cursor +48H
+
+Increment Write Mode 11H > Software Reset +49H
+
+Vertical Scroll Mode 12H > Luminance +4CH
+
+Horizontal Scroll Mode 13H > Flickerless Write +53H
+
+Underline Cursor On 14H >» Cursor Blink Speed +54H CONTACT
+
+5x7 Block Cursor On 15H | Character Data 20H+ Noritake Sales Office Tel Nos
+
+Cursor Off 16H User Character Data OOH+ Nagoya Japan: +81 (0)52-661-9867
+7 . : +4. - .-
+
+Cursor Blinking 17H 3 PIN POWER CONNECTOR Chicago USA: #1-847-439-9020
+
+TIMING PARAMETERS (min) n Munchen (D): +49 (0)89-3214-290
+
+Data Set Up To Write 100ns_| Subject to change without notice. Itron UK: +44 (0)1493 601144
+
+Write Pulse Width 160ns_ | Detailed specification on request. Rest Europe: +49 (0)61-0520-9220
+
+Hold After Write 10ns_ | UK Doc Ref:4406 Iss:1 13Aug03 www.noritake-itron.com
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NORITAKE ITRON VFD MODULES 2x40, 5mm Dot Character

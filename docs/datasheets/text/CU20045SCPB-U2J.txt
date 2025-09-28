@@ -1,0 +1,332 @@
+[ OBSOLETE DESIGN See Replacement CU20045SCPE-W5) |
+5X7 Dot Character VFD Module CU20045SCPB-U24 |
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+OQ 4X 20 Characters 5mm High The module includes the Vacuum Fluorescent Display
+Q LCD Compatible Design glass, driver and micro-controller ICs with refresh RAM,
+OQ Operating Temp -20°C to +70°C character generator and interface logic.
+Q Single 5V Supply with Power Save Mode The high speed 8 bit parallel interface is 5/ CMOS
+Q High Brightness Blue Green Display compatible suitable for connection to a host CPU bus
+QO Selectable 4/8 bit M68/i80 Interface which can be set to M68 or i80 series interface by a solder
+Q ASCII + Extended Character Font link on the module. Brightness control and power down
+Q 8 User Definable Character RAM functions are provided. A full data sheet is available.
+OQ 4Level Brightness Control Function
+4 x@ 1.0
+O 1e0@e0ccc00e0d614 C) O O | evenness x —
+=
+Pee ee _ sage |
+7s |
+=> 20.9 55.0 60.0 |
+- |
+ees _ Ne
+|
+|
+19.5
+O oO yoo” LI
+Ite 70.8 > i “PD S3.0
+: 93.0 se25 *° DK 1.6
+98.0 So
+Dimensions in mm & subject to tolerances. Mounting holes 2.5mm dia. ,
+ELECTRICAL SPECIFICATION CHARACTER FONT
+Parameter Symbol _ | Value Condition He! oo | 10} 20] 30] 40] so| 60} 70] eo] 90] Ao] Bo] co] po] E0| Fo
+Power Supply Voltage Vcc 5.0VDC +/- 5% GND=0V o0 : : .
+Power Supply Current Icc 275mADC typ. Vec=5V
+Logic High Input VIH 2.2VDC min. Vcec=5V o1
+Logic Low Input VIL 0.6VDC max. Vec=5V 02
+Logic High Output VOH Vec-0.5VDC min. | loH=-1.6mMA
+Logic Low Output VOL 0.4VDC max. lol =1.6mA oS
+The power on rise time should be less than 50ms.The inrush current at power on can be 2 x Icc. o4
+
+The lec current is 10mA maximum while in power down mode.
+
+OPTICAL and ENVIRONMENTAL SPECIFICATIONS
+
+ 
+
+05
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Value 06
+Character Size/Pitch (XxY mm) 2.4x 4.7/3.6 x 5.4 07
+Dot Size/Pitch (XxY mm) 0.4x0.5/0.5x0.7
+Luminance 700 cd/m* (204 fL) Typ. “
+Colour of Illumination Blue-Green (Filter for more colours) a9
+Operating Temperature -20°C to +70°C oA
+Storage Temperature -40°C to +85°C
+Operating Humidity (non condensing) | 20 to 80% RH @ 25°C “
+oc
+
+SOFTWARE COMMANDS PIN CONNECTIONS
+Instruction RMW[RS|D0-D7 | [Pin [Sig |Pin | Sig . med] ag [EEL [|
+Clear Display L | L 01H 1 Gno_ | 2 Vcc OE Hy | HPP) [ete] ch Py P pss
+Cursor Return Home | L | L |02H-03H 3 (Fnc) | 4 RS OF ae) or |UELEE evpfae (i |b olaee [hd
+Entry Mode Set L | L \04H-O7H| |5 RIW # | 6 E# tf sj
+Display ON/OFF L L }O8H-OFH 7 DO 8 D1 JUMPER LINKS CONTACT
+Cursor/Display Shift | L | L |10H-1FH 9 D2 10 D3 # Interface M68/i80 Noritake Sales Office Tel Nos
+Function Set L | L 2OH-3FH 11 D4 12 D5 When jumper link JP4 is Nagoya Japan: +81 (0)52-561-9867
+Brightness Set L | H )0H-03H| | 13 D6 14 D7 Soe eee eeu ou Canada: +1-416-291-2946
+
+c I I i : +4- - -
+Set CG RAMAddr._| L | L_}0H-7FH control lines. Mancage Dy is (0)89-32 380
+Set DD RAM Addr. L | L S80H-E7H| TIMING PARAMETERS (min) Pin 5= /WR Pin6=/RD itron UK: +44 (0)1493 601144
+Read BUSY/Addr. H | L )OOH-FFH (E)nable Cycle Time | 666ns Pin 3 (Fnc) Input Rest Europe: +49 (0)61-0520-9220
+Write Data to RAM L | H )OOH-FFH (E)nable Pulse Width | 300ns Fin 3 (nc) (aput is normally open circuit. www.noritake-elec.com
+Read Data from RAM| H | H_|OOH-FFH Hold after (E)nable 10ns If pads JP3.1 and JP3.2 are Subject to change without notice.
+
+linked. Pin 3 = /Reset. IUK Doc Ref: 01089 Iss:3 20CTOO
+
+ 
+
+NORITAKE ITRON VFD MODULES 4x20, 5mm Dot Character

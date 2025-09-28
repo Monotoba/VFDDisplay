@@ -1,0 +1,1599 @@
+ 
+
+MATRIX ORBITAL ~
+
+Economy Series
+
+ 
+
+Including the MOS, MOI, and MOU
+
+Technical Manual
+
+Revision 1.2
+
+PCB Revision: 1.0 or Higher
+
+Firmware Revision: 5.0 or Higher
+1 Revision History
+
+ 
+2 Contents
+
+L REVISION HISTOLY 00... eeeecccccccenseeseeeeece cee eeeeeeeeeeee eee eeeeeeeeeeee eee aeeeeeeeEGGG GAA AEEEEEEE;;;;AA GEE EEEEE SS; ;;SGEEEEEEESSEAEEGEEEEEEEEEES 2
+2 CONTENHS ......eeeeeeeeeeeeeeeeeeeeeeeeeeeeee aaa eeeeeeeeeeee aaa eeeeeeeeeeeaaa eee eeeeeeeeaaaa eee eeeeeeseaaaaeaeeeeeeeseaaaaeaeeeesesseeaaaneeeeeeeseaaaanne® 3
+ZB INCPOCUCTION oo. eeecccceccccceeceeeeeeeeeeteeaaaeaeeeeeceeeeeeeeeeeensneesaaaaaaaeaeeeeeeeeeeeeeseneeesaaaaaaaaeaeeceeeeeeeeeesenteseaeaaaaaaaaaaes 5
+A QUICK CONNEC GUIKE LL. ee cee cee eeeeeeeeeeenaaaaeaeeeeeeeeeeeeeeeeeeesaaaaaaaaaaaeeeeeeeeeeeee ees eesaaaaaaaaaaeaeeceeeeeseeeeeenengnea 6
+A.1 Standard MOdule .0.... eee cccccccccceceeceeeeeeseeeeeenaaaaeaeeeeeeeeeeeeeeeeeeeeesaaaaaaaaeeaeeeeeeeeseenseeseaaaaaaaaaeaeeeeeeeeseeee ey 6
+RECOMMENEM Palts...........cecsesesesnncecceceeceeeeeeeeeeeeeeeeesnenaaaeaeeeeeeeeeeeeeseeeeeeeaaaaaaeaeeceeeeeeeeeeeenenesaaauaaaaeaeeeeeens 6
+
+4.2 Serial CONNECTIONS... ccc ceescecceceeceeceeeeeeeeeeeeeeaaaeaeeceeeeeeeeeeeeeeeeeesaaaaaaaaeaeeeeeeeeeeeeeseessaaaaaaaaaeaeeceseeeeeeeneees 7
+4.3 1?C MOdUule....sesecsessessesesessessecueescsecsecsessesscsscsceuccussussscussussucsssecseesesscsscsecuecussessecussusaeeaeeneeneeeeseeseeneeeessees 8
+RECOMMENEM Palts...........cecsesesesnncecceceeceeeeeeeeeeeeeeeeesnenaaaeaeeeeeeeeeeeeeseeeeeeeaaaaaaeaeeceeeeeeeeeeeenenesaaauaaaaeaeeeeeens 8
+
+I7C CONNECTIONS v..cescscscssscsscsssscssscscscsvscscscscevsvssesesssessscssscscesscssevessssvavesavssesessscsessasecscesesessvensvavavavavasesnsaes 9
+
+A.A USB MOdulle ......ceeececsceccecesseneeeeceeeneesaaeeeeeeeeeeaaaeeeeeeeseseaeaeeeeeeeseaeaeeeeeeeseeaaeeceeeeseaaceceeeeseeaaaeeeeeeseenaaas 10
+RECOMMENEM Palts...........eeeeeseseenencnceceececeeeeeeeeeeeeseeeeeeeaaaaeaeeceeeeeeeeeeeeeseeesaaaaaaeaeeceeeeeeeeeesesteeeeaaaaaaaaes 10
+
+USB CONNECTIONS .0... eee e cece ecee cee cee cence eae aae aaa aaaeaaeaaeeaeeeeeeeeeeeeeeeeeeeeeeeseeeceeceeseeaeeaaeaaaaaaaaaaaaaaaaaaeeeeeeeeeeees 11
+
+5 SOPLWAMEC ....eeeecscccceceessnteeceeeeseeeeeaeeeeeeeeeeaaeeeeeeeeeeeaaeeeeeeeeesaaeaeeeeeeeeeaaaeeeeeeeeeaaeeeeeeeeeeaaaeeeeeeeeesaaeeeeeeeeseeaaaeeeeeeses 12
+S.L Hyperterminal ......cccccccccsscssesssessessesseseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeeeeaeeeae eae eee sees eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeas 12
+5.2 UPLOJOCE 0... eeececesccecceceeeeeeseeeeee eee eeeeeeeeee eee eeeeeeeeeeee eee eeeeeeeeeeee GAG AAA EEEEEE;;;;A; EAE EEEEE SE; ;A;EEEAEEEEESCEsES EE EEEEEEEEES 13
+5. BS Application NOtCS........ccccsccssssssssssessssesssseeseeeeeeeeeeeeeeeeeeeeeseeeeeeeeaeeaaeaae eee eee eee eeeeeeeeeeeeeeeeeeeeeeeeseeceeceeeeeeees 13
+
+6 HArdWwale......eeeeeeessscscecceceeceeeeeeeeeeeeeeeeeeaaaeaeeeeeeeeeeeeeeeeeeeeeeneaaaaaaeaeeceeeeeeeeeesenseeaaaaaaaaaeaeeceeeeeeeeees es eeteeeeaaaaaaaas 14
+6.1 Standard Model oo... eeceeceeeeeeeeeeeeeenaaeaeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaeaeeceeeeeeeeeeseeseeseaaaaaaaeaaeaeeeeeeeeeeeeeeenenags 14
+Communication/Power Header ....ccccccccccccccccccccccccccccccccccecceceeceeseeseesssussesssuscsesessceececceceeceeceeeeeeeseeeueaeags 14
+Protocol Select JUMPELS........ccccccccccccennesnnsnteeseesesseessesseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeseeaeeaeseaseaeeaeesseeeeeeeeeeneeses 14
+
+6.2 °C MOdel.c.sscssesecsessessesncsessecuesucsessecucsucsucsecuesuesscsucsscseeucsussusuecussucsucsesueesesseseesceusaussessecusausaeeaeensaneaeeasens 15
+Communication/Power Header ....ccccccccccccccccccccccccccccccccccecceceeceeseeseesssussesssuscsesessceececceceeceeceeeeeeeseeeueaeags 15
+
+6.3 USB Mel... eeeeecscececcesssesaceceeeeeeseeeeeeeeeeseeaeeeeeeeseeeaeeeeeeeeeesaaeeeeeeeeeaaaeeeeeeeeesaaeaeeceeseeaaaeeceseneeseaaaeees 16
+Mini USB CONNEC COP... cece cee cee cee eeeeeaee eae aaa aaa eae eeaeeeeeeeeeeeeeeeeeeeeeeeeeeeceeceeseeaeeaaeaaaaaaaaaaaaaaaaaaeeeeeeeeeees 16
+Alternate Power COnne ctor ......ccccccccceceeceeeeeeeseeneneaaeaeeceeeeeeeeeeseeseeaaaaaaaeaeeceeeeeeeeeesenesesssaaaaaaaaeaeeeeseeegs 16
+
+6.4 COMMON Features.........ccceeeeecceceessseeeeeececeeaaaeeeeeeeeeeeeaaaeeeeeeeeeeeeaaa eee eeeeeseeaaaaeeeeeeeeeseeaaaueseeeeseseeaaanaeeeeeees 17
+General PUrpOSe OUTPUtS 0.0.0... cece cceccessseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaeaae aaa eae eeeseeeEESeeEEeEEEEEEEEEESEESSESeeeeeeeea® 17
+
+7 TTOUDICSHOOTING ......ccccccccccceceeneeaeeeneesseeseseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaGeaeG Gee eeG sad sEEEEEESEEEEEEEEEEEEEEEESEESEESEEEOEEEGS 18
+TL POWED wee eee ceeseeeeeeee cee eee aaa eeeee eee aae aaa eeeeeeeeeeaa aaa eeeeeeeeesaaaaa eee eeeeeasaeaaa eee eeeeeaseeaaaaeeeeeeessesaaaaeseeeeeeseaaaaaaeeeeeess 18
+TB QLED BUrn-In ec ccttttteeteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee eee Gee GAAUASGAOAAE AAI AAE AOA EEEEEEELEEEEEEEEEESEESSEOSSSeSeSeEEGS 18
+
+7A COMMUNICATION......... ce ceeeceeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeceeceeeeesaaaaeaaaaaaaaaaaaaaaaaaaeasaeeseeeeeeeeeeeeeeeeeeeeeeeeeeeas 19
+7.5 Manual OV€rride oo... cecceeceeceeeeeeeeeenennenaaeaeeeeeeeeeeeeeeeeseeeeeaaaaaaaaaeaeeceeeeeeeeeeseneaeaaaaaaaeaaeaeeeeeeeeeeeeeeeeenig 19
+B COMMAMNAS 2.2... cece eeeeenencncecceceeeeeeeeeeeeeeeeeeeeeaaaaaaeaeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaeaeeceeeeeeeeeesenenaaaaaaaaaeaeeaeeeeeeeeeeeeeeneeiey 20
+COMMUNICATIONS ..........ceeeeeeeeeeeeeeeeteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeceaeeeaeeaeeaaaaaaaaaaaaaaasaaaaasaa ese eeeeeeeeeeeeeeeeeeeeseeeaeas 20
+TOXt ceeeeeceecnecceceeeeseeeaeeeeeeeeeeaaeeeeeeeeeeaeeeeeeeeesaaeeeeeeeeeesaaeeeeeeeeeaaaeeeeeeeeesaaeeeeeeeeeeaaeeeeeeeeeeaaaeaeeseeeeaaaeeseeene 20
+SPe@Cial CHAPACTELS ........ccseeseeseessessesseeeeeeeceeeeeeeeeeeeeeeeeeeeeeeaeeaae eae eee eee seGeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeeeeaaeaaeaaaaaaaaes 23
+General PULPOSE OULU... cee eesessssseessesseseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaae aaa aee eee ees sEEEEEEEEEEEEEEEEEEEEEEESEESEESEEESEEESS 26
+Display FUNCTIONS ..........ccccccccccecceceeceeceneeneeane eae eee eee see eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeaaeaasaasaaeeaaeessseseeeseeeeeees 27
+Data SOCULILY ......ceeeceeeeccecceceeeeseeeeeeee eee eeeeeeeeeeeeeaa eee eeeeeeeeeGAGAAAEEEEEE SGA AAG AEEEEEEEE;G;;;; HAE EEEEEE;SE;;G GEE AEEEEESEAEA GEE EEEES 29
+MiSCEIANCOUS 00... ... eee eeeeeeeeeeeeeeeennaceceaeeeeeeeeeeeeeeeeeeeneaaaaaaeaeeceeeeeeeeeeseeeeessaaaaaaaeaeeceeeeeeeeeesenenesaaaaaaaaeaeeceeeeeeegs 30
+DQ APPENAIX .....ceeecccccccencenneeneessessesseseseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeaae Gee GGG eee esd sEEEEEEEEEEEEEEEEEEEEEESEESSECSECSAGEA;E;AA GEA GEE GEE E EE EE 31
+9.1 ENvirOnMental ue cccccceceeceeeeeeeeeeeeeaaaeaeeeeeceeeeeeeeeeseeseeaaaaaaeaaeaeeceeeeeeeeenessaaaaaaaaaeaeeseseeeeeeeeeenenges 31
+9.2 EL@CtriCal ..... eee eee eecseceeceeceeeeeeeeeeeeeeeeeenaaaeaeeeeeeeeeeeeeeeneeessaaaaaaeaaeaeeeeeeeeee ens eneaaaaaaaaaeaeeceseeeeeeeeeeeeies 31
+9.3 Serial INterface ...... eee eeecccccesssseeceeceeseeenneeceeeeseeeeeeeeeeeeaaeeeeeeeeeseaeaeeeeeeeseaaaeeceeenseaaaeeceesesesaaeeceeeneeeaaaeeees 31
+QA 17°C Interface.....ccsecsessessessesssessessesussussessecsecsesscssesesscensoussessecuesussecsecsesuessesecseeseeucanssecsecueaueaeeaeeneeneeeesens 31
+9.5 Dimensional Drawings ...........ccccccsccecceceeceeeeeeeeeeeeeeeeeaaeaae eae eae eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaaeaaaaaaaaaeaaes 32
+LO OF Ling .........ccccccccceesseeeeeeceeeeeeeeeeeeeeeeeeeaeeaaeaae eee eee eesEGEEEEEEEEEEEEEEEEEEEEESEE;S;;E;;SO;;A;;A;;A;;; GA; GGA GGG EGG AG EERE EEEEEEEEEES 33
+10.1 Part NUMbEerINg SCHEME ..........ccccccsecsnesneeeseeeeeeeeseeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeaseaaeeaaeaeeaeesseeseeeeeeneeees 33
+10.2 OPtiONs ..... cc cceecccecccecceceeesseeeeeeee eee eeeeeeeeeeeeae eee eeeeeeeee ease ee EEE EEEAGGAAGAAGEEEEEE;GA;;;GEEAEEEEE;SE;;G GEE AAE EEE SOsEA GEE HEEES 33
+10.3 ACCESSOPICS .....eeeeeeeeecceeeeceeceeeeeceece cee aee eae aaa aaa aaa aaa aaa aaa seeeeeeeeeeeeeeeeeeeeeeeeeeceeseeaeeaeeaaeaaaaaaaaaaaaaaaaaaeeeseeeeeees 34
+11 DeFINITIONS .... eee ceccecenenceceeeeeeseaeeeeceeeeeeeaeeeeeeeeeaaaeeeeeeeeesaaeeeeeeeeesaaeaeeseeeesaaaaeeceeenseaaaeceeeeseeaaaaeeceeeneesaas 36
+
+12 CONTACT 0... eee cceecscseceesececsscecsceesssseceesseucssseeussecsceeeeeaececeseuceseessseceeesessecessssucesesesseceseususaecessesecesensusanans 36
+3 Introduction
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{ J
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ci, GEES
+
+ 
+
+ 
+
+The Matrix Orbital Economy Series offers a wide variety of intelligent alphanumeric liquid crystal and
+vacuum florescent displays designed to decrease development time by providing an instant solution to
+any project. At the heart of this line is the elegantly adequate X-Board.
+
+Three different versions of the X-Board are available to allow communication to a wide variety of host
+controllers. The MOI model offers communication speeds up to 100kbps over a simple two wire, I7C
+interface. The serial MOS version offers 9.6kbps or 19.2kpbs and standard RS232 or TTL logic levels
+through simple hardware jumpers. Lastly, the MOU model offers a quick and easy USB connection.
+
+The simple command structure permits easy software control of many settings including backlight
+brightness, and screen contrast. On board memory provides up to 40 custom characters which can be
+saved within the unit and recalled for customized start screens, bar graphs, or larger numbers. Finally,
+three general purpose outputs provide simple switchable five volt sources.
+
+The versatile X-Board, with all the features mentioned above, is available with a wide colour variety of
+parallel screen ranging from 8 to 80 characters in size to suit almost any application.
+4 Quick Connect Guide
+
+4.1 Standard Module
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+| Seles a
+| z - , 1 Communication/Power SCCPC5V/BBC
+44 L_ xX
+2 Protocol Jumper JMPR
+[e/e/e| ——
+— nisisisis! —— - eee 3 Baud Jumper JMPR
+| Ld 4 GPO None Offered
+5 Manual Override JMPR
+
+The serial series X-Board allows for user configuration of two common serial protocol logic levels. Either
+RS232 or TTL levels can be selected using the onboard jumper and accessed through the four pin
+Communication/Power Header as outlined in the Serial Connections section.
+
+Recommended Parts
+eee The most common cable choice for any standard Matrix Orbital
+display, the Communication/Power Cable offers a simple connection
+6 to the unit with familiar interfaces. DB9 and floppy power headers
+provide all necessary input to drive your display.
+
+For a more flexible interface to the X-Board, a Breadboard Cable may
+be used. This provides a simple four wire connection that is popular
+among developers for its ease of use in a breadboard environment.
+Serial protocol provides a classic connection to the X-Board. The Communication/Power Cable is most
+
+commonly used for this set up as it provides connections for DB9 serial and floppy power cables. To
+
+place your board in Serial mode, adhere to the steps laid out below.
+
+1.
+
+Set the Protocol Select jumper.
+
+e  RS232: Connect the leftmost, outside RS232 pin to the inside pin of the protocol block.
+
+e TTL: Connect the rightmost, outside TTL pin to the centre protocol pin.
+
+Set the Baud Rate jumper.
+
+e 9600bps: Connect the outside pin on the left, labelled 9.6K to the centre post of the baud block.
+
+e 19200bps: Connect the 19.2k pin on the outside right to the inside baud pin.
+
+Make the connections.
+
+a. Connect the four pin female header of the Communication/Power Cable to the
+Communication/Power Header of your X-Board.
+
+b. Insert the male end of your serial cable to the corresponding DB9 header of the
+Communication/Power Cable and the mate the female connector with the desired
+communication port of your computer.
+
+c. Select an unmodified floppy cable from a PC power supply and connect it to the power header
+of the Communication/Power Cable.
+
+Create.
+
+e =uProject or hyperterminal will serve to get you started, then move on with your own
+development. Instructions for the former can be found below and a variety of application
+notes are available for the latter at www.matrixorbital.ca/appnotes.
+4.3 I’C Module
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+__|
+oo
+ooo,
+_ = a
+Cc Esa 1 Communication/Power SCCPC5V/BBC
+~ aleleleis| 2 GPO None Offered
+Er] 3 Manual Override JMPR
+
+ 
+
+The I’C version of the X-Board offers a simple application of the two wire I’C interface. This allows the
+unit to become one of many slave devices driven by an I°C master device. This protocol can also be
+accessed through the four pin Communication/Power Header as outlined in the I7C Connections section.
+
+Recommended Parts
+
+For a more flexible interface to the X-Board, a Breadboard Cable may
+be used. This provides a simple four wire connection that is popular
+among developers for its ease of use in a breadboard environment.
+A more advanced connection to the X-Board is provided by the I’C protocol setting. It requires a
+connection directly to your project, best accomplished using a breadboard and the included cable of the
+same name. Power must be supplied from your breadboard or another external source. To dive right
+into your application with the I7C model X-Board, get started with the guidelines below.
+
+1. Set the Protocol.
+
+e °C: The default write address of the X-Board is 80, hex 50, while read is one higher at 81.
+
+Please ensure the host device uses this address when initially communicating to the board.
+2. Make the connections.
+
+a. Connect the Breadboard Cable to the Communication/Power Header on your X-Board and plug
+the four leads into your breadboard. The red lead will require power, while the black should be
+connected to ground, and the green and yellow should be connected to your controller clock
+and data lines respectively.
+
+b. Pull up the clock and data lines to five volts using a resistance between one and ten kilohms on
+your breadboard.
+
+3. Create.
+
+e = This time you're on your own. While there are many examples within the Matrix Orbital
+AppNote section, www.matrixorbital.ca/appnotes, too many controllers and languages exist to
+cover them all. If you get stuck in development, it is possible to switch over to another protocol
+on the standard board, and fellow developers are always on our forums for additional support.
+4.4 USB Module
+
+ 
+
+ 
+
+ 
+
+{ . J fm
+
+ 
+
+ 
+
+ 
+
+a
+i nh lel
+Cole a ee
+& SF 1 USB Connector EXTMUSB3FT
+| “3 2 Alternate Power Header PCS
+| elsicic's| Soom «(Cae 3 GPO None Offered
+= 3 Manual Override JMPR
+
+ 
+
+The USB version of the X-Board offers a single USB protocol for easy connection to a host computer.
+The simple and widely available protocol can be accessed using the on board mini B style USB connector
+
+as outlined in the USB Connections section.
+
+Recommended Parts
+——, The External Mini USB Cable is recommended for the USB model of the x-
+
+\ \ Board. It will connect to the miniB style header on the unit and provide a
+\ connection to a regular A style USB connector, commonly found ona PC.
+
+ 
+
+10
+The USB connection is the quickest, easiest solution for PC development. After driver installation, the X-
+
+Board will be accessible through a virtual serial port, providing the same result as a serial setup without
+
+the cable hassle. To connect to your USB series X-Board, please follow the steps below.
+
+1. Set the Protocol.
+
+USB: The USB version of the X-Board offers USB protocol only, no changes are required.
+
+2. Make the connections.
+
+Plug the mini-B header of your external mini USB cable into your X-Board and the regular USB
+header into your computer USB jack.
+
+3. Install the drivers.
+
+ 
+
+a. Download the latest drivers at www.matrixorbital.ca/drivers, and save them to a known
+location.
+
+b. When prompted, install the USB bus controller driver automatically
+
+c. If asked, continue anyway, even though the driver is not signed
+
+d. When the driver install is complete, your display will turn on, but communication will not yet be
+possible.
+
+e. Atthe second driver prompt, install the serial port driver automatically
+
+f. Again, if asked, continue anyway
+
+4. Create.
+
+Use uProject or hyperterminal to get started, and then move on with your own development.
+Instructions for the former can be found below and a number of application notes are available
+for the latter at www.matrixorbital.ca/appnotes.
+5 Software
+
+The multiple communication protocols available and simple command structure of the X-Board means
+that a variety of applications can be used to communicate with the display. Text is sent to the display as
+a character string, for example, sending the decimal value 41 will result in an 'A' appearing on the
+screen. Anumber of control characters are also activated. Commands are merely values prefixed with a
+special command byte, 254 in decimal. While many software programs are available to communicate
+with the X-Board, a number of more common samples are detailed in depth below.
+
+Control Characters
+
+8 Backspace 10 Linefeed/Newline 12 Clearscreen/Newpage 13 Carriage return
+
+5.1 Hyperterminal
+Installed on most Windows computers, hyperterminal can be run by selecting run and typing 'hypertrm'
+in the command line. This basic program will allow communication between a PC and your display.
+
+When starting up, a name must be given to your connection, and an icon may be chosen, neither is
+consequential. Next, it's important to select the appropriate communication port to which your display
+is connected. Finally, the settings below must be entered to complete the port setup.
+
+a ee eee
+
+19200* 8 None 1 None
+
+*Note: 9600bps Baud may also be selected on the standard X-Board model.
+
+Once a port is successfully set up, data can be sent to an attached display by typing on the keyboard. At
+this point, it may be helpful to echo keys to the monitor by selecting properties from the file menu and
+opening the ASCII settings from settings tab.
+
+Commands can be sent to an attached display by issuing decimal commands using the number pad.
+While the ALT key is held down, four digit decimal values can be sent as a single ASCII character. For
+example, to clear the screen, try the following sequence.
+
+ALT +0254 ALT +0088
+
+Any commands or text desired can be sent to the communication port using this method to provide
+total control of any Matrix Orbital display.
+
+12
+The Matrix Orbital alohanumeric display tuner, or uProject, is offered as a free download from the
+www.matrixorbital.ca support site. It allows the basic functionality of any display* to be tested using a
+simple graphical user interface system.
+
+While basic functionality can be tested using the GUI portion of the program, more advanced users will
+enjoy the scripting capability found in the uploader tab. Here commands can be stacked, run, and saved
+for later use. Although many commands are available to be dragged into the script dialog, perhaps the
+most powerful is the raw data command found in the other branch.
+
+This command allows raw bytes to be sent to the display, permitting many different formats for entry
+and displaying in decimal notation. Any command from this manual may be entered in decimal notation
+separated by slashes.
+
+[254] /88/
+
+Again, the clear screen command is sent to a connected display, this time using uProject raw data
+command style. Scripts can be run as a whole using the execute command from the script menu, or as
+single commands by selecting execute once. Before issuing commands, it is a good idea to ensure
+communication with a display is successful using some of the basic GUI functions in the main window.
+
+This program provides scratch pad upon which a tome of display projects and ideas can be assembled.
+
+*Note: The uProject AutoDetect function will not perform correctly when a USB display is connected. Please
+manually configure any USB display.
+
+Full demonstration programs and code are available for Matrix Orbital displays in the C# language from
+Simple C# AppNote Pack in the Matrix Orbital Application Note section at
+www.matrixorbital.ca/appnotes. Difficulty increases from beginner, with the Hello World program, to
+advanced with the Dallas One-Wire temperature reading application.
+
+Many additional applications are available in a number of different programming languages. These
+programs are meant to showcase the capability of the display and are not intended to be integrated into
+a final design. For additional information regarding code, please read the On Code document also found
+on the support site.
+6 Hardware
+
+6.1 Standard Model
+
+Communication/Power Header
+
+Cie
+
+Vcc
+Rx
+TX
+
+Gnd
+
+ 
+
+ 
+
+BwWwWN
+
+The Communication/Power Header provides a standard connector for interfacing to the serial series
+X-Board. Voltage is applied through pins one and four of the four pin Power/Data connector. Please
+ensure the correct voltage input for your display by referencing the electrical specifications in Table 20
+before connecting power. Pins two and three are reserved for serial transmission, using either RS-232
+or TTL logic levels, depending on what has been selected by the Protocol Select Jumpers. The versatile
+Tyco 640456-4-LF style header employed here can be mated to a wide array of female connectors, a
+Molex 22-01-3047 for example, for a perfect fit in any project.
+
+Protocol Select Jumpers
+
+The Protocol Select Jumpers, provide the means necessary to toggle the serial X-Board model between
+RS-232 and TTL logic levels as well as the two baud rate speeds offered. As a default, the jumpers are
+left unset. In order to place the display module in RS232 mode, connect the two leftmost pins with the
+jumper provided, for TTL use the rightmost. Similarly, in order to set the display speed, connect the
+rightmost pins for 19200bps or the leftmost for a more leisurely 9600bps. Jumper tables are shown
+below with “X” indicating a connection for quick reference.
+
+Sy
+
+X X O O X X X X O O X X
+
+14
+6.2 ’C Model
+
+Communication/Power Header
+
+ire
+
+Vcc
+SCL
+SDA
+Gnd
+
+ 
+
+WN
+
+The now familiar Communication/Power Header also provides a standard connector for interfacing to
+the X-Board IC model. Again, voltage is applied through pins one and four of the four pin connector.
+Please ensure the correct voltage input for your display by referencing the electrical specifications in
+Table 20 before connecting power. Pins two and three are reserved here for I?C communication on
+addresses 80 and 81. Proving its versatility, the Tyco 640456-4-LF style header employed again for this
+connection can be mated to a wide array of female connectors for a perfect fit in any project.
+
+15
+6.3 USB Model
+
+Mini USB Connector
+
+   
+ 
+
+ 
+
+ 
+
+ 
+  
+   
+
+}$—J CI ~~
+( ‘nnn a i Ea
+SY CHD “ 1 Vcc
+Pe 34 7/
+) ee ,
+3 D+
+5 Gnd
+
+The X-Board USB model comes with a familiar Mini USB Connector to fulfill both communication and
+power needs. The standard MiniB style header can be connected to any other USB style using the
+appropriate cable. Most commonly used with a PC, this connection creates a virtual com port that
+offers a simple power solution with a familiar communication scheme.
+
+Alternate Power Connector
+
+ 
+
+HPO
+
+HS
+
+Cie
+
+NC
+Gnd
+Gnd
+Vcc
+
+HU
+
+l
++
+
+ 
+
+ 
+
+ 
+
+ 
+
+BwWN
+
+The Alternate Power Connector provides the ability to power the X-Board using a *second cable. The
+Tyco 171825-4 style header is particularly useful for connecting to an unmodified floppy power cable, a
+171822-4 for example, from a PC power supply for a simple bench power solution.
+
+*Note: If the X-Board is powered by the Alternate Power Connector, the 0 ohm jumper resistor near the top right
+labelled ‘P’ should be removed to avoid power contention.
+
+16
+6.4 Common Features
+
+General Purpose Outputs
+
+> ee ae
+PULP Pe eye 1  GPO1 6 Vcc
+2  GPO2 7 ~~ Vcc
+3. GPO3 8 ~ VCC
+4 NC 9 vcc
+5 GND 10 VCC
+
+A unique feature of the X-Board is the ability to control relays* and other external devices using one of
+three General Purpose Outputs. Each can provide up to 20 mA of current at five volts. The two row, ten
+pin header can be interfaced to a number of female connectors to provide control to any peripheral
+devices required.
+
+*Note: If connecting a relay, be sure that it is fully clamped using a diode and capacitor in order to absorb any
+electro-motive force (EMF) which will be generated.
+
+17
+ 
+
+In order for your Matrix Orbital display to function correctly, it must be supplied with the appropriate
+power. If the screen does not illuminate, power may not applied correctly. Try following the tips below.
+
+e First, make sure that you are using the correct power connector. Standard floppy drive power
+cables from your PC power supply may fit on the Communication/Power Header; however they
+do not have the correct pin out to provide power. Matrix Orbital supplies power cable adapters
+for connecting to a PC, which can be found in the accessories section.
+
+e The next step is to check the power cable which you are using for continuity. If you don't have
+an ohm meter, try using a different power cable, if this does not help try using a different power
+supply.
+
+e The last step will be to check the interface connector in use on your display. If the power
+connections have become loose, or you are unable to resolve the issue, please contact Matrix
+Orbital for more information.
+
+ 
+
+If your display is powered successfully, the Matrix Orbital logo, or user created screen should display on
+start up. If this is not the case, check out these tips.
+
+e Ensure the contrast is not too high or too low. This can result in a darkened or blank screen
+respectively. See the Manual Override section to reset to default.
+
+e Make sure that the start screen is not blank. It is possible to overwrite the Matrix Orbital logo
+start screen, if this happens the screen may be blank. Try writing to the display to ensure it is
+functional, after checking the contrast above.
+
+ 
+
+OLED technology is susceptible to a burn-in effect; whereby the brightness of active pixels may differ
+from inactive ones over an extended period of activation. To reduce the burn-in effect, please use a
+dynamic screen saver or simply turn the screen off when not in active use.
+When communication of either text or commands is interrupted, try the steps below.
+
+e First, check the communication cable for continuity. If you don't have an ohm meter, try using a
+different communication cable. If you are using a PC try using a different Com Port.
+
+e Next, please ensure that the display module is set to communicate on the protocol that you are
+using, by checking the Protocol Select Jumpers.
+
+e Inserial protocol, ensure that the host system and display module are both communicating on
+the same baud rate. The display will communicate at either 9600bps or 19200bps only.
+
+e Match Rx from the X-Board to the transmitting pin from your host and the Tx pin to the
+receiving pin.
+
+e Ifyou are communicating to the display via I?C* please ensure that the data is being sent to the
+correct address. The default slave address for the display module is 80.
+
+e InI’C mode, connect Rx to the data line of your controller and Tx to the data output.
+
+e Unlock the display. See the Set and Save Data Lock command for more info.
+
+e Finally, you may reset the display to its default settings using the Manual Override procedure
+outlined below.
+
+*Note: I?C communication will always require pull up resistors on SCL and SDA of one to ten kilohms.
+
+Should the settings of your display become altered in a way that dramatically impacts usability, the
+default settings can be temporarily restored. To override the display, please follow the steps below.
+
+Disconnect power from your display.
+Place a jumper on the override pins.
+Reconnect power to your unit, and wait for the start screen before removing the override
+jumper.
+
+4. Settings will be temporarily** overridden to the defaults listed in the Manual Override Settings
+table. At this point any important settings, such as contrast, backlight, or baud rate, should not
+only be set but saved so they remain when the override is removed.
+
+Backlight 255
+Contrast 128
+’C Address 0x50
+
+**Note: The display module will revert back to the old settings once turned off, unless desired settings are saved.
+8 Commands
+
+Communications
+
+ 
+
+eel a-lardinlcmatemeaeme § Dec 25451 Address
+Slave Address Hex FE33 Address
+ASCII m3 Address
+Immediately changes the I2C write address. Only even values are permitted as the next odd address will become
+the read address.
+Acdress byte, even value
+
+ 
+
+Text
+
+ 
+
+ae \ixemsecelimm Dec 254 81
+On Hex FE 51
+ASCII #Q
+The entire contents of screen are shifted up one line when the end of the screen is reached. Display default is auto
+scroll on.
+
+ 
+
+ 
+
+1.3. Auto Scroll [pete 254 82
+Off Hex FE 52
+ASCII gR
+New text is written over the top line when the end of the screen is reached. Display default is auto scroll on.
+
+ 
+
+ 
+
+Selle Dec 254 88
+Screen Hex FE 58
+
+ASCII mX
+
+Clears the contents of the screen.
+
+ 
+
+ 
+
+mee lasicmesmieclaas Dec 25464 Characters
+Up Screen Hex FE40 Characters
+ASCII m@ _ = Characters
+Changes the message displayed on start up. Custom characters can be included by adding their decimal value (0-
+7). Characters will automatically wrap on the display.
+Characters 80 bytes, space characters can be added as needed
+
+ 
+
+20
+ 
+
+1.6. Set Auto Line [pete 254 67
+ie] en @a Hex FE 43
+ASCII aC
+Text will wrap to the next consecutive line once a row becomes full.
+
+ 
+
+ 
+
+(Ae emma DCC 254 68
+Wrap Off Hex FE 44
+ASCII aD
+Text will skip one line when wrapping once a row becomes full. Writing order will be rows 1, 3, 2, and then 4.
+
+ 
+
+ 
+
+1.8. Set Cursor [pete 25471 Column Row
+Position fiat FE47 Column Row
+ASCII =G Column Row
+Sets the cursor to s specific position where the next transmitted character is printed.
+Column 1 byte, value between 1 and display width
+Row 1 byte, value between 1 and display height
+
+ 
+
+ 
+
+1.9.Go Home te 25472
+Hex FE 48
+ASCII gH
+Returns the cursor to the top left of the screen.
+
+ 
+
+ 
+
+APO ROPa\V fo -m@blaxelam Dec 254 76
+Sy Te Hex FE 4C
+ASCII aL
+Moves cursor one position to the left. Cursor will obey wrap settings.
+
+ 
+
+ 
+
+1.11. Move Cursor [qpiete 25477
+Forward Hex FE 4D
+ASCII aM
+Moves cursor one position to the right. Cursor will obey wrap settings.
+
+ 
+
+21
+ 
+
+1.12. Underline Dec 254 74
+Cursor On Hex FE 4A
+ASCII uJ
+Displays a line under the current cursor position. Can be used with block cursor.
+
+ 
+
+ 
+
+1.13. Underline Dec 25475
+
+Cursor Off [ie FE 4B
+ASCII aK
+Removes line under current cursor position.
+
+ 
+
+ 
+
+1.14. Blinking Block [ipete 254 83
+Cursor On Hex FE 53
+ASCII aS
+For VFD and LCD modules a blinking block will be displayed over the current cursor position. On OLED modules the
+last character printed will blink. Can be used with underline.
+
+ 
+
+ 
+
+1.15. Blinking Block [ipete 254 84
+Cursor Off Hex FE 54
+ASCII aT
+Removes blinking block over current cursor position.
+
+ 
+
+22
+Special Characters
+
+ 
+
+1.16. Creating a Custom 25478 ID Data
+Character FE4E_ !D Data
+mgN_ ID Data
+Creates a custom character. Each character is divided into 8 rows of 5 pixels, each data byte represents one row.
+Each byte is padded by three zero bits followed by five bits representing each pixel state. A one represents an on
+condition while a zero is off. Characters are lost when a new memory bank is loaded, unless they are saved.
+ID 1 byte, character ID 0-7
+Data 8 bytes, character pixel data as shown below
+
+ 
+
+Datal 000 p1 |p2 p3 p4 p5 00001000 8
+Data2 000 |p p2 |p3) p4 p5 00010100 20
+Datas 000 p1 p2 p3 p4 p5 00001000
+Data4 000 p1 p2 p3 |p4 \p5) 00000011
+Data5 000 p1 p2 |p3 p4 p5 00000100
+Data6 000 pl p2 |p3) p4 p5 00000100
+Data? 000 p1 p2 p3 \p4 p5 00000011
+Data8 000 pl p2 p3 p4 p5 00000000
+
+Ow ff Bh wi wo
+
+ 
+
+1.17. Saving 254193 Bank ID Data
+OU Keyan FEC1 Bank ID Data
+Characters
+Provides access to all memory banks to create and save custom characters, graph bars, and large digits. Any new
+characters saved will overwrite the old, so care should be taken when writing to any bar or digit memory bank.
+Bank structure is shown below.
+Bank 1 byte, memory bank ID (0-4)
+ID 1 byte, character ID (0-7)
+Data 8 bytes, character pixel data as above
+
+ 
+
+ry Start-up Characters Horizontal Bars rE Vertical Bars Fi Medium Digits gy Large Digits
+
+ 
+
+1.18. Loading Custom 254192 Bank
+Characters FECO Bank
+Loads a bank of custom characters into memory for use. Must be issued before using a bank of characters.
+Alternatively, an appropriate initialize command can be used.
+Bank 1 byte, memory bank ID (0-4)
+
+ 
+
+23
+ 
+
+1.19. Save Start Up 254194 |D Data
+Screen Custom FEC2 |D Data
+(Ol atelesleakel as
+
+ 
+
+Saves a custom character to memory for the start up screen or repeated use. Start up characters are displayed by
+
+sending their ID to the screen.
+ID 1 byte, character ID (0-7)
+Data 8 bytes, character pixel data, see custom character example
+
+ 
+
+1.20. Initialize 254 109
+Medium FE 6D
+Number am
+
+ 
+
+Loads the medium number custom character bank into memory. Medium numbers must be initialized before they
+
+are used.
+
+ 
+
+1.21. Place 254111 Row Column Digit
+Medium FE6F Row Column Digit
+Numbers mo Row Column Digit
+
+ 
+
+Places a single medium decimal digit of 2 row height and 1 column width on the display at the position specified.
+Medium numbers must be initialized before being placed.
+
+Row 1 byte, value between 1 and 20
+Column 1 byte, value between 1 and 4
+Digit 1 byte, single decimal digit to display
+
+ 
+
+i Peale PAS 254 110
+
+Re gei= FE 6E
+
+Numbers mn
+Loads the large number custom character bank into memory. Large numbers must be initialized before they are
+used.
+
+ 
+
+ 
+
+1.23. Place Large 25435 Column Digit
+Number FE23 Column Digit
+m# Column Digit
+Places a single large decimal digit of 4 row height and 3 column width on the display at the position specified.
+Medium numbers must be initialized before being placed.
+Column 1 byte, value between 1 and 4
+Digit 1 byte, single decimal digit to display
+
+ 
+
+*Note: Display must be at least two character rows in height to employ this command
+**Note: Display must be at least four character rows in height to employ this command
+
+24
+ 
+
+sep a avi] Paes 254 104
+Horizontal Bar FE 68
+gh
+Loads the horizontal bar graph custom character bank into memory. Horizontal bar characters must be initialized
+before a graph is displayed.
+
+ 
+
+ 
+
+1.25. Place Horizontal 254124 Column Row Direction Length
+FE7C Column Row Direction Length
+Places a horizontal bar graph on the screen beginning at the column and row specified. The bar extends either
+right or left to the length indicated. New bars will overwrite old.
+Column 1 byte, value between 1 and 4
+Row 1 byte, value between 1 and 20
+
+Direction 1 byte, 0 for right and 1 for left
+Length 1 byte, length in pixels of the graph (0-100)
+
+ 
+
+PA cman ate] P4e) 254 118
+Vertical Bar FE 76
+mV
+Loads the horizontal bar graph custom character bank into memory. Horizontal bar characters must be initialized
+before a graph is displayed.
+
+ 
+
+ 
+
+1.27. Place Vertical 25461 Column Length
+sels FE3D Column Length
+m= Column Length
+Places a vertical bar graph on the screen beginning at the column and row specified. The bar extends upwards to
+the length indicated. A new bar will over write the old.
+Column 1 byte, value between 1 and 4
+Length 1 byte, length in pixels of the graph between 0 and 32
+
+ 
+
+25
+General Purpose Output
+
+ 
+
+1.28. General Dec 25486 Number
+Purpose Hex FE56 Number
+Output Off ASCII = V Number
+
+Turns the specified GPO off by supplying a zero volt output.
+
+Number 1 byte, GPO (1-6) to be turned off
+
+ 
+
+ 
+
+1.29. General Dec 25487 Number
+Purpose Hex FE57 Number
+Output On ASCII mW Number
+
+Turns the specified GPO on by supplying a five volt output.
+
+Number 1 byte, GPO (1-6) to be turned off
+
+ 
+
+ 
+
+ClO SYo1 Sie] a Dec 254195 Number State
+Up GPO Hex FEC3 Number State
+SY isha
+
+ 
+
+Sets the start up state of the specified GPO. Changes will only be seen on start up.
+
+Number 1 byte, GPO (1-6) to be turned off
+State 1 byte, 1 for on or O for off
+
+26
+Display Functions
+
+ 
+
+1.31. Display On 25466 Minutes
+FE42 Minutes
+=B Minutes
+Turns the display backlight on for a specified length of time. If an inverse display color is used this command will
+essentially turn on the text.
+Minutes 1 byte, number of minutes to leave backlight on (0 for infinite)
+
+ 
+
+ 
+
+1.32. Display 254 70
+Off FE 46
+a F
+Turns the display backlight off. If an inverse display colour is used this command will turn off the text.
+
+ 
+
+ 
+
+1.33. Set 254153 —s Brightness
+Brightness FE99 Brightness
+Immediately sets the backlight brightness. If an inverse display color is used this represents the text colour
+
+intensity instead. Default is 255.
+Brightness 1 byte, brightness level from O(Dim)-255(Bright)
+
+ 
+
+1.34. Set and Save 254152 = Brightness
+Brightness FE98 Brightness
+Immediately sets and saves the backlight brightness. Although brightness can be changed using the set command,
+
+it is reset to the saved value on start up. Default is 255.
+Brightness 1 byte, brightness level from O(Dim)-255(Bright)
+
+ 
+
+1.35. Set 25480 Contrast
+Contrast FE50 Contrast
+mP Contrast
+Immediately sets the contrast between background and text. If an inverse display color is used this also represents
+the text brightness. Default is 128.
+Contrast 1 byte, contrast level from O(Light)-255(Dark)
+
+ 
+
+ 
+
+1.36. Set and Save 254145 Contrast
+Contrast FE91 Contrast
+Immediately sets and saves the contrast between background and text. Although contrast can be changed using
+
+the set command, it is reset to saved value on start up. Default is 128.
+Contrast 1 byte, contrast level from O(Light)-255(Dark)
+
+27
+ 
+
+sc Y Aes\-1 aD) 25489 Brightness
+Brightness FE59 Brightness
+
+mY Brightness
+
+Immediately sets the text brightness. Default is 0.
+
+Brightness 1 byte, brightness level from 3(Dim)-0(Bright)
+
+ 
+
+ 
+
+1.38. Set and Save VFD 254145 _ Brightness
+Brightness FE91 Brightness
+Immediately sets and saves the text brightness. Although brightness can be changed using the set command, it is
+
+reset to the saved value on start up. Default is 0.
+Brightness 1 byte, brightness level from 3(Dim)-0(Bright)
+
+*Note: OLED and LCD Model only command
+**Note: LCD Model only command
+*** Note: VFD Model only command
+
+28
+Data Security
+
+ 
+
+254147 Switch
+Remember FE93 Switch
+Allows changes to specific settings to be saved to the display memory. Writing to memory can be slow and each
+change consumes 1 write of approximately 100,000 available. Set and save functions are always remembered.
+
+Remember is off by default.
+Switch 1 byte, 1 for on or O for off
+
+ 
+
+1.40. Set Data 254 202 245160 Level
+eye FECAFS5A0 Level
+Temporarily locks certain aspects of the display to ensure no inadvertent changes are made. A new level overrides
+
+the old, and levels can be combined. Default is 0.
+Leve!| 1 byte, each bit representing a level, see table below
+
+0 7
+
+1 2 3 4 5 6
+
+Unlocks all setting locks
+
+Reserved Place holders only, should be 0
+
+Setting Locks settings such as backlight and contrast
+Command Locks all commands
+
+Display Locks entire display, no new information can be displayed
+
+ 
+
+ 
+
+1.41. Set and Save 254 203 245160 Level
+Data Lock FECBF5A0 Level
+Permanently locks certain aspects of the display to ensure no inadvertent changes are made. A new level
+
+overrides the old, and levels can be combined. Default is 0.
+Level 1 byte, see data lock table
+
+29
+Miscellaneous
+
+ 
+
+s/n ere Dec 254 54
+AV A=Tacice)al Hex FE 36
+Number ASCII m6
+Causes display to respond with its firmware version number.
+Response 1 byte, convert to hexadecimal to view major and minor revision numbers
+
+ 
+
+ 
+
+1.43. Read Dec 25455
+
+Module Hex FE 37
+
+Type ASCII a7
+Causes display to respond with its module number.
+Response 1 byte, module number, see partial list below
+
+ 
+
+Table 18: Sample Module Type Responses
+| 4F MOS Displays Ey MOI Displays Ei MOU Displays
+
+30
+9 Appendix
+
+The versatility of the X-Board allows it to be interfaced to a variety of different displays. As a result,
+Character Sets, Environmental tolerances, Electrical specifications, and Optical characteristics will be
+display dependent. Applicable X-Board values are shown below for reference.
+
+9.1 Environmental
+
+Operating Temperature 0°C to +50°C
+Storage Temperature -20°C to +70°C
+
+Oey NSE Svea = Maximum 90% non-condensing
+
+ 
+
+9.2 Electrical
+
+a
+
+Current Draw (Board Only) - 25 -
+Maximum Single GPO Current - - 20 mA
+Input Voltage (Vcc) 475 5.00 5.25 V
+
+9.3 Serial Interface
+
+Input Low Voltage -0.5 0 0.2Vcc V
+Input High Voltage O0.6Vcc 5  Vecc+0.5 V
+
+9.4 1’C Interface
+
+| Parameter | Min | Typ | Max__| Unit |
+
+Input Low Voltage -0.5 0 0.3Vcc V
+Input High Voltage O0.7Vcc 5  Vec+0.5 V
+Clock Frequency 0 - 400 KHz
+
+31
+9.5 Dimensional Drawings
+Please see display datasheets for screen dependent dimensions and drawings.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+55.90
+| 8.00 4905 fF polo 10.6 7m
+7, |= 8886
+70] t
+“| ee =U
+eonm)= e sa
+36,00 = {2
+Xs
+Sleecs pees Fy
+. e[s]s] 8.00
+6.p0 as2] 77] [
+-13,00- 4.904 9.3 Z
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 17: MOS Model Dimensional Drawing
+
+ 
+
+535,90
+a 78.00 4.904 polo 10,6 7
+
+74) feseeeaeeas
+
+®
+f
+*| Ss |
+(oon e (ee
+36,00 z {i
+Xs
+[| | | a pees
+Bees sae Lt, 00
+6.00 xx [ ®. a
+8.3
+
+13,00! asot
+40,00
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 18: MOS Model Dimensional Drawing
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+60.00
+— 8.00 5.00-—=  - 5.00
+3 bo
+ajey| ft
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+@
+s 10,00
+@ fo.00 |
+Gay]
+2 Giomord-USB_ PCB RIO i
+1910+!
+e400
+
+ 
+
+Figure 19: MOU Model Dimensional Drawing
+
+32
+10 Ordering
+
+10.1 Part Numbering Scheme
+
+10.2 Options
+
+es
+1 2
+
+3 4 5
+
+Ee  «)
+
+| Interface Type
+
+2 Display Type
+
+3 Display Size
+
+4 Display Model
+
+5 Colour
+
+MOI: I°C protocol only
+MOS: Serial protocol using RS232 or TTL levels
+MOU: USB protocol only
+AL: Alphanumeric Liquid Crystal Display
+AO: Alphanumeric Organic Light Emitting Diode
+AV: Alphanumeric Vacuum Florescent Display
+162: Sixteen columns by two rows
+164: Sixteen columns by four rows
+202: Twenty columns by two rows
+204: Twenty columns by four rows
+242: Twenty-four columns by two rows
+A: Standard Size (162 and 204 Models Only)
+B: Larger Screen and Text (204 Models Only)
+C: Standard Size (202 Models Only)
+F: Smaller Screen and Text (162 Model Only)
+YX: Yellow-Green Background with Grey Text
+BW: Blue (Inverse) Background with White Text
+WB: White Background with Blue-Grey Text
+XR: Black (Inverse) Background with Red Text
+XY: Black (Inverse) Background with Yellow-Green Text
+FA: Black (FFSTN Inverse) Background with Amber Text
+FB: Black (FFSTN Inverse) Background with Blue Text
+FG: Black (FFSTN Inverse) Background with Green Text
+FW: Black (FFSTN Inverse) Background with White Text
+OB: OLED Blue on black
+OG: OLED Green on black
+OR: OLED Red on black
+OW: OLED White on black
+OY: OLED Yellow on black
+
+Please note that the X-Board can be mated to any parallel Matrix Orbital alphanumeric display. Check
+
+the Parallel Display section at www.matrixorbital.com for a complete list of displays.
+
+ 
+
+33
+10.3 Accessories
+
+Power
+
+Table 25: Power Accessories
+
+Standard Power Cable
+
+ 
+
+Communication
+Table 26: Communication Accessories
+
+GU LOK) Mini-USB Cable
+
+INTMUSB3FT Internal Mini-USB Cable
+
+Serial Communication/5V Power
+Cable
+
+S} Ol Teed)
+
+Breadboard Cable
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+34
+
+ 
+
+ 
+Mounting
+Table 27: Mounting Accessories
+
+ 
+
+SPLIy yO 4 20x2 Mounting Bracket with
+Coloured Overlay
+
+ 
+
+ 
+
+B202A-XX 20x2 Mounting Bracket with Keyed
+Overlay
+
+ 
+
+ 
+
+B2041-XX 20x4 Mounting Bracket with
+Coloured Overlay
+
+ 
+
+| | cA ©O8
+B204A-XX 20x4 Mounting Sraekct with Keyed
+verlay “ a |
+
+20x2 Coloured Overlay with Drill
+
+MK2021-XX
+. Guide
+
+ 
+
+20x4 Coloured Overlay with Drill
+Guide
+
+MK2041-XX
+
+   
+
+ 
+
+ 
+
+Note: No mounting options are available for 16x2 displays.
+
+*Note: Keyed overlays are available in Black Vinyl (-BK) and Beige Vinyl (no part extension). Deep Red (-DR) and
+Silver (-SK) options are available for 20x2 sized displays only.
+
+**Note: Non-keyed overlays are available in Black Vinyl (-BK), Black Brushed Aluminum (-BL), Silver Brushed
+Aluminum (-AL), and Beige Vinyl (no part extension).
+
+35
+11 Definitions
+ASCII: American standard code for information interchange used to give standardized numeric codes
+to alphanumeric characters.
+
+BPS: Bits per second, a measure of transmission speed.
+
+FFSTN: Double film super-twisted nematic in reference to an LCD. The addition of two layers of film
+between the STN display and polarizer improves contrast.
+
+GPO: General purpose output, used to control peripheral devices from a display.
+GUI: | Graphical user interface.
+
+Hexadecimal: A base 16 number system utilizing the numerals and letters 0 through F to represent the
+values 0-15.
+
+°C: Inter-integrated circuit protocol employing a clock and data line to communicate a short
+distance at slow speeds between a master and up to 128 addressable slave devices. A Matrix Orbital
+display is a slave device.
+
+LSB: Least significant bit or byte in a transmission, the rightmost when read.
+MSB: Most significant bit or byte in a transmission, the leftmost when read.
+RS232: Recommended standard 232, a common Serial protocol. A low level is -30V, a high is +30V.
+
+SDA: _ Serial data line used to transfer data in I’C protocol. This open drain line should be pulled high
+through a resistor. Nominal values are between 2K and 10K Q.
+
+SCL: Serial clock line used to designate data bits in I?C protocol. This open drain line should be pulled
+high through a resistor. Nominal values are between 2K and 10K QO.
+
+STN: Super-twisted nematic in reference to an LCD. In a relaxed or nematic state, crystals orientate
+themselves in the same direction and allow light to pass. In an excited state these crystals align to block
+light. Super-twisted crystals move from 180 to 270 degrees between phases to providing contrast than
+TN models.
+
+TTL: — Transistor-transistor logic applied to serial protocol. Low level is OV while high logic is 5V.
+
+USB: Universal Serial Bus protocol widely used in PCs.
+
+12 Contact
+
+Phone: 403.229.2737 Phone: 403.204.3750 Purchasing: www.matrixorbital.com
+Email: sales@matrixorbital.ca Email: support@matrixorbital.ca Support: www.matrixorbital.ca
+
+ 
+
+ 
+
+ 

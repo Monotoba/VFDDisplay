@@ -1,0 +1,374 @@
+ 
+
+5X7 Dot Character VFD Module CU16029ECPB-W1J
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+QO) 2X16 Characters 8mm High + Cursor The module includes the Vacuum Fluorescent Display
+OQ LCD Compatible Design glass, driver and micro-controller ICs with refresh RAM,
+OQ) Operating Temp -40°C to +85°C character generator and interface logic.
+Q Single 5V Supply with Power Save Mode The high speed 8 bit parallel interface is 5/ CMOS
+Q High Brightness Blue Green Display compatible suitable for connection to a host CPU bus
+Q Selectable 4/8 bit M68/i80 Interface which can be set to M68 or i80 series interface by a solder
+Q ASCII + Extended Character Font link on the module. Brightness control and power down
+Q 8 User Definable Character RAM functions are provided. A full data sheet is available.
+Q 4Level Brightness Control Function
+
+© poo coonmonnonennnnonnnnonooononnnnonnnnonnnnonononnnnonon oon O fomrrn x
+
+— — 19.0 37.0 44.0
+13.5
+O e00000000000001 O A eo
+
+<> 13.5
+
+7.48
+
+<16.15 82.7
+
+115.0 < 3.5
+
+122.0
+12.0
+| M16 8.0
+
+ 
+
+ 
+
+Dimensions in mm & subject to tolerances.
+Mounting holes 3.5mm dia.
+
+ELECTRICAL SPECIFICATION CHARACTER FONT
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Symbol | Value Condition He! oo | 10} 20] 30] 40] so| 60} 70] eo] 90] Ao] Bo] co] po] E0| Fo
+Power Supply Voltage Vcc 5.0VDC +/- 5% GnbD=0V : = fem tee] .
+Power Supply Current Icc 350mADC typ. Vec=5V “
+Logic High Input VIH 2.0VDC min. Vcec=5V o1
+Logic Low Input VIL 0.8VDC max. Vec=5V 02
+Logic High Output VOH Vec-0.4VDC min. | loH=-1.6mMA
+Logic Low Output VOL 0.4VDC max. lOH =1.6mMA oS
+The power on rise time should be less than 50ms. The inrush current at power on can be 2 x Icc. o4
+The Icc current is 10mA maximum while in power down mode.
+OPTICAL and ENVIRONMENTAL SPECIFICATIONS “
+Parameter Value 06
+Character Size/Pitch (XxY mm) 3.85 x 8.002/5.26 x 9.81 07
+
+ 
+
+ 
+
+0.53 x 0.89/0.83 x 1.19
+350 cd/m* (100 fL) Typ.
+Blue-Green (Filter for more colours) 09
+
+Dot Size/Pitch (XxY mm)
+Luminance
+Colour of Illumination
+
+ 
+
+03
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Operating Temperature
+
+-40°C to +85°C
+
+ 
+
+Storage Temperature
+
+-50°C to +85°C
+
+oA we [tk] ]oEL ev TOE UPTE:
+
+ 
+
+ 
+
+Operating Humidity (non condensing)
+
+ 
+
+20 to 80% RH @ 25°C
+
+0B |}.
+
+ 
+
+ 
+
+SOFTWARE COMMANDS
+
+PIN CONNECTIONS
+
+oc oe
+
+ 
+
+ 
+
+oD He | sven mm
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NORITAKE ITRON VFD MODULES
+
+linked. Pin 3 = /Reset.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Instruction R/W| RS| DO-D7 Pin Sig Pin Sig conde | atte |
+
+Clear Display L | L 01H 1 GND 2 Vcc OE HTP! ehh
+
+Cursor Return Home | L | L 02H-03H] | 3 (FNc) |4 RS OF hh ty | apie | Ios
+
+Entry Mode Set L | L j04H-07H 5 R/W # | 6 E# | /—  —WAo
+
+Display ON/OFF L | L O8H-OFH 7 DBO 8 DB1 JUMPER LINKS CONTACT
+
+Cursor/Display Shift L L 10H-1FH 9 DB2 10 DB3 # Interface M68/i80 Noritake Sales Office Tel Nos
+
+Function Set L | L 20H-3FH 11 DB4 | 12 DB5 When jumper link JP2 is Nagoya Japan: +81 (0)52-561-9867
+
+Brightness Set L_ | H f00H-03H | [13 DB6 | 14 DB7 change to i80 serie CPU ona “416-291-2946
+
+~ ; icago : +1-847-439-
+
+St 5b RAM ddr r c SOFLETH TIMING PARAMETERS (min) crn wi pin6= Munchen (D): +49 (0)89-3214-290
+in 5= WR Pin 6 =/RD Itron UK: +44 (0)1493 601144
+
+Read BUSY/Adadr. H | L )OOH-FFH (E)nable Cycle Time | 1000ns Pin 3 (Fnc) Input Rest Europe: +49 (0)61-0520-9220
+
+Write Data to RAM L | H OOH-FFH {E)nable Pulse Width | 450ns This is normally open circuit. www.noritake-elec.com
+
+Read Data from RAM|_H_ | H QOH-FFH Hold after (E)nable 10ns If pads JP1.1 and JP1.2 are Subject to change without notice.
+
+IUK Doc Ref: 03011 Iss:1 18SEP00
+
+2 x 16, 8mm Dot Character
+
+ 
+
+ 
+
+ 

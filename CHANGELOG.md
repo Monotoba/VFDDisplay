@@ -111,7 +111,11 @@ All notable changes to this project will be documented in this file.
 - Tooling: add `run_all_demos.sh` to build/upload each example sequentially with a per-demo wait period.
 - Tooling: `run_all_demos.sh` now uses a curated demo order (SimpleDemo → Clock → Bargraph → Animations → MatrixRain → FlappyBird → MinimalVFDDemo → SimpleVFDTest → BasicTest → CorrectCodesDemo → ModeSpecificTest), then any remaining.
 - Example: add `examples/AdDemo` (buffered, no-input) – animated ad for BIG SKY VCR REPAIR with fades, marquee, and callout.
- - Docs: add root README.md with run_all_demos.sh usage; update docs/README.md with a "Running All Demos" section and an expanded guide for adding new device HALs (NO_TOUCH policy, capabilities, error handling, positioning).
+- Docs: add root README.md with run_all_demos.sh usage; update docs/README.md with a "Running All Demos" section and an expanded guide for adding new device HALs (NO_TOUCH policy, capabilities, error handling, positioning).
+
+- Cleanup
+  - Remove legacy `Makefile.simple` and `Makefile.enhanced` in favor of the unified root `Makefile` (PIO/Arduino/AVR backends).
+  - Delete stray editor backup files in `src/HAL` (`*~`).
 
 ## 2025-09-22
 - Initial make/PIO integration work on examples and build scripts.

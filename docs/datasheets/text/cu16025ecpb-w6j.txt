@@ -1,0 +1,318 @@
+ 
+
+5X7 Dot Character VFD Module CU16025ECPB-W6J
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+OQ 2X16 Characters 5mm High The module includes the Vacuum Fluorescent Display
+QO LCD Compatible Design glass, driver and micro-controller ICs with refresh RAM,
+OQ) Operating Temp -40°C to +85°C character generator and interface logic.
+Q Single 5V Supply with Power Save Mode The high speed 8 bit parallel interface is 5/ CMOS
+Q High Brightness Blue Green Display compatible suitable for connection to a host CPU bus
+OQ Selectable 4/8 bit M68/i80 Interface which can be set to M68 or i80 series interface by a solder
+Q ASCII + Extended Character Font link on the module. Brightness control and power down
+Q 8 User Definable Character RAM functions are provided. A full data sheet is available.
+Q 4Level Brightness Control Function @
+14x@ 1.0
+LL
+O 10000000000060014 O
+Pe eee _ Ke
+11.4 31.0 36.0
+12.9
+O O y sess WY.
+K
+11,82 ye BBG vvvsssssssssssssssessnenessssssnnsnson > 25
+75.0 625,
+80.0
+[ ] : : A
+| ly \/8-10
+nn ae 0 ne
+1.6 A5.1
+Dimensions in mm & subject to tolerances. Mounting holes 2.5mm dia.
+ELECTRICAL SPECIFICATION CHARACTER FONT
+Parameter Symbol _| Value Condition He | oo | 10 | 20] 30] 40| 50} 60] 70] 80 | 90] Ao] Bo] co} po | Eo} Fo
+Power Supply Voltage Vcc 5.0VDC +/- 5% GnbD=0V o0 : : .
+Power Supply Current Icc 150mADC typ. Vec=5V
+Logic High Input VIH 2.0VDC min. Vcec=5V o1
+Logic Low Input VIL 0.8VDC max. Vec=5V 02
+Logic High Output VOH Vec-0.4VDC min. | loH = -1.6mMA
+Logic Low Output VOL 0.4VDC max. lOH =1.6mMA oS
+The power on rise time should be less than 50ms.The inrush current at power on can be 2 x Icc. o4
+
+The Icc current is 10mA maximum while in power down mode.
+
+OPTICAL and ENVIRONMENTAL SPECIFICATIONS
+
+ 
+
+05
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Value 06
+Character Size/Pitch (XxY mm) 2.46 x 4.76/3.26 x 6.01 07
+Dot Size/Pitch (XxY mm) 0.38 x 0.56/0.52 x 0.7 08
+Luminance 700 cd/m* (204 fL) Typ.
+Colour of Illumination Blue-Green (Filter for more colours) a9
+Operating Temperature -40°C to +85°C oA
+Storage Temperature -50°C to +85°C
+Operating Humidity (non condensing) | 20 to 80% RH @ 25°C “
+oc
+
+SOFTWARE COMMANDS PIN CONNECTIONS oD |. | om til tle.| lar .il.lwslel> le 12.
+Instruction R/W| RS|D0-D7 Pin Sig Pin Sig * MLE ef et PECL EY LO Lees [artes | saat’ | Eee |
+Clear Display L | L 01H 1 Gno_ [2 Vcc OE Hy pe yP a] |e yey P sa | EE
+Cursor Return Home | L | L \O2H-03H 3 (Fnc) |4 RS OF a ATE gy[e SE] Ee dese]® TET | | Be
+Entry Mode Set L L '04H-07H 5 R/AWV # 6 E # . . “eee” | seeee “eee” . sees” . oe oe ". “eee” | Seese
+Display ON/OFF L | L }O8H-OFH 7 DBO 8 DB1 JUMPER LINKS CONTACT
+Cursor/Display Shift L L |10H-1FH 9 DB2 10 DB3 # Interface M68/i80 ; Noritake Sales Office Tel Nos
+Function Set L | L 20H-3FH 11 DB4 |12 DB5 When jumper link JP2 is Nagoya Japan: +81 (0)52-561-9867
+Brightness Set L | H 0OH-03H | | 13 DBE | 14 DB7 soldered, these inputs Canada: +1-416-291-2946
+Set CG RAMAdar._| L | L 4OH-7FH change to i80 series CPU Chicago USA: +1-847-439-9020
+
+control lines. Munchen (D): +49 (0)89-3214-290
+Set DD RAM Addr. L | L BOH-E7H} TIMING PARAMETERS (min) Pin 5= WR Pin6 =/RD .
+
+: Itron UK: +44 (0)1493 601144
+
+Read BUSY/Adadr. H L OH-FFH (E)nable Cycle Time 1000ns Pin 3 (Fne) Input Rest Europe: +49 (0)61-0520-9220
+Write Data to RAM L H )OOH-FFH (E)nable Pulse Width | 450ns This is normally open circuit www.noritake-elec.com
+Read Data from RAM} H | H )OH-FFH Hold after (E)nable 10ns If pads JP1.1 and JP1.2 are
+
+linked. Pin 3 = /Reset. Subject to change without notice
+
+NORITAKE ITRON VFD MODULES 2x16, 5mm Dot Character
+
+ 

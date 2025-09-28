@@ -1,0 +1,297 @@
+ 
+
+MATRIX ORBITAL ~
+
+X-Board Series
+
+ 
+
+Including the I-Series, S-Series, and U-Series
+
+Configuration Manual
+
+Revision 1.0
+
+PCB Revision: 1.0 or Higher
+
+Firmware Revision: 7.0 or Higher
+Revision History
+
+| Revision | Description thor
+
+ 
+Contents
+REVISION HISTOLY ...... cc cceeceeccecceceeeseseeeeeee eee eeeeeeeeee eee eeeeeeeeeeee eee eeeeeeeeEGeG GAA GEEEEEEEE;;;;;A EEE EEEEEE;;E;A;GEEEEEEECCESEEEE EERE EES
+
+CONTENHS ... ee eeeeeeeeeeeeeeeeee eee eeeeeeeee aaa eeeeeeeeeeaaa eee eeeeeeeeeaaa eee eeeAAAGAAGGG AAO EEEAAAAAAGGG OOO EEEAAAGEAGGG OOO EEESAAEA OGG AOOEEEASAEEEaaOEEEE
+FEATULES oo. ceeeeeece cee eeeeeseeeeeeee nena ae eeeeeeeeeaae aaa eeeeeeeeeaaa aaa eeeeEAAAAAAGGG AAA EEEAAAGAAGGG AOA EEEASAAEAGGG AOA EEEAAAGEAGGG OO EEEASASEAGaa OOO EEEEEGS
+HAPAWALPE ooo eeeeeccceceeeeeeeeeeeeeeeeeeaaaeaeeaeeceeeeeeeeeeeeeeeeeeeaaaaaaeaeeeeeeeeeeeeeseneeesasaaaaaaaaaeaeaceeeeeeee ees esnsasasaaaaaaaeaeeceeeeeeees
+DFAWING ......ceeeeecceccecneeseeeeeeeee nee eeeeeeeeeeee eae essen eeeeee GGG seeeeeeee Gee GAGA EEEEEE;;;AAGAEAEEEEEE;;;;;GAEEEEEEE;;E;AAG;G GE EESCE;ESGEE AEE EEEEEES
+PINOU A... eee eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee eee aee aaa aaa aaa aaa aaa esa sng tEEtEE EEE EEE EEE AERA eEeeeeeeceeceeseeceeaeaaaaaaaaaaaaaaaaaaaaeeeeeeeeees
+(Oo) a) F-01110) 8 eee
+IitiALTZATION eee cee eeeeeeeeeeeeeeenaaeeaeeeeeeeeeeeeeeeeeeeeeeaaaaaaeaeeeeeeeeeeeeesenseesaaaaaaaaeaeeceeeeeeeeseseeseesasaaaaaaeaeaeeeeeeeeeees
+DiSPIAY TY Pe .........cccccccecesceeceeceeeeeeeeeeeeeeeeeeeaeeaae aaa eee eee eee eessEEEEEEEEEEEEEEEEEEEEEEES;E;E;;SA;AA;;S;AA;AA;;; GAA GEG GAG EGG EGEEEEEEEEEEES
+DiSPIAY SiZC....... ccc cceccecceseeeeeeeeeeeeeeeeeeeeeeeeeeeeaee aaa aaa eas eae ess EEEEEEEEEEEEESEEEEEEEEEESEE;;E;ES;AA;AS;;A;;A;;AG;; GAA GGG AGG EG AEG EEEEEEEEEES
+
+COLUMNS ose eee eeeeeeeeneenceceeceeeeceeeeeeeeeeeeeeeeaaaaaaeaeeeeeeeeeeeeeeeeeeeeaaaaaaeaaeaeeceeeeeeee ees eeseaaaaaaaaaaeaeeceeeeeeeeeeeeeenenegs
+
+Exit CONFIQUrATION ..........cccccceeesensnneceeceeeeeeeceeceseeeeesseeaaaaeaeeeeeeeeeeeseseeeeeseeseasaaeaeeeeeeeeeeeseseuseesusaeaaaasaeeseeeeeeeeses
+Software CONFIQUratiON.............:ccccscesssesseesceceeceeseeeeeeeeeeeseeseeaeeaaaaaaeaaeeaeeeeeeseesseeseeeseeeeeeeeeeeeeeeeeseeeeeeseasaeaaaaas
+OLCering ......ccccccccecceccccceceeceeeeneeaneeae ees eeeeeseeeeesseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeseeaeeGae GGG GGG GGG sGGsAGEEEEEEEEESEEEEEEEEEESEESEEESEESEEEAS
+Part NUMDErING SCHEME ...........c:cccccccccssseesssececeessseeesseeeeeeesaseeeseeeeeeeessseeeseeeeeeeesseeeessseeeeeessseaassueeeeeesseaagaasees
+OPTIONS... eccccsnesseeeceecee cee eeeeeeeeeeeaeeeeeeeeeeeeee sae eea eee eeeAGGAAGAAEEEEEEE;;AGAA AEE EEEEEE;AA;;; EEE EEEEEE;;E;;; EEG REEEE;SA;;; AAG EEE EEE EEEEEEA
+
+CONTAC... cece ec ee cccccecececececececececececececeeeesececececucececeeseseaesececececeseceesececececececeesesesececsceceseeeeseseceseceseceseseeauaecesaes
+Features
+
+The Matrix Orbital X-Board combines one of three simple communication protocols with a robust yet
+easy to use command structure to provide a cost and time effective interface solution to a wide variety
+of parallel alphanumeric displays. The 1x16 and 2x8 interface headers offered provide a versatile
+connection to alphanumeric displays ranging in size from 1 row by 8 columns to 4 rows by 20 columns.
+
+Once configured using the simple steps outlined below, the X-Board will provide control of not only text,
+but display functions such as backlight and brightness settings, and even offers three general purpose
+outputs. Full details regarding this extensive command set can be found in the Economy Series manual.
+
+Hardware
+
+Drawing
+
+ 
+
+= 3,00
+
+55,90
+4,90 f-po.l0
+
+ 
+
+ 
+
+Gaete
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2/9 [0128/0 /© 8/8 /e1a)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pinout
+
+ 
+
+g e |
+[a @)
+e (aoe e
+CI * ‘em
+S289 10 |6|8/ 6 —J
+ilsisisia =a ge tebe
+—| 3,004 8.3
+-—|5,90—-
+
+ 
+
+10,426
+
+ 
+
+ 
+
+ 
+
+—
+~
+oO
+
+ 
+
+Configuration Initialization
+Configuration Pins
+2x8 Display Interface
+1x16 Display Interface
+
+a
+1
+2
+3
+4
+
+TA NS TT
+
+Vss
+Vdd
+Vo
+RS
+R/IW
+E
+DBO
+DB1
+
+CON DU BP WY
+
+Power Supply Ground (0V)
+Logic Voltage (5V)
+Contrast Voltage ()
+
+Register Select
+Read/!Write
+Enable
+Data Bit O (NC in 4 bit mode)
+Data Bit 1 (NC in 4 bit mode)
+
+10
+11
+12
+13
+14
+15
+16
+
+DB2
+DB3
+DB4
+DB5
+DB6
+DB7
+A
+K
+
+Data Bit 2 (NC in 4 bit mode)
+Data Bit 3 (NC in 4 bit mode)
+Data Bit 4 (LSB in 4 bit mode)
+Data Bit 5
+Data Bit 6
+Data Bit 7 (MSB in 4 bit mode)
+Backlight Anode
+Backlight Cathode
+Configuration
+
+Once mated to a suitable display, the X-Board interface module must be configured to display
+information correctly on the attached screen. While a wide variety of displays are supported, please
+note that the X-Board is designed to interface to a single controller, HD44780 or similarly driven,
+alphanumeric display using 4bit mode. Consult your display manual for specifications pertaining to the
+driver used, as well as specifications for input power to both display and backlight. Note that backlight
+connections may not be required for VFD or PLED style displays.
+
+Should an error be made in completing any of the steps below, the unit will display an “Invalid”
+message, prompting the repetition of that step. The configuration sequence can be started at any time,
+even if it has not yet been completed, by beginning from the initialization step. Once the X-Board is
+configured correctly, please see the Economy Series manual for further feature information.
+
+Initialization
+1. Ensuring that the power is off, place a jumper on the Configuration Initialization pins.
+2. Power the X-Board on, waiting for the unit to light, then off. Remove the configuration jumper.
+3. Power the module on again, after power up, “DISP RST” and “Set Type” should be displayed.
+
+Display Type
+1. Turn the power off.
+2. Place jumper(s) on the Configuration Pins, to set the display type.
+
+|Display| Type ins
+
+LCD Any Color 1
+VFD Samsung 2
+VFD Noritake 3
+
+PLED Contact Matrix Orbital for Info 1&2
+
+Display Size
+
+Rows
+1. Turnthe power back on. If the correct pin(s) have been jumped, the display type should now be
+displayed on the screen along with the message “Set Rows”.
+Turn the power off and remove the jumper(s) from the Configuration Pins.
+Place a jumper on the necessary Configuration Pins to configure the number of rows.
+
+One 1
+Two
+Four 3
+Columns
+1. Turnthe power back on. If the correct pin(s) have been jumped, “Rows:” and “Set Cols” should
+now be displayed on the screen.
+Turn the power off and remove the jumper(s) from the Configuration Pins.
+Place a jumper on the necessary Configuration Pins to configure the number of columns
+
+| Columns | Pins _|
+
+Eight None
+Sixteen 1
+Twenty 2
+
+Twenty-Four 1&2
+Thirty-Two 3
+Forty 1&3
+
+Exit Configuration
+1. Turnthe power off and remove the jumper(s) from the Configuration Pins.
+2. Power on the display. “MO Xboard” should be displayed on the screen
+
+Software Configuration
+
+ 
+
+1.1. X-Board Software 254 209 77 79.117 110 Display Rows Columns
+FED14D4F756E Display Rows Columns
+Configure all settings through the communication port, without need for jumpers.
+Display 1 byte, display type as shown in Table 3, pin 1 is LSB, pin 3 MSB, jumped pins designated by a ‘1’
+Rows 1 byte, number of display rows as shown in Table 4, pin 1 is LSB, pin 3 MSB
+
+Columns 1 byte, number of display columns as shown in Table 5, pin 1 is LSB, pin 3 MSB
+
+ 
+
+Ordering
+
+Part Numbering Scheme Options
+
+Ek
+aren eee 1 Product Type X-Board Intelligent Interface Module
+1 2
+
+I-Series: 12C Communication Interface
+2 Communication Protocol S-Series: Serial Communication Interface
+U-Series: USB Communication Interface
+
+Contact
+Sales Support Online
+Phone: 403.229.2737 Phone: 403.204.3750 Purchasing: www.matrixorbital.com
+
+ 
+
+Email: sales@matrixorbital.ca Email: support@matrixorbital.ca Support: www.matrixorbital.ca

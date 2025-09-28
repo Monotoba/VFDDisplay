@@ -1,0 +1,1727 @@
+DOT MATRIX VFD MODULE M204SDO1AA
+INSTRUCTION MANUAL
+
+GENERAL DESCRIPTION
+
+ 
+
+Futaba Vacuum Fluorescent display Module M204SDO01AA,with
+VFD 204-SD-01G display,produces 20 digits on 4 rows.
+
+Each character is displayed in 5X7 dot matrix.
+
+Consisting of a VFD,microcomputer,driver IC,the module
+can be connected directly to the system bus,thus
+simplifying interfacing.
+
+The bright and aesthetically pleasing VFD makes the
+module desireable for an application in office equipments,
+
+such 3s computer terminals,measuring equipment,etc.
+
+ 
+
+ 
+
+ 
+FUTABA
+
+VACUUM FLUORESCENT DISPLAY
+
+MODULE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+CONTENTS
+Page
+1) FEATURES 1
+2)GENERAL DESCRIPTIONS 2-5
+2-1 MECHANICAL DRAWING
+2-2 BLOCK DIAGRAM
+2-3 ELECTRICAL CHARACTERISTICS
+3} FUNCTIONS 6-13
+3-1 DATA AND CONTROL CODE WRITE-IN 6-12
+3-2 SELF~TEST 12
+3-3 POWER ON RESET 12
+3-4 SELECTION OF INPUT MODE 11-13
+4) INTERFACE CONNECTION 13-19
+4-1 CONNECTER PIN CONNECTION 13
+4-2 THE LOCATION OF THE COMPONENTS 14
+4-3 WRITE-IN TIMING 14-16
+4-4 INTERFACE TO CPUs 17-18
+4-5 CONNECTION TO I/O DEVICES 18-19
+20
+
+5) OPERATING RECOMMENDATION
+
+ 
+
+ 
+
+FU TABA
+
+ 
+1) FEATURES :
+
+1.Using an one chip micro computer,the module can be
+connected to the syatem bus directly.
+
+2.Two hundred sixteen different characters consisting of
+alpha-numerin and other symbols can be displayed.
+
+3.Since a DC-DC converter is included,only a 5 V power
+source is required to operate the module.
+
+4.High quality reliability and long life can be achieved
+with FUTABA VFD.
+
+5.Either parallel or serial mode can be selected as the
+data input form.
+
+6.The module is samaii,light and thin mechanical sizing
+allows for maximaum reliability.
+
+.7.The module's surface mount components allow for
+
+maximum reliability.
+
+8.The module has up to three definable characters, they
+can be displyed as original fonts.
+
+9.Four levels of brightness control is available.
+
+ 
+
+FU TABA
+
+ 
+FUTABA VACUUM FLUORESCENT DISPLAY MODULE
+
+2) GENERAL SPECIFICATIONS
+
+The number of digits 20 digits,4 rows
+Digit configuration 5X7 dot
+Character configuration Equivalent to ASCII code
+Digit height 5.0 mm
+Digit width 3.2 mm
+Dot pitch 0.69X0.75 mm
+Dot size 0.5xX0.44 mm
+
+Digit pitch 4.55xX9.0 mm
+
+Peak wave Length of illumination Green (505 nm)
+Luminance 690 cd/m(200£L)
+Weight Approx. 145 grams
+
+THE MODULE STRUCTURE
+
+Mechanical dimension; Fig.l
+
+Block diagram 7;FPig.2
+
+ 
+
+FU TABA
+
+ 
+ 
+
+Voav Lona
+
+ 
+
+DISPLAY AREA
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+\ - DISPLAY CENTER
+6.4 21.9 118.2 73-8
+4-3.5 DIA
+(89.65)
+CONNECTOR ~ |
+\_| 4 perk oo WK UV fy]
+FE -—A- - —— -+- —  --7--4-Af 7 |
+s wn | su
+x 9 cy A ee
+tt
+2 © TT qth - t+
+S : ita Qn t
+CS 8 it | @
+PU) dl eeneecesseeeess lh ceecesccessceauesecsaseaeees 4
+LL |
+7 |
+| 6 eT
+pS SS Sete L
+_
+. (65.5) >
+© S.@ 41.8 — 12S.@ 28.5 5
+wn 135.8 tl.e- 9
+mo
+_ wo
+_ =
+t ‘
+>
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+FIG.1 MECHANICAL DRAWING
+
+UNIT :
+
+mm
+
+ 
+ 
+
+vVvav Ltn
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ACK
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ANODE DRIVER [?
+
+ 
+
+ 
+
+ANODE DRIVER
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Xi 7 OSC AIN (4obits) +» (40bita)
+r—] OSC
+ANODE 1-70
+CPU
+po~D7 [SS 0~DT -
+— __ > RAM {K_ | 20digits,4rows
+wR ——\——4 WR 5X TDOT
+SEL ——__—— SEL. porasseeso
+t l
+nr
+RXD ————4 R} DATA I PROM
+RED 1 Ld j GRID 1-40
+ADDRES .
+RESET GCK , GRID DRIVER
+BLANK GIN > (40bits)
+TEST ———————-9 TEST HO J5 O———,  PARALLEL-‘SERIAL SELECT
+BUSY «-——————_J BUSY j—- 0 J1 ©
+———_O JZ O——+4 r— CLOCK BAUDRATE SERECT
+pO 8 OE
+-+———> 3
+Vee( +5V).—————9 pcypc ANODE DRIVER
+-—————> GRID DRIVER
+CONVERTER = -———> FILAMENT
+
+GND ————>
+
+ 
+
+ 
+
+ 
+
+FIG.2
+
+BROCK DIAGRAM
+
+ 
+
+TINGOW AVIdSIG LNAODSAUYONTA WNNIVA vVvavind
+ABSOLUTE MAXIMUM RATINGS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ITEM SYMBOL MIN. MAX. UNIT
+SUPPLY VOLTAGE Vee - 7 Vde
+OPERATING TEMPERATURE Topr -20 +76 °C
+STORAGE TEMPERATURE Tstg - 20 +70 °C
+OPERATING HUMIDITY Hopr 20 85 %
+STORAGE HUMIDITY Hstg 20 90 %
+VIBRATION(10 to 55 Hz) - - 4 G
+SHOCK - - 40 G
+TABLE-1
+RECOMMENDED OPERATING CONDITIONS
+ITEM SYMBOL MIN. TYP. MAX. UNIT
+SUPPLY VOLTAGE Vec 4.5 5.0 5.5 Vdc
+H-LEVEL INPUT VOLTAGE Vin 2.0 - - V
+L-LEVEL INPUT VOLTAGE Vit - - 0.8 V
+TABLE-2
+ELECTRICAL CHARACTERISTICS
+ITEM SYMBOL} CONDITION? MIN. TYP. | MAX. | UNIT
+SUPPLY CURRENT icc* - 0.75 1 A
+Vee =5Vdc
+H-LEVEL INPUT CURRENT tH Vin =2.0V - - 20 pA
+L-LEVEL INPUT CURRENT le Vit =0.8V - - -0.4 | mA
+LUMINANCE L - 340 - - cdim2
+TABLE-3
+
+NOTE )
+
+ 
+
+FU TABA
+
+* At power on the surge current may reach approx. 10 times the
+specified current.
+
+ 
+
+ 
+FUTABA VACUUM FLUORESCENT DISPLAY MODULE
+
+3) FUNCTIONS
+
+The wodule has data and control code write, self test and power
+
+on reset functions.
+
+3-1. DATA AND CONTROL CODE WRITE-IN
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+TEST SEL WR Function
+Parrallel or 0 ~ - Self Test Mode
+serial interface
+Parral lel 1 0 0 Data and control code
+interface write
+Serial interface 1 NC NC Gata and control code
+write
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NC : No connection
+
+0 : Low level (OV)
+
+1 : High level (5¥)
+
+- ! Irrelevant induded no connection
+
+TABLE~4 THE BASIC FUNCTIONS
+
+When the data is being written in, the BUSY signal is active which
+
+indicates that the module is processing the data.
+
+(When the data is under processing, the BUSY signal is high “1”.)
+
+ 
+
+The data or control command is to be wrtttenm in at the rising edge of
+
+WR(0—-1), when SEL= “0”, and TEST=high “1”.
+
+The display character form follows equivalent to ASCII (Alphabet, Numerics
+
+and Symbols etc.).
+
+After a character is uritten in, the write-in position will be shifted
+
+to the right one digit automatically.
+
+The above action can be executed, only when the BUSY signal is low
+
+ 
+
+FU TABA
+
+ 
+ 
+
+ 
+
+~-~oaood
+
+ 
+
+D3 02 D1 0
+
+>
+NQ |s-o°e
+
+ 
+
+FT| IN [s0-0
+1| EL] U1|-2-°
+
+oa . I
+“I: OO - © 7
+gees"
+
+“1 | tal | IT] |o---
+
+ 
+
+if [MF ee-
+| [hh | I> je--
+
+ 
+
+ant PY [ Lin fee--
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3
+
+eel] [>| AGF PCE a e/saale
+2 2) bal (SERB Fleer ie uinl=
+ce) (3b) (BISIR/S)clsleleia)a) PEL
+seldom [slalniT ae asren Te
+sels| | HEE Leus aia neu
+Su?) | FeileicS 2 tls
+1 @ 2 0) Bjas SER) ede | te |] P|] LL]
+egh) (aSltrlalviBn- ir lo/ble
+ror efAlier) (ali LIS LA STU E/E BE +
+~ ip | +i KREG ess Se
+ve e(C UPlili els) aS
+ce )D lem] l= Pla] ele bed EE
+~ ole, LIN AP ae ele lS
+rir le RST| | ri pl AF ural BA
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+TABLE-5
+
+DISPLAY CHARACTER CODE
+
+ 
+
+FU TABA
+
+ 
+
+ 
+FUTABA VACUUM FLUORESCENT DISPLAY MODULE
+
+CONTROL CODE
+
+The control codes are available as follows,
+
+The details will
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+
+(6)
+
+(7)
+
+(8)
+
+(9)
+
+be explained on the next page.
+
+DEF: Define Characters UFO~2 : (03 HEX)
+
+DIM:
+
+BS
+
+LF
+
+CR
+
+DP
+
+DCi1:
+
+DC2:
+
+RST:
+
+: Ca
+
+No
+
+Ve
+
+Re
+
+imming : (04 HEX)
+
+eck Space : (08 HEX)
+
+ine Feed : (0A HEX)
+
+rriage Return : (0D HEX)
+isplay Position : (10 HEX)
+rmal Display Mode : (11 HEX)
+rtical Seroll Mode : (12 HEX)
+
+set : (1F HEX)
+
+ 
+
+FU TABA
+ 
+
+4-3. INTERFACE TO CPUS
+
+Since this module is designed to be directly connected to the bus line,
+
+the interface can be simplified.
+Fig.8 and Fig.9 show examples for interfacing to typical CPUs.
+
+4-4, CONNECTION TO I/O DEVICES
+
+shoe examples for connecting to typical I/0 devices.
+
+Fig.10, Fig.11 and Fig.12
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Z—-890 V F D module
+Do~Dy, _> Do~D,
+I 0RQ/-———,
+A,i~A?, 4 Decoder SEL
+AO AO
+RD RD
+WR WR
+OPEN——STEST
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+FIG.8 CONNCTION TO 2-80
+
+ 
+
+FU TABA
+
+ 
+ 
+
+18
+
+DECODER
+
+RESET
+
+FIG.9 CONNECTION TO 6809
+
+ 
+
+ 
+
+ 
+
+Z80A-S10
+
+Do~D? A] De~D;
+
+——________—__»| ¢/D
+
+—_—_—
+—_—
+_—
+—_——_—————>" 10RQ
+——————————>
+_—_——_——_—___>
+
+ 
+
+ 
+
+ 
+
+ 
+
+>
+
+ 
+
+ 
+
+OP EN-——>
+
+ 
+
+ 
+
+VFD
+modu le
+
+Do~Dy
+
+RXD
+
+BUSY
+
+TEST
+
+ 
+
+ 
+
+FIG.10 CONNECTION TO Z80A-SIO
+
+ 
+
+FU TA BA
+
+ 
+ 
+
+ 
+
+FUTABA VACUUM FLUORESCENT DISPLAY MODULE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+- VFD
+Z80-P10 vrD
+Do~D, > Ao~A? > Do~Dy,
+Bos B, i Bo
+_—______s| WR Ls, WK
+id B/SA
+= D/T | —~J y—= SEL
+_
+——————> TORQ
+B,M BUSY
+—_—_—_————_»| MT ‘
+—_____—__-s} ¢ OPEN——= TEST
+FIG.11 CONNECTION TO Z80-PIO
+VFD
+8255 modu le
+De~D; PAo~PA, > Do~Dz
+PBo, PB; PBo
+———————->| RD
+—_—_—__—_->| WR PB, WR
+—————> Ao
+SEL
+—_—_—_——»s Al
+—— sos PCO BUSY
+| RESET OP EN—————s}| TEST
+FIG.12 CONNECTION TO 8255
+
+ 
+
+ 
+
+FU TABA
+
+ 
+
+19
+
+ 
+FUTABA VACUUM FLUORESCENT DISPLAY MODULE
+
+5) OPERATING RECOMMENDATIONS
+
+1. Avoide applying excessive shock or vibration beyond the specification
+
+for this wodule.
+2, Since VFDs are made of glass material, careful handling is important.
+
+3. Applying lower voltage than specified may cause non activation for the
+
+selected pixels.
+Conversely, higher voltage may cause non-selected pixelsto be activiated
+
+[f users observe the above phenomenon, check the voltage level of the
+
+power supply.
+
+4, Avoid plugging or unplugging the interface connection with the power on,
+
+5.If the start up time of the supply voltage is slow, the CPU way not
+be reset. The supply voltage must be risen up to a specified voltage
+
+level within 30msec,
+
+& . When power supply is turned on, such as 5A, imsec of rush current «may
+
+flow, because DC/DC converter {is equipped on the module.
+
+7. fivoid using the module where excessive noise interference is expected.
+Noise affects the interface signal and causes improper operation,
+Keep the length of the interface cable less than SQcm (When the longer
+
+cable is required, please contact FUTABA engineering.) .
+
+8. When power supply is turned off, the capacitor isn’t discharged immediately.
+The high voltage applied to the VFD must not contact the controiler IC.
+{The shorting of the mounted components within 30sec. after power off may
+
+cause damage .}
+
+REMARKS :
+
+This specification is subject to change without prior notice in order to improve
+
+the design and quality.
+Your consultation with our engineer is recommended for the use of this module,
+
+ 
+
+20 FU TABA
+
+ 
+FUTABA VACUUM
+
+4-2, THE LOCATION OF THE COMPONENTS
+
+FLUORESCENT DISPLAY MODULE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+TRANSFORMER
+DRIVER DRIVER ROM RAM
+“02
+| Pp J3
+|
+4 =o
+c cm O=
+DRIVER 18
+a
+|
+ELECTRLYTIC m5
+CAPACITOR
+
+20 | CONNECTOR
+
+ 
+
+FIG.5 THE LOCATION OF THE COMPONENTS
+
+4-3. WRITE-IN TIMING
+
+14
+
+See FIG.6, FIG.7.
+
+FU TABA
+
+ 
+
+ 
+ 
+
+ 
+
+PARALLEL INPUT
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+@ @ ,
+DATA
+| |
+SEL
+WR
+BUSY
+MIN |MAX Note
+@i +s u(DATA)}] 65 ns —
+@ t h (DATA) | 55 ns _
+@1| ts u (SEL) 75 ns —
+@®! th (SEL) Ons| —
+®!tpw(WR)| 75 ns _
+@itwait(l)} Ons _
+. For Min 200ns, WRK should not be active
+Oj} twai t(2)/ 200ns)  — (positive H), after BUSY is “0”.
+tdelay _ 50 ns
+
+ 
+
+ 
+
+ 
+
+FIG.6 WRITE-IN TIMING
+
+ 
+
+FU TABA
+
+ 
+FUTABA VACUUM FLUORESCENT DISPLAY MODULE
+
+SERIAL INPUT
+
+{
+1
+
+RXD “\start{D OX 1X2 X_3_X 4 5 X 6 7 Y STOP
+
+ 
+
+ 
+
+ 
+
+| :
+| | | _—__—
+ig 2
+
+@ t (DATA) =10%&/baud rate (us)
+
+(This depends on the selection of the baud rate.)
+@ t (DATA) “2 fas} (BUSY becomes “I” at the center of stop bit.)
+
+@ +t (WAIT) : O02u4s] (START should be active (“0”), after BUSY is
+“g” .)
+
+FIG.7 WRITE-IN TIMING
+
+16 FUTABA
+
+ 
+ 
+
+(1) DEF ( Define UFO~2 ) :
+The DEF command defines user definable characters, UFO~2. (up to 3 fonts)
+
+These fonts are stored in the module as follows.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1 Byte 1 Byte 5 Byte
+DEF command code, Position code the font data
+(03 H) (COll to CFR)
+1-1 2-1 3-1 4-1 5-1 bit
+1-2 2-2 3-2 4-2 5-2 7 6 5 4 3 2 1 0
+1-3 2-3 3-3 4-3 5-3 ist | 1-1 | 2-1 | 3-1 | 4-1 | 5-1 | 1-2 | 2-2 | 3-2
+1-4 2-4 3-4 4-4 5-4 2nd | 4-2 | 5-2 | 1-3 | 2-3 | 3-3 | 4-3 | 5-3 | 1-4
+
+ 
+
+ 
+
+1-5 2-5 3-5 4-5 5-5 Byte 3rd j 2-4 { 3-4 | 4-4 | 5-4 / 1-5: 2-5 | 3-5 | 4-5
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1-6 2-6 3-6 4-6 5-6 4th | 5-5 | 1-6 | 2-6 | 3-6 | 4-6 | 5-6 | 1-7 | 2-7
+1-7 2-7 3-7 4-7 5~7 5th | 3-7 | 4-7 | 5-7 | "0" | “Oo” | “0” | “Oo” “0”
+(a) Character font (b) Font data
+
+Example of urite-in character “1” in UFO,
+Control and data strings 03H, FCH, 23H, O8H, 42H, 15H, COH.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ist | 0 0 1 0 0 0 1 1
+
+ 
+
+ 
+
+and; 0 0 Q 0 1 0 ) Qo
+
+ 
+
+ 
+
+Bytd 3rd} 0 1 0 0 0 0 1 0
+
+ 
+
+ 
+
+4th; 0 0 0 1 0 0 0 1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sth}; 1 1 0 0 0 0 0 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(a) Character (b) Font data
+“1” 2 Turn ON
+
+“i ' “OQ” : Turn OFF
+FIG.3. Defining User’s Font urn
+
+It is recommended to store these definable characters at the initializing of module.
+
+All these data will remain into the RAM and the cliant can display user’s original font on
+VFD module.
+
+There is no back-up system of this RAM, therefore, it is needed to restore these data when
+power off,
+
+FU TABA
+
+ 
+FUTABA VACUUM FLUORESCENT DISPLAY MODULE
+
+{2) DIM ( Dimming ) :
+Brightness can be controled into four level by using this function,
+
+After writing O4ll, another HEX byte mentioned under is written to change
+
+the brightness out put.
+
+ 
+
+ 
+
+1 byte + 1 byte
+(DIM command code) ,04H Dimming level data
+Dimming Level Data
+100 % FFH
+60 % 60H
+40 % 40H
+20 % 20H
+
+ 
+
+ 
+
+ 
+
+ 
+
+(3) BS ( Back Space ) :
+The write-in position is shifted to the left one digit.
+(beyond this point, the position of write-in position is identical with
+write-in position of the display, unless otherwise specified. Under DC8 MODE,
+the write-in position will not show up.)
+When the write-in position is on the most significant digit of the third
+row, the write-in position moves to the least significant digit of the
+second row,
+When the write-in position is on the most significant digit of the first
+
+row, the wtite-in position moves to the least significant digit of the
+
+fourth row,
+
+(4) LF ( Line Feed ) :
+When the write-in position is in the fourth row, the character displayed
+
+second to fourth row, is shifted up, leaving the write-in position at its
+present position, then the fourth row is cleared,
+
+When the write-in position is in first to third row, the write-in position
+
+moves down to under row staying on the same line.
+
+ 
+
+19 FUTABA
+ 
+
+(5)
+
+(6)
+
+(7)
+
+(8)
+
+CR ( Carriage Return ) :
+
+The write-in position moves to the most significant digit of the same rows,
+DP ( Display Position ) :
+
+Instead of writing the character from the first digit, the write-in starting
+position can be pointed by using this function.
+
+After writing IOHEX to prepare module for this command, another HEX byte
+
+is written to specify the position desired.
+
+A third byte representing data is then sent.
+
+The most significant digit The least significant digit
+Ist row 00 HEX 13 HEX
+2nd row 14 HEX 27 HEX
+3ed row 28 HEX 3B HEX
+4th row 3C HEX 4F HEX
+
+DC1 (Normal Display Mode ) :
+
+Miter writing a character, the write-in position is shifted to the right
+
+one digit automatically.
+
+When the write-in position is on the least significant digit of the first
+to therd row, the write-in position moves to the most significant digit of
+the under row,
+
+When the character is displayed on the least significant digit of the
+fourth row, the write-in position is on the same digit.
+
+And the character code is written in the module next, first, all digits are
+cleared, second, the character is displayed on the most significant digit of
+the first row and the write-in position moves to the next digit.
+
+When the power is turn on, this DC1 MODE is selected, and will be held
+
+until another mode is selected.
+
+DC 2 ( Vertical Scroll Mode } :
+After writing the characters up to the least significant digit of the
+fourth row, all the characters displayed in the second to fourth row are
+
+shifted to the upper row, clearing the fourth row.
+
+FUTABA iL
+
+ 
+FUTABA VACUUM FLUORESCENT DISPLAY MODULE
+
+(9) RST ( Reset ) :
+Resetting the module.
+
+All the characters displayed are erased, then the write-in position
+
+(cursor position) is set on the most significant digit of the first row,
+The displaying status is the same as the hardware Reset, but the font
+data of UFO~2 is kept.
+
+The display mode is set for DCl,
+
+3-2. SELF-TEST
+
+TEST=Low “0” (connector pin #16 jis connected to GND.) starts the selt-test.
+
+Then the display shows characters.
+
+3-3. POWER ON RESET
+
+When the module is turned on, the display and the memory are cleared and
+
+the module is initialized.
+
+The display mode is set for DC2,
+
+3-4. SELECTION OF INPUT MODE
+
+TABLE-6 shows the combinations of the signal lines for the parallel or
+
+serial input.
+Users must choose one of the combinations,
+
+Unused signal lines are to be open (internally pulled up).
+
+ 
+
+12 FUTABA
+> Serial
+
+Users must choose one of cosbinations.
+
+Input
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+When serial input is selected, J5 must be short.
+
+Baud rate is selected by J1~J3.
+
+Ji
+
+12 } baud rate select
+
+J 3
+Ji short open short open
+J 2 short short open open
+J 3. short 1200 (bps) 2400 4800 $600
+J 3° open 7812.5 15625 31250 62500
+
+FIG. 4 BAUD RATE SELECTION
+NOTE) When the module is shipped, Ji, J2, J3 and J5 are open.
+
+4} INTERFACE CONNECTION
+4-1. CONNECTOR PINCONNECTION
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Connector : XG8B~-2031 (OMRON) or equivalent
+Socket 3421-—-6000SC (3M). or equivalent
+PIN NO.| SIGNAL | SERIAL IN | PARALLEL IN PIN NO.| SIGNAL | SERIAL IN { PARALLEL IN
+
+1 D7 NC Oo 2 +5 V oO O
+3 D6 NC © 4 y Oo oO
+5 D5 NC Oo 6 4 OQ O
+7 D4 NC Oo 8 GND © ©
+9 D3 NC O 10 4 oO ©
+il D2 NC Oo 12 4 oO O
+13 Di NC O 14 % Oo O
+15 DO NC O 16 iTEST O O
+17 WR NC © 18 SEL NC O
+19 RXD O NC 20 IBUSY O O
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NC : NO-CONNECTION
+
+TABLE-6 CONNECTOR PINCONNECTION
+
+13
+
+ 
+
+FU TABA
+
+ 

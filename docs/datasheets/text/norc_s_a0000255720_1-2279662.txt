@@ -1,0 +1,360 @@
+ 
+
+5X7 Dot Character VFD Module CU16029-UW1J
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q 2X16 Characters 8mm High + Cursor The module includes the Vacuum Fluorescent Display
+Q LCD Compatible Design glass, driver and micro-controller ICs with refresh RAM,
+Q Operating Temp -40°C to +85°C character generator and interface logic.
+Q Single 5V Supply with Power Save Mode The high speed 8 bit parallel interface is 5/ CMOS
+Q High Brightness Blue Green Display compatible suitable for connection to a host CPU bus
+Q Selectable 4/8 bit M68/i80 Parallel & Serial Interface which can be set to M68 or i80 series interface by a solder
+Q ASCII + Extended Character Font link on the module. Brightness control and power down
+Q 8 User Definable Character RAM functions are provided. A full data sheet is available.
+Q 4Level Brightness Control Function
+O acu SURRERGEl GLE O seseseneuntcoanneen
+_— _ 19.0 37.0 44.0
+=== === 13.1
+O 000000000000001 1000000 Oo J eee ”
+<> CN1 i CN3 3 5
+7.48
+50.6
+<—16.15> 82.7 i
+115.0 > << 3.5
+122.0
+Loom TSS iy 10.7 Dimensions inmm & subject to tolerances.
+! 1 Mounting holes 3.5mm dia.
+' N46 [8.0
+ELECTRICAL SPECIFICATION CHARACTER FONT
+Parameter Symbol | Value Condition He.| oo | 10] 20| 30] 40| so} 60] 70] 80] 90| Ao} Bo| co} po | eo | Fo
+Power Supply Voltage Vcc 5.0VDC +/- 5% GND=0V o : : .
+Power Supply Current Icc 350mADC typ. Vec=5V
+Logic High Input VIH 2.0VDC min. Vcc=5V o1
+Logic Low Input VIL 0.8VDC max. Vec=5V 02
+Logic High Output VOH Vec-0.8VDC min. | loH = -4.0mA
+Logic Low Output VoL 0.6VDC max. loH =4.0mA OS
+The power on rise time should be less than 50ms.The inrush current at power on can be 2 x Icc. 04
+
+The Icc current is 10mA maximum while in power down mode.
+
+OPTICAL and ENVIRONMENTAL SPECIFICATIONS
+
+ 
+
+05
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Parameter Value 06
+Character Size/Pitch XXxY mm) 3.85 x 8.002/5.26 x 9.81 07
+Dot Size/Pitch (XxY mm) 0.53 x 0.89/0.83 x 1.19
+Luminance 350 cd/m* (100 fL) min. 08
+Colour of Illumination Blue-Green (Filter for more colours) 09 ail Bl fed] 2 lft] op [eal eB li. det | OP] oF
+Operating Temperature -40°C to +85°C mal Vfaleel® | Pll alerl: i) alex! iles|li.) a lee
+Storage Temperature -50°C to +85°C Bae eee ee
+Operating Humidity (non condensing) | 20 to 80% RH @ 25°C 0B mPa TELE TEL A RADAR ENE Bs
+SOFTWARE COMMANDS PIN CONNECTIONS (CN1) oy Es LAE LE | fe AP EEE | FA
+Instruction R/W| RS} D0O-D7 Pin Sig Pin Sig oD Hie | evens mm MEN ald} er [TIFT] LE | ete
+Clear Display L | L 01H 1 GND 2 Vcc OE : me | ate | e's: 2
+Cursor Return Home | L | L (02H-03H 3 (Fnc) |4 RS Mon SO
+Entry Mode Set L | L }04H-07H 5 RW # | 6 E# OF ep YEE] Ppp che || abe feee ys E] Fy
+Display ON/OFF L L (08H-OFH 7 DBO 8 DB1 JUMPER LINKS Interface Selection
+Cursor/Display Shift_ | L | L (lOH-1FH| | 9 DB2_ | 10 DB3 # Interface M68/i80 If JP5 is open parallel
+Function Set L | L 2OH-3FH 11 DB4 12 DB5 When jumper link JP2 is interface is selected. If JP5 is
+Brightness Set L | H OOH-03H 13 DB6 14 DB7 soldered, these inputs linked, serial interface is
+Set CG RAM Addr._| L_ | L 4OH-7FH change to i80 series CPU selected.
+Set DD RAM Addr._|_L_| L B0H-E7H| _ Serial Interface Con. (CN3) Coo Wie Din 6 = /RD CONTACT
+Read BUSY/Addr. H | L OH-FFH Pin Signal . Noritake Sales Office Tel Nos
+Write DatatoRAM | L_|H 0OH-FFH| [1 Voc Onis ie nosey coon circuit, | N@9°¥a Japan: +81 (0)52-561-9867
+Read Data from RAM | H | H (OH-FFH] [2 SI/SO if pads JP1.1 and JP1.2 are Chena A, toe ase 30
+
+3 GNo linked. Pin 3 of CN1 & Pin 6 of | munchen (D): +49 (0)89-3214-290
+TIMING PARAMETERS (min) 4 STB CN3 = /Reset. Itron UK: +44 (0)1493 601144
+(E)nable Cycle Time 500ns 5 SCK Font Selection Rest Europe: +49 (0)61-0520-9220
+(E)nable Pulse Width 230ns 6 (FNC) IfJP6 is open, Katakana font www.noritake-itron.com
+Hold after (E)nable 10ns is selected. If JP6 is linked, Subject to change without notice.
+
+International is selected. IUK Doc Ref: 43694 Iss:1 16Jan08
+
+NORITAKE ITRON VFD MODULES 2 x 16, 8mm Dot Character
+
+ 
+Mouser Electronics
+
+Authorized Distributor
+
+Click to View Pricing, Inventory, Delivery & Lifecycle Information:
+
+Noritake:
+CU16029-UW1J

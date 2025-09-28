@@ -75,3 +75,17 @@ Related examples:
 
 - Library docs: `docs/README.md` (command reference, gotchas, examples)
 - HAL Authoring Guide: `docs/api/HAL_Authoring_Guide.md` (step‑by‑step for adding new device HALs)
+
+## Makefile Quickstart
+
+Use the unified root `Makefile` to build and upload examples.
+
+- List examples: `make list`
+- Build an example (default backend PlatformIO): `make <ExampleName>`
+- Upload (set your port): `make <ExampleName>.upload PORT=/dev/ttyACM0`
+- Force backend: add `-- --pio` or `-- --arduino` or `-- --avr` after `make`.
+
+Examples
+- `make -- --pio ClockDemo`
+- `make -- --arduino BasicTest`
+- `make -- --avr MinimalVFDDemo`

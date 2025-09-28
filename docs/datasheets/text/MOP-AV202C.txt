@@ -1,0 +1,1135 @@
+MATRIX ORBITAL ©
+
+MOP-AV202C
+
+ 
+
+Parallel Display Specifications
+Revision History
+
+| Revision | Description thor
+
+ 
+Contents
+REVISION HISTOLY ...... cc cceeceeccecceceeeseseeeeeee eee eeeeeeeeee eee eeeeeeeeeeee eee eeeeeeeeEGeG GAA GEEEEEEEE;;;;;A EEE EEEEEE;;E;A;GEEEEEEECCESEEEE EERE EES
+
+CONTENHS .. 0c eccc ce eeecee cee eeeeeceeeeeeecaaeeeeeeaaaeeeeee eae eee eee aee eee saa EEAeA AGE EESA; GAG EEEE;S EEE EEA AA; HEA SeAcAG HAE See GEG HE SeesGa EE See GEE EEE EEEA
+FOQLUIES 0... ceeceeeeeceeeeeeecee ee eee ceca eeee eee eee eee cea eeeee aaa eee eeGaanEeeeA GEA EEESAA GEE EEE;GA AHA EEA GAG HHA EESGEG HEE SeeGGaEESS aaa RESeSGaOEEESES GEES
+HAPUWALEC 0... eeeeeccsceeeseeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaae aaa aaG saa sGGEEEEEEEEESEEEEEEEEEEEEEESEESSE;S;;AS;AA;;A;;A;;AG;; GA; GG GGG sGG AEG AEEEEEEEEEEES
+DFAWING ......ceeeeecceccecneeseeeeeeeee nee eeeeeeeeeeee eae essen eeeeee GGG seeeeeeee Gee GAGA EEEEEE;;;AAGAEAEEEEEE;;;;;GAEEEEEEE;;E;AAG;G GE EESCE;ESGEE AEE EEEEEES
+INCOPFACE ee eecccccccceceecesesseeeeseeseeaaeaeeeeeeeeeeeeeeeseees ee easaaeGeeeeeeeeeeeeeeseeeeseeseaaaaeaeeeeeeeeses ees seusussusaeasasaasaeeeeeeeeeees
+ISTFUCTIONS oo. ececccccnnseseseeeecee cena eeeeeeeeeeeee eee eeeeeeeee eee eeeeeeeeeeee GAG AEAEEEEEE;;;;AAEAEEEEEE;;;;;;GEEEEEEEE;;;;AS GEE AEEEE SCE ;ESEEEEEEEEEES
+OUTING Looe cccccccccccceceeceeeeeeeaee nae eee eee eeeeseeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeeeeGeeseeaGeGGG GGG GGGAGGASGEEEEEEEEEEEEEEEESEESEESSESEEESEEEAS
+INStPUCTION Table ........ cece eeccccccccceccecceceeeeeeeneeaae eae eee eee eee eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeaeeaeeaaeaaaaaseaeeeaseeseeeeees
+Character ROM........ccccccccccccccscesneenseseesessseseseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaee aaa eae eee eee eeeseseeeeeeeeeeeeeeeeeeeeeceseeeeeeens
+Character RAM.......ccccccccccccccecccaneeneeesssessseeseeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeaee eae aee eee eee eeessessEESEeEEEEEEEEEEEEEESESSEESEEEGS
+TIMING CHArACtTELISTICS ........cecccccccccccceceeceeneeaeeee eases eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeaeeaae aaa eaaeeeeeeseesseseeeeeeeeeeeeeeees
+INITIALIZATION. .........ccccccceceeceeeeeeeeceeeeeeeeeeeeeneeaeeaae eae eae eeG sss EEEEEEEEEEEEEEEEEEEEEEEESEE;;;;E;;;A;;A;;A;;A;AA;;; GAA GG; GGG EGG EG EERIE EEEEEES
+SPECIFICATIONS .........cccceesssssceceeceeeeececeeceeeeeseseeeaaaeGeeeeeeeeeeeeeeeesee ees eesGGAGAEAEGGEASSE;ES;SESSEEEGEGGGAAG;EAEEGEASSESSESE SEE EE EE EEO
+EL@CtriCal ..........ccccccccseseseeeeeeceeeeceeeeeeeeeeeeeeeeeaeeaae eee eae eee eee eeGesEEEESEEESEEEEEEEEEESEES;E;E;;SA;;S;;A;;A;;;;;; GAA GGG EG AAG AEGAEEEEEEEEEEES
+OPTICAL... eecccccccccceceeceeceeeeaeeaaeeeeeeeeeeeseeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeseeaeeGae GGG GGG eae sGGssGAEEEEEEEEEEEEEEEEEEESEESEESEEESEEEAS
+
+ENvVirONMental........ccccccccceccccceccecceccecceccccaccecusceecucceccscceccecaecaecaecaecescuseseceuceecaececsecsessecseaueaeeaseaececesaneansanss
+
+DISDIAY.......:ccseesceesesseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaeeaae eae eae eee ssGEEEEEEEEEEEEEEEEEEEEEEEESEE;;E;SS;SE;;A;;A;;A;;A GAA GAA GGG EG AAG AAA EEEEEEEEEEEEES 10
+COMMUNICATION......... ee ceeeeeeeeneeeneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeceaeeeaaeaaeaaaaaaaaaaaaaaaaaaeaasae ese eeeeeeeeeeeeeeeeeeeeseeeaeas 10
+TeSt MOG ooo. eeccccceceeeeeeeeeeeeeneeaeaaeaeeeeeeeeeeeeeeeeeeesaaaaaaaeaeeeeeeeeeeeeeseeseeseaaaaaaaeaeeceeeeeeeeeesenseesaaauaaaaaaeaeeeeeeeeas 12
+PreCAUTiONS .0.... eee ceeeeeeeeceeeeeeeeeeeeeceeeeeeeeaeeaaeaaa aaa aaa aaa eaaeea ase eeeeeeeeeeeeeeeeeeeeeeeeceeceeaeeaeeaaeaaaaaaaaaaaaaaaaaaeaeeeeeeeeees 12
+OLCering ......cccccccccccecceceeceeeeeeeaeeaaeeaeeeeeeeeeeeeseeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeGeeaae GGG GGG sas sGGsEEEEEEEEEESEEEEEEEEEESEESEESSEEEEEEEEE 13
+Part NUMbErINg SCHEME.......ccccccccccceceeceeceeneeae eee eeeeeeeeseeseeeeeeeeeeeeeeeeeeeeeeeeeeeseeeeeeeeaeeaaeaaeeaseaeeaeeeseesseeeseeeeeens 13
+OPTIONS ........ccceeeeccccessececcssseeeesesseeesaeseeeeeaeeeeeceeeeeeeeeeseeeeeesaseseeeeGaGseeeeeaaeeeeseeeeeeeeeeaeeseeesaaausseesaausseeauaseesesauaes 13
+Features
+
+The Matrix Orbital Parallel display series offers a low cost display solution utilizing an industry standard
+communication interface for simple integration into a wide variety of new and existing applications. The
+luminous text with configurable brightness and a variety of filter options allow the MOP Vacuum
+Florescent Display line to offer a robust yet stylish display solution for any project. The standard
+alphanumeric font set also allows up to eight custom characters to be saved in display Random Access
+Memory for a custom design touch.
+
+Hardware
+
+Drawing
+
+116.0 £1.0
+
+  
+
+108.0+0.35
+(96.0)
+(70.8)
+
+  
+   
+   
+
+ 
+
+    
+
+     
+
+37.0+0.9
+| (26.12
+
+>
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+‘a
+\
+cS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+©
+N
+x
+o
+=
+
+| ) 8
+A TOI —
+
+Tere Torroooo oo Ter tr 1
+
+ 
+
+ 
+
+10.4 +1.0
+
+ 
+
+ 
+
+ 
+
+ 
+
+( |) : Reference only
+Unit : mm
+
+Interface
+
+Cir Ca Birr
+7 BO
+
+1 Vo5 Ground D *Data bit 0
+2 Vec Supply Voltage 8 DB1 *Data bit 1
+3 NC No Connect 9 DB2 *Data bit 2
+4 RS Register Select 10 DB3 *Data bit 3
+5 R/W Read/Write 11 DB4 Data bit 4
+6 E Enable 12 DB5 Data bit 5
+
+13 DB6 Data bit 6
+14 DB7 Data bit 7
+*Note: Not used in 4-bit mode
+Instructions
+
+Outline
+
+The MOP line is controlled using a standard HD44780 compliant controller. The display is enabled by
+pulling the Chip Enable (E) pin high, communication to and from the device is controlled using the
+Read/Write (R/W) input, and one of two available 8-bit registers are selected via the Register Select (RS)
+line. Using Register Select, either the Instruction Register (IR) or Data Register (DR) is selected by
+toggling RS low or high respectively.
+
+While executing from the IR, the display will pull the Most Significant Bit of the data bus, DB7, high.
+While this Busy Flag (BF) is set, any instructions sent to the unit will be ignored. The status of this flag
+and the current position of the Address Counter (AC) can be obtained by performing a read operation on
+the instruction register at any time.
+
+ap
+
+0 IR write as an internal operation (display clear, etc.)
+; 1 Read busy flag (DB7) and address counter (DBO to DB6)
+1 0 Write data to DDRAM or CGRAM (DR to DDRAM or CGRAM)
+1 1 Read data from DDRAM or CGRAM (DDRAM or CGRAM to DR)
+
+When writing for the DR, one of two locations can be chosen using the AC. The value provided to the AC
+when executing a set address command differentiates these locations. The AC is automatically
+decremented or incremented after a read or a write.
+
+DDRAM provides eighty bytes of display memory to all displays. Memory outside the bounds of the
+display area can be used as general RAM. DDRAM addressing begins at the top left of the display with a
+value of 0, addresses then increment from left to right then down once a row is filled.
+
+Position ft at | Position | 1_|2_| ... | 20_
+
+aad 01... 00 01 .. 13
+Ler 40 41... oy eee) 40 41 ... 53
+
+Serws5) 14 15 ... 27
+54 55... 67
+
+   
+
+CGRAM provides eight custom characters that can be created by writing to CGRAM locations then
+displayed using the first eight CGROM character codes, as seen in the character ROM table below.
+
+Characters are sent to the display by performing a write operation on the DR using the correct character
+address within CGROM. Instructions are issued by writing to the IR; a complete list is available below.
+Instruction Table
+
+Instruction Code
+
+RS R/W_ DB7_ DB6
+
+Instruction
+
+  
+
+Clear
+Display
+
+Return
+Home
+
+Entry Mode
+Set
+
+Display
+ON/OFF
+Control
+
+Cursor or
+Display
+Shift
+
+Function
+Set
+
+Set
+Brightness
+
+Set CGRAM
+Address
+Set DDRAM
+Address
+Read Busy
+Flag and
+Address
+
+Write Data
+to RAM
+
+Read Data
+from RAM
+
+BF
+
+D7
+
+D7
+
+AC6
+
+AC6
+
+D6
+
+D6
+
+DB5 DB4
+0 0
+0 0
+0 0
+0 0
+0 1
+1 DL
+
+AC5 AC4
+
+AC5 AC4
+
+AC5 AC4
+
+D5 D4
+D5 D4
+
+DB3 DB2 DB1
+
+0 0 0
+0 0 1
+0 1 I/D
+1 D —
+S/C —R/L —
+_ —  BR1
+
+AC3  AC2 AC1
+
+AC3  AC2 AC1
+
+AC3  AC2 AC1
+
+D3 D2 D1
+
+D3 D2 D1
+
+DBO
+
+SH
+
+BRO
+
+ACO
+
+ACO
+
+ACO
+
+DO
+
+DO
+
+Description
+
+  
+
+Write “20H” to all DDRAM locations, set
+DDRAM address to “OOH”, return cursor
+to its original position, and set I/D to “1”.
+Set DDRAM address to “OOH” and return
+cursor to its original position if shifted.
+The contents of DDRAM are not changed.
+Assign cursor moving direction and enable
+the shift of entire display. DDRAM and
+CRAM addresses are incremented and
+cursor moves right when I/D is set to “1”,
+the opposite is true when reset to “0”.
+Setting SH to “1” causes the entire display
+to shift affecting only DDRAM.
+
+Set display (D), and blinking of cursor (B)
+on/off control bit. Setting D or B to “1”
+will cause the display or blinking cursor to
+turn on; the opposite is true for reset.
+Set cursor moving and display shift control
+bit, and the direction, without changing of
+DDRAM data. Setting S/L to “1” will shift
+the screen horizontally while the opposite
+will move the cursor through all screen
+positions. Setting R/L to “1” will shift right
+immediately. AC and DDRAM are not
+altered.
+
+Set interface data length. Setting DL to
+“LW” specifies 8-bit mode, “O” 4-bit.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+BR1i | BRO Brightness
+0 0 100% (Default)
+0 1 75%
+
+1 0 50%
+1 1 25%
+
+ 
+
+ 
+
+ 
+
+ 
+
+Set CGRAM address in address counter.
+
+Set DDRAM address in address counter.
+
+Read the status of the display controller
+through the BF Bit. The contents of
+address counter can also be read.
+
+Write data into internal RAM
+(DDRAM/CGRAWM), location is determined
+by the AC. AC and display shift are
+adjusted as specified.
+
+Read data from internal RAM
+(DDRAM/CGRAM}, location is determined
+by the AC, set command is recommended
+previous to this. Only AC is adjusted.
+Character ROM
+
+The character generator ROM stores up to two hundred fifty-six 5x7 dot character patterns from 8-bit
+character codes. The first sixteen characters are reserved for custom characters saved in CGRAM.
+
+ 
+
+CVUoo
+& O1a~)
+
+MNO
+econ
+
+0000
+0001
+OOLO
+OOLL
+0100
+OLOL
+OLLO
+OLLL
+L000
+LOOL
+LOLO
+LOLI
+LLOO
+LLOL
+LLLO
+LILI
+
+Co cooscso
+Nt COmco
+“SJ RFR ©
+> OR, Om
+oO com =
+ce ORF
+7 oF
+TR
+
+ 
+
+ 
+
+i — moose
+Hw OS
+HA cocoeco
+Hos coreco
+"QD corer co
+
+ 
+
+ 
+
+ 
+
+ 
+
+sewer ow Fl lm flee fl em lw mt
+
+eam meee meme
+eemee me mmm me mm ee
+ewer |) fee flmemmllUmhLUh Umm a ame
+
+seeee | ow) leew fell lm lL le le lll lee | eee ee
+
+Se ee rr re rr i ee |
+wee mm mmm
+
+ 
+
+ 
+
+ 
+
+em mae
+ee ee me me mm ee) ee
+* | #0008) 8 | — _@ | #8008 | b888 | beOee
+. sooo | oe tf 6S] Meet! 8S
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Simi Tia!) Wl S$ ol ol ni nin! S| wlrs|RK|o
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 2: Japanese Character Set
+Character RAM
+
+CGRAM allows the creation of up to eight 5x7 character patterns. Seven bytes are assigned to each
+character address, the least significant five bits of which represent the five pixel columns. An eighth
+
+byte represents an underline spanning all five columns. Pixels are activated by setting the bit in their
+
+position in CGRAM to “1”.
+
+Each character has eight addresses in CGRAM corresponding to each of its eight pixel rows. The highest
+three bits represent the character address in DDRAM. The lowest three bits of this address represent
+
+the row positions beginning with 0 at the top.
+
+Finally, each character can be referenced in DDRAM and written to the screen using its eight bit
+
+character code. Note that each character is addressable by two codes.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Character code CG RAM address CG RAM data (character pattern)
+DBS5| DB4| DB3| DB2| DB1 | DBO} DB7| DBS} DBS] DB4| DB3} DB2| DB1| DBO
+o}o0]o0]0]0 *)e* > e114] 2) 34) 5
+Oo};o0]};o0];o0/]0 *)1*)*) 6) 7/8} 94 10
+o;/o};o}oj]1 *) * | * 144) 12] 13 | 14] 15
+OOH Oo}o]o}]o0] 1 * |) * | * | 16] 17] 18} 19} 20
+(08H) 0o;}o0;o0}1]0 *) * | * | 21 | 22] 23 | 24] 25
+0o;}o};o};1]0 * | * | * | 26 | 27] 28 | 29] 30
+Oo;/o};}o};1]1 * | * | * | 31] 32] 33 | 34] 35
+Oo;/o};o};1] 1 *)* | * ) 36] 0} 0] 0] 0
+Oo}o0};1]0] 0 *)*)e*1 4,2) 3/4] 6
+Oo}o};1{]0o0]0 *i* 1 *)]6}]7 4819 10
+o/;/o};1]0} 1 *) * | * 1414112) 13 | 14] 15
+01H o};o};1]o] 1 * | * | * | 16] 17] 18] 19] 20
+(09H) 0o;O0};}1]1)40 * |) * | * | 21] 22 | 23] 24] 25
+0o/o/;1]1/] 0 * | * | * | 26] 27 | 28] 29] 30
+o}o]1]/14]1 * | * | * | 31] 32 | 33 | 34] a5
+o;o/;1];i]1 *]* 1] * 136) 0/0] 0] 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Timing Characteristics
+
+RS
+
+  
+
+Min1000nS
+
+  
+  
+
+    
+  
+ 
+
+Min 450nS
+Mintons
+
+R/W
+
+  
+
+Minig5nS
+
+DO~D7
+
+Note: * Indicates no effect.
+
+RS
+
+Min450nS
+
+Min |450nS
+
+Min10nS
+R/W
+
+DO~D7
+
+ 
+Initialization
+Before beginning any application, it is recommended that all display settings be initialized. Below are
+algorithms for initializing the display in both 8-bit and 4-bit communication modes.
+
+Before the first wait condition, please allow Vcc to rise to 2.7V then wait 40ms. During the three
+function set commands that follow, note that the busy flag cannot be checked; it becomes available in
+the last block. The unit will always expect a total of 8 bits to be sent, so note the structure used in four
+bit mode. The last initialization block will set the number of lines and character font as specified, turn
+the display off, issue the display clear command, and finally set the entry mode as desired.
+
+( ( P
+\ Power on ) 1 Dy,
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Wait for more than 15 ms Wait for more than 15 ms
+
+after Vcc rises to 4.5 V after Voc rises to 4.5 V
+
+RS R/WDB7 DB6 DB5 DB4 DB3DB2 DB1 DBO RS RW DB7 DB6 DB5 DB4
+0 000% 14 * *# * #* 0 0 0 0 1 1
+Wait for more than 4.1 ms Wait for more than 4.1 ms
+
+RS R/WDB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO RS RW DB7 DB6 DB5 DB4
+000 01 4 * * * * 0 0 0 0 1 1
+Wait for more than 100 us Wait for more than 100 us
+
+RS R/WDB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO RS RW DB7 DB6 DB5 DB4
+oo 0 07 1 * * * * 000011
+RS RW DB7 DB6 DB5 DB4
+
+0 0 0 0 1 0
+
+0 0 0 0 1 0
+
+0 O N F * *
+
+RS R/WDB7 DB6 DB5 DB4 DB3 DB2DB1 DBO o 00 0 0 0
+0 0001 14 %N F * * 0 0 1 0 0 0
+0 00 0 0 0 1 0 0 0 0 0 0 0 0 0
+0 00 0 0 0 0 0 0 1 0 0 0 0 0 1
+0 00 0 0 0 0 10 S$ 0 0 0 0 0 0
+0 0 0 1 Ss
+
+ 
+
+ 
+
+ 
+
+| VD
+
+Initialization ends Initialization ends
+
+Note: * Indicates do not care condition.
+Specifications
+
+Electrical
+rn
+Supply Voltage For Logic Vec 4.75 5.0 5.25
+Input Logic High Voltage Vin 2.0 — Vec V
+Input Logic Low Voltage Vit 0 — 0.8 V
+Supply Current (Display OFF) lec — 2 10 mA
+Supply Current (Display ON) lec — 130 200 mA
+Supply Current (Initial Inrush) lec — 260 400 mA
+Optical Environmental
+Si reser ie Symbol | Min | Max | Unit |
+Number of Characters 20 Characters x 2 Lines Operating Temp. Top -40 85 °C
+Module dimension 116.0 x 37.0 x 16.0 mm Storage Temp. Tstr -50 85 °C
+Active area 70.8 x 11.5 mm Note: Maximum 80% non-condensing humidity.
+Character size 2.40 x 4.70 mm
+Character pitch 3.60 x 6.10 mm
+Dot size 0.40 x 0.50 mm
+Dot pitch 0.50 x 0.70 mm
+Luminance 350 cd/m?
+Colour of Illumination Green (Blue-Green)
+Troubleshooting
+Power
+
+For your MOP Display to function correctly, appropriate power must be applied,
+often as indicated by the cursor or text illuminating. Please reference all voltages
+to the Initialization
+
+Before beginning any application, it is recommended that all display settings be initialized. Below are
+algorithms for initializing the display in both 8-bit and 4-bit communication modes.
+
+Before the first wait condition, please allow Vcc to rise to 2.7V then wait 40ms. During the three
+function set commands that follow, note that the busy flag cannot be checked; it becomes available in
+the last block. The unit will always expect a total of 8 bits to be sent, so note the structure used in four
+bit mode. The last initialization block will set the number of lines and character font as specified, turn
+the display off, issue the display clear command, and finally set the entry mode as desired.
+Power on
+
+ 
+
+ 
+
+Wait for more than 15 ms
+after Voc rises to 4.5 V
+
+( —P on )
+
+ 
+
+ 
+
+ 
+
+|
+
+Wait for more than 15 ms
+after Voc rises to 4.5 V
+
+ 
+
+ 
+
+ 
+
+RS R/WDB7 DB6 DB5 DB4 DB3DB2 DB1 DBO
+0 000% 14 * * * #*
+
+ 
+
+ 
+
+ 
+
+|
+
+RS RW DB7 DB6 DB5 DB4
+0 0 0 0 1 1
+
+ 
+
+ 
+
+ 
+
+Wait for more than 4.1 ms
+
+|
+
+ 
+
+ 
+
+|
+
+ 
+
+Wait for more than 4.1 ms
+
+ 
+
+ 
+
+ 
+
+RS R/WDB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+00001 4 * #* #* #*
+
+ 
+
+ 
+
+ 
+
+|
+
+RS RW DB7 DB6 DB5 DB4
+0 0 0 0 1 1
+
+ 
+
+ 
+
+ 
+
+Wait for more than 100 us
+
+ 
+
+ 
+
+ 
+
+|
+
+Wait for more than 100 us
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS R/WDB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+000014 14 * #*# #* #*
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS RW DB7 DB6 DB5 DB4
+000011
+
+ 
+
+ 
+
+ 
+
+RS RW DB7 DB6 DB5 DB4
+0001 0
+
+ 
+
+1 #0
+
+* x
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS R/WDB7 DB6 DB5 DB4 DB3 DB2 DB1 DBO
+0 000 1 1414 N F * *
+0 00 0 0 01 0 0 0
+0 0 0 0 0 0 0 0 0 1
+0 0 0 0 0 0 0 1% $
+
+ 
+
+ 
+
+Initialization ends
+
+Specifications provided.
+
+Display
+
+If your display is powered successfully, the text or cursor may be evident. Ensure the correct power is
+
+Communication
+When communication of either text or commands is interrupted, check all data and control pins for
+
+ 
+
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+oO O/0 O/O O/O oO
+oO O/O0 O]/] O/2 O
+—-— O7/O O/O O;/TN CO
+Yo o]|]— O/O ©
+
+ 
+
+ 
+
+!
+
+Initialization ends
+
+Note: * Indicates do not care condition.
+
+applied and the expected DDRAM addresses are shown by moving the display to the home position.
+
+continuity. Ensure the display has been initialized correctly before sending information using the
+
+10
+appropriate initialization algorithm. For 4-bit mode ensure D4-D7 are used. Finally, slow down
+communication and refer to Timing Characteristics for proper control flow.
+Test mode is initiated by connecting 2 and 3 pin of the 3pin connector CN2 before applying power. In
+the test mode, a checker pattern is displayed across all characters of the screen. Please note that CN2
+may be removed in the future.
+
+e Operation outside absolute maximum ratings may cause permanent damage.
+
+e Ensure Anti-Static handling procedures are followed. Store in an anti-static container within a
+clean environment.
+
+e Do not make extra holes on the display, modify its shape, or change the components. Do not
+drop, bend, twist, or disassemble the display.
+
+e Physical shock greater than 100G, thermal shock in excess of 10°C/minute, or a direct hit to the
+glass display surface may crack the glass.
+
+e Do not PUSH the display strongly. At mounting to the system frame, slight gap between display
+glass face and front panel is necessary to avoid a contact failure of lead pins of display. Twist or
+warp mounting will make a glass CRACK around the lead pin of display.
+
+e Neither data nor power connectors should be connected or disconnected while power is
+applied. Removal of primary power with logic signals applied may damage input circuitry.
+
+e Power must be regulated completely since all control logic depends on this line. Do not apply
+slow-start power. Provide sufficient power to supply inrush current at startup.
+
+e Data cable length between module and host system is recommended within 300 mm to be free
+from a miss-operation caused by noise.
+
+e Running in test mode for 2 hours may help the stability of the brightness of them VFD when
+power has not applied more than 2 months.
+
+e Displaying a fixed (static) message longer than 5 hours in a day may cause the phosphor to burn-
+out. An automatic shut down in programming, scrolling message, or test mode operation during
+idling of the host is recommended.
+Ordering
+
+Part Numbering Scheme
+
+TH AMS OD Eee Ee
+1 2/3 |4 |5'|6 7 8 9 10 11
+
+12 13 14 15 16
+Options
+Ee 9)
+1 Product Line MOP: Matrix Orbital Parallel Display
+Display Type A: Alphanumeric
+3 Screen Type V: Vacuum Florescent Display
+4 Display Columns 16: Sixteen Character Columns
+20: Twenty Character Columns
+5 Display Rows 2: Two Character Rows
+4: Four Character Rows
+. A: A Form Factor
+6 Display Form Factor C: C Form Factor
+7 IC Package B: Chip on Board
+8 LCD Glass Type N: Not Applicable
+9 Polarizer Style N: Not Applicable
+10 Backlight Colour N: Not Applicable
+11 Viewing Angle 0: Not Applicable
+12 Controller 1: HD44870 Compatible
+13 Character Set J: Japanese
+14 Input Voltage 3: 5.0V
+15 Temperature Range |: Industrial
+(6 Negative Voltage Generation N: None Provided
+Contact
+Sales Support Online
+Phone: 403.229.2737 Phone: 403.204.3750 Purchasing: www.matrixorbital.com
+
+ 
+
+Email: sales@matrixorbital.ca Email: support@matrixorbital.ca Support: www.matrixorbital.ca
+
+13
