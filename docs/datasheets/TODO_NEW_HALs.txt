@@ -1,8 +1,0 @@
-Character‑type VFD devices (modules/controllers) with datasheets present but no dedicated HAL implementation yet:
-
-Noritake Itron modules (5x7 dot character)
-- (none)
-
-Notes
-- Already covered by HALs: CU20025ECPB‑W1J, CU40026‑TW200A, NA204SD01, M0216MD‑162MDBR2‑J, M202MD15AJ, M202SD01HA, VK202‑25, PT6302, PT6314, uPD16314, HT16514, CU16025ECPB‑W6J (via VFDM0216MDHAL), CU16029(ECPB‑W1J/UW1J) (via VFDM0216MDHAL), CU20045SCPB‑U2J (via VFD20T204HAL), MOP‑AV162A (via VFDM0216MDHAL), MOP‑AV202C (via VFD20T202HAL), MOP‑AV204A (via VFD20T204HAL).
-- Excluded (non‑character or not device‑specific): X‑Board Hardware Manual, Economy Series Manual.
