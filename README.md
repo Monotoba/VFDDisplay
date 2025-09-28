@@ -39,6 +39,7 @@ Short clips from selected examples running on a 4×20 VFD:
 ![Library Demo 5](docs/images/vfdlibrary5.gif)
 ![Library Demo 6](docs/images/vfdlibrary6.gif)
 ![Library Demo 7](docs/images/vfdlibrary7.gif)
+![Library Demo 8](docs/images/vfdlibrary8.gif)
 
 ## Build Single Demo
 

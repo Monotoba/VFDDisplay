@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.3 — 2025-09-28
+- Docs: add vfdlibrary8.gif to README Gallery.
+
 ## 1.0.2 — 2025-09-28
 - CI/Release: fix Release workflow permissions and token usage to allow GitHub Actions to publish releases using GITHUB_TOKEN; add docs for release flow. No library code changes.
 
