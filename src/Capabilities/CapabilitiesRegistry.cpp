@@ -407,6 +407,30 @@ DisplayCapabilities* CapabilitiesRegistry::createVFDNA204SD01Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFDM204SD01ACapabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "M204SD01A",
+        "Futaba M204SD01A 20x4 VFD module (SD01A)",
+        "Futaba",
+        "M204SD01A",
+        4, 20,
+        5, 7,
+        100, 26,
+        CAP_CURSOR | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_DIMMING,
+        0,
+        0,
+        4,   // 4 dimming levels
+        0,
+        10, 100, 100,
+        400, 800,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedInterface("Parallel");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createVFDPT6302Capabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "PT6302",
