@@ -84,6 +84,7 @@ Use the unified root `Makefile` to build and upload examples.
 - Build an example (default backend PlatformIO): `make <ExampleName>`
 - Upload (set your port): `make <ExampleName>.upload PORT=/dev/ttyACM0`
 - Force backend: add `-- --pio` or `-- --arduino` or `-- --avr` after `make`.
+- Launch VFDSender GUI: `make vfd-sender`
 
 Examples
 - `make -- --pio ClockDemo`
