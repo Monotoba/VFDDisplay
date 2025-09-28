@@ -18,6 +18,9 @@ Capabilities
 - Serial (3‑wire) and parallel interfaces
 - Dimming supported via Function Set (BR1/BR0 → 100/75/50/25%)
 
+Compatibility
+- Matrix Orbital MOP‑AV202C (20×2) — HD44780‑compatible; works with this HAL.
+
 NO_TOUCH Primitives
 - `_cmdInit()`, `_escReset()`, `_cmdClear()`, `_cmdHome()`, `_posLinear()`, `_escMode()`, `_escDimming()`, `_escCursorBlink()`
 - Only modify these after validating against the 20T202 datasheet.

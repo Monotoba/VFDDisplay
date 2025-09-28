@@ -240,6 +240,30 @@ DisplayCapabilities* CapabilitiesRegistry::createVFD20T202Capabilities() {
     return caps;
 }
 
+DisplayCapabilities* CapabilitiesRegistry::createVFD20T204Capabilities() {
+    DisplayCapabilities* caps = new DisplayCapabilities(
+        "VFD20T204",
+        "Generic 20x4 HD44780-like VFD module",
+        "Generic",
+        "20T204",
+        4, 20,
+        5, 8,
+        116, 26,
+        CAP_CURSOR | CAP_CURSOR_BLINK | CAP_SERIAL_INTERFACE | CAP_PARALLEL_INTERFACE | CAP_USER_DEFINED_CHARS,
+        1,   // blink on/off
+        8,   // CGRAM 8 glyphs
+        0,   // no explicit dimming here
+        0,
+        10, 100, 100,
+        500, 900,
+        1
+    );
+    caps->addSupportedInterface("Serial");
+    caps->addSupportedInterface("Parallel");
+    caps->addSupportedDisplayMode(MODE_NORMAL);
+    return caps;
+}
+
 DisplayCapabilities* CapabilitiesRegistry::createVFDCU20025Capabilities() {
     DisplayCapabilities* caps = new DisplayCapabilities(
         "CU20025ECPB-W1J",

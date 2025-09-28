@@ -4,6 +4,7 @@
 #include "tests/common/IVFDHALContractTests.hpp"
 #include "tests/device/VFD20S401HALTests.hpp"
 #include "tests/device/VFD20T202HALTests.hpp"
+#include "tests/device/VFD20T204HALTests.hpp"
 #include "tests/device/VFDCU20025HALTests.hpp"
 #include "tests/device/VFDCU40026HALTests.hpp"
 #include "tests/device/VFDHT16514HALTests.hpp"
@@ -33,6 +34,10 @@ void setup() {
   // VFD20T202 HAL interface and device tests
   register_IVFDHAL_contract_tests<VFD20T202HAL>("VFD20T202");
   register_VFD20T202HAL_device_tests();
+
+  // VFD20T204 (20x4)
+  register_IVFDHAL_contract_tests<VFD20T204HAL>("VFD20T204");
+  register_VFD20T204HAL_device_tests();
 
   // VFDCU20025 HAL interface and device tests
   register_IVFDHAL_contract_tests<VFDCU20025HAL>("VFDCU20025");

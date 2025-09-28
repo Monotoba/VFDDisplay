@@ -38,6 +38,10 @@ Notes
 - Brightness via Function Set: 0..3 map to 100/75/50/25%.
 - Blink is on/off via Display On/Off (B bit); rate not programmable.
 
+Compatibility
+- Noritake CU16025ECPB‑W6J (16×2)
+- Noritake CU16029ECPB‑W1J / CU16029‑UW1J (16×2)
+These modules implement an HD44780‑like instruction set and work with this HAL.
+
 Tests
 - Init (0x38,0x0C,0x01,0x06); clear/home; setCursorPos uses 0x80 | base+col; dimming mapping.
-
