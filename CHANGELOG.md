@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## 2025-09-28
+## 1.0.1 — 2025-09-28
 - PlatformIO: fix CI failure for `leonardo-tests` (and other test envs) that reported "Nothing to build".
   - Replace deprecated/misused `src_filter`/`src_dir` with `build_src_filter` to include both `src/` and `tests/embedded_runner/` in test builds.
   - Remove `lib_deps = VFDDisplay` from test envs to avoid trying to fetch this repo as a registry package during CI.
@@ -13,6 +13,8 @@ All notable changes to this project will be documented in this file.
   - tests/framework: make `ET_ADD_TEST` variadic to allow lambda bodies with commas/initializers; add `ET_ASSERT_GE` helper.
   - platformio.ini: remove ineffective `build_src_filter` patterns and rely on default `src` discovery; add `-I.` and `-DVFD_EMBEDDED_TEST_RUNNER` (plus profile define for Leonardo).
   - Examples: fix `examples/BlinkExplore/BlinkExplore.ino` incorrect `sprintf` usage; replace with Serial prints.
+
+Release notes: Patch release focusing on CI/build configuration, no API changes. Safe update for users.
 
 ## 2025-09-27
 - Governance/CI: add MIT LICENSE, CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, .editorconfig, .clang-format, .gitattributes, and GitHub Actions CI (Arduino Lint + PlatformIO builds for tests and examples). Add badges to README.
