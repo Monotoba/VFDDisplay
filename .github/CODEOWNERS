@@ -1,0 +1,11 @@
+# Code owners for review and approval
+
+# Default owner(s)
+* @monotoba
+
+# Scoped ownership (override default as needed)
+src/** @monotoba
+docs/** @monotoba
+examples/** @monotoba
+tests/** @monotoba
+

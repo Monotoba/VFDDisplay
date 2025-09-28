@@ -20,6 +20,10 @@ jobs:
 
   platformio-build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        env: [megaatmega2560-tests, leonardo-tests, uno-tests]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -34,9 +38,10 @@ jobs:
           key: pio-${{ runner.os }}-${{ hashFiles('**/platformio.ini') }}
       - name: Install PlatformIO
         run: pip install --upgrade platformio
-      - name: Build embedded tests env
-        run: pio run -e megaatmega2560-tests
-      - name: Build examples
+      - name: Build embedded tests env (${{ matrix.env }})
+        run: pio run -e ${{ matrix.env }}
+      - name: Build examples (megaatmega2560)
+        if: matrix.env == 'megaatmega2560-tests'
         shell: bash
         run: |
           set -euo pipefail
@@ -45,4 +50,3 @@ jobs:
             pio run -d "$d" -e megaatmega2560
             echo "::endgroup::"
           done
-
