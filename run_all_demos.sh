@@ -49,6 +49,7 @@ PREFERRED=(
   "examples/CustomCharsAnimation"
   "examples/CustomCharsTetris"
   "examples/AdDemo"
+  "examples/MovieHouseAd"
   "examples/ClockDemo"
   "examples/BargraphDemo"
   "examples/AnimationsDemo"
@@ -57,6 +58,7 @@ PREFERRED=(
   "examples/MinimalVFDDemo"
   "examples/SimpleVFDTest"
   "examples/BasicTest"
+  "examples/PCStatusDisplay"
   "examples/CorrectCodesDemo"
   "examples/ModeSpecificTest"
 )
