@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.2 — 2025-09-28
+- CI/Release: fix Release workflow permissions and token usage to allow GitHub Actions to publish releases using GITHUB_TOKEN; add docs for release flow. No library code changes.
+
 ## 1.0.1 — 2025-09-28
 - PlatformIO: fix CI failure for `leonardo-tests` (and other test envs) that reported "Nothing to build".
   - Replace deprecated/misused `src_filter`/`src_dir` with `build_src_filter` to include both `src/` and `tests/embedded_runner/` in test builds.
