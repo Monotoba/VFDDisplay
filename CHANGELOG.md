@@ -115,3 +115,12 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-09-22
 - Initial make/PIO integration work on examples and build scripts.
+- HAL: VFD20T204HAL (generic 20x4 HD44780-like)
+  - Add new 20x4 HAL with DDRAM bases 0x00/0x40/0x14/0x54; Function Set, Display On, Clear, Entry Mode, and CGRAM writes.
+  - Capabilities: 4x20, serial/parallel, 8 CGRAM chars.
+  - Tests: init sequence and DDRAM base addressing; registered in Arduino and embedded runners.
+  - Docs: `docs/api/VFD20T204HAL.md`. Notes compatibility for Noritake CU20045SCPB‑U2J and MOP‑AV204A.
+
+- Docs: compatibility notes
+  - VFDM0216MDHAL: add compatibility for Noritake CU16025ECPB‑W6J and CU16029 (ECPB‑W1J/UW1J).
+  - VFD20T202HAL: add compatibility for Matrix Orbital MOP‑AV202C.
