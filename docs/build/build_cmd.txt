@@ -1,0 +1,47 @@
+VFDDisplay – Build Command Cheat Sheet
+
+List examples
+- make list
+
+Build an example (default backend: PlatformIO)
+- make <Example>
+- make <Example> debug
+
+Upload (set your port)
+- make <Example>.upload PORT=/dev/ttyACM0
+- make <Example>.upload PORT=/dev/ttyACM0 BAUD=115200 PROTOCOL=wiring
+
+Force backend
+- make -- --pio <Example>
+- make -- --arduino <Example>
+- make -- --avr <Example>
+
+Protocol override (either form)
+- make -- --protocol=wiring <Example>.upload PORT=/dev/ttyACM0
+- make <Example>.upload PORT=/dev/ttyACM0 PROTOCOL=wiring
+
+Clean
+- make clean        # remove .build/<backend>
+- make deepclean    # clean + remove .pio caches
+
+PlatformIO (direct, per example)
+- pio run -d examples/<Example> -e megaatmega2560
+- pio run -d examples/<Example> -e megaatmega2560 -t upload --upload-port /dev/ttyACM0
+- pio device monitor -b 57600 -p /dev/ttyACM0
+
+Arduino CLI (direct)
+- arduino-cli compile --fqbn arduino:avr:mega examples/<Example>
+- arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega examples/<Example>
+
+avr-gcc + avrdude (via Makefile)
+- make -- --avr <Example>
+- make -- --avr <Example>.upload PORT=/dev/ttyACM0 BAUD=57600 PROTOCOL=stk500
+
+Tests
+- make tests             # discover
+- make tests/all         # build all
+- make tests/<path>      # build one (add UPLOAD=1 PORT=... to upload)
+
+Tools
+- make vfd-sender        # GUI sender (PySide6 + pyserial)
+

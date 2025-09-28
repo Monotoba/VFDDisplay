@@ -1,2 +1,8 @@
-Build commands: /Arduino/libraries/VFDDisplay>pio run -e megaatmega2560 -t upload
-make clean
+See docs/build/build_cmd.txt for the full, up-to-date cheat sheet.
+
+Quick picks
+- List examples: make list
+- Build: make <Example> [debug|release]
+- Upload: make <Example>.upload PORT=/dev/ttyACM0 [BAUD=57600] [PROTOCOL=stk500|wiring]
+- Force backend: make -- --pio|--arduino|--avr <Example>
+- Clean: make clean   | Deep clean: make deepclean

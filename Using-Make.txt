@@ -1,15 +1,21 @@
-# Job 1: Sketch + library, debug
-make sketch-debug
+Unified Makefile quick reference
 
-# Job 2: Sketch + library, release
-make sketch-release
+# List discovered examples
+make list
 
-# Job 3: Library only, debug
-make lib-debug
+# Build an example (default backend: PlatformIO)
+make <Example>
+make <Example> debug
 
-# Job 4: Library only, release
-make lib-release
+# Upload (set your port)
+make <Example>.upload PORT=/dev/ttyACM0
+make <Example>.upload PORT=/dev/ttyACM0 PROTOCOL=wiring BAUD=115200
 
-# Upload release build
-make upload
+# Force backend
+make -- --pio <Example>
+make -- --arduino <Example>
+make -- --avr <Example>
 
+# Clean artifacts
+make clean
+make deepclean

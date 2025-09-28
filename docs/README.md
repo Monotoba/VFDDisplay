@@ -182,10 +182,10 @@ The library's layered design allows easy extension to:
 2. Configure build flags as needed
 3. Build and upload through PlatformIO
 
-### Make (avr-gcc)
-1. Ensure avr-gcc toolchain is installed
-2. Configure Arduino paths in Makefile
-3. Use provided make targets
+### Make (unified: PIO/Arduino CLI/avr-gcc)
+1. Ensure your chosen backend is installed (PlatformIO recommended; Arduino CLI and avr-gcc also supported)
+2. Use the unified root Makefile: `make <Example> [debug|release] [BACKEND=pio|arduino|avr]`
+3. Upload with: `make <Example>.upload PORT=/dev/ttyACM0 [PROTOCOL=stk500|wiring] [BAUD=57600]`
 
 ## Running All Demos
 
