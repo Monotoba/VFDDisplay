@@ -1,0 +1,17 @@
+Character‑type VFD devices (modules/controllers) with datasheets present but no HAL implementation yet:
+
+Noritake Itron modules (5x7 dot character)
+- CU16025ECPB‑W6J — 16x2 character module (HD44780‑like)
+- CU16029ECPB‑W1J — 16x2 character module (HD44780‑like)
+- CU16029‑UW1J — 16x2 character module (HD44780‑like) [from norc_s_a0000255720_1-2279662.pdf]
+- CU20045SCPB‑U2J — 20x4 character module (HD44780‑like)
+- M204SD01A — 20x4 character module (HD44780‑like)
+
+Matrix Orbital modules (MOP‑AV series — HD44780 compatible)
+- MOP‑AV162A — 16x2 character module
+- MOP‑AV202C — 20x2 character module
+- MOP‑AV204A — 20x4 character module
+
+Notes
+- Already covered by HALs: CU20025ECPB‑W1J, CU40026‑TW200A, NA204SD01, M0216MD‑162MDBR2‑J, M202MD15AJ, M202SD01HA, VK202‑25, PT6302, PT6314, uPD16314, HT16514.
+- Excluded (non‑character or not device‑specific): X‑Board Hardware Manual, Economy Series Manual.
