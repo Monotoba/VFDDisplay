@@ -48,7 +48,8 @@ void blinkRate(uint8_t cmd) {
     // RUn through speed 
     for (uint8_t i = 0; i < sizeof(blinkSpeeds); i++) {
     uint8_t speed = blinkSpeeds[i];
-    str = sprintf("Setting blink cmd = 0x%d", cmd);
+    Serial.print("Setting blink cmd = 0x");
+    Serial.println(cmd, HEX);
     Serial.print("Setting blink speed = 0x");
     Serial.println(speed, HEX);
 
@@ -86,4 +87,3 @@ void loop() {
   Serial.println("Done testing blink speeds.");
   delay(3000);
 }
-
