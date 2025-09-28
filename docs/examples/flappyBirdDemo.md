@@ -2,6 +2,12 @@
 
 # **Flappy Bird–Style Demo Specification for VFDDisplay Library**
 
+## Preview
+
+Short clip from selected library demos (representative):
+
+![Library Demo (representative)](../images/vfdlibrary4.gif)
+
 **Target Display:**
 
 * 4 rows × 20 characters per row

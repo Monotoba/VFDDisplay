@@ -30,6 +30,18 @@ Notes
 - Use the helper: `./run_all_demos.sh` to sequentially build/upload many of these.
 - Makefile: `make <Example>` then `make <Example>.upload PORT=/dev/ttyACM0`.
 
+## Gallery
+
+Short clips from selected examples running on a 4×20 VFD:
+
+![Library Demo 1](../images/vfdlibrary1.gif)
+![Library Demo 2](../images/vfdlibrary2.gif)
+![Library Demo 3](../images/vfdlibrary3.gif)
+![Library Demo 4](../images/vfdlibrary4.gif)
+![Library Demo 5](../images/vfdlibrary5.gif)
+![Library Demo 6](../images/vfdlibrary6.gif)
+![Library Demo 7](../images/vfdlibrary7.gif)
+
 ## Basic Examples
 
 ### Example 1: Simple Text Display

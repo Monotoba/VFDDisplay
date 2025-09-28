@@ -21,6 +21,18 @@ Notes:
 - PlatformIO backend uses a temporary per‑demo project that overrides upload protocol/baud, so flags are honored across PlatformIO versions.
 - The script continues on errors, prints a visible countdown between demos, and summarizes results at the end.
 
+## Gallery
+
+Short clips from selected examples running on a 4×20 VFD:
+
+![Library Demo 1](docs/images/vfdlibrary1.gif)
+![Library Demo 2](docs/images/vfdlibrary2.gif)
+![Library Demo 3](docs/images/vfdlibrary3.gif)
+![Library Demo 4](docs/images/vfdlibrary4.gif)
+![Library Demo 5](docs/images/vfdlibrary5.gif)
+![Library Demo 6](docs/images/vfdlibrary6.gif)
+![Library Demo 7](docs/images/vfdlibrary7.gif)
+
 ## Build Single Demo
 
 - PlatformIO: `pio run -d examples/ClockDemo -e megaatmega2560 -t upload --upload-port /dev/ttyACM0`

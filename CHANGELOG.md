@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 ## 2025-09-27
+- Docs: add GIF gallery to root `README.md` and to `docs/examples/README.md`; include a representative demo clip in `docs/examples/flappyBirdDemo.md` (images under `docs/images/`).
 - Tests: add a lightweight, embedded-friendly unit test framework under `tests/framework/EmbeddedTest.h` that runs on Arduino IDE, PlatformIO, and AVR targets (no external deps).
 - Tests: add `tests/mocks/MockTransport.h` to capture HAL writes for verification.
 - Tests: add reusable IVFDHAL contract tests in `tests/common/IVFDHALContractTests.hpp` (transport injection, invalid args, positioning + write, capabilities presence).
