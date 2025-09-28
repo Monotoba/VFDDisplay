@@ -103,6 +103,8 @@ void setup() {
   vfd->clear();
   vfd->cursorHome();
   vfd->write("Blink rates:");
+  // Ensure cursor is visible: switch to DC5 (cursor on) before changing blink speed
+  vfd->setDisplayMode(0x15);
   const uint8_t rates[] = {0x0A, 0x14, 0x28}; // ~300ms, 600ms, 1200ms
   for (uint8_t i = 0; i < 3; ++i) {
     vfd->setCursorPos(1 + i, 0);

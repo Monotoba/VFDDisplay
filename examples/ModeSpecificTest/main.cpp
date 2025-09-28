@@ -176,11 +176,12 @@ void loop() {
                 break;
                 
             case 2:
-                // Cursor features in current mode
+                // Cursor features: ensure cursor visible (DC5) before changing blink rate
                 vfd->cursorHome();
                 vfd->write("Cursor test:");
                 vfd->setCursorPos(1, 0);
                 vfd->write("Blink:");
+                vfd->setDisplayMode(0x15); // DC5: cursor on
                 vfd->cursorBlinkSpeed(2);
                 vfd->setCursorPos(1, 19);
                 break;
@@ -363,6 +364,8 @@ void testCursorFeaturesInMode(uint8_t mode) {
     resetAndClear();
     
     // Test cursor blink in different positions
+    // Ensure cursor visible (DC5) before altering blink speed
+    vfd->setDisplayMode(0x15);
     for (uint8_t rate = 0; rate < 4; rate++) {
         vfd->clear();
         vfd->cursorHome();
@@ -374,6 +377,8 @@ void testCursorFeaturesInMode(uint8_t mode) {
             delay(2500); // Let user see the blink
         }
     }
+    // Restore original mode
+    vfd->setDisplayMode(mode);
     
     // Test cursor movement methods
     vfd->clear();

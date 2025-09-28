@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## 1.0.4 — 2025-09-28
 - Examples: add `MovieHouseAd` (animated marquee of current showtimes).
 - Examples: add `PCStatusDisplay` (animated CPU/MEM/GPU/TEMP with Serial input; simulates when no host data).
+ - Examples: ensure DC5 (cursor on) before blink-rate changes in `ModeSpecificTest` and `CorrectCodesDemo`.
 
 ## 1.0.3 — 2025-09-28
 - Docs: add vfdlibrary8.gif to README Gallery.
