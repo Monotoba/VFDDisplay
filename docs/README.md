@@ -198,6 +198,22 @@ Use the root-level helper script to compile and upload all examples sequentially
 Notes
 - Curated order: SimpleDemo → CustomCharsSimple → CustomCharsAdvanced → CustomCharsAnimation → CustomCharsTetris → AdDemo → ClockDemo → BargraphDemo → AnimationsDemo → MatrixRainDemo → FlappyBirdDemo → MinimalVFDDemo → SimpleVFDTest → BasicTest → CorrectCodesDemo → ModeSpecificTest, then any remaining.
 - PlatformIO backend uses a temporary per‑demo project to honor upload protocol/baud.
+
+## Developer Tools
+
+The `tools/` folder contains helper utilities for HAL development and testing.
+
+- HAL scaffold: `tools/new_hal/new_hal.py`
+  - Generate a new HAL skeleton, basic device tests, and a docs page from the template.
+  - Makefile wrapper: `make hal NAME=<Model> CLASS=<ClassName> [ROWS=.. COLS=.. DATASHEET=.. FAMILY=hd44780|esc TRANSPORT=serial|sync3|parallel]`
+  - Direct usage example:
+    `python3 tools/new_hal/new_hal.py --name 20T202 --class VFD20T202HAL --rows 2 --cols 20 --datasheet docs/datasheets/20T202DA2JA.pdf --family hd44780 --transport sync3`
+
+- VFDSender GUI: `tools/vfdSender/vfdSender2.py`
+  - PySide6/pyserial GUI to send ASCII + hex escape sequences (e.g. `\x1B`), run simple scripts, and view TX/RX in HEX/ASCII.
+  - Install deps: `pip install PySide6 pyserial`
+  - Run: `python3 tools/vfdSender/vfdSender2.py`
+  - Useful for iterating controller bytes during HAL bring‑up.
 - The script continues on errors and prints a visible countdown.
 
 ## Examples Included

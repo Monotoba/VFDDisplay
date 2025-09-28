@@ -276,7 +276,7 @@ hal:
 	$(eval _FAMILY := $(if $(FAMILY),$(FAMILY),hd44780))
 	$(eval _TRAN := $(if $(TRANSPORT),$(TRANSPORT),serial))
 	@echo "[HAL] Scaffolding $(CLASS) (NAME=$(NAME), ROWS=$(_ROWS), COLS=$(_COLS), FAMILY=$(_FAMILY), TRANSPORT=$(_TRAN))"
-	@python3 tools/new_hal.py --name "$(NAME)" --class "$(CLASS)" --rows $(_ROWS) --cols $(_COLS) $(if $(DATASHEET),--datasheet "$(DATASHEET)") --family $(_FAMILY) --transport $(_TRAN)
+		@python3 tools/new_hal/new_hal.py --name "$(NAME)" --class "$(CLASS)" --rows $(_ROWS) --cols $(_COLS) $(if $(DATASHEET),--datasheet "$(DATASHEET)") --family $(_FAMILY) --transport $(_TRAN)
 
 ########## Tests ##########
 

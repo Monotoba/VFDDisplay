@@ -18,7 +18,9 @@ All notable changes to this project will be documented in this file.
 - Tests: add contract + device tests for `VFD20T202HAL` (init sequence, clear/home, DDRAM addressing). Runners updated.
 - Docs: expand `docs/api/VFD20S401HAL.md` and `docs/api/VFD20T202HAL.md` with IVFDHAL method references, unbuffered and buffered code examples, and device-specific notes.
 - Docs: add `docs/api/HAL_Authoring_Guide.md` and `docs/api/HAL_Doc_Template.md` for consistent HAL documentation and authoring.
- - Tools/Make: add `tools/new_hal.py` scaffold and `make hal` to generate a new HAL skeleton (code, tests, docs) with next steps guidance.
+- Tools/Make: add `tools/new_hal.py` scaffold and `make hal` to generate a new HAL skeleton (code, tests, docs) with next steps guidance.
+ - Tools: move `tools/new_hal.py` to `tools/new_hal/new_hal.py`; update Makefile `hal` target accordingly.
+ - Tools: add `tools/vfdSender/vfdSender2.py` (PySide6 GUI) for sending ASCII + hex escapes to VFDs during HAL development; documented under docs/README.md.
  
  - HAL: CU40026 (VFDCU40026HAL)
    - Add device-level helpers: `setLuminanceBand(uint8_t)`, `setLuminanceIndex(uint8_t 0..3)`, `setBlinkPeriodMs(uint16_t)`, and `selectFlickerlessMode()` using ESC sequences ('L', 'T', 'S'). No IVFDHAL changes.
