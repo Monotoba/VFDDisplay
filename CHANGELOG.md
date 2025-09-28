@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.7 — 2025-09-28
+- Docs: refresh `docs/build/Makefiles.md` to match the unified multi‑backend Makefile (PlatformIO/Arduino‑CLI/avr‑gcc), including backend flags, debug/release, protocol/baud/port controls, and cleaning.
+- Docs: add `docs/build/PlatformIO.md` with per‑example and Makefile‑driven PIO usage, test envs, and cleaning notes.
+- Docs: add `docs/build/build_cmd.txt` cheat sheet and update root `build_cmd.txt` to reference it.
+- Docs: update `Using-Make.txt` to reflect the current Makefile interface (examples as targets, `<Example>.upload`, backend forcing, clean/deepclean).
+- Docs: fix broken docs link target by adding the missing PlatformIO guide and the build command cheat sheet under `docs/build/`.
+
 ## 1.0.6 — 2025-09-28
 - Docs: add “Hardware Coverage and Contributions” section to README noting that only VFD20S401HAL is hardware-tested; call for testers; offer to correct/add character HALs when hardware is provided; graphics VFDs will be a separate library if there’s interest and hardware.
 
