@@ -58,3 +58,36 @@ Notes
   - 20×2 (HD44780): row0 base 0x00, row1 base 0x40 → command `0x80 | base + col`
   - 4×20 linear (e.g., 20S401): ESC 'H' + linear address `row*20 + col`
 - For brightness: confirm bit positions and valid levels from the datasheet.
+
+## Operational Flow Used (step‑by‑step)
+
+When adding new HALs or mapping devices to existing HALs, follow this pragmatic flow:
+
+1) Scan + OCR new datasheets
+   - Drop PDFs under `docs/datasheets/`.
+   - OCR sidecars to `docs/datasheets/text/` and `docs/datasheets/ocr/`.
+   - Triage: keep character‑type (5×7, DDRAM/CGRAM or ESC addressing); list/remove non‑character items.
+
+2) Decide reuse vs. new HAL
+   - HD44780‑like 16×2 → reuse `VFDM0216MDHAL`.
+   - HD44780‑like 20×2 → reuse `VFD20T202HAL`.
+   - HD44780‑like 20×4 → reuse `VFD20T204HAL` (row bases 00/40/14/54).
+   - SD01/SD01A family (e.g., M202SD01, NA204SD01, M204SD01A) → device‑specific HALs using module command bytes (0x10+addr, 0x0D clear, etc.).
+
+3) If reusing an existing HAL
+   - Add a Compatibility note to the HAL doc page (e.g., `docs/api/VFDM0216MDHAL.md`).
+   - No code changes required unless the device needs extra helpers.
+
+4) If implementing a new HAL
+   - Create `src/HAL/<DeviceHAL>.h/.cpp` implementing `IVFDHAL`.
+   - Add a capabilities factory to `CapabilitiesRegistry`.
+   - Add device tests under `tests/device/` (init, clear/home, positioning, brightness if any).
+   - Register in both test runners.
+   - Create `docs/api/<DeviceHAL>.md` from the template and document command mappings.
+   - Update `CHANGELOG.md`.
+
+5) Validate + commit
+   - Ensure tests compile in embedded runners (Arduino/PIO environment).
+   - Make small, focused commits per HAL/docs/tests.
+
+Tip: Prefer documenting compatibility over duplicating HALs when the instruction set matches an existing implementation.

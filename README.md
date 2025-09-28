@@ -73,4 +73,5 @@ Related examples:
 
 ## Documentation
 
-See `docs/README.md` for full library documentation, command reference, gotchas, and guidance for adding new device HALs.
+- Library docs: `docs/README.md` (command reference, gotchas, examples)
+- HAL Authoring Guide: `docs/api/HAL_Authoring_Guide.md` (step‑by‑step for adding new device HALs)
