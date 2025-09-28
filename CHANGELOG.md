@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## 2025-09-27
 - Governance/CI: add MIT LICENSE, CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, .editorconfig, .clang-format, .gitattributes, and GitHub Actions CI (Arduino Lint + PlatformIO builds for tests and examples). Add badges to README.
+  - Add badges: CI, Release, Tags, License, Arduino Lint, PlatformIO.
 - Docs: add GIF gallery to root `README.md` and to `docs/examples/README.md`; include a representative demo clip in `docs/examples/flappyBirdDemo.md` (images under `docs/images/`).
  - CI: extend workflow to test embedded runner across a board matrix (`megaatmega2560`, `leonardo`, `uno`); add corresponding PlatformIO test envs. Build examples once on Mega 2560.
  - Community: add CODEOWNERS and GitHub issue/PR templates.

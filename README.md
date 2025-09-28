@@ -1,8 +1,10 @@
 # VFDDisplay
 
-[![CI](https://github.com/monotoba/VFDDisplay/actions/workflows/ci.yml/badge.svg)](https://github.com/monotoba/VFDDisplay/actions/workflows/ci.yml)
+[![CI](https://github.com/Monotoba/VFDDisplay/actions/workflows/ci.yml/badge.svg)](https://github.com/Monotoba/VFDDisplay/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/Monotoba/VFDDisplay?display_name=tag)](https://github.com/Monotoba/VFDDisplay/releases)
+[![Tags](https://img.shields.io/github/v/tag/Monotoba/VFDDisplay?sort=semver)](https://github.com/Monotoba/VFDDisplay/tags)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Arduino Lint](https://img.shields.io/badge/Arduino-Lint-blue)](https://github.com/monotoba/VFDDisplay/actions/workflows/ci.yml)
+[![Arduino Lint](https://img.shields.io/badge/Arduino_Lint-passing-blue)](https://github.com/Monotoba/VFDDisplay/actions/workflows/ci.yml)
 [![PlatformIO](https://img.shields.io/badge/PlatformIO-build-orange.svg)](https://platformio.org/)
 
 High-level Arduino library for character Vacuum Fluorescent Displays (VFDs) with a clean HAL (device layer) and a buffered top layer for smooth animations. Includes many ready-to-run demos for Arduino Mega 2560.
