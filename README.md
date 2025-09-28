@@ -1,5 +1,10 @@
 # VFDDisplay
 
+[![CI](https://github.com/monotoba/VFDDisplay/actions/workflows/ci.yml/badge.svg)](https://github.com/monotoba/VFDDisplay/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Arduino Lint](https://img.shields.io/badge/Arduino-Lint-blue)](https://github.com/monotoba/VFDDisplay/actions/workflows/ci.yml)
+[![PlatformIO](https://img.shields.io/badge/PlatformIO-build-orange.svg)](https://platformio.org/)
+
 High-level Arduino library for character Vacuum Fluorescent Displays (VFDs) with a clean HAL (device layer) and a buffered top layer for smooth animations. Includes many ready-to-run demos for Arduino Mega 2560.
 
 ## Run All Demos

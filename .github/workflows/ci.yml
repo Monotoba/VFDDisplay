@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  arduino-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Arduino Lint
+        uses: arduino/arduino-lint-action@v1
+        with:
+          library-manager: update
+          compliance: permissive
+          project-type: library
+
+  platformio-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Cache PlatformIO
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.platformio
+          key: pio-${{ runner.os }}-${{ hashFiles('**/platformio.ini') }}
+      - name: Install PlatformIO
+        run: pip install --upgrade platformio
+      - name: Build embedded tests env
+        run: pio run -e megaatmega2560-tests
+      - name: Build examples
+        shell: bash
+        run: |
+          set -euo pipefail
+          find examples -maxdepth 2 -name platformio.ini -printf '%h\n' | while read -r d; do
+            echo "::group::Building $d"
+            pio run -d "$d" -e megaatmega2560
+            echo "::endgroup::"
+          done
+

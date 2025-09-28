@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+# Treat images and binaries correctly
+*.gif binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+
+# Avoid diffs for generated/binary docs
+docs/datasheets/** -diff
+
