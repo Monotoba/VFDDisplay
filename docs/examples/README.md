@@ -4,6 +4,32 @@
 
 This document provides comprehensive usage examples for the VFDDisplay library, demonstrating various features and programming patterns. All examples are designed to work with the VFD20S401 4x20 character display connected via serial interface.
 
+## Example Catalog
+
+Below is a catalog of the example sketches shipped with this library. Build via the root Makefile (`make list` to enumerate), or open in Arduino IDE/PlatformIO.
+
+- SimpleDemo — minimal unbuffered usage: init, clear, write, position.
+- BasicTest — broad library sanity: positioning, center, brightness, custom chars.
+- SimpleVFDTest — very small hardware check pattern.
+- MinimalVFDDemo — essential operations in a compact sketch.
+- CorrectCodesDemo — demonstrates corrected control/escape codes and sequencing.
+- ModeSpecificTest — iterates through controller display modes (0x11–0x17).
+- ClockDemo — buffered HH:MM:SS clock with blinking colon.
+- BargraphDemo — buffered bargraphs across rows with labels.
+- AnimationsDemo — buffered animation sampler (movement/fades).
+- MatrixRainDemo — digital rain effect using BufferedVFD.
+- FlappyBirdDemo — autonomous Flappy Bird on a 4×20 grid.
+- AdDemo — animated “ad” with fades and marquee effects.
+- CustomCharsSimple — define and show a few custom glyphs.
+- CustomCharsAdvanced — explore 8/16 custom glyphs with mapping queries.
+- CustomCharsAnimation — animate a sprite by redefining a glyph index.
+- CustomCharsTetris — tiny auto‑drop Tetris using custom block glyph.
+- BlinkExplore — probe cursor blink commands/speeds on Futaba 20S401.
+
+Notes
+- Use the helper: `./run_all_demos.sh` to sequentially build/upload many of these.
+- Makefile: `make <Example>` then `make <Example>.upload PORT=/dev/ttyACM0`.
+
 ## Basic Examples
 
 ### Example 1: Simple Text Display
