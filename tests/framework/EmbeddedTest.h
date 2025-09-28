@@ -152,7 +152,9 @@ namespace EmbeddedTest {
 } // namespace EmbeddedTest
 
 // Convenience macros
-#define ET_ADD_TEST(name, fn) ::EmbeddedTest::addTest(name, fn)
+// Use variadic macro so lambda bodies with commas/braces are accepted as a single argument
+#define ET_ADD_TEST(name, ...) ::EmbeddedTest::addTest(name, __VA_ARGS__)
 #define ET_ASSERT_TRUE(cond) ::EmbeddedTest::assertTrue((cond), #cond)
 #define ET_ASSERT_EQ(a,b) ::EmbeddedTest::assertEqual((a), (b), #a " == " #b)
-
+// Additional comparisons used by tests
+#define ET_ASSERT_GE(a,b) ::EmbeddedTest::assertTrue(((a) >= (b)), #a " >= " #b)

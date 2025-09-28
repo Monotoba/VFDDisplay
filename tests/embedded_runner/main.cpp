@@ -2,22 +2,30 @@
 #include <Arduino.h>
 #include "tests/framework/EmbeddedTest.h"
 #include "tests/common/IVFDHALContractTests.hpp"
-#include "tests/device/VFD20S401HALTests.hpp"
-#include "tests/device/VFD20T202HALTests.hpp"
-#include "tests/device/VFD20T204HALTests.hpp"
-#include "tests/device/VFDCU20025HALTests.hpp"
-#include "tests/device/VFDCU40026HALTests.hpp"
-#include "tests/device/VFDHT16514HALTests.hpp"
-#include "tests/device/VFDM202MD15HALTests.hpp"
-#include "tests/device/VFDM202SD01HALTests.hpp"
-#include "tests/device/VFDM204SD01AHALTests.hpp"
-#include "tests/device/VFDNA204SD01HALTests.hpp"
-#include "tests/device/VFDM0216MDHALTests.hpp"
-#include "tests/device/VFDVK20225HALTests.hpp"
-#include "tests/device/VFDPT6302HALTests.hpp"
-#include "tests/device/VFDPT6314HALTests.hpp"
-#include "tests/device/VFDUPD16314HALTests.hpp"
-#include "HAL/VFD20S401HAL.h"
+
+#ifdef VFD_TEST_PROFILE_LEONARDO
+  // Minimal test profile for constrained targets (e.g., ATmega32U4)
+  #include "tests/device/VFD20S401HALTests.hpp"
+  #include "HAL/VFD20S401HAL.h"
+#else
+  // Full test profile
+  #include "tests/device/VFD20S401HALTests.hpp"
+  #include "tests/device/VFD20T202HALTests.hpp"
+  #include "tests/device/VFD20T204HALTests.hpp"
+  #include "tests/device/VFDCU20025HALTests.hpp"
+  #include "tests/device/VFDCU40026HALTests.hpp"
+  #include "tests/device/VFDHT16514HALTests.hpp"
+  #include "tests/device/VFDM202MD15HALTests.hpp"
+  #include "tests/device/VFDM202SD01HALTests.hpp"
+  #include "tests/device/VFDM204SD01AHALTests.hpp"
+  #include "tests/device/VFDNA204SD01HALTests.hpp"
+  #include "tests/device/VFDM0216MDHALTests.hpp"
+  #include "tests/device/VFDVK20225HALTests.hpp"
+  #include "tests/device/VFDPT6302HALTests.hpp"
+  #include "tests/device/VFDPT6314HALTests.hpp"
+  #include "tests/device/VFDUPD16314HALTests.hpp"
+  #include "HAL/VFD20S401HAL.h"
+#endif
 
 void setup() {
   Serial.begin(115200);
@@ -25,6 +33,11 @@ void setup() {
   EmbeddedTest::setOutput(&Serial);
   EmbeddedTest::begin();
 
+  // Register tests
+#ifdef VFD_TEST_PROFILE_LEONARDO
+  register_IVFDHAL_contract_tests<VFD20S401HAL>("VFD20S401");
+  register_VFD20S401HAL_device_tests();
+#else
   register_IVFDHAL_contract_tests<VFD20S401HAL>("VFD20S401");
   register_VFD20S401HAL_device_tests();
 
@@ -83,6 +96,7 @@ void setup() {
   // uPD16314
   register_IVFDHAL_contract_tests<VFDUPD16314HAL>("uPD16314");
   register_VFDUPD16314HAL_device_tests();
+#endif
 
   EmbeddedTest::runAll();
 }
