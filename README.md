@@ -110,3 +110,10 @@ Examples
 - `make -- --pio ClockDemo`
 - `make -- --arduino BasicTest`
 - `make -- --avr MinimalVFDDemo`
+
+## Hardware Coverage and Contributions
+
+- Real-hardware coverage: At this time, only the `VFD20S401HAL` has been exercised on real hardware. All other HALs were developed from device datasheets and may contain assumptions or gaps that need verification.
+- Call for testers: If you own a compatible display, please try the corresponding HAL and report results. Issues and pull requests with notes, corrections, and (where possible) short serial/logic captures are welcome.
+- Willing to correct or add HALs with hardware support: I’m happy to fix issues or implement additional HALs for character-type VFDs when the physical display is provided for development and verification. This library intentionally focuses on character displays only.
+- Graphics displays: If there’s interest, I can build a separate library for graphics VFDs—again, provided that the display hardware is available. Character and graphics displays will remain separate projects to keep scope and APIs clear.

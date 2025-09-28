@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.6 — 2025-09-28
+- Docs: add “Hardware Coverage and Contributions” section to README noting that only VFD20S401HAL is hardware-tested; call for testers; offer to correct/add character HALs when hardware is provided; graphics VFDs will be a separate library if there’s interest and hardware.
+
 ## 1.0.5 — 2025-09-28
 - Examples: enforce DC5 (cursor on) prior to blink-rate adjustments in ModeSpecificTest and CorrectCodesDemo; no API changes.
 
