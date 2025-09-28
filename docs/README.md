@@ -223,6 +223,18 @@ The `tools/` folder contains helper utilities for HAL development and testing.
   - Install deps: `pip install PySide6 pyserial`
   - Run: `python3 tools/vfdSender/vfdSender2.py`
   - Useful for iterating controller bytes during HAL bring‑up.
+
+## Gallery
+
+Short clips from selected examples running on a 4×20 VFD:
+
+![Library Demo 1](images/vfdlibrary1.gif)
+![Library Demo 2](images/vfdlibrary2.gif)
+![Library Demo 3](images/vfdlibrary3.gif)
+![Library Demo 4](images/vfdlibrary4.gif)
+![Library Demo 5](images/vfdlibrary5.gif)
+![Library Demo 6](images/vfdlibrary6.gif)
+![Library Demo 7](images/vfdlibrary7.gif)
 - The script continues on errors and prints a visible countdown.
 
 ## Examples Included
