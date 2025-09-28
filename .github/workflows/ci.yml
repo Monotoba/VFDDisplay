@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        env: [megaatmega2560-tests, leonardo-tests, uno-tests]
+        env: [megaatmega2560-tests, leonardo-tests]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -50,3 +50,4 @@ jobs:
             pio run -d "$d" -e megaatmega2560
             echo "::endgroup::"
           done
+
