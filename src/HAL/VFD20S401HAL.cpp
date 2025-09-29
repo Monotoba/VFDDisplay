@@ -707,7 +707,7 @@ bool VFD20S401HAL::_isUnsafeCHR(uint8_t chr) {
     // Avoid known single-byte commands and ESC for this controller.
     // Known commands used in this HAL/datasheet: 0x09 (Clear), 0x0C (Home),
     // 0x08 (BS), 0x09 (HT/Clear), 0x0A (LF), 0x0D (CR),
-    // 0x11..0x17 (DC1..DC7 display/cursor modes), 0x18..0x19 (CT0/CT1),
+    // 0x11..0x13 (DC1..DC3 display), 0x14..0x17 (DC4..DC7 cursor), 0x18..0x19 (CT0/CT1),
     // 0x1B (ESC), 0x49 ('I' Initialize as single-byte for this module).
     if (chr == 0x08 || chr == 0x09 || chr == 0x0A || chr == 0x0C || chr == 0x0D || chr == 0x1B || chr == 0x49)
         return true;

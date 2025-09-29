@@ -82,7 +82,7 @@ The VFD20S401 uses an ESC-based positioning command:
 
 ### Escape Sequences
 Escape sequences start with `0x1B` (ESC) followed by a fixed number of data bytes (no terminator):
-- **Display Mode**: ESC + mode byte (0x11-0x17)
+- **Display Mode**: Single-byte DC codes 0x11–0x13 (not ESC)
 - **Dimming Control**: ESC + `0x4C` + level
 - **Cursor Blink**: ESC + `0x42` + rate
 

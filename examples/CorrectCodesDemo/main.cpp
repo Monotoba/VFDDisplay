@@ -1,7 +1,7 @@
 // Demonstrates corrected control and escape codes for Futaba VFD20S401
 // - Init/Reset: ESC 'I' (handled by vfd->init()/reset())
 // - Positioning: ESC 'H' + position (via vfd->setCursorPos / writeAt / moveTo)
-// - Display mode: control codes 0x11–0x17 (vfd->setDisplayMode)
+// - Display mode: control codes 0x11–0x13 (vfd->setDisplayMode)
 // - Blink speed: ESC 'T' + rate (vfd->setCursorBlinkRate)
 // - Dimming: ESC 'L' + level (vfd->setDimming / setBrightness)
 
@@ -66,9 +66,9 @@ void setup() {
   vfd->writeAt(3, 10, "Row3 Col10");
   wait_ms(2500);
 
-  // Display mode demo (control codes 0x11–0x17)
-  Serial.println("Cycling display modes 0x11–0x17...");
-  for (uint8_t mode = 0x11; mode <= 0x17; ++mode) {
+  // Display mode demo (control codes 0x11–0x13)
+  Serial.println("Cycling display modes 0x11–0x13...");
+  for (uint8_t mode = 0x11; mode <= 0x13; ++mode) {
     vfd->reset();
     vfd->clear();
     vfd->setDisplayMode(mode);

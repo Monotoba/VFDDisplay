@@ -13,7 +13,7 @@ Below is a catalog of the example sketches shipped with this library. Build via 
 - SimpleVFDTest — very small hardware check pattern.
 - MinimalVFDDemo — essential operations in a compact sketch.
 - CorrectCodesDemo — demonstrates corrected control/escape codes and sequencing.
-- ModeSpecificTest — iterates through controller display modes (0x11–0x17).
+- ModeSpecificTest — iterates through display DCs (0x11–0x13) and exercises cursor DCs (0x14–0x17).
 - ClockDemo — buffered HH:MM:SS clock with blinking colon.
 - BargraphDemo — buffered bargraphs across rows with labels.
 - AnimationsDemo — buffered animation sampler (movement/fades).

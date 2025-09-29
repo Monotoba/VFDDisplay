@@ -1,6 +1,6 @@
 // File: src/examples/ModeSpecificTest/main.cpp
 // Comprehensive test of VFD20S401 display modes and mode-specific features
-// Tests each display mode (0x11-0x17) with all features
+// Tests display DCs (0x11–0x13) with all features and exercises cursor DCs (0x14–0x17)
 
 #include <Arduino.h>
 #include "VFDDisplay.h"
@@ -45,7 +45,7 @@ void setup() {
     delay(1000); // Give serial time to initialize
     
     Serial.println("=== VFD20S401 Mode-Specific Feature Test ===");
-    Serial.println("Testing all display modes (0x11-0x17) with mode-specific features");
+    Serial.println("Testing display modes (0x11–0x13) with mode-specific features");
     Serial.println();
     
     // Test basic serial communication first
@@ -211,7 +211,7 @@ void loop() {
 
 void runModeSpecificTestSuite() {
     Serial.println("=== MODE-SPECIFIC FEATURE TEST SUITE ===");
-    Serial.println("Testing each display mode (0x11-0x17) with all features");
+    Serial.println("Testing each display mode (0x11–0x13) with all features");
     Serial.println();
     
     // Test each display mode
