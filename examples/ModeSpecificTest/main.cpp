@@ -95,6 +95,7 @@ void setup() {
     vfd->write("VFD Mode Test");
     vfd->setCursorPos(1, 0);
     vfd->write("Starting...");
+    vfd->setCursorMode(0); // Cursor modes 0..3 map to 0x14..0x17
     delay(2000);
     
     Serial.println("Starting mode-specific feature test suite...");
@@ -117,7 +118,7 @@ void loop() {
     
     if (millis() - lastModeChange > 15000) { // Change mode every 15 seconds
         currentMode++;
-        if (currentMode > 0x17) currentMode = 0x11; // Cycle through modes 0x11-0x17
+        if (currentMode > 0x13) currentMode = 0x11; // Cycle through display modes 0x11-0x13
         modeInitialized = false;
         lastModeChange = millis();
         lastFeatureUpdate = 0;
@@ -135,7 +136,7 @@ void loop() {
             // Show mode info on display
             vfd->cursorHome();
             vfd->write("Mode: 0x");
-            if (currentMode <= 0x15) {
+            if (currentMode <= 0x13) {
                 vfd->write("1");
                 vfd->writeChar('0' + (currentMode & 0x0F));
             }
@@ -160,7 +161,7 @@ void loop() {
                 vfd->write("Basic text in mode");
                 vfd->setCursorPos(1, 0);
                 vfd->write("Mode 0x");
-                if (currentMode <= 0x15) {
+                if (currentMode <= 0x13) {
                     vfd->write("1");
                     vfd->writeChar('0' + (currentMode & 0x0F));
                 }
@@ -178,10 +179,12 @@ void loop() {
             case 2:
                 // Cursor features: ensure cursor visible (DC5) before changing blink rate
                 vfd->cursorHome();
+                vfd->setCursorMode(1); // DC5 (cursor visible) via cursor mode set
                 vfd->write("Cursor test:");
                 vfd->setCursorPos(1, 0);
+                vfd->setCursorMode(1); // DC5 (cursor visible)
                 vfd->write("Blink:");
-                vfd->setDisplayMode(0x15); // DC5: cursor on
+                //vfd->setCursorMode(1); // DC5: cursor on
                 vfd->cursorBlinkSpeed(2);
                 vfd->setCursorPos(1, 19);
                 break;
@@ -212,10 +215,10 @@ void runModeSpecificTestSuite() {
     Serial.println();
     
     // Test each display mode
-    for (uint8_t mode = 0x11; mode <= 0x17; mode++) {
+    for (uint8_t mode = 0x11; mode <= 0x13; mode++) {
         testDisplayMode(mode);
         
-        if (mode < 0x17) {
+        if (mode < 0x13) {
             pauseBetweenTests("Preparing next mode");
         }
     }
@@ -309,7 +312,7 @@ void testBasicFeaturesInMode(uint8_t mode) {
     }
     
     // Test cursor positioning
-    vfd->setCursorPos(2, 10);
+    vfd->setCursorPos(2, 9);
     vfd->write("Cursor test");
     
     // Test clear function
@@ -334,7 +337,7 @@ void testAdvancedFeaturesInMode(uint8_t mode) {
     // Test positioning methods
     vfd->writeCharAt(2, 5, 'A');
     vfd->writeCharAt(2, 14, 'B');
-    vfd->moveTo(3, 8);
+    vfd->moveTo(3, 7);
     vfd->write("MoveTo test");
     
     Serial.println("Advanced features tested successfully");
@@ -365,8 +368,8 @@ void testCursorFeaturesInMode(uint8_t mode) {
     
     // Test cursor blink in different positions
     // Ensure cursor visible (DC5) before altering blink speed
-    vfd->setDisplayMode(0x15);
     for (uint8_t rate = 0; rate < 4; rate++) {
+        resetAndClear();
         vfd->clear();
         vfd->cursorHome();
         vfd->write("Blink rate: ");

@@ -43,6 +43,7 @@ virtual bool reset() = 0;
 
 // Screen control
 virtual bool clear() = 0;
+virtual bool setCursorMode(uint8_t mode) = 0;
 virtual bool cursorHome() = 0;
 virtual bool setCursorPos(uint8_t row, uint8_t col) = 0;
 virtual bool setCursorBlinkRate(uint8_t rate_ms) = 0;

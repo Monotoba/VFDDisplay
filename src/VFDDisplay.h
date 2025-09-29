@@ -26,6 +26,7 @@ public:
     bool setCursorBlinkRate(uint8_t rate_ms) { return _hal->setCursorBlinkRate(rate_ms); }
     bool clear() { return _hal->clear(); }
     bool cursorHome() { return _hal->cursorHome(); }
+    bool setCursorMode(uint8_t mode) { return _hal->setCursorMode(mode); }
     bool writeChar(char c) { return _hal->writeChar(c); }
     bool write(const char* msg) { return _hal->write(msg); }
     bool centerText(const char* str, uint8_t row) { return _hal->centerText(str, row); }

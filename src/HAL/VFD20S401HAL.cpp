@@ -53,6 +53,22 @@ bool VFD20S401HAL::clear() {
     return ok;
 }
 
+
+// --- Cursor Mode --- 
+bool VFD20S401HAL::setCursorMode(uint8_t mode) {
+    // DC4..DC7 affect cursor; send as single byte (not ESC).
+    // Accept either index form 0..3 (mapped to 0x14..0x17) or direct codes 0x14..0x17.
+    uint8_t code = mode;
+    if (mode <= 3) {
+        code = static_cast<uint8_t>(0x14 + mode);
+    }
+    if (code < 0x14 || code > 0x17) { _lastError = VFDError::InvalidArgs; return false; }
+    if (!_transport) { _lastError = VFDError::TransportFail; return false; }
+    bool ok = writeChar(static_cast<char>(code));
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
+}
+
 bool VFD20S401HAL::cursorHome() {
     if (!_transport) { _lastError = VFDError::TransportFail; return false; }
     bool ok = _cmdHome();
@@ -69,11 +85,14 @@ bool VFD20S401HAL::setCursorPos(uint8_t row, uint8_t col) {
     return ok;
 }
 
-bool VFD20S401HAL::setCursorBlinkRate(uint8_t rate_ms) {
-    // TODO: implement blink-rate command (not supported in this HAL)
-    (void)rate_ms;
-    _lastError = VFDError::NotSupported;
-    return false;
+bool VFD20S401HAL::setCursorBlinkRate(uint8_t rate) {
+    // Datasheet: Blink Speed Control (cursor)
+    // ESC 'T' (0x54) + speed byte (0x00..0xFF). 0x00 typically disables blink.
+    if (!_transport) { _lastError = VFDError::TransportFail; return false; }
+    const uint8_t seq[] = { 0x54, rate };
+    bool ok = sendEscSequence(seq, sizeof(seq));
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
+    return ok;
 }
 
 // Cursor movement convenience methods (wrapper around writeChar)
@@ -239,9 +258,11 @@ bool VFD20S401HAL::sendEscapeSequence(const uint8_t* data) {
 
 
 bool VFD20S401HAL::setDisplayMode(uint8_t mode) {
-    // Validate mode range (0x11-0x17)
-    if (mode < 0x11 || mode > 0x17) return false;
-    bool ok = _escMode(mode);
+    // DC1..DC3 affect display; send as single byte (not ESC).
+    // Accept only direct codes 0x11..0x13 to avoid ambiguity.
+    if (mode < 0x11 || mode > 0x13) { _lastError = VFDError::InvalidArgs; return false; }
+    if (!_transport) { _lastError = VFDError::TransportFail; return false; }
+    bool ok = writeChar(static_cast<char>(mode));
     _lastError = ok ? VFDError::Ok : VFDError::TransportFail;
     return ok;
 }
