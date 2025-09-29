@@ -20,6 +20,7 @@ Below is a catalog of the example sketches shipped with this library. Build via 
 - MatrixRainDemo — digital rain effect using BufferedVFD.
 - FlappyBirdDemo — autonomous Flappy Bird on a 4×20 grid.
 - AdDemo — animated “ad” with fades and marquee effects.
+- CursorDemo — cycles display DCs (0x11–0x13), toggles cursor (DC4–DC7) and demonstrates blink and wrapping.
 - CustomCharsSimple — define and show a few custom glyphs.
 - CustomCharsAdvanced — explore 8/16 custom glyphs with mapping queries.
 - CustomCharsAnimation — animate a sprite by redefining a glyph index.
