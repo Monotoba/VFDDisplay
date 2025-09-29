@@ -38,7 +38,12 @@ void setup() {
   // Center title in buffer and flush
   bf->centerText(0, "Animations Demo");
   bf->flush();
-  delay(1500);
+  // Show title for ~2 seconds, then clear before starting animations
+  delay(2000);
+  vfd->clear();
+  vfd->cursorHome();
+  bf->clearBuffer();
+  bf->flush();
 
   // Start animations
   bf->hScrollBegin(1, "Hello from BufferedVFD ", 150);
