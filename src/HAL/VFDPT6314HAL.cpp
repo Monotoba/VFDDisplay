@@ -42,7 +42,8 @@ bool VFDPT6314HAL::lineFeed() { return writeChar(0x0A); }
 bool VFDPT6314HAL::carriageReturn() { return writeChar(0x0D); }
 
 bool VFDPT6314HAL::writeChar(char c) {
-    if (!_transport) return false; return _writeData(reinterpret_cast<const uint8_t*>(&c), 1);
+    if (!_transport) return false;
+    return _writeData(reinterpret_cast<const uint8_t*>(&c), 1);
 }
 
 bool VFDPT6314HAL::write(const char* msg) {
