@@ -45,6 +45,8 @@ bool VFDVK20225HAL::setCursorBlinkRate(uint8_t rate_ms) {
     (void)rate_ms; _lastError=VFDError::NotSupported; return false;
 }
 
+bool VFDVK20225HAL::setCursorMode(uint8_t mode) { (void)mode; _lastError=VFDError::NotSupported; return false; }
+
 bool VFDVK20225HAL::writeCharAt(uint8_t row, uint8_t column, char c) { return moveTo(row,column) && writeChar(c); }
 bool VFDVK20225HAL::writeAt(uint8_t row, uint8_t column, const char* text) { return moveTo(row,column) && write(text); }
 bool VFDVK20225HAL::moveTo(uint8_t row, uint8_t column) { return setCursorPos(row,column); }

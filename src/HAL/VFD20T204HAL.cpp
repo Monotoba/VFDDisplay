@@ -25,6 +25,8 @@ bool VFD20T204HAL::setCursorPos(uint8_t row, uint8_t col) {
 
 bool VFD20T204HAL::setCursorBlinkRate(uint8_t rate_ms) { bool ok=_displayControl(true,false,(rate_ms!=0)); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok; }
 
+bool VFD20T204HAL::setCursorMode(uint8_t mode) { bool ok=_displayControl(true,(mode!=0),false); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok; }
+
 bool VFD20T204HAL::writeCharAt(uint8_t row, uint8_t column, char c) { return moveTo(row,column) && writeChar(c); }
 bool VFD20T204HAL::writeAt(uint8_t row, uint8_t column, const char* text) { return moveTo(row,column) && write(text); }
 bool VFD20T204HAL::moveTo(uint8_t row, uint8_t column) { return _posRowCol(row,column); }
@@ -101,4 +103,3 @@ bool VFD20T204HAL::_displayControl(bool d, bool c, bool b) { uint8_t cmd = 0x08 
 
 bool VFD20T204HAL::_writeCmd(uint8_t cmd) { if(!_transport) return false; if(_transport->supportsControlLines()) (void)_transport->setControlLine("RS", false); return _transport->write(&cmd,1); }
 bool VFD20T204HAL::_writeData(const uint8_t* data, size_t len) { if(!_transport||!data||len==0) return false; if(_transport->supportsControlLines()) (void)_transport->setControlLine("RS", true); return _transport->write(data,len); }
-

@@ -21,6 +21,7 @@ public:
 
     // Screen control
     bool clear() override;
+    bool setCursorMode(uint8_t mode) override;
     bool cursorHome() override;
     bool setCursorPos(uint8_t row, uint8_t col) override;
     bool setCursorBlinkRate(uint8_t rate_ms) override;

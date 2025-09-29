@@ -54,6 +54,14 @@ bool VFD20T202HAL::setCursorBlinkRate(uint8_t rate_ms) {
     return false;
 }
 
+bool VFD20T202HAL::setCursorMode(uint8_t mode) {
+    // Map: non-zero -> cursor on (steady), zero -> cursor off
+    bool cursorOn = (mode != 0);
+    uint8_t cmd = (uint8_t)(0x08 | 0x04 | (cursorOn ? 0x02 : 0x00));
+    bool ok = _writeCmd(cmd);
+    _lastError = ok ? VFDError::Ok : VFDError::TransportFail; return ok;
+}
+
 bool VFD20T202HAL::writeCharAt(uint8_t row, uint8_t column, char c) {
     if (!moveTo(row, column)) return false;
     return writeChar(c);

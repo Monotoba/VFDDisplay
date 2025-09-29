@@ -50,6 +50,8 @@ bool VFDPT6302HAL::setCursorPos(uint8_t row, uint8_t col) {
 
 bool VFDPT6302HAL::setCursorBlinkRate(uint8_t rate_ms) { (void)rate_ms; _lastError = VFDError::NotSupported; return false; }
 
+bool VFDPT6302HAL::setCursorMode(uint8_t mode) { (void)mode; _lastError = VFDError::NotSupported; return false; }
+
 bool VFDPT6302HAL::writeCharAt(uint8_t row, uint8_t column, char c) { return moveTo(row,column) && writeChar(c); }
 bool VFDPT6302HAL::writeAt(uint8_t row, uint8_t column, const char* text) { return moveTo(row,column) && write(text); }
 bool VFDPT6302HAL::moveTo(uint8_t row, uint8_t column) { return setCursorPos(row,column); }

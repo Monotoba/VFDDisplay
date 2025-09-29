@@ -24,6 +24,7 @@ bool VFDM204SD01AHAL::setCursorPos(uint8_t row, uint8_t col) {
 }
 
 bool VFDM204SD01AHAL::setCursorBlinkRate(uint8_t rate_ms) { (void)rate_ms; _lastError=VFDError::NotSupported; return false; }
+bool VFDM204SD01AHAL::setCursorMode(uint8_t mode) { (void)mode; _lastError=VFDError::NotSupported; return false; }
 
 bool VFDM204SD01AHAL::writeCharAt(uint8_t row, uint8_t column, char c) { return moveTo(row,column) && writeChar(c); }
 bool VFDM204SD01AHAL::writeAt(uint8_t row, uint8_t column, const char* text) { return moveTo(row,column) && write(text); }
@@ -82,4 +83,3 @@ bool VFDM204SD01AHAL::_posRowCol(uint8_t row, uint8_t col) { const uint8_t base[
 bool VFDM204SD01AHAL::_cmdDimming(uint8_t code) { uint8_t b[2]={0x04, code}; return _writeData(b,2); }
 bool VFDM204SD01AHAL::_writeByte(uint8_t b) { if(!_transport) return false; return _transport->write(&b,1); }
 bool VFDM204SD01AHAL::_writeData(const uint8_t* p, size_t n) { if(!_transport||!p||n==0) return false; return _transport->write(p,n); }
-

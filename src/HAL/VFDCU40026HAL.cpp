@@ -32,6 +32,10 @@ bool VFDCU40026HAL::setCursorBlinkRate(uint8_t rate_ms) {
     bool ok = _escBlinkPeriod((uint8_t)d); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok;
 }
 
+bool VFDCU40026HAL::setCursorMode(uint8_t mode) {
+    (void)mode; _lastError = VFDError::NotSupported; return false;
+}
+
 bool VFDCU40026HAL::writeCharAt(uint8_t row, uint8_t column, char c) { return moveTo(row,column) && writeChar(c); }
 bool VFDCU40026HAL::writeAt(uint8_t row, uint8_t column, const char* text) { return moveTo(row,column) && write(text); }
 bool VFDCU40026HAL::moveTo(uint8_t row, uint8_t column) { return _posRowCol(row,column); }

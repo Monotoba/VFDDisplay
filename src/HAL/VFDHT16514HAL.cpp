@@ -27,6 +27,7 @@ bool VFDHT16514HAL::setCursorBlinkRate(uint8_t rate_ms) {
     bool blink = (rate_ms!=0);
     bool ok = _displayControl(true, false, blink); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok;
 }
+bool VFDHT16514HAL::setCursorMode(uint8_t mode) { bool ok=_displayControl(true,(mode!=0),false); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok; }
 
 bool VFDHT16514HAL::writeCharAt(uint8_t row, uint8_t column, char c) { return moveTo(row,column) && writeChar(c); }
 bool VFDHT16514HAL::writeAt(uint8_t row, uint8_t column, const char* text) { return moveTo(row,column) && write(text); }

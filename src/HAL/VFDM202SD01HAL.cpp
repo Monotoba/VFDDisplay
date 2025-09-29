@@ -29,6 +29,12 @@ bool VFDM202SD01HAL::setCursorBlinkRate(uint8_t rate_ms) {
     bool ok = _cmdCursorMode(mode); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok;
 }
 
+bool VFDM202SD01HAL::setCursorMode(uint8_t mode) {
+    // Map: 0 -> off (0x00), 1 -> steady (0xFF), 2 -> blink (0x88)
+    uint8_t code = (mode == 0) ? 0x00 : (mode == 2 ? 0x88 : 0xFF);
+    bool ok = _cmdCursorMode(code); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok;
+}
+
 bool VFDM202SD01HAL::writeCharAt(uint8_t row, uint8_t column, char c) { return moveTo(row,column) && writeChar(c); }
 bool VFDM202SD01HAL::writeAt(uint8_t row, uint8_t column, const char* text) { return moveTo(row,column) && write(text); }
 bool VFDM202SD01HAL::moveTo(uint8_t row, uint8_t column) { return _posRowCol(row,column); }
@@ -88,4 +94,3 @@ bool VFDM202SD01HAL::_cmdDimming(uint8_t code) { uint8_t b[2]={0x04, code}; retu
 bool VFDM202SD01HAL::_cmdCursorMode(uint8_t mode) { uint8_t b[2]={0x17, mode}; return _writeData(b,2); }
 bool VFDM202SD01HAL::_writeByte(uint8_t b) { if(!_transport) return false; return _transport->write(&b,1); }
 bool VFDM202SD01HAL::_writeData(const uint8_t* p, size_t n) { if(!_transport||!p||n==0) return false; return _transport->write(p,n); }
-

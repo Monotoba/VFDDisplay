@@ -30,6 +30,7 @@ bool VFDCU20025HAL::setCursorBlinkRate(uint8_t rate_ms) {
     bool ok = _displayControl(true, false, rate_ms!=0);
     _lastError = ok?VFDError::Ok:VFDError::TransportFail; return ok;
 }
+bool VFDCU20025HAL::setCursorMode(uint8_t mode) { bool ok=_displayControl(true,(mode!=0),false); _lastError=ok?VFDError::Ok:VFDError::TransportFail; return ok; }
 
 bool VFDCU20025HAL::writeCharAt(uint8_t row, uint8_t column, char c) { return moveTo(row,column) && writeChar(c); }
 bool VFDCU20025HAL::writeAt(uint8_t row, uint8_t column, const char* text) { return moveTo(row,column) && write(text); }
