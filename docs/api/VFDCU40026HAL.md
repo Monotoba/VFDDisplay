@@ -40,8 +40,8 @@ void setup() {
   // Luminance (bands): 25%, 50%, 75%, 100%
   vfd.setDimming(3); // 100%
 
-  // Blink speed ~ 600ms
-  vfd.cursorBlinkSpeed(600);
+  // Blink speed
+  vfd.setCursorBlinkRate(0x20);
 }
 ```
 
@@ -58,4 +58,3 @@ Device-Specific Notes
 
 Tests
 - Init (ESC ‘I’), clear/home codes, ESC ‘H’ addressing, ESC ‘L’ luminance levels.
-

@@ -224,14 +224,19 @@ bool VFD20S401HAL::setCursorPos(uint8_t row, uint8_t col) {
 
 Sets the cursor blink rate.
 
+Notes:
+- Futaba VFD20S401: ESC 'T' (0x54) + rate byte; 0x00 disables blink.
+- HD44780-like: maps to Display Control blink bit (non-zero enables blink).
+- Preferred API for new code; some HALs keep `cursorBlinkSpeed()` as a legacy alias.
+
 **Parameters:**
-- `rate_ms` - Blink rate in milliseconds
+- `rate_ms` - Device-specific blink control byte
 
 **Returns:** `true` if operation successful, `false` otherwise
 
 **Implementation Notes:**
-- May not be supported by all controllers
-- Rate interpretation depends on controller
+- May not be supported by all controllers; validate via capabilities.
+- Rate interpretation depends on controller.
 
 ### Enhanced Positioning Methods
 
@@ -430,12 +435,12 @@ Sets display dimming level.
 
 #### bool cursorBlinkSpeed(uint8_t rate)
 
-Sets cursor blink speed.
+Legacy/compat method to control cursor blink.
 
 **Parameters:**
 - `rate` - Blink rate (0 = no blink, 1-255 = various rates)
 
-**Returns:** `true` if operation successful, `false` otherwise
+**Returns:** `true` if operation successful, `false` otherwise. Prefer `setCursorBlinkRate()` when available.
 
 #### bool changeCharSet(uint8_t setId)
 

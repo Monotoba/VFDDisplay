@@ -96,7 +96,7 @@ vfd.writeCustomChar(3);
 
 Display control
 ```cpp
-vfd.cursorBlinkSpeed(1);  // toggles blink bit in Display On/Off
+vfd.setCursorBlinkRate(1);  // toggles blink bit in Display On/Off
 vfd.setDimming(2);        // map to Function Set BR bits (50%)
 ```
 

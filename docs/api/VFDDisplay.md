@@ -36,7 +36,8 @@ public:
     bool setBrightness(uint8_t lumens);
     bool setDimming(uint8_t level);
     bool setDisplayMode(uint8_t mode);
-    bool cursorBlinkSpeed(uint8_t rate);
+    bool setCursorBlinkRate(uint8_t rate_ms);
+    bool cursorBlinkSpeed(uint8_t rate); // legacy/compat wrapper on some HALs
     bool changeCharSet(uint8_t setId);
     
     // Scrolling effects
@@ -303,7 +304,7 @@ vfd->setDimming(4); // Dimming level 4
 Sets the display mode.
 
 **Parameters:**
-- `mode` - Display mode (0x11-0x17 for VFD20S401)
+- `mode` - Display mode (VFD20S401: 0x11–0x13 affect display)
 
 **Returns:** `true` if operation successful, `false` otherwise
 
@@ -312,18 +313,22 @@ Sets the display mode.
 vfd->setDisplayMode(0x11); // Normal mode
 ```
 
-### bool cursorBlinkSpeed(uint8_t rate)
+### bool setCursorBlinkRate(uint8_t rate_ms)
 
-Sets the cursor blink speed.
+Sets the cursor blink rate.
+
+Notes (VFD20S401): Uses ESC 'T' + rate. 0x00 disables blink; non‑zero selects device‑defined period.
 
 **Parameters:**
-- `rate` - Blink speed (0 = no blink, 1-255 = blink rates)
+- `rate_ms` - Device‑specific blink control byte
 
 **Returns:** `true` if operation successful, `false` otherwise
 
 **Example:**
 ```cpp
-vfd->cursorBlinkSpeed(2); // Fast blink
+vfd->setCursorMode(1);            // ensure cursor is visible (VFD20S401: DC5)
+vfd->setCursorBlinkRate(0x20);    // enable blink
+vfd->setCursorBlinkRate(0x00);    // disable blink
 ```
 
 ### bool changeCharSet(uint8_t setId)

@@ -295,7 +295,7 @@ bool VFD20S401HAL::setDisplayMode(uint8_t mode) {
 }
 ```
 
-**Description:** Sets display mode using single-byte DC codes (valid range: 0x11–0x13).
+**Description:** Sets display mode using single-byte DC codes (valid range: 0x11–0x13). DC4–DC7 (0x14–0x17) control the cursor and are accessed via `setCursorMode()`.
 
 #### bool setDimming(uint8_t level)
 
@@ -318,7 +318,7 @@ bool VFD20S401HAL::setCursorBlinkRate(uint8_t rate) {
 }
 ```
 
-**Description:** Sets cursor blink rate via ESC 'T'. Pass 0x00 to disable blink, non-zero to enable device-defined periods.
+**Description:** Sets cursor blink rate via ESC 'T'. Pass 0x00 to disable blink, non‑zero to enable device‑defined periods. Ensure the cursor is visible first using `setCursorMode(1)` (DC5).
 
 #### bool changeCharSet(uint8_t setId)
 
@@ -735,7 +735,8 @@ Display features
 ```cpp
 vfd.setDisplayMode(0x11);     // Mode per datasheet
 vfd.setDimming(0x80);         // Example level
-vfd.cursorBlinkSpeed(3);      // Device-specific rate
+vfd.setCursorMode(1);         // Make cursor visible (DC5)
+vfd.setCursorBlinkRate(0x20); // Device-specific rate
 vfd.changeCharSet(0);         // CT0
 ```
 
