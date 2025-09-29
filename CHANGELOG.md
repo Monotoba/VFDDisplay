@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.8 — 2025-09-29
+- HAL (VFD20S401): implement `setCursorBlinkRate()` per datasheet (ESC 'T' + rate). Use with `setCursorMode(1)` to ensure cursor visibility.
+- Examples: update ModeSpecificTest and CorrectCodesDemo to prefer `setCursorBlinkRate()` and to separate display DCs (0x11–0x13) from cursor DCs (0x14–0x17).
+- Examples: add `CursorDemo` showcasing display DCs, cursor on/off via `setCursorMode()`, blink via `setCursorBlinkRate()`, and wrapping.
+- Docs: clarify VFD20S401 DC1–DC3 (display) vs DC4–DC7 (cursor). Prefer `setCursorBlinkRate()` in API docs and examples.
+- Tooling: add CursorDemo to curated order in `run_all_demos.sh` and README/docs.
+
 ## 1.0.7 — 2025-09-28
 - Docs: refresh `docs/build/Makefiles.md` to match the unified multi‑backend Makefile (PlatformIO/Arduino‑CLI/avr‑gcc), including backend flags, debug/release, protocol/baud/port controls, and cleaning.
 - Docs: add `docs/build/PlatformIO.md` with per‑example and Makefile‑driven PIO usage, test envs, and cleaning notes.
