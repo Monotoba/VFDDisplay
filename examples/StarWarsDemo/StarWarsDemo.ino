@@ -64,7 +64,8 @@ void drawStarfield() {
       else if (v < 58) ch = 'o';    // ~3%
       else if (v < 64) ch = 'O';    // ~2%
       else ch = ' ';
-      bf->writeAt(r, c, (const char[]){ch, '\0'});
+      char tmp[2]; tmp[0] = ch; tmp[1] = '\0';
+      bf->writeAt(r, c, tmp);
     }
   }
 }
@@ -162,4 +163,3 @@ void loop() {
   drawFrame();
   delay(40); // small delay for twinkle effect smoothness
 }
-

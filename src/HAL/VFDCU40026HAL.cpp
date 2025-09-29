@@ -46,7 +46,8 @@ bool VFDCU40026HAL::lineFeed() { return writeChar(0x0A); }
 bool VFDCU40026HAL::carriageReturn() { return writeChar(0x0D); }
 
 bool VFDCU40026HAL::writeChar(char c) {
-    if (!_transport) return false; return _writeData(reinterpret_cast<const uint8_t*>(&c), 1);
+    if (!_transport) return false;
+    return _writeData(reinterpret_cast<const uint8_t*>(&c), 1);
 }
 
 bool VFDCU40026HAL::write(const char* msg) {
@@ -56,8 +57,12 @@ bool VFDCU40026HAL::write(const char* msg) {
 
 bool VFDCU40026HAL::centerText(const char* str, uint8_t row) {
     if (!_capabilities || !str) { _lastError = VFDError::InvalidArgs; return false; }
-    uint8_t cols=_capabilities->getTextColumns(); size_t len=strlen(str); if (len>cols) len=cols; uint8_t pad=(uint8_t)((cols-len)/2);
-    if (!setCursorPos(row,0)) return false; for (uint8_t i=0;i<pad;++i) if(!_writeData((const uint8_t*)" ",1)) return false; return write(str);
+    uint8_t cols=_capabilities->getTextColumns();
+    size_t len=strlen(str); if (len>cols) len=cols;
+    uint8_t pad=(uint8_t)((cols-len)/2);
+    if (!setCursorPos(row,0)) return false;
+    for (uint8_t i=0;i<pad;++i) if(!_writeData((const uint8_t*)" ",1)) return false;
+    return write(str);
 }
 
 bool VFDCU40026HAL::writeCustomChar(uint8_t index) { uint8_t code; if (!getCustomCharCode(index, code)) { _lastError = VFDError::InvalidArgs; return false; } return writeChar((char)code); }
