@@ -91,6 +91,22 @@ Related examples:
 - `examples/CustomCharsAnimation` – sprite animation by redefining a glyph
 - `examples/CustomCharsTetris` – mini auto‑drop Tetris using a custom block glyph
 
+## VFD20S401 Display/Cursor Controls
+
+- Display control codes (single byte, not ESC): 0x11–0x13 (DC1–DC3) affect overall display mode.
+- Cursor control codes (single byte, not ESC): 0x14–0x17 (DC4–DC7) affect cursor state. Use `setCursorMode()`.
+- Cursor blink rate (ESC sequence): ESC 'T' (0x54) + rate byte via `setCursorBlinkRate()`; 0x00 disables blink.
+
+Example
+```cpp
+// Display: set a display mode (DC1–DC3)
+vfd->setDisplayMode(0x12);
+
+// Cursor: make cursor visible (DC5) and set blink rate
+vfd->setCursorMode(1);         // 0..3 map to 0x14..0x17 (DC4..DC7)
+vfd->setCursorBlinkRate(0x20); // ESC 'T' + 0x20; 0x00 disables blink
+```
+
 ## Documentation
 
 - Library docs: `docs/README.md` (command reference, gotchas, examples)
