@@ -179,13 +179,13 @@ void loop() {
             case 2:
                 // Cursor features: ensure cursor visible (DC5) before changing blink rate
                 vfd->cursorHome();
-                vfd->setCursorMode(1); // DC5 (cursor visible) via cursor mode set
+                vfd->setCursorMode(1); // DC5 (cursor visible)
                 vfd->write("Cursor test:");
                 vfd->setCursorPos(1, 0);
                 vfd->setCursorMode(1); // DC5 (cursor visible)
                 vfd->write("Blink:");
-                //vfd->setCursorMode(1); // DC5: cursor on
-                vfd->cursorBlinkSpeed(2);
+                // Use ESC 'T' blink speed control (0x00=off, non-zero=blink)
+                vfd->setCursorBlinkRate(0x20);
                 vfd->setCursorPos(1, 19);
                 break;
                 
@@ -368,17 +368,19 @@ void testCursorFeaturesInMode(uint8_t mode) {
     
     // Test cursor blink in different positions
     // Ensure cursor visible (DC5) before altering blink speed
-    for (uint8_t rate = 0; rate < 4; rate++) {
+    vfd->setCursorMode(1);
+    const uint8_t rates[] = { 0x00, 0x20, 0x60, 0xA0 };
+    for (uint8_t i = 0; i < 4; i++) {
         resetAndClear();
         vfd->clear();
         vfd->cursorHome();
         vfd->write("Blink rate: ");
-        vfd->writeChar('0' + rate);
-        
-        if (vfd->cursorBlinkSpeed(rate)) {
-            vfd->setCursorPos(1, 19); // Position cursor
-            delay(2500); // Let user see the blink
-        }
+        char hex[8];
+        sprintf(hex, "0x%02X", rates[i]);
+        vfd->write(hex);
+        vfd->setCursorBlinkRate(rates[i]);
+        vfd->setCursorPos(1, 19); // Position cursor
+        delay(2500); // Let user see the blink
     }
     // Restore original mode
     vfd->setDisplayMode(mode);

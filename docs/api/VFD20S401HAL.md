@@ -289,14 +289,13 @@ bool VFD20S401HAL::centerText(const char* str, uint8_t row) {
 
 ```cpp
 bool VFD20S401HAL::setDisplayMode(uint8_t mode) {
-    if (mode < 0x11 || mode > 0x17) return false;
-    
-    uint8_t escData[] = {mode, 0x00};
-    return sendEscapeSequence(escData);
+    // DC1..DC3 affect display; send as single byte (not ESC)
+    if (mode < 0x11 || mode > 0x13) return false;
+    return writeChar(static_cast<char>(mode));
 }
 ```
 
-**Description:** Sets display mode using escape sequences (valid range: 0x11-0x17).
+**Description:** Sets display mode using single-byte DC codes (valid range: 0x11–0x13).
 
 #### bool setDimming(uint8_t level)
 
@@ -309,16 +308,17 @@ bool VFD20S401HAL::setDimming(uint8_t level) {
 
 **Description:** Controls display dimming using the dimming escape sequence.
 
-#### bool cursorBlinkSpeed(uint8_t rate)
+#### bool setCursorBlinkRate(uint8_t rate)
 
 ```cpp
-bool VFD20S401HAL::cursorBlinkSpeed(uint8_t rate) {
-    const uint8_t blinkData[] = { 0x42, rate }; // ESC + cursor control
-    return sendEscSequence(blinkData, sizeof(blinkData));
+bool VFD20S401HAL::setCursorBlinkRate(uint8_t rate) {
+    // ESC 'T' + rate (0x00 disables blink)
+    const uint8_t seq[] = { 0x54, rate };
+    return sendEscSequence(seq, sizeof(seq));
 }
 ```
 
-**Description:** Sets cursor blink speed (0 = no blink, 1-255 = blink rates).
+**Description:** Sets cursor blink rate via ESC 'T'. Pass 0x00 to disable blink, non-zero to enable device-defined periods.
 
 #### bool changeCharSet(uint8_t setId)
 

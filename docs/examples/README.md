@@ -149,16 +149,19 @@ void demonstrateCursorBlink() {
     vfd->clear();
     vfd->write("Cursor Blink Demo");
     
-    // Enable cursor blinking
-    vfd->cursorBlinkSpeed(2); // Fast blink
+    // Ensure cursor is visible (DC5), then control blink via ESC 'T' + rate
+    vfd->setCursorMode(1); // DC5: cursor visible
+    
+    // Enable cursor blinking (faster)
+    vfd->setCursorBlinkRate(0x20);
     delay(3000);
     
     // Disable blinking
-    vfd->cursorBlinkSpeed(0); // No blink
+    vfd->setCursorBlinkRate(0x00); // No blink
     delay(2000);
     
     // Slow blink
-    vfd->cursorBlinkSpeed(1); // Slow blink
+    vfd->setCursorBlinkRate(0x10);
     delay(3000);
 }
 ```
@@ -168,10 +171,11 @@ void demonstrateCursorBlink() {
 ### Example 6: Display Modes
 ```cpp
 void demonstrateDisplayModes() {
-    const char* modes[] = {"Normal", "Inverse", "Blink", "Dimmed", "Bright"};
-    uint8_t modeCommands[] = {0x11, 0x12, 0x13, 0x14, 0x15};
+    // Display control codes (DC1..DC3) affect overall display mode.
+    const char* modes[] = {"Normal", "Inverse", "Blink"};
+    uint8_t modeCommands[] = {0x11, 0x12, 0x13};
     
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 3; i++) {
         vfd->clear();
         vfd->setDisplayMode(modeCommands[i]);
         vfd->centerText(modes[i], 1);

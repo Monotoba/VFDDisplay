@@ -2,7 +2,7 @@
 // - Init/Reset: ESC 'I' (handled by vfd->init()/reset())
 // - Positioning: ESC 'H' + position (via vfd->setCursorPos / writeAt / moveTo)
 // - Display mode: control codes 0x11–0x17 (vfd->setDisplayMode)
-// - Blink speed: ESC 'T' + rate (vfd->cursorBlinkSpeed)
+// - Blink speed: ESC 'T' + rate (vfd->setCursorBlinkRate)
 // - Dimming: ESC 'L' + level (vfd->setDimming / setBrightness)
 
 #include <Arduino.h>
@@ -97,15 +97,15 @@ void setup() {
   // Extra pause between test groups
   wait_ms(2500);
 
-  // Cursor blink speed demo (ESC 'T' + rate; ~30ms * value)
+  // Cursor blink speed demo (ESC 'T' + rate)
   Serial.println("Cursor blink speed demo via ESC 'T'...");
   vfd->reset();
   vfd->clear();
   vfd->cursorHome();
   vfd->write("Blink rates:");
   // Ensure cursor is visible: switch to DC5 (cursor on) before changing blink speed
-  vfd->setDisplayMode(0x15);
-  const uint8_t rates[] = {0x0A, 0x14, 0x28}; // ~300ms, 600ms, 1200ms
+  vfd->setCursorMode(1);
+  const uint8_t rates[] = {0x10, 0x20, 0x40};
   for (uint8_t i = 0; i < 3; ++i) {
     vfd->setCursorPos(1 + i, 0);
     char line[20];
@@ -115,7 +115,7 @@ void setup() {
   // Position visible cursor and apply each rate
   for (uint8_t i = 0; i < 3; ++i) {
     vfd->setCursorPos(1 + i, 19); // right edge
-    vfd->cursorBlinkSpeed(rates[i]);
+    vfd->setCursorBlinkRate(rates[i]);
     wait_ms(2500);
   }
 
