@@ -60,6 +60,7 @@ PREFERRED=(
   "examples/BasicTest"
   "examples/PCStatusDisplay"
   "examples/CorrectCodesDemo"
+  "examples/CursorDemo"
   "examples/ModeSpecificTest"
 )
 

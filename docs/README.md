@@ -196,7 +196,7 @@ Use the root-level helper script to compile and upload all examples sequentially
 - Typical usage (Make): `./run_all_demos.sh --backend make --port /dev/ttyACM0 --wait 30 --protocol wiring --baud 115200`
 
 Notes
-- Curated order: SimpleDemo → CustomCharsSimple → CustomCharsAdvanced → CustomCharsAnimation → CustomCharsTetris → AdDemo → ClockDemo → BargraphDemo → AnimationsDemo → MatrixRainDemo → FlappyBirdDemo → MinimalVFDDemo → SimpleVFDTest → BasicTest → CorrectCodesDemo → ModeSpecificTest, then any remaining.
+- Curated order: SimpleDemo → CustomCharsSimple → CustomCharsAdvanced → CustomCharsAnimation → CustomCharsTetris → AdDemo → ClockDemo → BargraphDemo → AnimationsDemo → MatrixRainDemo → FlappyBirdDemo → MinimalVFDDemo → SimpleVFDTest → BasicTest → CorrectCodesDemo → CursorDemo → ModeSpecificTest, then any remaining.
 - PlatformIO backend uses a temporary per‑demo project to honor upload protocol/baud.
 
 ## Developer Tools
