@@ -24,7 +24,7 @@ Examples:
   - `./run_all_demos.sh --backend make --port /dev/ttyACM0 --wait 30 --protocol wiring --baud 115200`
 
 Notes:
-- Curated order: SimpleDemo → AdDemo → ClockDemo → BargraphDemo → AnimationsDemo → MatrixRainDemo → FlappyBirdDemo → MinimalVFDDemo → SimpleVFDTest → BasicTest → CorrectCodesDemo → CursorDemo → ModeSpecificTest, then any remaining.
+- Curated order: SimpleDemo → AdDemo → ClockDemo → BargraphDemo → AnimationsDemo → MatrixRainDemo → FlappyBirdDemo → MinimalVFDDemo → SimpleVFDTest → BasicTest → CorrectCodesDemo → CursorDemo → StarWarsDemo → ModeSpecificTest, then any remaining.
 - PlatformIO backend uses a temporary per‑demo project that overrides upload protocol/baud, so flags are honored across PlatformIO versions.
 - The script continues on errors, prints a visible countdown between demos, and summarizes results at the end.
 

@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 - HAL (VFD20S401): implement `setCursorBlinkRate()` per datasheet (ESC 'T' + rate). Use with `setCursorMode(1)` to ensure cursor visibility.
 - Examples: update ModeSpecificTest and CorrectCodesDemo to prefer `setCursorBlinkRate()` and to separate display DCs (0x11–0x13) from cursor DCs (0x14–0x17).
 - Examples: add `CursorDemo` showcasing display DCs, cursor on/off via `setCursorMode()`, blink via `setCursorBlinkRate()`, and wrapping.
+- Examples: add `StarWarsDemo` (buffered) — scrolling Star Wars intro text from bottom to top over a twinkling starfield, with perspective trimming.
 - Docs: clarify VFD20S401 DC1–DC3 (display) vs DC4–DC7 (cursor). Prefer `setCursorBlinkRate()` in API docs and examples.
 - Tooling: add CursorDemo to curated order in `run_all_demos.sh` and README/docs.
 

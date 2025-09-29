@@ -61,6 +61,7 @@ PREFERRED=(
   "examples/PCStatusDisplay"
   "examples/CorrectCodesDemo"
   "examples/CursorDemo"
+  "examples/StarWarsDemo"
   "examples/ModeSpecificTest"
 )
 
